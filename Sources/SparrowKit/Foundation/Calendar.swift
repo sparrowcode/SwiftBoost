@@ -22,10 +22,10 @@
 #if canImport(Foundation)
 import Foundation
 
-public extension UserDefaults {
+public extension Calendar {
 
-    func date(forKey key: String) -> Date? {
-        return object(forKey: key) as? Date
+    func numberOfDaysInMonth(for date: Date) -> Int {
+        return range(of: .day, in: .month, for: date)!.count
     }
 }
 #endif
