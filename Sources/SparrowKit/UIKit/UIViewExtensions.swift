@@ -84,6 +84,10 @@ public extension UIView {
         return frame.height - layoutMargins.top - layoutMargins.bottom
     }
     
+    func setEqualSuperviewBoundsWithAutoresizingMask() {
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    }
+    
     func setEqualSuperviewBoundsWithAutoLayout() {
         guard let superview = self.superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
