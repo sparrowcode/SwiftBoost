@@ -63,5 +63,4 @@ extension UIFeedbackGenerator {
         case selectionChanged
     }
 }
-
 #endif
