@@ -16,26 +16,36 @@
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// OUT OF OR
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if os(iOS) || os(tvOS)
-public extension UIApplication {
+public extension UINavigationBar {
+ 
+    func setTitleFont(_ font: UIFont) {
+        titleTextAttributes = [.font: font]
+    }
     
-    var displayName: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+    func setTitleColor(_ color: UIColor) {
+        titleTextAttributes = [.foregroundColor: color]
+    }
+    
+    func setColors(background: UIColor, text: UIColor) {
+        isTranslucent = false
+        backgroundColor = background
+        barTintColor = background
+        setBackgroundImage(UIImage(), for: .default)
+        tintColor = text
+        titleTextAttributes = [.foregroundColor: text]
     }
 
-    var buildNumber: String? {
-        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
-    }
-    
-    var version: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
-    }
+    func makeTransparent() {
+        isTranslucent = true
+        backgroundColor = .clear
+        barTintColor = .clear
+        setBackgroundImage(UIImage(), for: .default)
+        shadowImage = UIImage()
+    }    
 }
-#endif
 #endif

@@ -40,14 +40,24 @@ public extension UIAlertController {
     
     // MARK: - Helpers
     
-    func addAction(title: String, style: UIAlertAction.Style = .default, isEnabled: Bool = true, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+    func addAction(
+        title: String,
+        style: UIAlertAction.Style = .default,
+        isEnabled: Bool = true,
+        handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+        
         let action = UIAlertAction(title: title, style: style, handler: handler)
         action.isEnabled = isEnabled
         addAction(action)
         return action
     }
     
-    func addTextField(text: String? = nil, placeholder: String? = nil, editingChangedTarget: Any?, editingChangedSelector: Selector?) {
+    func addTextField(
+        text: String? = nil,
+        placeholder: String? = nil,
+        editingChangedTarget: Any?,
+        editingChangedSelector: Selector?) {
+        
         addTextField { textField in
             textField.text = text
             textField.placeholder = placeholder

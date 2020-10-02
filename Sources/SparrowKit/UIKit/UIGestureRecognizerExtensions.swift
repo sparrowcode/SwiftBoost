@@ -22,20 +22,10 @@
 #if canImport(UIKit)
 import UIKit
 
-#if os(iOS) || os(tvOS)
-public extension UIApplication {
-    
-    var displayName: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
-    }
+public extension UIGestureRecognizer {
 
-    var buildNumber: String? {
-        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
-    }
-    
-    var version: String? {
-        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    func removeFromView() {
+        view?.removeGestureRecognizer(self)
     }
 }
-#endif
 #endif

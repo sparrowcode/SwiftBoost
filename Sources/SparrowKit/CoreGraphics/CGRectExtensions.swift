@@ -26,9 +26,71 @@ extension CGRect {
     
     var center: CGPoint { CGPoint(x: midX, y: midY) }
     
+    /**
+     SparrowKit: Returns the largest value of the x-coordinate for the rectangle.
+     Available set this property.
+     
+     - important:
+     Need before set this property have valid width.
+     */
+    var bottomX: CGFloat {
+        get { return self.origin.x + self.width }
+        set { self.origin.x = newValue - self.width }
+    }
+    
+    /**
+     SparrowKit: Returns the largest value for the y-coordinate of the rectangle.
+     Available set this property.
+     
+     - important:
+     Need before set this property have valid height.
+     */
+    var bottomY: CGFloat {
+        get { return self.origin.y + self.height }
+        set { self.origin.y = newValue - self.height }
+    }
+    
+    /**
+     SparrowKit: Returns the x- coordinate that establishes the center of a rectangle.
+     
+     - important:
+     Need before set this property have valid width.
+     */
+    var centerX: CGFloat {
+        get { return self.origin.x + self.width / 2 }
+        set { self.origin.x = newValue - self.width / 2 }
+    }
+    
+    /**
+     SparrowKit: Returns the y-coordinate that establishes the center of the rectangle.
+     
+     - important:
+     Need before set this property have valid height.
+     */
+    var centerY: CGFloat {
+        get { return self.origin.y + self.height / 2 }
+        set { self.origin.y = newValue - self.height / 2 }
+    }
+    
     init(center: CGPoint, size: CGSize) {
         let origin = CGPoint(x: center.x - size.width / 2.0, y: center.y - size.height / 2.0)
         self.init(origin: origin, size: size)
+    }
+    
+    init(x: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
+        self.init(x: x, y: 0, width: width, height: height)
+        self.bottomY = maxY
+    }
+    
+    init(maxX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
+        self.init(x: 0, y: y, width: width, height: height)
+        self.bottomX = maxX
+    }
+
+    init(maxX: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
+        self.init(x: 0, y: 8, width: width, height: height)
+        self.bottomX = maxX
+        self.bottomY = maxY
     }
 }
 #endif
