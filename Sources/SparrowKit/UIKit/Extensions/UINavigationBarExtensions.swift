@@ -17,29 +17,36 @@
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(Foundation)
-import Foundation
+#if canImport(UIKit) && !os(watchOS)
+import UIKit
 
-public extension Locale {
-    
-    var is12HourTimeFormat: Bool {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .short
-        dateFormatter.dateStyle = .none
-        dateFormatter.locale = self
-        let dateString = dateFormatter.string(from: Date())
-        return dateString.contains(dateFormatter.amSymbol) || dateString.contains(dateFormatter.pmSymbol)
+public extension UINavigationBar {
+ 
+    func setTitleFont(_ font: UIFont) {
+        titleTextAttributes = [.font: font]
     }
     
-    static func flagEmoji(forRegionCode isoRegionCode: String) -> String? {
-        guard isoRegionCodes.contains(isoRegionCode) else { return nil }
-        return isoRegionCode.unicodeScalars.reduce(into: String()) {
-            guard let flagScalar = UnicodeScalar(UInt32(127_397) + $1.value) else { return }
-            $0.unicodeScalars.append(flagScalar)
-        }
+    func setTitleColor(_ color: UIColor) {
+        titleTextAttributes = [.foregroundColor: color]
     }
+    
+    func setColors(background: UIColor, text: UIColor) {
+        isTranslucent = false
+        backgroundColor = background
+        barTintColor = background
+        setBackgroundImage(UIImage(), for: .default)
+        tintColor = text
+        titleTextAttributes = [.foregroundColor: text]
+    }
+
+    func makeTransparent() {
+        isTranslucent = true
+        backgroundColor = .clear
+        barTintColor = .clear
+        setBackgroundImage(UIImage(), for: .default)
+        shadowImage = UIImage()
+    }    
 }
 #endif

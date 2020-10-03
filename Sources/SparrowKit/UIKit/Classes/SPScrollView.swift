@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2020 Ivan Vorobei (varabeis@icloud.com)
+// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,13 +19,33 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(UIKit)
 import UIKit
 
-public extension UIGestureRecognizer {
-
-    func removeFromView() {
-        view?.removeGestureRecognizer(self)
+#if canImport(UIKit)
+class SPScrollView: UIScrollView {
+    
+    init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    internal func commonInit() {
+        self.delaysContentTouches = false
+    }
+    
+    override func touchesShouldCancel(in view: UIView) -> Bool {
+        if view is UIControl
+            && !(view is UITextInput)
+            && !(view is UISlider)
+            && !(view is UISwitch) {
+            return true
+        }
+        return super.touchesShouldCancel(in: view)
     }
 }
 #endif

@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2020 Ivan Vorobei (varabeis@icloud.com)
+// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -16,36 +16,31 @@
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
-#if canImport(UIKit) && !os(watchOS)
+#if canImport(UIKit)
 import UIKit
 
-public extension UINavigationBar {
- 
-    func setTitleFont(_ font: UIFont) {
-        titleTextAttributes = [.font: font]
-    }
-    
-    func setTitleColor(_ color: UIColor) {
-        titleTextAttributes = [.foregroundColor: color]
-    }
-    
-    func setColors(background: UIColor, text: UIColor) {
-        isTranslucent = false
-        backgroundColor = background
-        barTintColor = background
-        setBackgroundImage(UIImage(), for: .default)
-        tintColor = text
-        titleTextAttributes = [.foregroundColor: text]
+// MARK: - Initializers
+
+public extension UIBezierPath {
+
+    convenience init(from: CGPoint, to otherPoint: CGPoint) {
+        self.init()
+        move(to: from)
+        addLine(to: otherPoint)
     }
 
-    func makeTransparent() {
-        isTranslucent = true
-        backgroundColor = .clear
-        barTintColor = .clear
-        setBackgroundImage(UIImage(), for: .default)
-        shadowImage = UIImage()
-    }    
+    convenience init(points: [CGPoint]) {
+        self.init()
+        if !points.isEmpty {
+            move(to: points[0])
+            for point in points[1...] {
+                addLine(to: point)
+            }
+        }
+    }
 }
 #endif

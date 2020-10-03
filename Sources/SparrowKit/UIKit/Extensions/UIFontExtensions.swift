@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2020 Ivan Vorobei (varabeis@icloud.com)
+// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -17,6 +17,7 @@
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
 #if canImport(UIKit)
@@ -40,21 +41,20 @@ public extension UIFont {
         return UIFont(descriptor: newDescriptor, size: 0)
     }
     
-    static func preferredFont(forTextStyle style: TextStyle, add points: CGFloat = 0) -> UIFont {
+    static func preferredFont(forTextStyle style: TextStyle, addPoints: CGFloat = 0) -> UIFont {
         let referensFont = UIFont.preferredFont(forTextStyle: style)
-        return referensFont.withSize(referensFont.pointSize + points)
+        return referensFont.withSize(referensFont.pointSize + addPoints)
     }
     
-    static func preferredFont(forTextStyle style: TextStyle, weight: Weight, add points: CGFloat = 0) -> UIFont {
-        let font = UIFont.preferredFont(forTextStyle: style, add: points)
+    static func preferredFont(forTextStyle style: TextStyle, weight: Weight, addPoints: CGFloat = 0) -> UIFont {
+        let font = UIFont.preferredFont(forTextStyle: style, addPoints: addPoints)
         let metrics = UIFontMetrics(forTextStyle: style)
         return metrics.scaledFont(for: font)
     }
     
     private func with(_ traits: UIFontDescriptor.SymbolicTraits...) -> UIFont {
-        guard let descriptor = fontDescriptor.withSymbolicTraits(UIFontDescriptor.SymbolicTraits(traits).union(fontDescriptor.symbolicTraits)) else {
-            return self
-        }
+        guard let descriptor = fontDescriptor.withSymbolicTraits(
+                UIFontDescriptor.SymbolicTraits(traits).union(fontDescriptor.symbolicTraits)) else { return self }
         return UIFont(descriptor: descriptor, size: 0)
     }
 }

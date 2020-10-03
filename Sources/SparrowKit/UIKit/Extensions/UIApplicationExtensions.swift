@@ -20,26 +20,23 @@
 // SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(Foundation)
-import Foundation
+#if canImport(UIKit)
+import UIKit
 
-public extension Locale {
+#if os(iOS) || os(tvOS)
+public extension UIApplication {
     
-    var is12HourTimeFormat: Bool {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .short
-        dateFormatter.dateStyle = .none
-        dateFormatter.locale = self
-        let dateString = dateFormatter.string(from: Date())
-        return dateString.contains(dateFormatter.amSymbol) || dateString.contains(dateFormatter.pmSymbol)
+    var displayName: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+    }
+
+    var buildNumber: String? {
+        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
     
-    static func flagEmoji(forRegionCode isoRegionCode: String) -> String? {
-        guard isoRegionCodes.contains(isoRegionCode) else { return nil }
-        return isoRegionCode.unicodeScalars.reduce(into: String()) {
-            guard let flagScalar = UnicodeScalar(UInt32(127_397) + $1.value) else { return }
-            $0.unicodeScalars.append(flagScalar)
-        }
+    var version: String? {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 }
+#endif
 #endif

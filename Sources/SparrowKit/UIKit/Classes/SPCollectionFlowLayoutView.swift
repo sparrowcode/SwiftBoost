@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2020 Ivan Vorobei (varabeis@icloud.com)
+// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -16,25 +16,28 @@
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
-#if canImport(UIKit)
 import UIKit
 
-public extension UINavigationController {
-
-    func popViewController(animated: Bool = true, _ completion: (() -> Void)? = nil) {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completion)
-        popViewController(animated: animated)
-        CATransaction.commit()
+#if canImport(UIKit)
+class SPCollectionFlowLayoutView: SPCollectionView {
+    
+    var layout = UICollectionViewFlowLayout()
+    
+    init() {
+        super.init(collectionViewLayout: self.layout)
+        commonInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
     }
 
-    func pushViewController(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
-        CATransaction.begin()
-        CATransaction.setCompletionBlock(completion)
-        pushViewController(viewController, animated: true)
-        CATransaction.commit()
+    internal override func commonInit() {
+        delaysContentTouches = false
     }
 }
 #endif
