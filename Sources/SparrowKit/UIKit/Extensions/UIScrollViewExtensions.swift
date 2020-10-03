@@ -17,50 +17,39 @@
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
 #if canImport(UIKit)
-import CoreGraphics
+import UIKit
 
-extension CGPoint {
-    
-    func distance(from point: CGPoint) -> CGFloat {
-        return CGPoint.distance(from: self, to: point)
-    }
-    
-    static func distance(from point1: CGPoint, to point2: CGPoint) -> CGFloat {
-        return sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2))
-    }
-    
-    // MARK: - Operators
-    
-    static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-        return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+public extension UIScrollView {
+
+    var visibleRect: CGRect {
+        let contentWidth = contentSize.width - contentOffset.x
+        let contentHeight = contentSize.height - contentOffset.y
+        return CGRect(origin: contentOffset,
+                      size: CGSize(width: min(min(bounds.size.width, contentSize.width), contentWidth),
+                                   height: min(min(bounds.size.height, contentSize.height), contentHeight)))
     }
 
-    static func += (lhs: inout CGPoint, rhs: CGPoint) {
-        lhs = lhs + rhs
+    func scrollToTop(animated: Bool) {
+        setContentOffset(CGPoint(x: contentOffset.x, y: -contentInset.top), animated: animated)
     }
 
-    static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-        return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
+    func scrollToLeft(animated: Bool) {
+        setContentOffset(CGPoint(x: -contentInset.left, y: contentOffset.y), animated: animated)
     }
 
-    static func -= (lhs: inout CGPoint, rhs: CGPoint) {
-        lhs = lhs - rhs
+    func scrollToBottom(animated: Bool) {
+        setContentOffset(
+            CGPoint(x: contentOffset.x, y: max(0, contentSize.height - bounds.height) + contentInset.bottom),
+            animated: animated)
     }
 
-    static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
-        return CGPoint(x: point.x * scalar, y: point.y * scalar)
-    }
-
-    static func *= (point: inout CGPoint, scalar: CGFloat) {
-        point = point * scalar
-    }
-
-    static func * (scalar: CGFloat, point: CGPoint) -> CGPoint {
-        return CGPoint(x: point.x * scalar, y: point.y * scalar)
+    func scrollToRight(animated: Bool) {
+        setContentOffset(
+            CGPoint(x: max(0, contentSize.width - bounds.width) + contentInset.right, y: contentOffset.y),
+            animated: animated)
     }
 }
 #endif

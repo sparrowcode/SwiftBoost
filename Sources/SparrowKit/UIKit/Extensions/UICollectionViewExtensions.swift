@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2020 Ivan Vorobei (varabeis@icloud.com)
+// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -17,6 +17,7 @@
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
 #if canImport(UIKit)
@@ -63,12 +64,7 @@ public extension UICollectionView {
     }
     
     func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
-        guard indexPath.item >= 0,
-            indexPath.section >= 0,
-            indexPath.section < numberOfSections,
-            indexPath.item < numberOfItems(inSection: indexPath.section) else {
-            return
-        }
+        guard isValidIndexPath(indexPath) else { return }
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
     }
 }

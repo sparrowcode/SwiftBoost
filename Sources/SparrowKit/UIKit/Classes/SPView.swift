@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2020 Ivan Vorobei (varabeis@icloud.com)
+// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,22 +19,26 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-public extension UIButton {
+#if canImport(UIKit)
+class SPView: UIView {
     
-    func setTitle(_ title: String) {
-        self.setTitle(title, for: .normal)
+    init() {
+        super.init(frame: CGRect.zero)
+        commonInit()
     }
     
-    func setTitleColor(_ color: UIColor) {
-        self.setTitleColor(color, for: .normal)
-        self.setTitleColor(color.withAlphaComponent(0.7), for: .highlighted)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
     }
     
-    func removeAllTargets() {
-        self.removeTarget(nil, action: nil, for: .allEvents)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
     }
+    
+    internal func commonInit() {}
 }
 #endif
