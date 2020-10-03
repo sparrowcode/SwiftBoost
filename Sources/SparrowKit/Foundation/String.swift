@@ -67,38 +67,30 @@ extension String {
     mutating func uppercaseFirstLetter() {
         self = self.uppercasedFirstLetter()
     }
-    
-    func removedWhitespaces() -> String {
-         return self.components(separatedBy: .whitespaces).joined()
-    }
-    
-    mutating func removeWhitespaces() {
-        self = self.removedWhitespaces()
-    }
-    
-    mutating func dropLast(substring: String) {
-        if self.hasSuffix(substring) {
-            self = String(dropLast(substring.count))
+
+    mutating func removeSuffix(_ suffix: String) {
+        if self.hasSuffix(suffix) {
+            self = String(dropLast(suffix.count))
         }
     }
     
-    mutating func dropFirst(substring: String) {
-        if self.hasPrefix(substring) {
-            self = String(dropFirst(substring.count))
-        }
-    }
-    
-    func dropLast(substring: String) -> String {
-        if self.hasSuffix(substring) {
-            return String(dropLast(substring.count))
+    func removeSuffix(_ suffix: String) -> String {
+        if self.hasSuffix(suffix) {
+            return String(dropLast(suffix.count))
         } else {
             return self
         }
     }
     
-    func dropFirst(substring: String) -> String {
-        if self.hasPrefix(substring) {
-            return String(dropFirst(substring.count))
+    mutating func removePrefix(_ prefix: String) {
+        if self.hasPrefix(prefix) {
+            self = String(dropFirst(prefix.count))
+        }
+    }
+    
+    func removedPrefix(_ prefix: String) -> String {
+        if self.hasPrefix(prefix) {
+            return String(dropFirst(prefix.count))
         } else {
             return self
         }
@@ -110,14 +102,6 @@ extension String {
     
     func replace(_ replacingString: String, with newString: String) -> String {
         return self.replacingOccurrences(of: replacingString, with: newString)
-    }
-    
-    func slice(from: String, to: String) -> String? {
-        return (range(of: from)?.upperBound).flatMap { substringFrom in
-            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
-                String(self[substringFrom..<substringTo])
-            }
-        }
     }
 }
 #endif
