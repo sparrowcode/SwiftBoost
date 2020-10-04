@@ -19,10 +19,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(UIKit)
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-@available(iOS 13, *)
+@available(iOS 13, tvOS 13, *)
 extension UIWindowScene {
     
     func makeKeyAndVisibleWindow(with controller: UIViewController) -> UIWindow {
