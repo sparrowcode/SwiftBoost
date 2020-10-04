@@ -73,6 +73,18 @@ extension CGRect {
         set { self.origin.y = newValue - self.height / 2 }
     }
     
+    mutating func setWidth(_ width: CGFloat) {
+        self = CGRect.init(x: self.origin.x, y: self.origin.y, width: width, height: self.height)
+    }
+    
+    mutating func setHeight(_ height: CGFloat) {
+        self = CGRect.init(x: self.origin.x, y: self.origin.y, width: self.width, height: height)
+    }
+    
+    mutating func setWidth(_ width: CGFloat, height: CGFloat) {
+        self = CGRect.init(x: self.origin.x, y: self.origin.y, width: width, height: height)
+    }
+    
     init(center: CGPoint, size: CGSize) {
         let origin = CGPoint(x: center.x - size.width / 2.0, y: center.y - size.height / 2.0)
         self.init(origin: origin, size: size)

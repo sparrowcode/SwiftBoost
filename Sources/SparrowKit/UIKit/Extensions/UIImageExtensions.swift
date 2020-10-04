@@ -40,14 +40,14 @@ public extension UIImage {
         self.init(cgImage: aCgImage)
     }
     
-    @available(iOS 13, *)
+    @available(iOS 13, tvOS 13,  *)
     convenience init(systemName name: String, pointSize: CGFloat, weight: UIImage.SymbolWeight) {
         let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight)
         self.init(systemName: name, withConfiguration: configuration)!
     }
     
     static func system(name: String) -> UIImage {
-        if #available(iOS 13, *) {
+        if #available(iOS 13, tvOS 13, *) {
             return UIImage.init(systemName: name) ?? UIImage()
         } else {
             return UIImage()

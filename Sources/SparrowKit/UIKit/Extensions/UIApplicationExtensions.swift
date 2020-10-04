@@ -20,10 +20,9 @@
 // SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(UIKit)
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-#if os(iOS) || os(tvOS)
 public extension UIApplication {
     
     var displayName: String? {
@@ -38,5 +37,4 @@ public extension UIApplication {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 }
-#endif
 #endif

@@ -20,12 +20,12 @@
 // SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(UIKit)
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
 public extension UIFont {
     
-    @available(iOS 13, *)
+    @available(iOS 13, tvOS 13, *)
     var rounded: UIFont {
         guard let descriptor = fontDescriptor.withDesign(.rounded) else { return self }
         return UIFont(descriptor: descriptor, size: 0)

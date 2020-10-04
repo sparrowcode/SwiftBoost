@@ -19,7 +19,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(UIKit)
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
 public extension UIViewController {
@@ -28,7 +28,7 @@ public extension UIViewController {
         return isViewLoaded && view.window != nil
     }
     
-    @available(iOS 13, *)
+    @available(iOS 13, tvOS 13, *)
     func destruct(scene name: UISceneConfiguration.Name) {
         guard let session = view.window?.windowScene?.session else {
             dismissAnimated()
@@ -43,7 +43,9 @@ public extension UIViewController {
     
     func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: self)
+        #if os(iOS)
         navigationController.navigationBar.prefersLargeTitles = prefersLargeTitles
+        #endif
         return navigationController
     }
 

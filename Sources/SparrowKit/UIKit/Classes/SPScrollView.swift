@@ -19,9 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-#if canImport(UIKit)
 class SPScrollView: UIScrollView {
     
     init() {
@@ -39,12 +39,11 @@ class SPScrollView: UIScrollView {
     }
     
     override func touchesShouldCancel(in view: UIView) -> Bool {
-        if view is UIControl
-            && !(view is UITextInput)
-            && !(view is UISlider)
-            && !(view is UISwitch) {
+        #if os(iOS)
+        if view is UIControl && !(view is UITextInput) && !(view is UISlider) && !(view is UISwitch) {
             return true
         }
+        #endif
         return super.touchesShouldCancel(in: view)
     }
 }
