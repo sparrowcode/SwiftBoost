@@ -23,7 +23,7 @@
 #if canImport(UIKit) && os(iOS)
 import UIKit
 
-extension UIFeedbackGenerator {
+public extension UIFeedbackGenerator {
     
     static func impactOccurred(_ style: Style) {
         switch style {
