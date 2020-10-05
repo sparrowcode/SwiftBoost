@@ -25,7 +25,7 @@ import UIKit
 @available(iOS 13, tvOS 13, *)
 public extension UISceneConfiguration {
     
-    public typealias Name = String
+    typealias Name = String
     
     convenience init(name: UISceneConfiguration.Name, role: UISceneSession.Role) {
         self.init(name: name, sessionRole: role)
