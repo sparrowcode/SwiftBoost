@@ -33,6 +33,10 @@ public extension UIApplication {
         return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
     
+    var bundleIdentifier: String? {
+        return Bundle.main.bundleIdentifier
+    }
+    
     var version: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
