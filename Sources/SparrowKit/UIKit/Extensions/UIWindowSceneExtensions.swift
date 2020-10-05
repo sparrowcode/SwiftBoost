@@ -23,7 +23,7 @@
 import UIKit
 
 @available(iOS 13, tvOS 13, *)
-extension UIWindowScene {
+public extension UIWindowScene {
     
     func makeKeyAndVisibleWindow(with controller: UIViewController) -> UIWindow {
         let window = UIWindow(frame: coordinateSpace.bounds)

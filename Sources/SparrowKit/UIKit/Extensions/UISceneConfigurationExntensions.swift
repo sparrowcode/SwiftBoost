@@ -23,7 +23,7 @@
 import UIKit
 
 @available(iOS 13, tvOS 13, *)
-extension UISceneConfiguration {
+public extension UISceneConfiguration {
     
     public typealias Name = String
     
