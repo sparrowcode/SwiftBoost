@@ -22,7 +22,7 @@
 #if canImport(Foundation)
 import Foundation
 
-extension String {
+public extension String {
     
     static var space: String {
         return " "
@@ -44,6 +44,24 @@ extension String {
     
     var url: URL? {
         return URL(string: self)
+    }
+    
+    var trim: String {
+        self.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func trimDecimal() -> String {
+        self.components(separatedBy: .decimalDigits).joined().trim
+    }
+    
+    var int: Int {
+        let value = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined().trim
+        return(value as NSString).integerValue
+    }
+    
+    var double: Double {
+        let value = self.replacingOccurrences(of: ",", with: ".")
+        return(value as NSString).doubleValue
     }
     
     var bool: Bool? {
@@ -107,5 +125,29 @@ extension String {
     func replace(_ replacingString: String, with newString: String) -> String {
         return self.replacingOccurrences(of: replacingString, with: newString)
     }
+    
+    func localized(comment: String = "") -> String {
+        return NSLocalizedString(self, comment: comment)
+    }
 }
+#endif
+
+#if canImport(UIKit)
+import UIKit
+public extension String {
+    func height(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        
+        return ceil(boundingBox.height)
+    }
+    
+    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
+}
+
 #endif
