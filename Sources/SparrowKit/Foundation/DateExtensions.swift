@@ -162,9 +162,23 @@ public extension Date {
         return Calendar.current.date(from: Calendar.current.dateComponents(components, from: self))
     }
     
+    func interval(to: Date, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .none) -> String {
+        let formatter = DateIntervalFormatter()
+        formatter.dateStyle = dateStyle
+        formatter.timeStyle = timeStyle
+        return formatter.string(from: self, to: to)
+    }
+    
     func string(withFormat format: String = "dd.MM.yyyy HH:mm") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+    
+    func stringLocalized(withFormat format: String = "dd.MM.yyyy HH:mm") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.setLocalizedDateFormatFromTemplate(format)
         return dateFormatter.string(from: self)
     }
 }
