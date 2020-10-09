@@ -20,15 +20,11 @@
 // SOFTWARE.
 
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
-import UIKit
+import Foundation
 
-@available(iOS 13, tvOS 13, *)
-public extension UISceneConfiguration {
+@available(iOS 13, *)
+public extension NSUserActivity {
     
-    typealias SceneName = String
-    
-    convenience init(name: UISceneConfiguration.SceneName, role: UISceneSession.Role) {
-        self.init(name: name, sessionRole: role)
-    }
+    typealias ActivityType = String
 }
 #endif

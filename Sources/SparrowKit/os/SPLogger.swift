@@ -25,25 +25,31 @@ import os
 
 public enum SPLogger {
     
+    // MARK: - Configure
+    
     static func configure(levels: [Level] = Level.allCases) {
         Configurator.shared.levels = levels
     }
     
-    static func log(_ level: Level, message: Message) {
+    // MARK: - Logging
+    
+    static func log(_ level: Level, message: LogMessage) {
         if Configurator.shared.levels.contains(level) {
             print(message)
         }
     }
     
-    static func error(_ message: Message) {
+    static func error(_ message: LogMessage) {
         log(.error, message: message)
     }
     
-    static func debug(_ message: Message) {
+    static func debug(_ message: LogMessage) {
         log(.debug, message: message)
     }
     
-    typealias Message = String
+    // MARK: - Classes
+    
+    typealias LogMessage = String
     
     enum Level: String, CaseIterable {
         
