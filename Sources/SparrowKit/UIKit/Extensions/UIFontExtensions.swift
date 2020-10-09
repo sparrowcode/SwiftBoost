@@ -25,20 +25,23 @@ import UIKit
 
 public extension UIFont {
     
-    @available(iOS 13, tvOS 13, *)
     var rounded: UIFont {
-        guard let descriptor = fontDescriptor.withDesign(.rounded) else { return self }
-        return UIFont(descriptor: descriptor, size: 0)
+        if #available(iOS 13, tvOS 13, *) {
+            guard let descriptor = fontDescriptor.withDesign(.rounded) else { return self }
+            return UIFont(descriptor: descriptor, size: 0)
+        } else {
+            return self
+        }
+        
     }
     
     var monospaced: UIFont {
-        let settings = [[
-            UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType,
-            UIFontDescriptor.FeatureKey.typeIdentifier: kMonospacedNumbersSelector
-        ]]
-        let attributes = [UIFontDescriptor.AttributeName.featureSettings: settings]
-        let newDescriptor = fontDescriptor.addingAttributes(attributes)
-        return UIFont(descriptor: newDescriptor, size: 0)
+        if #available(iOS 13, tvOS 13, *) {
+            guard let descriptor = fontDescriptor.withDesign(.monospaced) else { return self }
+            return UIFont(descriptor: descriptor, size: 0)
+        } else {
+            return self
+        }
     }
     
     static func preferredFont(forTextStyle style: TextStyle, addPoints: CGFloat = 0) -> UIFont {
@@ -47,7 +50,8 @@ public extension UIFont {
     }
     
     static func preferredFont(forTextStyle style: TextStyle, weight: Weight, addPoints: CGFloat = 0) -> UIFont {
-        let font = UIFont.preferredFont(forTextStyle: style, addPoints: addPoints)
+        let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: style)
+        let font = UIFont.systemFont(ofSize: descriptor.pointSize + addPoints, weight: weight)
         let metrics = UIFontMetrics(forTextStyle: style)
         return metrics.scaledFont(for: font)
     }
