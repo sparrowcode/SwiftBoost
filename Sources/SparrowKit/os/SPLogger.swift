@@ -27,37 +27,37 @@ public enum SPLogger {
     
     // MARK: - Configure
     
-    static func configure(levels: [Level] = Level.allCases) {
+    public static func configure(levels: [Level] = Level.allCases) {
         Configurator.shared.levels = levels
     }
     
     // MARK: - Logging
     
-    static func log(_ level: Level, message: LogMessage) {
+    public static func log(_ level: Level, message: LogMessage) {
         if Configurator.shared.levels.contains(level) {
             print(message)
         }
     }
     
-    static func error(_ message: LogMessage) {
+    public static func error(_ message: LogMessage) {
         log(.error, message: message)
     }
     
-    static func debug(_ message: LogMessage) {
+    public static func debug(_ message: LogMessage) {
         log(.debug, message: message)
     }
     
     // MARK: - Classes
     
-    typealias LogMessage = String
+    public typealias LogMessage = String
     
-    enum Level: String, CaseIterable {
+    public enum Level: String, CaseIterable {
         
         case httpResponse
         case error
         case debug
         
-        var description: String {
+        public var description: String {
             switch self {
             case .httpResponse: return "HTTP Response"
             case .error: return "Error"
@@ -66,7 +66,7 @@ public enum SPLogger {
         }
     }
     
-    fileprivate static func logType(for level: Level) -> OSLogType {
+    private static func logType(for level: Level) -> OSLogType {
         switch level {
         case .httpResponse: return .debug
         case .debug: return .debug
@@ -74,7 +74,7 @@ public enum SPLogger {
         }
     }
     
-    fileprivate struct Configurator {
+    private struct Configurator {
         
         var levels: [Level] = []
         
