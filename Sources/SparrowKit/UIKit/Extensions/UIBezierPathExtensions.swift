@@ -23,8 +23,6 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-// MARK: - Initializers
-
 public extension UIBezierPath {
 
     convenience init(from: CGPoint, to otherPoint: CGPoint) {

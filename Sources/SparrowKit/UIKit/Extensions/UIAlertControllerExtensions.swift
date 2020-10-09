@@ -25,8 +25,6 @@ import UIKit
 
 public extension UIAlertController {
     
-    // MARK: - Initialization
-    
     convenience init(title: String, message: String? = nil, actionButtonTitle: String) {
         self.init(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: actionButtonTitle, style: .default, handler: nil)

@@ -24,8 +24,6 @@ import UIKit
 
 public extension UIImage {
     
-    // MARK: - Initialization
-    
     convenience init(color: UIColor, size: CGSize) {
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
         defer {
