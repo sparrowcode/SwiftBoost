@@ -29,7 +29,7 @@ public extension UIViewController {
     }
     
     @available(iOS 13, tvOS 13, *)
-    func destruct(scene name: UISceneConfiguration.Name) {
+    func destruct(scene name: UISceneConfiguration.SceneName) {
         guard let session = view.window?.windowScene?.session else {
             dismissAnimated()
             return
