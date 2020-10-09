@@ -24,14 +24,10 @@
 import os
 
 public enum SPLogger {
-    
-    // MARK: - Configure
-    
+
     public static func configure(levels: [Level] = Level.allCases) {
         Configurator.shared.levels = levels
     }
-    
-    // MARK: - Logging
     
     public static func log(_ level: Level, message: LogMessage) {
         if Configurator.shared.levels.contains(level) {
@@ -75,7 +71,7 @@ public enum SPLogger {
     }
 }
 
-// MARK: - Public functions
+// MARK: - Public Functions
 
 public func error(_ message: SPLogger.LogMessage) {
     SPLogger.log(.error, message: message)

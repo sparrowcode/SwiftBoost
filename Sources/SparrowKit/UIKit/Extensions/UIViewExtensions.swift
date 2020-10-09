@@ -25,8 +25,6 @@ import UIKit
 
 public extension UIView {
 
-    // MARK: - Initialization
-    
     convenience init(backgroundColor color: UIColor) {
         self.init()
         backgroundColor = color
