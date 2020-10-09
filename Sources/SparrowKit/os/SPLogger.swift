@@ -39,14 +39,6 @@ public enum SPLogger {
         }
     }
     
-    public static func error(_ message: LogMessage) {
-        log(.error, message: message)
-    }
-    
-    public static func debug(_ message: LogMessage) {
-        log(.debug, message: message)
-    }
-    
     // MARK: - Classes
     
     public typealias LogMessage = String
@@ -81,5 +73,15 @@ public enum SPLogger {
         static var shared = Configurator()
         private init() {}
     }
+}
+
+// MARK: - Public functions
+
+public func error(_ message: SPLogger.LogMessage) {
+    SPLogger.log(.error, message: message)
+}
+
+public func debug(_ message: SPLogger.LogMessage) {
+    SPLogger.log(.debug, message: message)
 }
 #endif
