@@ -17,28 +17,14 @@
 // AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
-import UIKit
+import Foundation
 
-public extension UIBezierPath {
-
-    convenience init(from: CGPoint, to otherPoint: CGPoint) {
-        self.init()
-        move(to: from)
-        addLine(to: otherPoint)
-    }
-
-    convenience init(points: [CGPoint]) {
-        self.init()
-        if !points.isEmpty {
-            move(to: points[0])
-            for point in points[1...] {
-                addLine(to: point)
-            }
-        }
-    }
+@available(iOS 13, *)
+public extension NSUserActivity {
+    
+    typealias ActivityType = String
 }
 #endif

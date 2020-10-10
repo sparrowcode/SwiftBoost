@@ -24,8 +24,6 @@ import UIKit
 
 public extension UIImage {
     
-    // MARK: - Initialization
-    
     convenience init(color: UIColor, size: CGSize) {
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
         defer {
@@ -64,7 +62,7 @@ public extension UIImage {
         return (jpegData(compressionQuality: 1)?.count ?? 0) / 1024
     }
     
-    func compressed(quality: CGFloat = 0.5) -> UIImage? {
+    func compresse(quality: CGFloat = 0.5) -> UIImage? {
         guard let data = jpegData(compressionQuality: quality) else { return nil }
         return UIImage(data: data)
     }

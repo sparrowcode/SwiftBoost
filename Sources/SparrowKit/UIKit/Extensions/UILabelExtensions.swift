@@ -25,8 +25,6 @@ import UIKit
 
 public extension UILabel {
     
-    // MARK: - Initialization
-    
     @objc convenience init(text: String?) {
         self.init()
         self.text = text
