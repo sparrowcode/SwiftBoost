@@ -56,12 +56,12 @@ public extension String {
     
     var int: Int {
         let value = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined().trim
-        return(value as NSString).integerValue
+        return (value as NSString).integerValue
     }
     
     var double: Double {
         let value = self.replacingOccurrences(of: ",", with: ".")
-        return(value as NSString).doubleValue
+        return (value as NSString).doubleValue
     }
     
     var bool: Bool? {
@@ -147,6 +147,25 @@ public extension String {
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         
         return ceil(boundingBox.width)
+    }
+    
+    /// Generates a `UIImage` instance from this string using a specified
+    /// attributes and size.
+    ///
+    /// - Parameters:
+    ///     - attributes: to draw this string with. Default is `nil`.
+    ///     - size: of the image to return.
+    /// - Returns: a `UIImage` instance from this string using a specified attributes and size, or `nil` if the operation fails.
+    func image(withAttributes attributes: [NSAttributedString.Key: Any]? = nil, size: CGSize? = nil) -> UIImage? {
+        let itemSize = (self as NSString).size(withAttributes: attributes)
+        let size = size ?? itemSize
+        let startX = size.width / 2 - itemSize.width / 2
+        let startY = size.height / 2 - itemSize.height / 2
+        let origiin = CGPoint(x: startX, y: startY)
+        return UIGraphicsImageRenderer(size: size).image { _ in
+            (self as NSString).draw(in: CGRect(origin: origiin, size: size),
+                                    withAttributes: attributes)
+        }
     }
 }
 
