@@ -33,7 +33,6 @@ public extension UIView {
     }
     
     // MARK: - Helpers
-    
     var parentViewController: UIViewController? {
         weak var parentResponder: UIResponder? = self
         while parentResponder != nil {
@@ -116,7 +115,6 @@ public extension UIView {
             return layer.cornerRadius
         }
         set {
-            layer.masksToBounds = true
             layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }
@@ -168,6 +166,8 @@ public extension UIView {
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity
         layer.masksToBounds = false
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
     }
     
     func addParalax(amount: CGFloat) {
