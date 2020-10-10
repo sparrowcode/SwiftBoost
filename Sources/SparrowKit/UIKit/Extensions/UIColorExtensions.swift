@@ -34,19 +34,19 @@ public extension UIColor {
         }
     }
     
-    convenience init(firstColor: (light: UIColor, dark: UIColor), secondColor: (light: UIColor, dark: UIColor) ) {
+    convenience init(baseInterfaceLevel: UIColor, elevatedInterfaceLevel: UIColor ) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init { traitCollection in
                 if traitCollection.userInterfaceLevel == .base {
-                    return .init(light: firstColor.light, dark: firstColor.dark)
+                    return baseInterfaceLevel
                 }
                 else {
-                    return .init(light: secondColor.light, dark: secondColor.dark)
+                    return elevatedInterfaceLevel
                 }
             }
         }
         else {
-            self.init(cgColor: firstColor.light.cgColor)
+            self.init(cgColor: baseInterfaceLevel.cgColor)
         }
     }
     #endif
