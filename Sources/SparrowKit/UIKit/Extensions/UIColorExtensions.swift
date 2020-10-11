@@ -37,11 +37,15 @@ public extension UIColor {
     convenience init(baseInterfaceLevel: UIColor, elevatedInterfaceLevel: UIColor ) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init { traitCollection in
-                if traitCollection.userInterfaceLevel == .base {
+                switch traitCollection.userInterfaceLevel {
+                case .base:
                     return baseInterfaceLevel
-                }
-                else {
+                case .elevated:
                     return elevatedInterfaceLevel
+                case .unspecified:
+                    return baseInterfaceLevel
+                @unknown default:
+                    return baseInterfaceLevel
                 }
             }
         }
@@ -104,11 +108,11 @@ public extension UIColor {
         return color
     }
     
-    func lighter(by amount: CGFloat = 0.25) -> UIColor {
+    func lighter(by amount: CGFloat) -> UIColor {
         return mixWithColor(UIColor.white, amount: amount)
     }
 
-    func darker(by amount: CGFloat = 0.25) -> UIColor {
+    func darker(by amount: CGFloat) -> UIColor {
         return mixWithColor(UIColor.black, amount: amount)
     }
 
