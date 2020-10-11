@@ -23,13 +23,9 @@
 #if canImport(Foundation)
 import Foundation
 
-public extension Calendar {
-    
-}
-
 public extension Calendar.Component {
     
-    func string(numberOfUnits: Int) -> String? {
+    func format(numberOfUnits: Int) -> String? {
         let formatter = DateComponentsFormatter()
         formatter.maximumUnitCount = 1
         formatter.unitsStyle = .full
