@@ -50,18 +50,19 @@ public extension String {
         self.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
-    func trimDecimal() -> String {
-        self.components(separatedBy: .decimalDigits).joined().trim
+    func double(locale: Locale = .current) -> Double? {
+        let formatter = NumberFormatter()
+        formatter.locale = locale
+        formatter.allowsFloats = true
+        return formatter.number(from: self)?.doubleValue
     }
     
-    var int: Int {
-        let value = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined().trim
-        return (value as NSString).integerValue
-    }
-    
-    var double: Double {
-        let value = self.replacingOccurrences(of: ",", with: ".")
-        return (value as NSString).doubleValue
+    func lines() -> [String] {
+        var result = [String]()
+        enumerateLines { line, _ in
+            result.append(line)
+        }
+        return result
     }
     
     var bool: Bool? {
@@ -89,7 +90,7 @@ public extension String {
     mutating func uppercaseFirstLetter() {
         self = self.uppercasedFirstLetter()
     }
-
+    
     mutating func removeSuffix(_ suffix: String) {
         if self.hasSuffix(suffix) {
             self = String(dropLast(suffix.count))
@@ -124,10 +125,6 @@ public extension String {
     
     func replace(_ replacingString: String, with newString: String) -> String {
         return self.replacingOccurrences(of: replacingString, with: newString)
-    }
-    
-    func localized(comment: String = "") -> String {
-        return NSLocalizedString(self, comment: comment)
     }
 }
 #endif

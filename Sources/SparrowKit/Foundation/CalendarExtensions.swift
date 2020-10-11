@@ -24,16 +24,19 @@
 import Foundation
 
 public extension Calendar {
-    public extension Component {
-        func string(numberOfUnits: Int) -> String? {
-            let formatter = DateComponentsFormatter()
-            formatter.maximumUnitCount = 1
-            formatter.unitsStyle = .full
-            formatter.zeroFormattingBehavior = .dropAll
-            var dateComponents = DateComponents()
-            dateComponents.setValue(numberOfUnits, for: self)
-            return formatter.string(from: dateComponents)
-        }
+    
+}
+
+public extension Calendar.Component {
+    
+    func string(numberOfUnits: Int) -> String? {
+        let formatter = DateComponentsFormatter()
+        formatter.maximumUnitCount = 1
+        formatter.unitsStyle = .full
+        formatter.zeroFormattingBehavior = .dropAll
+        var dateComponents = DateComponents()
+        dateComponents.setValue(numberOfUnits, for: self)
+        return formatter.string(from: dateComponents)
     }
 }
 #endif
