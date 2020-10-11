@@ -25,7 +25,7 @@ import Foundation
 
 public extension Calendar.Component {
     
-    func format(numberOfUnits: Int) -> String? {
+    func formatted(numberOfUnits: Int) -> String? {
         let formatter = DateComponentsFormatter()
         formatter.maximumUnitCount = 1
         formatter.unitsStyle = .full
