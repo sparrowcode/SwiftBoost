@@ -193,17 +193,17 @@ public extension Date {
     
     //MARK: - Formatting
     
-    func format(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
+    func formatted(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
         DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
     }
     
-    func format(as format: String = "dd.MM.yyyy HH:mm") -> String {
+    func formatted(as format: String = "dd.MM.yyyy HH:mm") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
     
-    func formatInterval(to: Date, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .none) -> String {
+    func formattedInterval(to: Date, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .none) -> String {
         let formatter = DateIntervalFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
