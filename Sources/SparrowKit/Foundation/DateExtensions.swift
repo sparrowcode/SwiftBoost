@@ -65,11 +65,53 @@ public extension Date {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
     }
     
-    func adding(_ component: Calendar.Component, value: Int) -> Date {
+    func isBetween(_ date1: Date, and date2: Date) -> Bool {
+        return (min(date1, date2) ... max(date1, date2)).contains(self)
+    }
+    
+    func getDates(toDate date: Date, withComponent component: Calendar.Component, withUnit unit: Int) -> [Date] {
+        var fromDate = self
+        var dates = [fromDate]
+        while fromDate < date {
+            if let newDate = Calendar.current.date(byAdding: component, value: unit, to: fromDate)?.beginning(of: .day) {
+                dates.append(newDate)
+                fromDate = newDate
+            }
+        }
+        return dates
+    }
+    
+    func component(_ component: Calendar.Component) -> Int {
+        Calendar.current.component(component, from: self)
+    }
+    
+    func componentBetween(_ component: Calendar.Component, end: Date) -> Int {
+        let components = Calendar.current.dateComponents([component], from: self, to: end)
+        switch component {
+        case .nanosecond:
+            return components.nanosecond ?? 0
+        case .second:
+            return components.second ?? 0
+        case .minute:
+            return components.minute ?? 0
+        case .hour:
+            return components.hour ?? 0
+        case .day:
+            return components.day ?? 0
+        case .month:
+            return components.month ?? 0
+        case .year:
+            return components.year ?? 0
+        default:
+            return 0
+        }
+    }
+    
+    func adding(_ component: Calendar.Component, value: Int = 1) -> Date {
         return Calendar.current.date(byAdding: component, value: value, to: self) ?? self
     }
     
-    mutating func add(_ component: Calendar.Component, value: Int) {
+    mutating func add(_ component: Calendar.Component, value: Int = 1) {
         if let date = Calendar.current.date(byAdding: component, value: value, to: self) {
             self = date
         }
@@ -137,12 +179,15 @@ public extension Date {
             switch component {
             case .second:
                 return [.year, .month, .day, .hour, .minute, .second]
-
+                
             case .minute:
                 return [.year, .month, .day, .hour, .minute]
 
             case .hour:
                 return [.year, .month, .day, .hour]
+                
+            case .day:
+                return [.year, .month, .day]
 
             case .weekOfYear, .weekOfMonth:
                 return [.yearForWeekOfYear, .weekOfYear]
@@ -162,10 +207,101 @@ public extension Date {
         return Calendar.current.date(from: Calendar.current.dateComponents(components, from: self))
     }
     
+    func end(of component: Calendar.Component) -> Date? {
+        guard let date = self.beginning(of: component) else { return nil }
+        
+        var components: DateComponents? {
+            switch component {
+            case .second:
+                var components = DateComponents()
+                components.second = 1
+                components.nanosecond = -1
+                return components
+                
+            case .minute:
+                var components = DateComponents()
+                components.minute = 1
+                components.second = -1
+                return components
+
+            case .hour:
+                var components = DateComponents()
+                components.hour = 1
+                components.second = -1
+                return components
+                
+            case .day:
+                var components = DateComponents()
+                components.day = 1
+                components.second = -1
+                return components
+
+            case .weekOfYear, .weekOfMonth:
+                var components = DateComponents()
+                components.weekOfYear = 1
+                components.second = -1
+                return components
+
+            case .month:
+                var components = DateComponents()
+                components.month = 1
+                components.second = -1
+                return components
+
+            case .year:
+                var components = DateComponents()
+                components.year = 1
+                components.second = -1
+                return components
+
+            default:
+                return nil
+            }
+        }
+        guard let addedComponent = components else { return nil }
+        return Calendar.current.date(byAdding: addedComponent, to: date)!
+    }
+    
+    func interval(to: Date, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .none) -> String {
+        let formatter = DateIntervalFormatter()
+        formatter.dateStyle = dateStyle
+        formatter.timeStyle = timeStyle
+        return formatter.string(from: self, to: to)
+    }
+    
     func string(withFormat format: String = "dd.MM.yyyy HH:mm") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
+    }
+    
+    func string(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
+        DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
+    }
+    
+    func stringLocalized(withFormat format: String = "dd.MM.yyyy HH:mm") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale.current
+        dateFormatter.setLocalizedDateFormatFromTemplate(format)
+        return dateFormatter.string(from: self)
+    }
+    
+    func age(toDate date: Date, components: Set<Calendar.Component>) -> String {
+        let calender = Calendar.current
+        let dateComponent = calender.dateComponents(components, from: self, to: date)
+        var years = ""; var months = ""; var days = "";
+        
+        if let _years = dateComponent.year, _years > 0 {
+            years = Calendar.Component.year.quantitiesOfTime(numberOfUnits: _years) ?? ""
+        }
+        if let _months = dateComponent.month, _months > 0 {
+            months = Calendar.Component.month.quantitiesOfTime(numberOfUnits: _months) ?? ""
+        }
+        if var _days = dateComponent.day {
+            _days = _days == 0 ? 1 : _days
+            days = Calendar.Component.day.quantitiesOfTime(numberOfUnits: _days) ?? ""
+        }
+        return "\(years) \(months) \(days)".trim
     }
 }
 #endif
