@@ -215,14 +215,14 @@ public extension Date {
         let dateComponent = calender.dateComponents(components, from: self, to: date)
         var years = ""; var months = ""; var days = "";
         if let _years = dateComponent.year, _years > 0 {
-            years = Calendar.Component.year.format(numberOfUnits: _years) ?? ""
+            years = Calendar.Component.year.formatted(numberOfUnits: _years) ?? ""
         }
         if let _months = dateComponent.month, _months > 0 {
-            months = Calendar.Component.month.format(numberOfUnits: _months) ?? ""
+            months = Calendar.Component.month.formatted(numberOfUnits: _months) ?? ""
         }
         if var _days = dateComponent.day {
             _days = _days == 0 ? 1 : _days
-            days = Calendar.Component.day.format(numberOfUnits: _days) ?? ""
+            days = Calendar.Component.day.formatted(numberOfUnits: _days) ?? ""
         }
         return "\(years) \(months) \(days)".trim
     }
