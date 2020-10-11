@@ -193,17 +193,17 @@ public extension Date {
     
     //MARK: - Formatting
     
-    func string(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
+    func format(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
         DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
     }
     
-    func string(withFormat format: String = "dd.MM.yyyy HH:mm") -> String {
+    func format(as format: String = "dd.MM.yyyy HH:mm") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
     
-    func stringInterval(to: Date, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .none) -> String {
+    func formatInterval(to: Date, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .none) -> String {
         let formatter = DateIntervalFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
@@ -215,14 +215,14 @@ public extension Date {
         let dateComponent = calender.dateComponents(components, from: self, to: date)
         var years = ""; var months = ""; var days = "";
         if let _years = dateComponent.year, _years > 0 {
-            years = Calendar.Component.year.string(numberOfUnits: _years) ?? ""
+            years = Calendar.Component.year.format(numberOfUnits: _years) ?? ""
         }
         if let _months = dateComponent.month, _months > 0 {
-            months = Calendar.Component.month.string(numberOfUnits: _months) ?? ""
+            months = Calendar.Component.month.format(numberOfUnits: _months) ?? ""
         }
         if var _days = dateComponent.day {
             _days = _days == 0 ? 1 : _days
-            days = Calendar.Component.day.string(numberOfUnits: _days) ?? ""
+            days = Calendar.Component.day.format(numberOfUnits: _days) ?? ""
         }
         return "\(years) \(months) \(days)".trim
     }
