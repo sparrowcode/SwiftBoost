@@ -236,7 +236,7 @@ public extension UIView {
      - important:
      Need call after changed frame. Better leave it in `layoutSubviews` method.
      */
-    func round() {
+    func roundCorners() {
         layer.cornerRadius = min(frame.width, frame.height) / 2
     }
     
