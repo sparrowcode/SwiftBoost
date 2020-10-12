@@ -23,7 +23,7 @@
 #if canImport(UIKit)
 import CoreGraphics
 
-extension CGPoint {
+public extension CGPoint {
     
     func distance(from point: CGPoint) -> CGFloat {
         return CGPoint.distance(from: self, to: point)
