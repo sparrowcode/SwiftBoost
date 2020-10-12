@@ -43,7 +43,7 @@ public extension UIView {
      - warning:
      If view not added to any controller, return nil.
      */
-    var parentViewController: UIViewController? {
+    var viewController: UIViewController? {
         weak var parentResponder: UIResponder? = self
         while parentResponder != nil {
             parentResponder = parentResponder!.next
