@@ -73,11 +73,11 @@ public extension UIImage {
     
     // MARK: - Appearance
 
-    var original: UIImage {
+    var alwaysOriginal: UIImage {
         return withRenderingMode(.alwaysOriginal)
     }
 
-    var template: UIImage {
+    var alwaysTemplate: UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
 
