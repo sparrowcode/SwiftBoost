@@ -59,6 +59,22 @@ public extension UIViewController {
     @objc func dismissAnimated() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    //MARK: - Keyboard
+    
+    func dismissKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboardTappedAround(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboardTappedAround(_ gestureRecognizer: UIPanGestureRecognizer) {
+        dismissKeyboard()
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 #endif
 
