@@ -23,7 +23,7 @@
 #if canImport(UIKit)
 import CoreGraphics
 
-extension CGSize {
+public extension CGSize {
     
     var aspectRatio: CGFloat {
         guard height != 0 else { return 0 }
