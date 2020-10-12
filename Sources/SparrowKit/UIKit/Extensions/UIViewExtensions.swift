@@ -116,18 +116,49 @@ public extension UIView {
         setYCenter()
     }
     
+    // MARK: Readable Content Guide
+    
     /**
-     SparrowKit: Get width of current view without horizontal layout margins.
+     SparrowKit: Margins of readable frame.
      */
-    var contentWidth: CGFloat {
-        return frame.width - layoutMargins.left - layoutMargins.right
+    var readableMargins: UIEdgeInsets {
+        let layoutFrame = readableContentGuide.layoutFrame
+        return UIEdgeInsets(
+            top: layoutFrame.origin.y,
+            left: layoutFrame.origin.x,
+            bottom: frame.height - layoutFrame.height - layoutFrame.origin.y,
+            right: frame.width - layoutFrame.width - layoutFrame.origin.x
+        )
     }
     
     /**
-     SparrowKit: Get height if current view without vertical layout margins.
+     SparrowKit: Readable width of current view without horizontal readable margins.
      */
-    var contentHeight: CGFloat {
-        return frame.height - layoutMargins.top - layoutMargins.bottom
+    var readableWidth: CGFloat {
+        return readableContentGuide.layoutFrame.width
+    }
+    
+    /**
+     SparrowKit: Readable height of current view without vertical readable margins.
+     */
+    var readableHeight: CGFloat {
+        return readableContentGuide.layoutFrame.height
+    }
+    
+    // MARK: Layout Margins Guide
+    
+    /**
+     SparrowKit: Width of current view without horizontal layout margins.
+     */
+    var layoutWidth: CGFloat {
+        return layoutMarginsGuide.layoutFrame.width
+    }
+    
+    /**
+     SparrowKit: Height of current view without vertical layout margins.
+     */
+    var layoutHeight: CGFloat {
+        return layoutMarginsGuide.layoutFrame.height
     }
     
     /**
