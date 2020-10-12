@@ -102,6 +102,16 @@ public extension UIImage {
                        blue: CGFloat(bitmap[2]) / 255.0,
                        alpha: CGFloat(bitmap[3]) / 255.0)
     }
+    
+    func resize(newWidth width: CGFloat) -> UIImage {
+        let scale = width / self.size.width
+        let newHeight = self.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: width, height: newHeight))
+        self.draw(in: CGRect(x: 0, y: 0, width: width, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
     #endif
 }
 #endif
