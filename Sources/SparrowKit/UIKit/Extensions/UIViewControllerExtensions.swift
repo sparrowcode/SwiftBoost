@@ -28,6 +28,21 @@ public extension UIViewController {
         return isViewLoaded && view.window != nil
     }
     
+    /**
+     Removed property `animated`, always `true`.
+     */
+    func present(_ viewControllerToPresent: UIViewController, completion: (() -> Swift.Void)? = nil) {
+        self.present(viewControllerToPresent, animated: true, completion: completion)
+    }
+    
+    func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
+        let navigationController = UINavigationController(rootViewController: self)
+        #if os(iOS)
+        navigationController.navigationBar.prefersLargeTitles = prefersLargeTitles
+        #endif
+        return navigationController
+    }
+    
     @available(iOS 13, tvOS 13, *)
     func destruct(scene name: UISceneConfiguration.SceneName) {
         guard let session = view.window?.windowScene?.session else {
@@ -39,14 +54,6 @@ public extension UIViewController {
         } else {
             dismissAnimated()
         }
-    }
-    
-    func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: self)
-        #if os(iOS)
-        navigationController.navigationBar.prefersLargeTitles = prefersLargeTitles
-        #endif
-        return navigationController
     }
 
     @objc func dismissAnimated() {
