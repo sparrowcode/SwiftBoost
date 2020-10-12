@@ -44,7 +44,7 @@ public extension UIImage {
         self.init(systemName: name, withConfiguration: configuration)!
     }
     
-    static func system(name: String) -> UIImage {
+    static func system(_ name: String) -> UIImage {
         if #available(iOS 13, tvOS 13, *) {
             return UIImage.init(systemName: name) ?? UIImage()
         } else {
