@@ -35,8 +35,8 @@ public extension CGRect {
      Need before set this property have valid width.
      */
     var bottomX: CGFloat {
-        get { return self.origin.x + self.width }
-        set { self.origin.x = newValue - self.width }
+        get { return origin.x + width }
+        set { origin.x = newValue - width }
     }
     
     /**
@@ -47,8 +47,8 @@ public extension CGRect {
      Need before set this property have valid height.
      */
     var bottomY: CGFloat {
-        get { return self.origin.y + self.height }
-        set { self.origin.y = newValue - self.height }
+        get { return origin.y + height }
+        set { origin.y = newValue - height }
     }
     
     /**
@@ -58,8 +58,8 @@ public extension CGRect {
      Need before set this property have valid width.
      */
     var centerX: CGFloat {
-        get { return self.origin.x + self.width / 2 }
-        set { self.origin.x = newValue - self.width / 2 }
+        get { return origin.x + width / 2 }
+        set { origin.x = newValue - width / 2 }
     }
     
     /**
@@ -69,20 +69,28 @@ public extension CGRect {
      Need before set this property have valid height.
      */
     var centerY: CGFloat {
-        get { return self.origin.y + self.height / 2 }
-        set { self.origin.y = newValue - self.height / 2 }
+        get { return origin.y + height / 2 }
+        set { origin.y = newValue - height / 2 }
+    }
+    
+    mutating func setMaxX(_ value: CGFloat) {
+        origin.x = value - width
+    }
+    
+    mutating func setMaxY(_ value: CGFloat) {
+        origin.y = value - height
     }
     
     mutating func setWidth(_ width: CGFloat) {
-        self = CGRect.init(x: self.origin.x, y: self.origin.y, width: width, height: self.height)
+        self = CGRect.init(x: origin.x, y: origin.y, width: width, height: height)
     }
     
     mutating func setHeight(_ height: CGFloat) {
-        self = CGRect.init(x: self.origin.x, y: self.origin.y, width: self.width, height: height)
+        self = CGRect.init(x: origin.x, y: origin.y, width: width, height: height)
     }
     
     mutating func setWidth(_ width: CGFloat, height: CGFloat) {
-        self = CGRect.init(x: self.origin.x, y: self.origin.y, width: width, height: height)
+        self = CGRect.init(x: origin.x, y: origin.y, width: width, height: height)
     }
     
     init(center: CGPoint, size: CGSize) {
@@ -92,18 +100,18 @@ public extension CGRect {
     
     init(x: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: x, y: 0, width: width, height: height)
-        self.bottomY = maxY
+        bottomY = maxY
     }
     
     init(maxX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: 0, y: y, width: width, height: height)
-        self.bottomX = maxX
+        bottomX = maxX
     }
 
     init(maxX: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: 0, y: 8, width: width, height: height)
-        self.bottomX = maxX
-        self.bottomY = maxY
+        bottomX = maxX
+        bottomY = maxY
     }
 }
 #endif
