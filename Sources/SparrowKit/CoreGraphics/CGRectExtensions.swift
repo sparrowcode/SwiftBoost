@@ -25,54 +25,6 @@ import CoreGraphics
 
 public extension CGRect {
     
-    var center: CGPoint { CGPoint(x: midX, y: midY) }
-    
-    /**
-     SparrowKit: Returns the largest value of the x-coordinate for the rectangle.
-     Available set this property.
-     
-     - important:
-     Need before set this property have valid width.
-     */
-    var bottomX: CGFloat {
-        get { return origin.x + width }
-        set { origin.x = newValue - width }
-    }
-    
-    /**
-     SparrowKit: Returns the largest value for the y-coordinate of the rectangle.
-     Available set this property.
-     
-     - important:
-     Need before set this property have valid height.
-     */
-    var bottomY: CGFloat {
-        get { return origin.y + height }
-        set { origin.y = newValue - height }
-    }
-    
-    /**
-     SparrowKit: Returns the x- coordinate that establishes the center of a rectangle.
-     
-     - important:
-     Need before set this property have valid width.
-     */
-    var centerX: CGFloat {
-        get { return origin.x + width / 2 }
-        set { origin.x = newValue - width / 2 }
-    }
-    
-    /**
-     SparrowKit: Returns the y-coordinate that establishes the center of the rectangle.
-     
-     - important:
-     Need before set this property have valid height.
-     */
-    var centerY: CGFloat {
-        get { return origin.y + height / 2 }
-        set { origin.y = newValue - height / 2 }
-    }
-    
     mutating func setMaxX(_ value: CGFloat) {
         origin.x = value - width
     }
@@ -100,18 +52,18 @@ public extension CGRect {
     
     init(x: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: x, y: 0, width: width, height: height)
-        bottomY = maxY
+        setMaxY(maxY)
     }
     
     init(maxX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: 0, y: y, width: width, height: height)
-        bottomX = maxX
+        setMaxX(maxX)
     }
 
     init(maxX: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: 0, y: 8, width: width, height: height)
-        bottomX = maxX
-        bottomY = maxY
+        setMaxX(maxX)
+        setMaxY(maxY)
     }
 }
 #endif

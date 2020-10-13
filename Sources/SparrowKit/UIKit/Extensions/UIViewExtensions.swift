@@ -92,7 +92,7 @@ public extension UIView {
      If current view have not superview, center X is set to zero.
      */
     func setXCenter() {
-        center.x = superview?.frame.midX ?? 0
+        center.x = (superview?.frame.width ?? 0) / 2
     }
     
     /**
@@ -102,7 +102,7 @@ public extension UIView {
      If current view have not superview, center Y is set to zero.
      */
     func setYCenter() {
-        center.y = superview?.frame.midY ?? 0
+        center.y = (superview?.frame.height ?? 0) / 2
     }
     
     /**
