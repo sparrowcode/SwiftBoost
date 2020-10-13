@@ -114,7 +114,7 @@ public extension Date {
         }
     }
     
-    func setTime(hour: Int, minute: Int = 0, second: Int = 0) -> Date {
+    func setTime(hour: Int, minute: Int, second: Int) -> Date {
         let calendar = Calendar.current
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
         components.hour = hour
