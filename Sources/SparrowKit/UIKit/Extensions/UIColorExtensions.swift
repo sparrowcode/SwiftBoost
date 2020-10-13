@@ -20,12 +20,12 @@
 // SOFTWARE. IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(UIKit) && (os(iOS) || os(tvOS))
+#if canImport(UIKit)
 import UIKit
 
 public extension UIColor {
     
-    #if !os(watchOS)
+    #if !os(watchOS) && !os(tvOS)
     convenience init(light: UIColor, dark: UIColor) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init(dynamicProvider: { $0.userInterfaceStyle == .dark ? dark : light })
