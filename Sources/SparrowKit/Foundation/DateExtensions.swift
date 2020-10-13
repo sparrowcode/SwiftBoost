@@ -114,6 +114,15 @@ public extension Date {
         }
     }
     
+    func setTime(hour: Int, minute: Int = 0, second: Int = 0) -> Date {
+        let calendar = Calendar.current
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+        components.hour = hour
+        components.minute = minute
+        components.second = second
+        return calendar.date(from: components) ?? self
+    }
+    
     func adding(_ component: Calendar.Component, value: Int = 1) -> Date {
         return Calendar.current.date(byAdding: component, value: value, to: self) ?? self
     }
