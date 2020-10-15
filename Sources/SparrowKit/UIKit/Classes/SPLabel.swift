@@ -22,34 +22,34 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-class SPLabel: UILabel {
+open class SPLabel: UILabel {
     
-    init() {
+    public init() {
         super.init(frame: CGRect.zero)
         commonInit()
     }
     
-    convenience init(text: String?) {
+    public convenience init(text: String?) {
         self.init()
         self.text = text
         commonInit()
     }
     
-    convenience init(text: String, style: UIFont.TextStyle) {
+    public convenience init(text: String, style: UIFont.TextStyle) {
         self.init()
         font = UIFont.preferredFont(forTextStyle: style)
         self.text = text
         commonInit()
     }
     
-    convenience init(text: String, style: UIFont.TextStyle, weight: UIFont.Weight, addPoints: CGFloat = 0) {
+    public convenience init(text: String, style: UIFont.TextStyle, weight: UIFont.Weight, addPoints: CGFloat = 0) {
         self.init()
         font = UIFont.preferredFont(forTextStyle: style, weight: weight, addPoints: addPoints)
         self.text = text
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }

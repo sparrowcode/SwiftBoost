@@ -22,14 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-class SPTableView: UITableView {
+open class SPTableView: UITableView {
     
-    init(style: UITableView.Style) {
+    public init(style: UITableView.Style) {
         super.init(frame: .zero, style: style)
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
