@@ -22,38 +22,67 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-class SPDimmedButton: SPButton {
+open class SPDimmedButton: SPButton {
     
-    override var isHighlighted: Bool {
+    public override var isHighlighted: Bool {
         didSet {
-            
+            update()
         }
     }
     
-    lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
-    lazy var dimmedColorise = Colorise(content: SPDimmedButton.dimmedContentColor, background: .clear)
+    public override var isEnabled: Bool {
+        didSet {
+            update()
+        }
+    }
     
-    static private var dimmedContentColor: UIColor {
+    public lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
+    public lazy var disabledColorise = Colorise(content: tintColor, background: .clear)
+    public lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
+    
+    public func applyStylesIfArea() {
+        dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
+        disabledColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
+        update()
+    }
+
+    public override func tintColorDidChange() {
+        super.tintColorDidChange()
+        update()
+    }
+    
+    public func update() {
+        if tintAdjustmentMode == .dimmed {
+            apply(dimmedColorise)
+        } else if isEnabled {
+            apply(defaultColorise)
+            let imageTintColor = defaultColorise.icon.withAlphaComponent(isHighlighted ? highlightOpacity : 1)
+            imageView?.tintColor = imageTintColor
+        } else {
+            apply(disabledColorise)
+        }
+    }
+    
+    private func apply(_ colorise: Colorise) {
+        setTitleColor(colorise.title, for: .normal)
+        setTitleColor(colorise.title.withAlphaComponent(highlightOpacity), for: .highlighted)
+        imageView?.tintColor = colorise.icon
+        backgroundColor = colorise.background
+    }
+    
+    public var highlightOpacity: CGFloat {
+        return 0.7
+    }
+    
+    private var dimmedContentColor: UIColor {
         if #available(iOS 13, *) {
             return UIColor.secondaryLabel
         } else {
            return UIColor(hex: "3c3c4399")
         }
     }
-  
-    override func tintColorDidChange() {
-        super.tintColorDidChange()
-        switch tintAdjustmentMode {
-        case .normal:
-            break
-        case .dimmed:
-            break
-        default:
-            break
-        }
-    }
     
-    struct Colorise {
+    public struct Colorise {
         
         var title: UIColor
         var icon: UIColor

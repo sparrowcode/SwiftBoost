@@ -22,19 +22,19 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-class SPView: UIView {
+open class SPView: UIView {
     
-    init() {
+    public init() {
         super.init(frame: CGRect.zero)
         commonInit()
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }

@@ -22,16 +22,16 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-class SPCollectionFlowLayoutView: SPCollectionView {
+open class SPCollectionFlowLayoutView: SPCollectionView {
     
-    var layout = UICollectionViewFlowLayout()
+    public var layout = UICollectionViewFlowLayout()
     
-    init() {
+    public init() {
         super.init(collectionViewLayout: self.layout)
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
