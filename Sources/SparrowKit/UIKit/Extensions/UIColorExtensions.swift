@@ -57,12 +57,12 @@ public extension UIColor {
     
     convenience init(hex: String) {
         let hex = UIColor.parseHex(hex: hex, alpha: nil)
-        self.init(red: hex.alpha, green: hex.green, blue: hex.blue, alpha: hex.alpha)
+        self.init(red: hex.red, green: hex.green, blue: hex.blue, alpha: hex.alpha)
     }
     
     convenience init(hex: String, alpha: CGFloat) {
         let hex = UIColor.parseHex(hex: hex, alpha: alpha)
-        self.init(red: hex.alpha, green: hex.green, blue: hex.blue, alpha: hex.alpha)
+        self.init(red: hex.red, green: hex.green, blue: hex.blue, alpha: hex.alpha)
     }
     
     var hex: String {
