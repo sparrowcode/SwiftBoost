@@ -212,7 +212,7 @@ public extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func formattedInterval(to: Date, dateStyle: DateIntervalFormatter.Style = .medium, timeStyle: DateIntervalFormatter.Style = .none) -> String {
+    func formattedInterval(to: Date, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style) -> String {
         let formatter = DateIntervalFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
