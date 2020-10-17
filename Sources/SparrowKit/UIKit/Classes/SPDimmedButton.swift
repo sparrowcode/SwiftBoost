@@ -24,6 +24,8 @@ import UIKit
 
 open class SPDimmedButton: SPButton {
     
+    // MARK: - Ovveride
+    
     public override var isHighlighted: Bool {
         didSet {
             update()
@@ -35,6 +37,13 @@ open class SPDimmedButton: SPButton {
             update()
         }
     }
+    
+    public override func tintColorDidChange() {
+        super.tintColorDidChange()
+        update()
+    }
+    
+    // MARK: - Colorise
     
     /**
      SparrowKit: Colors for default state.
@@ -58,11 +67,6 @@ open class SPDimmedButton: SPButton {
     public func applyStylesIfArea() {
         dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
         disabledColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
-        update()
-    }
-
-    public override func tintColorDidChange() {
-        super.tintColorDidChange()
         update()
     }
     
