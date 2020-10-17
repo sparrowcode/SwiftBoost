@@ -75,7 +75,7 @@ open class SPDimmedButton: SPButton {
     }
     
     private var dimmedContentColor: UIColor {
-        if #available(iOS 13, *) {
+        if #available(iOS 13, tvOS 13, *) {
             return UIColor.secondaryLabel
         } else {
            return UIColor(hex: "3c3c4399")
