@@ -36,10 +36,25 @@ open class SPDimmedButton: SPButton {
         }
     }
     
+    /**
+     SparrowKit: Colors for default state.
+     */
     public lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
+    
+    /**
+     SparrowKit: Colors for disabled state.
+     */
     public lazy var disabledColorise = Colorise(content: tintColor, background: .clear)
+    
+    /**
+     SparrowKit: Colors for dimmed mode.
+     */
     public lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
     
+    /**
+     SparrowKit: If button has area background,
+     you can set dimmed and disabled modes with call it func.
+     */
     public func applyStylesIfArea() {
         dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
         disabledColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
@@ -51,6 +66,9 @@ open class SPDimmedButton: SPButton {
         update()
     }
     
+    /**
+     SparrowKit: Update colors for current state.
+     */
     public func update() {
         if tintAdjustmentMode == .dimmed {
             apply(dimmedColorise)
@@ -63,6 +81,9 @@ open class SPDimmedButton: SPButton {
         }
     }
     
+    /**
+     SparrowKit: Apply colors.
+     */
     private func apply(_ colorise: Colorise) {
         setTitleColor(colorise.title, for: .normal)
         setTitleColor(colorise.title.withAlphaComponent(highlightOpacity), for: .highlighted)
@@ -70,9 +91,10 @@ open class SPDimmedButton: SPButton {
         backgroundColor = colorise.background
     }
     
-    public var highlightOpacity: CGFloat {
-        return 0.7
-    }
+    /**
+     SparrowKit: Opacity of elements when button higlight.
+     */
+    public var highlightOpacity: CGFloat = 0.7
     
     private var dimmedContentColor: UIColor {
         if #available(iOS 13, tvOS 13, *) {
@@ -82,12 +104,19 @@ open class SPDimmedButton: SPButton {
         }
     }
     
+    /**
+     SparrowKit: Represent colors for state of button for elements.
+     */
     public struct Colorise {
         
         var title: UIColor
         var icon: UIColor
         var background: UIColor
         
+        /**
+         - parameter content: Color for `title` & `icon`
+         - parameter background: Color for background
+         */
         init(content: UIColor, background: UIColor) {
             self.title = content
             self.icon = content

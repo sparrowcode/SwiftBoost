@@ -53,6 +53,10 @@ public enum SPLogger {
         }
     }
     
+    static func kit(message: LogMessage) {
+        print("SparrowKit, " + message)
+    }
+    
     // MARK: - Classes
     
     /**

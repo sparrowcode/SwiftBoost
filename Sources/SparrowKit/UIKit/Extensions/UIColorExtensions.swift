@@ -156,10 +156,10 @@ public extension UIColor {
                     newAlpha = CGFloat(hexValue & 0x000000FF)  / 255.0
                 }
             default:
-                print("SPUIColorExtension - Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8", terminator: "")
+                SPLogger.kit(message: "UIColorExtension - Invalid RGB string, number of characters after '#' should be either 3, 4, 6 or 8")
             }
         } else {
-            print("SPUIColorExtension - Scan hex error")
+            SPLogger.kit(message: "UIColorExtension - Scan hex error")
         }
         return (red, green, blue, newAlpha)
     }
