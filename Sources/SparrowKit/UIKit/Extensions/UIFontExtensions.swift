@@ -44,6 +44,15 @@ public extension UIFont {
         }
     }
     
+    var serif: UIFont {
+        if #available(iOS 13, tvOS 13, *) {
+            guard let descriptor = fontDescriptor.withDesign(.serif) else { return self }
+            return UIFont(descriptor: descriptor, size: 0)
+        } else {
+            return self
+        }
+    }
+    
     static func preferredFont(forTextStyle style: TextStyle, addPoints: CGFloat = 0) -> UIFont {
         let referensFont = UIFont.preferredFont(forTextStyle: style)
         return referensFont.withSize(referensFont.pointSize + addPoints)
