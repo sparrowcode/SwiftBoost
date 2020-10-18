@@ -206,9 +206,14 @@ public extension Date {
         DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
     }
     
-    func formatted(as format: String = "dd.MM.yyyy HH:mm") -> String {
+    func formatted(as format: String = "dd.MM.yyyy HH:mm", localized: Bool) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale.current
+        if localized {
+            dateFormatter.setLocalizedDateFormatFromTemplate(format)
+        } else {
+            dateFormatter.dateFormat = format
+        }
         return dateFormatter.string(from: self)
     }
     
