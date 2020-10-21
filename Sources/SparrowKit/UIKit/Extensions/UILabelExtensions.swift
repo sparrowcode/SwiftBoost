@@ -64,5 +64,12 @@ public extension UILabel {
             }
         }
     }
+    
+    // MARK: - Layout
+    
+    func layoutDynamicHeight(x: CGFloat, y: CGFloat, width: CGFloat) {
+        frame = CGRect.init(x: x, y: y, width: width, height: 0)
+        sizeToFit()
+    }
 }
 #endif
