@@ -163,5 +163,17 @@ public extension UIColor {
         }
         return (red, green, blue, newAlpha)
     }
+    
+    #if !os(watchOS) && !os(tvOS)
+    static var footnoteColor: UIColor {
+        if #available(iOS 13.0, tvOS 13, *) {
+            return UIColor.init { (trait) -> UIColor in
+                return trait.userInterfaceStyle == .dark ? UIColor(hex: "8E8E93") : UIColor(hex: "6D6D72")
+            }
+        } else {
+            return UIColor(hex: "6D6D72")
+        }
+    }
+    #endif
 }
 #endif
