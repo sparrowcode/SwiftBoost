@@ -44,9 +44,6 @@ pod 'SparrowKit'
 
 If you prefer not to use any of dependency managers, you can integrate `SparrowKit` into your project manually. Put `Source/SparrowKit` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
 
-### Manually
-
-If you prefer not to use any of dependency managers, you can integrate `SPPermissions` into your project manually. Put `Source/SparrowKit` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
 
 ## Other Projects
 

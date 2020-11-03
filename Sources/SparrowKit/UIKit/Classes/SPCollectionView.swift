@@ -34,7 +34,7 @@ open class SPCollectionView: UICollectionView {
         commonInit()
     }
 
-    internal func commonInit() {
+    public func commonInit() {
         delaysContentTouches = false
     }
 }

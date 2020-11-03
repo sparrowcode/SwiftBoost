@@ -36,7 +36,7 @@ open class SPCollectionFlowLayoutView: SPCollectionView {
         commonInit()
     }
 
-    internal override func commonInit() {
+    public override func commonInit() {
         delaysContentTouches = false
     }
 }

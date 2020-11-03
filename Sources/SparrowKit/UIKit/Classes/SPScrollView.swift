@@ -34,7 +34,7 @@ open class SPScrollView: UIScrollView {
         commonInit()
     }
     
-    internal func commonInit() {
+    public func commonInit() {
         self.delaysContentTouches = false
     }
     
