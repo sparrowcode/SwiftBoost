@@ -39,6 +39,6 @@ open class SPView: UIView {
         commonInit()
     }
     
-    public func commonInit() {}
+    open func commonInit() {}
 }
 #endif
