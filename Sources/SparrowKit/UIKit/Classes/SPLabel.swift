@@ -54,6 +54,6 @@ open class SPLabel: UILabel {
         commonInit()
     }
     
-    public func commonInit() {}
+    open func commonInit() {}
 }
 #endif

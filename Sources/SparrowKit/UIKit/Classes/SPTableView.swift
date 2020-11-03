@@ -34,6 +34,6 @@ open class SPTableView: UITableView {
         commonInit()
     }
     
-    public func commonInit() {}
+    open func commonInit() {}
 }
 #endif

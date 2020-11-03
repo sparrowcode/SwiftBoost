@@ -26,19 +26,19 @@ open class SPDimmedButton: SPButton {
     
     // MARK: - Ovveride
     
-    public override var isHighlighted: Bool {
+    open override var isHighlighted: Bool {
         didSet {
             update()
         }
     }
     
-    public override var isEnabled: Bool {
+    open override var isEnabled: Bool {
         didSet {
             update()
         }
     }
     
-    public override func tintColorDidChange() {
+    open override func tintColorDidChange() {
         super.tintColorDidChange()
         update()
     }
@@ -48,23 +48,23 @@ open class SPDimmedButton: SPButton {
     /**
      SparrowKit: Colors for default state.
      */
-    public lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
+    open lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
     
     /**
      SparrowKit: Colors for disabled state.
      */
-    public lazy var disabledColorise = Colorise(content: tintColor, background: .clear)
+    open lazy var disabledColorise = Colorise(content: tintColor, background: .clear)
     
     /**
      SparrowKit: Colors for dimmed mode.
      */
-    public lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
+    open lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
     
     /**
      SparrowKit: If button has area background,
      you can set dimmed and disabled modes with call it func.
      */
-    public func applyStylesIfArea() {
+    open func applyStylesIfArea() {
         dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
         disabledColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
         update()
@@ -73,7 +73,7 @@ open class SPDimmedButton: SPButton {
     /**
      SparrowKit: Update colors for current state.
      */
-    public func update() {
+    open func update() {
         if tintAdjustmentMode == .dimmed {
             apply(dimmedColorise)
         } else if isEnabled {
@@ -95,10 +95,12 @@ open class SPDimmedButton: SPButton {
         backgroundColor = colorise.background
     }
     
+    // MARK: - Data
+    
     /**
      SparrowKit: Opacity of elements when button higlight.
      */
-    public var highlightOpacity: CGFloat = 0.7
+    open var highlightOpacity: CGFloat = 0.7
     
     private var dimmedContentColor: UIColor {
         if #available(iOS 13, tvOS 13, *) {
@@ -107,6 +109,8 @@ open class SPDimmedButton: SPButton {
            return UIColor(hex: "3c3c4399")
         }
     }
+    
+    // MARK: - Models
     
     /**
      SparrowKit: Represent colors for state of button for elements.
