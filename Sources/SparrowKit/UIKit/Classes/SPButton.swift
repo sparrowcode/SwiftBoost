@@ -39,6 +39,6 @@ open class SPButton: UIButton {
         commonInit()
     }
     
-    internal func commonInit() {}
+    public func commonInit() {}
 }
 #endif
