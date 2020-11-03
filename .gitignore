@@ -1,8 +1,13 @@
+.gitignore 
+# OS X temporary files
 .DS_Store
+.Trashes
 
+# Xcode User settings
 xcuserdata/
 
-/Packages
-/*.xcodeproj
-/.build
-
+# Swift Package Manager
+Packages/
+Package.resolved
+*.xcodeproj
+.swiftpm
