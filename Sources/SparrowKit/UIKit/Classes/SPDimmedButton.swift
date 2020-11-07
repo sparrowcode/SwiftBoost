@@ -125,7 +125,7 @@ open class SPDimmedButton: SPButton {
          - parameter content: Color for `title` & `icon`
          - parameter background: Color for background
          */
-        init(content: UIColor, background: UIColor) {
+        public init(content: UIColor, background: UIColor) {
             self.title = content
             self.icon = content
             self.background = background
