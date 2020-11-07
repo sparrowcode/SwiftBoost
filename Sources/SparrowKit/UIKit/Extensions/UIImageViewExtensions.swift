@@ -23,12 +23,6 @@
 import UIKit
 
 public extension UIImageView {
-    
-    @objc convenience init(image: UIImage?, contentMode: UIImageView.ContentMode) {
-        self.init()
-        self.image = image
-        self.contentMode = contentMode
-    }
 
     func download(
         from url: URL,
