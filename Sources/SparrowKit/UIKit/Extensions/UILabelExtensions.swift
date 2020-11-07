@@ -25,23 +25,6 @@ import UIKit
 
 public extension UILabel {
     
-    @objc convenience init(text: String?) {
-        self.init()
-        self.text = text
-    }
-    
-    @objc convenience init(text: String, style: UIFont.TextStyle) {
-        self.init()
-        font = UIFont.preferredFont(forTextStyle: style)
-        self.text = text
-    }
-    
-    @objc convenience init(text: String, style: UIFont.TextStyle, weight: UIFont.Weight, addPoints: CGFloat = 0) {
-        self.init()
-        font = UIFont.preferredFont(forTextStyle: style, weight: weight, addPoints: addPoints)
-        self.text = text
-    }
-    
     // MARK: - Helpers
     
     var letterSpace: CGFloat {
