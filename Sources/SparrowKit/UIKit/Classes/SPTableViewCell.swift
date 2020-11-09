@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
+// Copyright © 2019 Ivan Vorobei (ivanvorobei@icloud.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,17 +21,35 @@
 
 import UIKit
 
-open class SPSlider: UISlider {
+class SPTableViewCell: UITableViewCell {
     
-    public init() {
-        super.init(frame: .zero)
+    var currentIndexPath: IndexPath?
+    
+    var selectedColor: UIColor = .clear {
+        didSet {
+            selectedBackgroundView?.backgroundColor = selectedColor
+        }
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
     }
     
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         commonInit()
     }
     
-    open func commonInit() {}
+    open func commonInit() {
+        if #available(iOS 13.0, *) {
+            selectedBackgroundView = UIView()
+            selectedColor = UIColor.systemGray5
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        currentIndexPath = nil
+    }
 }

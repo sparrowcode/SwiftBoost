@@ -63,5 +63,16 @@ public extension UITableView {
         guard isValidIndexPath(indexPath) else { return }
         scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
     }
+    
+    func register<T: UITableViewCell>(cellWithClass name: T.Type) {
+        register(T.self, forCellReuseIdentifier: String(describing: name))
+    }
+    
+    func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withIdentifier: String(describing: name), for: indexPath) as? T else {
+            fatalError()
+        }
+        return cell
+    }
 }
 #endif
