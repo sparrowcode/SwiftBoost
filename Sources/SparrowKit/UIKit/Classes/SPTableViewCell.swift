@@ -21,6 +21,7 @@
 
 import UIKit
 
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 open class SPTableViewCell: UITableViewCell {
     
     open var currentIndexPath: IndexPath?
@@ -53,3 +54,4 @@ open class SPTableViewCell: UITableViewCell {
         currentIndexPath = nil
     }
 }
+#endif
