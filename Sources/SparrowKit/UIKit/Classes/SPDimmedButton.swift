@@ -43,28 +43,27 @@ open class SPDimmedButton: SPButton {
         update()
     }
     
-    // MARK: - Colorise
+    /**
+     SparrowKit: This method sets the color scheme for a specific button state
+     */
+    open func setColorise(_ colorise: Colorise, for state: State) {
+        switch state {
+        case .default:
+            defaultColorise = colorise
+        case .dimmed:
+            dimmedColorise = colorise
+        case .disabled:
+            disabledColorise = colorise
+        }
+        update()
+    }
     
     /**
-     SparrowKit: Colors for default state.
+     SparrowKit: If button has area background, you can set the color scheme for the default state.
+     `.dimmed` and `.disabled` states apply automaticaly
      */
-    open lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
-    
-    /**
-     SparrowKit: Colors for disabled state.
-     */
-    open lazy var disabledColorise = Colorise(content: tintColor, background: .clear)
-    
-    /**
-     SparrowKit: Colors for dimmed mode.
-     */
-    open lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
-    
-    /**
-     SparrowKit: If button has area background,
-     you can set dimmed and disabled modes with call it func.
-     */
-    open func applyStylesIfArea() {
+    open func applyDefaultAppearance(with colorise: Colorise) {
+        defaultColorise = colorise
         dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
         disabledColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
         update()
@@ -96,6 +95,21 @@ open class SPDimmedButton: SPButton {
     }
     
     // MARK: - Data
+    
+    /**
+     SparrowKit: Colors for default state.
+     */
+    private lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
+    
+    /**
+     SparrowKit: Colors for disabled state.
+     */
+    private lazy var disabledColorise = Colorise(content: tintColor, background: .clear)
+    
+    /**
+     SparrowKit: Colors for dimmed mode.
+     */
+    private lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
     
     /**
      SparrowKit: Opacity of elements when button higlight.
@@ -130,6 +144,20 @@ open class SPDimmedButton: SPButton {
             self.icon = content
             self.background = background
         }
+    }
+    
+    /**
+     SparrowKit: Button state
+     */
+    public enum State {
+        /// The button is in the normal state
+        case `default`
+        
+        /// The button is in a dimmed state, for example when another `UIViewController` is presented
+        case dimmed
+        
+        /// The button is disabled. Controlled through the `isDisabled` property
+        case disabled
     }
 }
 #endif
