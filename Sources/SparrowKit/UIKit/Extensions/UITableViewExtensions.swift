@@ -64,8 +64,8 @@ public extension UITableView {
         scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
     }
     
-    func register<T: UITableViewCell>(cellWithClass name: T.Type) {
-        register(T.self, forCellReuseIdentifier: String(describing: name))
+    func register<T: UITableViewCell>(_ cellClass: T.Type) {
+        register(T.self, forCellReuseIdentifier: String(describing: cellClass))
     }
     
     func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
