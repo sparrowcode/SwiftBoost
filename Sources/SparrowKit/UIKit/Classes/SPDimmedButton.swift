@@ -59,13 +59,14 @@ open class SPDimmedButton: SPButton {
     }
     
     /**
-     SparrowKit: If button has area background, you can set the color scheme for the default state.
-     `.dimmed` and `.disabled` states apply automaticaly
+     SparrowKit: Set the color scheme for the default state.
+     `.dimmed` and `.disabled` states calculate automaticaly
      */
     open func applyDefaultAppearance(with colorise: Colorise) {
         defaultColorise = colorise
-        dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
-        disabledColorise = Colorise(content: dimmedContentColor, background: dimmedContentColor.withAlphaComponent(0.1))
+        let dimmedBackground = colorise.background == .clear ? .clear : dimmedContentColor.alpha(0.1)
+        dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
+        disabledColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
         update()
     }
     
@@ -104,7 +105,7 @@ open class SPDimmedButton: SPButton {
     /**
      SparrowKit: Colors for disabled state.
      */
-    private lazy var disabledColorise = Colorise(content: tintColor, background: .clear)
+    private lazy var disabledColorise = Colorise(content: dimmedContentColor, background: .clear)
     
     /**
      SparrowKit: Colors for dimmed mode.
