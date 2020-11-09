@@ -21,6 +21,7 @@
 
 import UIKit
 
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 public extension UITabBarController {
     
     func addTabBarItem(with controller: UIViewController, title: String, image: UIImage, selectedImage: UIImage? = nil) {
@@ -37,3 +38,4 @@ public extension UITabBarController {
         else { self.viewControllers?.append(controller) }
     }
 }
+#endif
