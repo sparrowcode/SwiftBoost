@@ -21,22 +21,23 @@
 
 import UIKit
 
-class SPTableViewCell: UITableViewCell {
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
+open class SPTableViewCell: UITableViewCell {
     
-    var currentIndexPath: IndexPath?
+    open var currentIndexPath: IndexPath?
     
-    var selectedColor: UIColor = .clear {
+    open var selectedColor: UIColor = .clear {
         didSet {
             selectedBackgroundView?.backgroundColor = selectedColor
         }
     }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
@@ -48,8 +49,9 @@ class SPTableViewCell: UITableViewCell {
         }
     }
     
-    override func prepareForReuse() {
+    open override func prepareForReuse() {
         super.prepareForReuse()
         currentIndexPath = nil
     }
 }
+#endif
