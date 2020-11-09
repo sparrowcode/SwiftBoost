@@ -21,4 +21,4 @@
 
 import UIKit
 
-class SPController: UIViewController {}
+open class SPController: UIViewController {}
