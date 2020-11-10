@@ -39,6 +39,7 @@ open class SPSlider: UISlider {
      */
     private func createTrackLabel() -> SPLabel {
         let label = SPLabel()
+        label.font = .preferredFont(forTextStyle: .footnote)
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.3
         label.textAlignment = .center
