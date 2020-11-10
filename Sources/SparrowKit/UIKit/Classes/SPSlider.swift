@@ -24,6 +24,47 @@ import UIKit
 
 open class SPSlider: UISlider {
     
+    /**
+     SparrowKit: Minimum label.
+     */
+    open lazy var minimumTrackLabel: SPLabel = createTrackLabel()
+    
+    /**
+     SparrowKit: Maximum label.
+     */
+    open lazy var maximumTrackLabel: SPLabel = createTrackLabel()
+    
+    /**
+     SparrowKit: Generator of labels.
+     */
+    private func createTrackLabel() -> SPLabel {
+        let label = SPLabel()
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.3
+        label.textAlignment = .center
+        if #available(iOS 13.0, *) {
+            label.textColor = .secondaryLabel
+        } else {
+            label.textColor = .gray
+        }
+        addSubview(label)
+        return label
+    }
+    
+    /**
+     SparrowKit: Fixed size of minimum track label.
+     If `nil` label using size to fit for get width.
+     */
+    open var minimumTrackLabelWidth: CGFloat? = nil
+    
+    /**
+     SparrowKit: Fixed size of maximum track label.
+     If `nil` label using size to fit for get width.
+     */
+    open var maximumTrackLabelWidth: CGFloat? = nil
+    
+    // MARK: - Init
+    
     public init() {
         super.init(frame: .zero)
         commonInit()
@@ -34,6 +75,41 @@ open class SPSlider: UISlider {
         commonInit()
     }
     
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride init. Using one function for configurate view.
+     */
     open func commonInit() {}
+    
+    // MARK: - Layout
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        minimumTrackLabel.sizeToFit()
+        if let minimumTrackLabelWidth = self.minimumTrackLabelWidth {
+            minimumTrackLabel.frame.setWidth(minimumTrackLabelWidth)
+        }
+        minimumTrackLabel.frame.origin.x = 0
+        minimumTrackLabel.setYCenter()
+        
+        maximumTrackLabel.sizeToFit()
+        if let maximumTrackLabelWidth = self.maximumTrackLabelWidth {
+            maximumTrackLabel.frame.setWidth(maximumTrackLabelWidth)
+        }
+        maximumTrackLabel.frame.setMaxX(frame.width)
+        maximumTrackLabel.setYCenter()
+    }
+    
+    open override func trackRect(forBounds bounds: CGRect) -> CGRect {
+        let superRect = super.trackRect(forBounds: bounds)
+        guard minimumTrackLabel.text != nil && maximumTrackLabel.text != nil else { return superRect }
+        
+        let leftTrackLabelWidth = minimumTrackLabel.frame.width
+        let rightTrackLabelWidth = maximumTrackLabel.frame.width
+        let space: CGFloat = 10
+        return CGRect.init(x: superRect.origin.x + leftTrackLabelWidth + space, y: superRect.origin.y, width: superRect.width - leftTrackLabelWidth - rightTrackLabelWidth - space * 2, height: superRect.height)
+    }
 }
 #endif

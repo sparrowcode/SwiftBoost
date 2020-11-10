@@ -39,6 +39,12 @@ open class SPButton: UIButton {
         commonInit()
     }
     
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride init. Using one function for configurate view.
+     */
     open func commonInit() {}
 }
 #endif
