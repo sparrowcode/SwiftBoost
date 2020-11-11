@@ -60,6 +60,28 @@ public extension UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @available(iOS 13, *)
+    var closeBarButtonItem: UIBarButtonItem {
+        if #available(iOS 14.0, *) {
+            return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { (action) in
+                self.dismissAnimated()
+            }), menu: nil)
+        } else {
+            return UIBarButtonItem.init(barButtonSystemItem: .close, target: self, action: #selector(self.dismissAnimated))
+        }
+    }
+    
+    @available(iOS 14, *)
+    func closeBarButtonItem(for sceneName: UISceneConfiguration.SceneName? = nil) -> UIBarButtonItem {
+        return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { (action) in
+            if let sceneName = sceneName {
+                self.destruct(scene: sceneName)
+            } else {
+                self.dismissAnimated()
+            }
+        }), menu: nil)
+    }
+    
     //MARK: - Keyboard
     
     func dismissKeyboardWhenTappedAround() {
