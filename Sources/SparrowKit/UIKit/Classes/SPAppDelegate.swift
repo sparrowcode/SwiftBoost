@@ -22,5 +22,15 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-open class SPController: UIViewController {}
+open class SPAppDelegate: UIResponder, UIApplicationDelegate {
+    
+    open var window: UIWindow?
+    
+    open func launch(_ viewController: UIViewController) {
+        let frame = UIScreen.main.bounds
+        window = UIWindow(frame: frame)
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
+    }
+}
 #endif

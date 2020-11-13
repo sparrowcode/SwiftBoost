@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2019 Ivan Vorobei (ivanvorobei@icloud.com)
+// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -19,9 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-#if canImport(UIKit) && (os(iOS) || os(tvOS))
 open class SPTableViewCell: UITableViewCell {
     
     open var currentIndexPath: IndexPath?
@@ -45,7 +45,9 @@ open class SPTableViewCell: UITableViewCell {
     open func commonInit() {
         if #available(iOS 13.0, *) {
             selectedBackgroundView = UIView()
+            #if os(iOS)
             selectedColor = UIColor.systemGray5
+            #endif
         }
     }
     

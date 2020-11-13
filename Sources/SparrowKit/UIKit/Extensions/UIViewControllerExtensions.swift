@@ -60,6 +60,7 @@ public extension UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    #if os(iOS)
     @available(iOS 13, *)
     var closeBarButtonItem: UIBarButtonItem {
         if #available(iOS 14.0, *) {
@@ -70,7 +71,9 @@ public extension UIViewController {
             return UIBarButtonItem.init(barButtonSystemItem: .close, target: self, action: #selector(self.dismissAnimated))
         }
     }
+    #endif
     
+    #if os(iOS)
     @available(iOS 14, *)
     func closeBarButtonItem(for sceneName: UISceneConfiguration.SceneName? = nil) -> UIBarButtonItem {
         return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { [weak self] (action) in
@@ -82,6 +85,7 @@ public extension UIViewController {
             }
         }), menu: nil)
     }
+    #endif
     
     //MARK: - Keyboard
     
