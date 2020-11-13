@@ -67,5 +67,31 @@ public extension UICollectionView {
         guard isValidIndexPath(indexPath) else { return }
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
     }
+    
+    // MARK: - Cell Registration
+    
+    func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
+        register(T.self, forCellWithReuseIdentifier: String(describing: cellClass))
+    }
+    
+    func dequeueCell<T: UICollectionViewCell>(_ cellClass: T.Type, for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: cellClass), for: indexPath) as? T else {
+            fatalError()
+        }
+        return cell
+    }
+    
+    // MARK: - Header Footer Registration
+    
+    func register<T: UICollectionReusableView>(_ cellClass: T.Type, kind: String) {
+        register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: cellClass))
+    }
+    
+    func dequeueHeaderFooter<T: UICollectionReusableView>(_ cellClass: T.Type, kind: String, for indexPath: IndexPath) -> T {
+        guard let view = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: cellClass), for: indexPath) as? T else {
+            fatalError()
+        }
+        return view
+    }
 }
 #endif
