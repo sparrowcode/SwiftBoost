@@ -22,18 +22,18 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-open class SPCollectionFlowLayoutView: SPCollectionView {
+open class SPCollectionReusableView: UICollectionReusableView {
     
-    public var layout = UICollectionViewFlowLayout()
-    
-    public init() {
-        super.init(collectionViewLayout: self.layout)
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+        
+    }
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
         commonInit()
     }
     
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
+    open func commonInit() {}
 }
 #endif
