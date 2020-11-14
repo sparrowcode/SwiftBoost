@@ -27,6 +27,7 @@ open class SPTableViewHeaderFooterView: UITableViewHeaderFooterView {
     
     public override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+        commonInit()
     }
     
     public required init?(coder: NSCoder) {
