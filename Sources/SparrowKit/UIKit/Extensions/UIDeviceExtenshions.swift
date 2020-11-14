@@ -21,13 +21,15 @@
 
 import UIKit
 
-extension UIDevice {
+#if canImport(UIKit) && (os(iOS) || os(tvOS))
+public extension UIDevice {
     
     var isMac: Bool {
-        if #available(iOS 14.0, *) {
+        if #available(iOS 14.0, tvOS 14.0, *) {
             return UIDevice.current.userInterfaceIdiom == .mac
         } else {
             return false
         }
     }
 }
+#endif
