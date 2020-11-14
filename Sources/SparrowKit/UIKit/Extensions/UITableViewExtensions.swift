@@ -83,7 +83,7 @@ public extension UITableView {
         register(T.self, forHeaderFooterViewReuseIdentifier: String(describing: cellClass))
     }
     
-    func dequeueHeaderFooter<T: UITableViewHeaderFooterView>(_ cellClass: T.Type, for indexPath: IndexPath) -> T {
+    func dequeueHeaderFooter<T: UITableViewHeaderFooterView>(_ cellClass: T.Type) -> T {
         guard let view = dequeueReusableHeaderFooterView(withIdentifier: String(describing: cellClass)) as? T else {
             fatalError()
         }
