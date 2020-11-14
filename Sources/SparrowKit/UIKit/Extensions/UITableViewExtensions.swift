@@ -76,5 +76,19 @@ public extension UITableView {
         }
         return cell
     }
+    
+    // MARK: - Header Footer Registration
+    
+    func register<T: UITableViewHeaderFooterView>(_ cellClass: T.Type) {
+        register(T.self, forHeaderFooterViewReuseIdentifier: String(describing: cellClass))
+    }
+    
+    func dequeueHeaderFooter<T: UITableViewHeaderFooterView>(_ cellClass: T.Type, for indexPath: IndexPath) -> T {
+        guard let view = dequeueReusableHeaderFooterView(withIdentifier: String(describing: cellClass)) as? T else {
+            fatalError()
+        }
+        return view
+    }
+    
 }
 #endif

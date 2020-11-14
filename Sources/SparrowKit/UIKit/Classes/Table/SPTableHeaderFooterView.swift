@@ -19,21 +19,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-open class SPCollectionFlowLayoutView: SPCollectionView {
+open class SPTableViewHeaderFooterView: UITableViewHeaderFooterView {
     
-    public var layout = UICollectionViewFlowLayout()
+    public override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+    }
     
-    public init() {
-        super.init(collectionViewLayout: self.layout)
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
         commonInit()
     }
     
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
-    }
+    open func commonInit() {}
 }
 #endif
