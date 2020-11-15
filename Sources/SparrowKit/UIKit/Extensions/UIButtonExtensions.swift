@@ -25,15 +25,40 @@ import UIKit
 
 public extension UIButton {
     
+    /**
+     SparrowKit: Set title for all states.
+     
+     - parameter title: Title for button.
+     */
     func setTitle(_ title: String) {
-        self.setTitle(title, for: .normal)
+        setTitle(title, for: .normal)
     }
     
+    /**
+     SparrowKit: Set title color for all states.
+     Also adding higlight color automatically for clear press event.
+     
+     - parameter color: Color of title.
+     */
     func setTitleColor(_ color: UIColor) {
-        self.setTitleColor(color, for: .normal)
-        self.setTitleColor(color.withAlphaComponent(0.7), for: .highlighted)
+        setTitleColor(color, for: .normal)
+        setTitleColor(color.withAlphaComponent(0.7), for: .highlighted)
     }
     
+    /**
+     SparrowKit: Set image for all states.
+     
+     - parameter image: Image for button.
+     */
+    func setImage(_ image: UIImage) {
+        setImage(image, for: .normal)
+        setImage(image, for: .highlighted)
+        setImage(image, for: .disabled)
+    }
+    
+    /**
+     SparrowKit: Remove all targets.
+     */
     func removeAllTargets() {
         self.removeTarget(nil, action: nil, for: .allEvents)
     }
