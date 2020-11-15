@@ -62,9 +62,9 @@ open class SPDimmedButton: SPButton {
      SparrowKit: Set the color scheme for the default state.
      `.dimmed` and `.disabled` states calculate automaticaly.
      */
-    open func applyDefaultAppearance(with colorise: Colorise) {
-        defaultColorise = colorise
-        let dimmedBackground = colorise.background == .clear ? .clear : dimmedContentColor.alpha(0.1)
+    open func applyDefaultAppearance(with colorise: Colorise? = nil) {
+        defaultColorise = colorise ?? Colorise(content: tintColor, background: .clear)
+        let dimmedBackground = colorise?.background == .clear ? .clear : dimmedContentColor.alpha(0.1)
         dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
         disabledColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
         update()
