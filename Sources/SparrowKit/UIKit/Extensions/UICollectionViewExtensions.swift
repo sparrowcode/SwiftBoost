@@ -70,12 +70,12 @@ public extension UICollectionView {
     
     // MARK: - Cell Registration
     
-    func register<T: UICollectionViewCell>(_ cellClass: T.Type) {
-        register(T.self, forCellWithReuseIdentifier: String(describing: cellClass))
+    func register<T: UICollectionViewCell>(_ class: T.Type) {
+        register(T.self, forCellWithReuseIdentifier: String(describing: `class`))
     }
     
-    func dequeueCell<T: UICollectionViewCell>(_ cellClass: T.Type, for indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: cellClass), for: indexPath) as? T else {
+    func dequeueReusableCell<T: UICollectionViewCell>(withClass class: T.Type, for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
         }
         return cell
@@ -83,12 +83,12 @@ public extension UICollectionView {
     
     // MARK: - Header Footer Registration
     
-    func register<T: UICollectionReusableView>(_ cellClass: T.Type, kind: String) {
-        register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: cellClass))
+    func register<T: UICollectionReusableView>(_ class: T.Type, kind: String) {
+        register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: `class`))
     }
     
-    func dequeueHeaderFooter<T: UICollectionReusableView>(_ cellClass: T.Type, kind: String, for indexPath: IndexPath) -> T {
-        guard let view = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: cellClass), for: indexPath) as? T else {
+    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(withCalss class: T.Type, kind: String, for indexPath: IndexPath) -> T {
+        guard let view = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
         }
         return view

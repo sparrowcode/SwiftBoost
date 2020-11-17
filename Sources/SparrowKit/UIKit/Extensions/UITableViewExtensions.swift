@@ -66,12 +66,12 @@ public extension UITableView {
     
     // MARK: - Cell Registration
     
-    func register<T: UITableViewCell>(_ cellClass: T.Type) {
-        register(T.self, forCellReuseIdentifier: String(describing: cellClass))
+    func register<T: UITableViewCell>(_ class: T.Type) {
+        register(T.self, forCellReuseIdentifier: String(describing: `class`))
     }
     
-    func dequeueCell<T: UITableViewCell>(_ cellClass: T.Type, for indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withIdentifier: String(describing: cellClass), for: indexPath) as? T else {
+    func dequeueReusableCell<T: UITableViewCell>(withClass class: T.Type, for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
         }
         return cell
@@ -79,12 +79,12 @@ public extension UITableView {
     
     // MARK: - Header Footer Registration
     
-    func register<T: UITableViewHeaderFooterView>(_ cellClass: T.Type) {
-        register(T.self, forHeaderFooterViewReuseIdentifier: String(describing: cellClass))
+    func register<T: UITableViewHeaderFooterView>(_ class: T.Type) {
+        register(T.self, forHeaderFooterViewReuseIdentifier: String(describing: `class`))
     }
     
-    func dequeueHeaderFooter<T: UITableViewHeaderFooterView>(_ cellClass: T.Type) -> T {
-        guard let view = dequeueReusableHeaderFooterView(withIdentifier: String(describing: cellClass)) as? T else {
+    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass class: T.Type) -> T {
+        guard let view = dequeueReusableHeaderFooterView(withIdentifier: String(describing: `class`)) as? T else {
             fatalError()
         }
         return view
