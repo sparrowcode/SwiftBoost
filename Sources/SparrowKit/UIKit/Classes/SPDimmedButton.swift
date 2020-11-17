@@ -59,6 +59,20 @@ open class SPDimmedButton: SPButton {
     }
     
     /**
+     SparrowKit: Get colorise for specific state.
+     */
+    open func getColorise(for state: State) -> Colorise {
+        switch state {
+        case .default:
+            return defaultColorise
+        case .dimmed:
+            return dimmedColorise
+        case .disabled:
+            return disabledColorise
+        }
+    }
+    
+    /**
      SparrowKit: Set the color scheme for the default state.
      `.dimmed` and `.disabled` states calculate automaticaly.
      */
