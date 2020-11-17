@@ -151,33 +151,44 @@ open class SPDimmedButton: SPButton {
         public var background: UIColor
         
         /**
-         - parameter content: Color for `title` & `icon`
-         - parameter background: Color for background
+         - parameter content: Color for `title` & `icon`.
+         - parameter background: Color for background.
          */
         public init(content: UIColor, background: UIColor) {
             self.title = content
             self.icon = content
             self.background = background
         }
+        
+        /**
+         - parameter content: Color for `title` & `icon`.
+         - parameter background: Color for image.
+         - parameter background: Color for background.
+         */
+        public init(content: UIColor, icon: UIColor, background: UIColor) {
+            self.title = content
+            self.icon = icon
+            self.background = background
+        }
     }
     
     /**
-     SparrowKit: Button state
+     SparrowKit: Button state.
      */
     public enum State {
         
         /**
-         SparrowKit: The button is in the normal state
+         SparrowKit: The button is in the normal state.
          */
         case `default`
         
         /**
-         SparrowKit: The button is in a dimmed state, for example when another `UIViewController` is presented
+         SparrowKit: The button is in a dimmed state, for example when another `UIViewController` is presented.
          */
         case dimmed
         
         /**
-         SparrowKit: The button is disabled. Controlled through the `isDisabled` property
+         SparrowKit: The button is disabled. Controlled through the `isDisabled` property.
          */
         case disabled
     }
