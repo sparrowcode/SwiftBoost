@@ -64,8 +64,8 @@ public extension UIViewController {
     @available(iOS 13, *)
     var closeBarButtonItem: UIBarButtonItem {
         if #available(iOS 14.0, *) {
-            return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { (action) in
-                self.dismissAnimated()
+            return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { [weak self] (action) in
+                self?.dismissAnimated()
             }), menu: nil)
         } else {
             return UIBarButtonItem.init(barButtonSystemItem: .close, target: self, action: #selector(self.dismissAnimated))
