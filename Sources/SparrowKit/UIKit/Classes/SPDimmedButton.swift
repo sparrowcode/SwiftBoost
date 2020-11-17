@@ -146,9 +146,9 @@ open class SPDimmedButton: SPButton {
      */
     public struct Colorise {
         
-        var title: UIColor
-        var icon: UIColor
-        var background: UIColor
+        public var title: UIColor
+        public var icon: UIColor
+        public var background: UIColor
         
         /**
          - parameter content: Color for `title` & `icon`
@@ -165,13 +165,20 @@ open class SPDimmedButton: SPButton {
      SparrowKit: Button state
      */
     public enum State {
-        /// The button is in the normal state
+        
+        /**
+         SparrowKit: The button is in the normal state
+         */
         case `default`
         
-        /// The button is in a dimmed state, for example when another `UIViewController` is presented
+        /**
+         SparrowKit: The button is in a dimmed state, for example when another `UIViewController` is presented
+         */
         case dimmed
         
-        /// The button is disabled. Controlled through the `isDisabled` property
+        /**
+         SparrowKit: The button is disabled. Controlled through the `isDisabled` property
+         */
         case disabled
     }
 }
