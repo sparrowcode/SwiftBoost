@@ -78,6 +78,7 @@ public extension Date {
                 fromDate = newDate
             }
         }
+        dates.removeAll(where: { $0 > date })
         return dates
     }
     
