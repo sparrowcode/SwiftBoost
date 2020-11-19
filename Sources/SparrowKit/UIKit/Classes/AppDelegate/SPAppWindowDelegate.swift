@@ -26,7 +26,7 @@ open class SPAppWindowDelegate: SPAppDelegate {
     
     open var window: UIWindow?
     
-    open func launch(_ viewController: UIViewController) {
+    open func makeKeyAndVisible(_ viewController: UIViewController) {
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
         window?.rootViewController = viewController
