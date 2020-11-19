@@ -28,12 +28,10 @@ open class SPWindowScene: UIResponder, UIWindowSceneDelegate {
     open var window: UIWindow?
     
     open func makeKeyAndVisible(controller: UIViewController, in scene: UIWindowScene) {
-        let window = UIWindow(frame: scene.coordinateSpace.bounds)
-        window.windowScene = scene
-        window.rootViewController = controller
-    
-        self.window = window
-        window.makeKeyAndVisible()
+        window = UIWindow(frame: scene.coordinateSpace.bounds)
+        window?.windowScene = scene
+        window?.rootViewController = controller
+        window?.makeKeyAndVisible()
     }
 }
 #endif
