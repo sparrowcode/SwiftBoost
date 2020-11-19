@@ -19,19 +19,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-@available(iOS 13, tvOS 13, *)
-public extension UIWindowScene {
+#if canImport(UIKit) && (os(iOS))
+@available(iOS 13.0, *)
+open class SPWindowScene: UIResponder, UIWindowSceneDelegate {
     
-    func makeKeyAndVisibleWindow(with controller: UIViewController) -> UIWindow {
-        let window = UIWindow(frame: coordinateSpace.bounds)
-        window.windowScene = self
+    open var window: UIWindow?
+    
+    open func makeKeyAndVisible(controller: UIViewController, in scene: UIWindowScene) {
+        let window = UIWindow(frame: scene.coordinateSpace.bounds)
+        window.windowScene = scene
         window.rootViewController = controller
+    
+        self.window = window
         window.makeKeyAndVisible()
-        return window
     }
 }
 #endif
-
