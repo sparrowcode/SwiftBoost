@@ -134,7 +134,21 @@ public extension Date {
         }
     }
     
-    func start(of component: Calendar.Component) -> Date? {
+    func previous(_ component: Calendar.Component) -> Date {
+        self.adding(component, value: -1)
+    }
+    
+    func next(_ component: Calendar.Component) -> Date {
+        self.adding(component)
+    }
+    
+    /**
+     SparrowKit: Returns the start of component.
+     - Important: If it was not possible to get the end of the component, then self is returned.
+     - parameter component: The component you want to get the start of (year, month, day, etc.).
+     - returns: The start of component.
+     */
+    func start(of component: Calendar.Component) -> Date {
         if component == .day {
             return Calendar.current.startOfDay(for: self)
         }
@@ -150,12 +164,18 @@ public extension Date {
             default: return []
             }
         }
-        guard !components.isEmpty else { return nil }
-        return Calendar.current.date(from: Calendar.current.dateComponents(components, from: self))
+        guard components.isEmpty == false else { return self }
+        return Calendar.current.date(from: Calendar.current.dateComponents(components, from: self)) ?? self
     }
     
-    func end(of component: Calendar.Component) -> Date? {
-        guard let date = self.start(of: component) else { return nil }
+    /**
+     SparrowKit: Returns the end of component.
+     - Important: If it was not possible to get the end of the component, then self is returned.
+     - parameter component: The component you want to get the end of (year, month, day, etc.).
+     - returns: The end of component.
+     */
+    func end(of component: Calendar.Component) -> Date {
+        let date = self.start(of: component)
         var components: DateComponents? {
             switch component {
             case .second:
@@ -197,8 +217,8 @@ public extension Date {
                 return nil
             }
         }
-        guard let addedComponent = components else { return nil }
-        return Calendar.current.date(byAdding: addedComponent, to: date)!
+        guard let addedComponent = components else { return self }
+        return Calendar.current.date(byAdding: addedComponent, to: date) ?? self
     }
     
     //MARK: - Formatting
@@ -218,14 +238,37 @@ public extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func formattedInterval(to: Date, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style) -> String {
+    /**
+     SparrowKit: Returns time interval in text format.
+     
+     - parameter date: The date until which the calculation takes place.
+     - parameter dateStyle: The style to use when formatting day, month, and year information.
+     - parameter timeStyle: The style to use when formatting hour, minute, and second information.
+     - returns: The time interval in text format.
+     */
+    
+    func formattedInterval(to date: Date, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style) -> String {
         let formatter = DateIntervalFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
-        return formatter.string(from: self, to: to)
+        return formatter.string(from: self, to: date)
+        
     }
     
-    func age(toDate date: Date, components: Set<Calendar.Component>) -> String {
+    /**
+     SparrowKit: Returns age in text format.
+     
+     - parameter date: The date until which the calculation takes place.
+     - parameter components: Set of Components you want to get.
+     - returns: The age in text format.
+     
+     Take a look at this example:
+     ````
+     
+     myBirthday.age(to: Date(), components: [.year, .month]) // 3 Years, 8 months
+     ````
+     */
+    func age(to date: Date, components: Set<Calendar.Component>) -> String {
         let calender = Calendar.current
         let dateComponent = calender.dateComponents(components, from: self, to: date)
         var years = ""; var months = ""; var days = "";
