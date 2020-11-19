@@ -22,7 +22,5 @@
 #if canImport(UIKit) && (os(iOS))
 import UIKit
 
-open class SPAppScenesDelegate: SPAppDelegate {
-    
-}
+open class SPAppScenesDelegate: SPAppDelegate {}
 #endif
