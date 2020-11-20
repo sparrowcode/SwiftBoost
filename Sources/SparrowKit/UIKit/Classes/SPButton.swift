@@ -46,5 +46,27 @@ open class SPButton: UIButton {
      No need ovveride init. Using one function for configurate view.
      */
     open func commonInit() {}
+    
+    // MARK: - Title and Image insets
+    
+    open var titleImageInset: CGFloat? = nil
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if let inset = titleImageInset {
+            if imageView?.image == nil {
+                imageEdgeInsets.right = 0
+                titleEdgeInsets.left = 0
+            } else {
+                if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+                    imageEdgeInsets.right = inset
+                    titleEdgeInsets.left = inset
+                } else {
+                    imageEdgeInsets.right = -inset
+                    titleEdgeInsets.left = -inset
+                }
+            }
+        }
+    }
 }
 #endif
