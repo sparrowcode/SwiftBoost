@@ -32,6 +32,7 @@ public extension UIScrollView {
                                    height: min(min(bounds.size.height, contentSize.height), contentHeight)))
     }
 
+    #warning("Doing enum with custom point case.")
     func scrollToTop(animated: Bool) {
         setContentOffset(CGPoint(x: contentOffset.x, y: -contentInset.top), animated: animated)
     }
@@ -42,7 +43,7 @@ public extension UIScrollView {
 
     func scrollToBottom(animated: Bool) {
         setContentOffset(
-            CGPoint(x: contentOffset.x, y: max(0, contentSize.height - bounds.height) + contentInset.bottom),
+            CGPoint(x: contentOffset.x, y: max(0, contentSize.height - bounds.height) + contentInset.bottom + safeAreaInsets.bottom),
             animated: animated)
     }
 
