@@ -23,7 +23,7 @@
 #if canImport(Foundation)
 import Foundation
 
-func delay(_ delay: TimeInterval, closure: @escaping ()->()) {
+public func delay(_ delay: TimeInterval, closure: @escaping ()->()) {
     let when = DispatchTime.now() + delay
     DispatchQueue.main.asyncAfter(deadline: when) {
         closure()
