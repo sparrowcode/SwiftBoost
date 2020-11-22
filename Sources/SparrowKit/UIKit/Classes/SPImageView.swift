@@ -30,9 +30,7 @@ open class SPImageView: UIImageView {
     }
 
     public convenience init(image: UIImage?, contentMode: UIImageView.ContentMode) {
-        self.init()
-        self.image = image
-        self.contentMode = contentMode
+        self.init(image: image, contentMode: contentMode)
         commonInit()
     }
     
