@@ -29,8 +29,9 @@ open class SPImageView: UIImageView {
         commonInit()
     }
 
-    public convenience init(image: UIImage?, contentMode: UIImageView.ContentMode) {
-        self.init(image: image, contentMode: contentMode)
+    public init(image: UIImage?, contentMode: UIImageView.ContentMode) {
+        super.init(image: image)
+        self.contentMode = contentMode
         commonInit()
     }
     
