@@ -25,26 +25,25 @@ import UIKit
 open class SPLabel: UILabel {
     
     public init() {
-        super.init(frame: CGRect.zero)
+        super.init(frame: .zero)
         commonInit()
     }
     
-    public convenience init(text: String?) {
-        self.init()
+    public init(text: String?) {
+        super.init(frame: .zero)
         self.text = text
         commonInit()
     }
     
-    public convenience init(text: String, style: UIFont.TextStyle) {
-        self.init()
+    public init(text: String, style: UIFont.TextStyle) {
+        super.init(frame: .zero)
         font = UIFont.preferredFont(forTextStyle: style)
         self.text = text
         commonInit()
     }
     
-    public convenience init(text: String, style: UIFont.TextStyle, weight: UIFont.Weight, addPoints: CGFloat = 0) {
-        self.init()
-        font = UIFont.preferredFont(forTextStyle: style, weight: weight, addPoints: addPoints)
+    public init(text: String, font: UIFont) {
+        super.init(frame: .zero)
         self.text = text
         commonInit()
     }
