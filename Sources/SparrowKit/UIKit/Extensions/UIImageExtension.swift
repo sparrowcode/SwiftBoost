@@ -77,6 +77,7 @@ public extension UIImage {
         return withRenderingMode(.alwaysOriginal)
     }
     
+    @available(iOS 13.0, *)
     func alwaysOriginal(with color: UIColor) -> UIImage {
         return withTintColor(color, renderingMode: .alwaysOriginal)
     }
