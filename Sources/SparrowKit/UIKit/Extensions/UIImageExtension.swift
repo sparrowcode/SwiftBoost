@@ -76,6 +76,10 @@ public extension UIImage {
     var alwaysOriginal: UIImage {
         return withRenderingMode(.alwaysOriginal)
     }
+    
+    func alwaysOriginal(with color: UIColor) -> UIImage {
+        return withTintColor(color, renderingMode: .alwaysOriginal)
+    }
 
     var alwaysTemplate: UIImage {
         return withRenderingMode(.alwaysTemplate)
