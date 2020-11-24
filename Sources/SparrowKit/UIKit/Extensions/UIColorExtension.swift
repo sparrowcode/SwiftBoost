@@ -65,6 +65,12 @@ public extension UIColor {
         self.init(red: hex.red, green: hex.green, blue: hex.blue, alpha: hex.alpha)
     }
     
+    #if !os(watchOS)
+    var tint: UIColor {
+        return UIView.appearance().tintColor
+    }
+    #endif
+    
     var hex: String {
         let colorRef = cgColor.components
         let r = colorRef?[0] ?? 0
