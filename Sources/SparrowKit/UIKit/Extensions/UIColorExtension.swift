@@ -66,7 +66,7 @@ public extension UIColor {
     }
     
     #if !os(watchOS)
-    var tint: UIColor {
+    static var tint: UIColor {
         return UIView.appearance().tintColor
     }
     #endif
