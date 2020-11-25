@@ -22,7 +22,7 @@
 #if canImport(Foundation)
 import Foundation
 
-extension NotificationCenter {
+public extension NotificationCenter {
     
     func post(name: NSNotification.Name) {
         post(name: name, object: nil)
