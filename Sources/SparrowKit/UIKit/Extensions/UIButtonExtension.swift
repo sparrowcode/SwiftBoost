@@ -50,7 +50,7 @@ public extension UIButton {
      
      - parameter image: Image for button.
      */
-    func setImage(_ image: UIImage) {
+    func setImage(_ image: UIImage?) {
         setImage(image, for: .normal)
         setImage(image, for: .highlighted)
         setImage(image, for: .disabled)
