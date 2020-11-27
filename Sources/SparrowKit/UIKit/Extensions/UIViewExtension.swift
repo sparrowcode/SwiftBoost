@@ -86,6 +86,17 @@ public extension UIView {
     // MARK: - Layout
     
     /**
+     SparrowKit: Set specific width and after it fit view.
+     
+     - warning:
+     Fit view can be return zero height. View shoud support it.
+     */
+    func setWidthAndFit(width: CGFloat) {
+        frame.setWidth(width)
+        sizeToFit()
+    }
+    
+    /**
      SparrowKit: Set center X of current view to medium width of superview.
      
      - warning:
