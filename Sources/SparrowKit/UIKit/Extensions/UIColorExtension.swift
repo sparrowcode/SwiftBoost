@@ -67,8 +67,14 @@ public extension UIColor {
     
     #if !os(watchOS)
     static var tint: UIColor {
-        get { return UIView.appearance().tintColor }
-        set { UIView.appearance().tintColor = newValue }
+        get {
+            let value = UIApplication.shared.windows.first?.tintColor
+            guard let tint = value else { return .systemBlue }
+            return tint
+        }
+        set {
+            UIApplication.shared.windows.forEach({ $0.tintColor = newValue })
+        }
     }
     #endif
     
