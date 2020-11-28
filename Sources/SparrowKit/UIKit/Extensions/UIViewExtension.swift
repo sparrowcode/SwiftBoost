@@ -178,7 +178,7 @@ public extension UIView {
      - warning:
      If view not have superview, nothing happen.
      */
-    func setEqualSuperviewBoundsWithFrames() {
+    func setEqualSuperviewBounds() {
         guard let superview = self.superview else { return }
         frame = superview.bounds
     }
