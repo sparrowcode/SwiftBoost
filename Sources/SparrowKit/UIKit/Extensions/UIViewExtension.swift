@@ -173,6 +173,17 @@ public extension UIView {
     }
     
     /**
+     SparrowKit: Set view equal frame to superview frame via frames.
+     
+     - warning:
+     If view not have superview, nothing happen.
+     */
+    func setEqualSuperviewBoundsWithFrames() {
+        guard let superview = self.superview else { return }
+        frame = superview.bounds
+    }
+    
+    /**
      SparrowKit: Set view equal frame to superview frame via `autoresizingMask`.
      */
     func setEqualSuperviewBoundsWithAutoresizingMask() {
