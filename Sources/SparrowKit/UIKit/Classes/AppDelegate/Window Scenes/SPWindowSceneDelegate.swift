@@ -23,13 +23,14 @@ import UIKit
 
 #if canImport(UIKit) && (os(iOS))
 @available(iOS 13.0, *)
-open class SPWindowScene: UIResponder, UIWindowSceneDelegate {
+open class SPWindowSceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     open var window: UIWindow?
     
-    open func makeKeyAndVisible(_ viewController: UIViewController, in scene: UIWindowScene) {
+    open func makeKeyAndVisible(_ viewController: UIViewController, in scene: UIWindowScene, tint: UIColor = .systemBlue) {
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
+        window?.tintColor = tint
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }
