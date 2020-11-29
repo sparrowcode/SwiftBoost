@@ -27,7 +27,7 @@ open class SPWindowSceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     open var window: UIWindow?
     
-    open func makeKeyAndVisible(_ viewController: UIViewController, in scene: UIWindowScene, tint: UIColor = .systemBlue) {
+    open func makeKeyAndVisible(_ viewController: UIViewController, in scene: UIWindowScene, tint: UIColor) {
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
         window?.tintColor = tint
