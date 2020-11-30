@@ -25,6 +25,10 @@ import CoreGraphics
 
 public extension CGSize {
     
+    init(side: CGFloat) {
+        self.init(width: side, height: side)
+    }
+    
     var aspectRatio: CGFloat {
         guard height != 0 else { return 0 }
         return width / height
