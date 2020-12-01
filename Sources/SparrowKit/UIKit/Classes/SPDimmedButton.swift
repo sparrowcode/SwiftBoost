@@ -28,20 +28,22 @@ open class SPDimmedButton: SPButton {
     
     open override var isHighlighted: Bool {
         didSet {
-            update()
+            updateAppearance()
         }
     }
     
     open override var isEnabled: Bool {
         didSet {
-            update()
+            updateAppearance()
         }
     }
     
     open override func tintColorDidChange() {
         super.tintColorDidChange()
-        update()
+        updateAppearance()
     }
+    
+    // MARK: - Colorise Process
     
     /**
      SparrowKit: This method sets the color scheme for a specific button state
@@ -55,7 +57,7 @@ open class SPDimmedButton: SPButton {
         case .disabled:
             disabledColorise = colorise
         }
-        update()
+        updateAppearance()
     }
     
     /**
@@ -77,22 +79,24 @@ open class SPDimmedButton: SPButton {
      `.dimmed` and `.disabled` states calculate automaticaly.
      */
     open func applyDefaultAppearance(with colorise: Colorise? = nil) {
-        defaultColorise = colorise ?? Colorise(content: tintColor, background: .clear)
-        let dimmedBackground = colorise?.background == .clear ? .clear : dimmedContentColor.alpha(0.1)
+        defaultColorise = colorise ?? Colorise(content: .tint, background: .custom(.clear))
+        let defaultBackgroundColor = colorFromColoriseType(defaultColorise.background)
+        let dimmedBackground = defaultBackgroundColor == .clear ? .clear : dimmedContentColor.alpha(0.1)
         dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
         disabledColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
-        update()
+        updateAppearance()
     }
     
     /**
      SparrowKit: Update colors for current state.
      */
-    open func update() {
+    private func updateAppearance() {
         if tintAdjustmentMode == .dimmed {
             apply(dimmedColorise)
         } else if isEnabled {
             apply(defaultColorise)
-            let imageTintColor = defaultColorise.icon.withAlphaComponent(isHighlighted ? highlightOpacity : 1)
+            var imageTintColor = colorFromColoriseType(defaultColorise.icon)
+            imageTintColor = imageTintColor.withAlphaComponent(isHighlighted ? highlightOpacity : 1)
             imageView?.tintColor = imageTintColor
         } else {
             apply(disabledColorise)
@@ -100,42 +104,63 @@ open class SPDimmedButton: SPButton {
     }
     
     /**
-     SparrowKit: Apply colors.
+     SparrowKit: Apply colors from special colorise.
      */
     private func apply(_ colorise: Colorise) {
-        setTitleColor(colorise.title, for: .normal)
-        setTitleColor(colorise.title.withAlphaComponent(highlightOpacity), for: .highlighted)
-        imageView?.tintColor = colorise.icon
-        backgroundColor = colorise.background
+        let titleColor = colorFromColoriseType(colorise.title)
+        setTitleColor(titleColor, for: .normal)
+        setTitleColor(titleColor.withAlphaComponent(highlightOpacity), for: .highlighted)
+        imageView?.tintColor = colorFromColoriseType(colorise.icon)
+        backgroundColor = colorFromColoriseType(colorise.background)
     }
     
-    // MARK: - Data
+    /**
+     SparrowKit: Get valid color by `Colorise.Mode` for this button.
+     
+     For example each call can return diffrent color for if changing tint.
+     If mode in custom always return this value.
+     
+     - parameter mode: Colorise mode from which need get color.
+     */
+    private func colorFromColoriseType(_ mode: Colorise.Mode) -> UIColor {
+        switch mode {
+        case .tint: return self.tintColor
+        case .custom(let color): return color
+        }
+    }
+    
+    // MARK: - Colorises
     
     /**
-     SparrowKit: Colors for default state.
+     SparrowKit: Colorise for default state.
      */
     private lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
     
     /**
-     SparrowKit: Colors for disabled state.
+     SparrowKit: Colorise for disabled state.
      */
     private lazy var disabledColorise = Colorise(content: dimmedContentColor, background: .clear)
     
     /**
-     SparrowKit: Colors for dimmed mode.
+     SparrowKit: Colorise for dimmed mode.
      */
     private lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
+    
+    // MARK: - Data
     
     /**
      SparrowKit: Opacity of elements when button higlight.
      */
     open var highlightOpacity: CGFloat = 0.7
     
+    /**
+     SparrowKit: Default dimmed content color with compability iOS 12.
+     */
     private var dimmedContentColor: UIColor {
         if #available(iOS 13, tvOS 13, *) {
             return UIColor.secondaryLabel
         } else {
-           return UIColor(hex: "3c3c4399")
+            return UIColor(hex: "3c3c4399")
         }
     }
     
@@ -146,18 +171,30 @@ open class SPDimmedButton: SPButton {
      */
     public struct Colorise {
         
-        public var title: UIColor
-        public var icon: UIColor
-        public var background: UIColor
+        public var title: Mode
+        public var icon: Mode
+        public var background: Mode
+        
+        /**
+         SparrowKit: This init allow create colorise with automatically tint oberving.
+         
+         - parameter content: Colorise mode for `title` & `icon`.
+         - parameter background: Colorise mode for background.
+         */
+        public init(content: Mode, background: Mode) {
+            self.title = content
+            self.icon = content
+            self.background = background
+        }
         
         /**
          - parameter content: Color for `title` & `icon`.
          - parameter background: Color for background.
          */
         public init(content: UIColor, background: UIColor) {
-            self.title = content
-            self.icon = content
-            self.background = background
+            self.title = .custom(content)
+            self.icon = .custom(content)
+            self.background = .custom(content)
         }
         
         /**
@@ -166,9 +203,27 @@ open class SPDimmedButton: SPButton {
          - parameter background: Color for background.
          */
         public init(content: UIColor, icon: UIColor, background: UIColor) {
-            self.title = content
-            self.icon = icon
-            self.background = background
+            self.title = .custom(content)
+            self.icon = .custom(content)
+            self.background = .custom(content)
+        }
+        
+        /**
+         SparrowKit: Represent of rendering colors in button.
+         
+         It need for have dynamic tint color and fixed custom.
+         */
+        public enum Mode {
+            
+            /**
+             SparrowKit: Always specoific color.
+             */
+            case custom(UIColor)
+            
+            /**
+             SparrowKit: Observe and apply tint color of button.
+             */
+            case tint
         }
     }
     
