@@ -43,12 +43,12 @@ open class SPDimmedButton: SPButton {
         updateAppearance()
     }
     
-    // MARK: - Colorise Process
+    // MARK: - Colorises Process
     
     /**
      SparrowKit: This method sets the color scheme for a specific button state
      */
-    open func setColorise(_ colorise: Colorise, for state: State) {
+    open func setColorise(_ colorise: Colorise, for state: AppearanceState) {
         switch state {
         case .default:
             defaultColorise = colorise
@@ -63,7 +63,7 @@ open class SPDimmedButton: SPButton {
     /**
      SparrowKit: Get colorise for specific state.
      */
-    open func getColorise(for state: State) -> Colorise {
+    open func getColorise(for state: AppearanceState) -> Colorise {
         switch state {
         case .default:
             return defaultColorise
@@ -92,21 +92,21 @@ open class SPDimmedButton: SPButton {
      */
     private func updateAppearance() {
         if tintAdjustmentMode == .dimmed {
-            apply(dimmedColorise)
+            applyColorise(dimmedColorise)
         } else if isEnabled {
-            apply(defaultColorise)
+            applyColorise(defaultColorise)
             var imageTintColor = colorFromColoriseType(defaultColorise.icon)
             imageTintColor = imageTintColor.withAlphaComponent(isHighlighted ? highlightOpacity : 1)
             imageView?.tintColor = imageTintColor
         } else {
-            apply(disabledColorise)
+            applyColorise(disabledColorise)
         }
     }
     
     /**
      SparrowKit: Apply colors from special colorise.
      */
-    private func apply(_ colorise: Colorise) {
+    private func applyColorise(_ colorise: Colorise) {
         let titleColor = colorFromColoriseType(colorise.title)
         setTitleColor(titleColor, for: .normal)
         setTitleColor(titleColor.withAlphaComponent(highlightOpacity), for: .highlighted)
@@ -129,7 +129,7 @@ open class SPDimmedButton: SPButton {
         }
     }
     
-    // MARK: - Colorises
+    // MARK: - Colorises Models
     
     /**
      SparrowKit: Colorise for default state.
@@ -230,7 +230,7 @@ open class SPDimmedButton: SPButton {
     /**
      SparrowKit: Button state.
      */
-    public enum State {
+    public enum AppearanceState {
         
         /**
          SparrowKit: The button is in the normal state.
