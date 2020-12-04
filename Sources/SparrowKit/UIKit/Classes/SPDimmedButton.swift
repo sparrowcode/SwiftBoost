@@ -80,7 +80,7 @@ open class SPDimmedButton: SPButton {
      */
     open func applyDefaultAppearance(with colorise: Colorise? = nil) {
         defaultColorise = colorise ?? Colorise(content: .tint, background: .custom(.clear))
-        let defaultBackgroundColor = colorFromColoriseType(defaultColorise.background)
+        let defaultBackgroundColor = colorFromColoriseMode(defaultColorise.background)
         let dimmedBackground = defaultBackgroundColor == .clear ? .clear : dimmedContentColor.alpha(0.1)
         dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
         disabledColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
@@ -95,7 +95,7 @@ open class SPDimmedButton: SPButton {
             applyColorise(dimmedColorise)
         } else if isEnabled {
             applyColorise(defaultColorise)
-            var imageTintColor = colorFromColoriseType(defaultColorise.icon)
+            var imageTintColor = colorFromColoriseMode(defaultColorise.icon)
             imageTintColor = imageTintColor.withAlphaComponent(isHighlighted ? highlightOpacity : 1)
             imageView?.tintColor = imageTintColor
         } else {
@@ -107,11 +107,11 @@ open class SPDimmedButton: SPButton {
      SparrowKit: Apply colors from special colorise.
      */
     private func applyColorise(_ colorise: Colorise) {
-        let titleColor = colorFromColoriseType(colorise.title)
+        let titleColor = colorFromColoriseMode(colorise.title)
         setTitleColor(titleColor, for: .normal)
         setTitleColor(titleColor.withAlphaComponent(highlightOpacity), for: .highlighted)
-        imageView?.tintColor = colorFromColoriseType(colorise.icon)
-        backgroundColor = colorFromColoriseType(colorise.background)
+        imageView?.tintColor = colorFromColoriseMode(colorise.icon)
+        backgroundColor = colorFromColoriseMode(colorise.background)
     }
     
     /**
@@ -122,7 +122,7 @@ open class SPDimmedButton: SPButton {
      
      - parameter mode: Colorise mode from which need get color.
      */
-    private func colorFromColoriseType(_ mode: Colorise.Mode) -> UIColor {
+    public func colorFromColoriseMode(_ mode: Colorise.Mode) -> UIColor {
         switch mode {
         case .tint: return self.tintColor
         case .custom(let color): return color
@@ -194,7 +194,7 @@ open class SPDimmedButton: SPButton {
         public init(content: UIColor, background: UIColor) {
             self.title = .custom(content)
             self.icon = .custom(content)
-            self.background = .custom(content)
+            self.background = .custom(background)
         }
         
         /**
@@ -204,8 +204,8 @@ open class SPDimmedButton: SPButton {
          */
         public init(content: UIColor, icon: UIColor, background: UIColor) {
             self.title = .custom(content)
-            self.icon = .custom(content)
-            self.background = .custom(content)
+            self.icon = .custom(icon)
+            self.background = .custom(background)
         }
         
         /**
