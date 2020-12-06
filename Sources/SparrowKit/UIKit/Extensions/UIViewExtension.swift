@@ -222,20 +222,6 @@ public extension UIView {
     }
     
     /**
-     SparrowKit: Wrapper for layer property `cornerRadius`.
-     */
-    @available(*, deprecated, message: "Shoud use method with correct corners mask.", renamed: "roundCorners(radius:)")
-    var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.masksToBounds = true
-            layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
-        }
-    }
-    
-    /**
      SparrowKit: Correct rounded corners by current frame.
      
      - important:
