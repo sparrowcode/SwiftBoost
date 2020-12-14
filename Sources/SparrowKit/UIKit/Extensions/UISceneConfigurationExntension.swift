@@ -23,12 +23,5 @@
 import UIKit
 
 @available(iOS 13, tvOS 13, *)
-public extension UISceneConfiguration {
-    
-    typealias SceneName = String
-    
-    convenience init(name: UISceneConfiguration.SceneName, role: UISceneSession.Role) {
-        self.init(name: name, sessionRole: role)
-    }
-}
+public extension UISceneConfiguration {}
 #endif

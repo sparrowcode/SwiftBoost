@@ -23,8 +23,5 @@
 import Foundation
 
 @available(iOS 13, *)
-public extension NSUserActivity {
-    
-    typealias ActivityType = String
-}
+public extension NSUserActivity {}
 #endif
