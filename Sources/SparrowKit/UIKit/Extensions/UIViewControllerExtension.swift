@@ -44,7 +44,7 @@ public extension UIViewController {
     }
     
     @available(iOS 13, tvOS 13, *)
-    func destruct(scene name: UISceneConfiguration.SceneName) {
+    func destruct(scene name: String) {
         guard let session = view.window?.windowScene?.session else {
             dismissAnimated()
             return
@@ -75,7 +75,7 @@ public extension UIViewController {
     
     #if os(iOS)
     @available(iOS 14, *)
-    func closeBarButtonItem(for sceneName: UISceneConfiguration.SceneName? = nil) -> UIBarButtonItem {
+    func closeBarButtonItem(for sceneName: String? = nil) -> UIBarButtonItem {
         return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { [weak self] (action) in
             guard let self = self else { return }
             if let sceneName = sceneName {
