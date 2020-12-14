@@ -27,9 +27,9 @@ public extension NSUserActivity {
     
     class ActivityType: NSObject {
         
-        var id: String
+        open var id: String
         
-        init(id: String) {
+        public init(id: String) {
             self.id = id
             super.init()
         }
