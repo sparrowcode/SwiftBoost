@@ -23,20 +23,5 @@
 import UIKit
 
 @available(iOS 13, tvOS 13, *)
-public extension UISceneConfiguration {
-    
-    class Scene: NSObject {
-        
-        open var id: String
-        
-        public init(id: String) {
-            self.id = id
-            super.init()
-        }
-    }
-    
-    convenience init(scene: UISceneConfiguration.Scene, role: UISceneSession.Role) {
-        self.init(name: scene.id, sessionRole: role)
-    }
-}
+public extension UISceneConfiguration {}
 #endif
