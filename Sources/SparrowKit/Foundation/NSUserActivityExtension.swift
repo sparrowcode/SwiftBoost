@@ -23,5 +23,16 @@
 import Foundation
 
 @available(iOS 13, *)
-public extension NSUserActivity {}
+public extension NSUserActivity {
+    
+    class ActivityType: NSObject {
+        
+        var id: String
+        
+        init(id: String) {
+            self.id = id
+            super.init()
+        }
+    }
+}
 #endif
