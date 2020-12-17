@@ -34,15 +34,9 @@ public extension UIViewController {
         return navigationController
     }
     
-    func addChildWithView(_ childController: UIViewController) {
+    func addChildWithView(_ childController: UIViewController, to containerView: UIView) {
         addChild(childController)
-        view.addSubview(childController.view)
-        childController.didMove(toParent: self)
-    }
-    
-    func addChildWithView(_ childController: UIViewController, belowSubview: UIView) {
-        addChild(childController)
-        view.insertSubview(childController.view, belowSubview: belowSubview)
+        containerView.addSubview(childController.view)
         childController.didMove(toParent: self)
     }
     
