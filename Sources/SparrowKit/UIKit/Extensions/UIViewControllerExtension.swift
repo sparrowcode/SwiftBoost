@@ -1,5 +1,5 @@
 // The MIT License (MIT)
-// Copyright © 2020 Ivan Varabei (varabeis@icloud.com)
+// Copyright © 2020 Ivan Vorobei (hello@ivanvorobei.by)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,30 @@ import UIKit
 
 public extension UIViewController {
 
+    //MARK: - Containers
+    
+    func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
+        let navigationController = UINavigationController(rootViewController: self)
+        #if os(iOS)
+        navigationController.navigationBar.prefersLargeTitles = prefersLargeTitles
+        #endif
+        return navigationController
+    }
+    
+    func addChildWithView(_ childController: UIViewController) {
+        addChild(childController)
+        view.addSubview(childController.view)
+        childController.didMove(toParent: self)
+    }
+    
+    func addChildWithView(_ childController: UIViewController, belowSubview: UIView) {
+        addChild(childController)
+        view.insertSubview(childController.view, belowSubview: belowSubview)
+        childController.didMove(toParent: self)
+    }
+    
+    //MARK: - Present, Dismiss and Destruct
+    
     var isVisible: Bool {
         return isViewLoaded && view.window != nil
     }
@@ -35,14 +59,9 @@ public extension UIViewController {
         self.present(viewControllerToPresent, animated: true, completion: completion)
     }
     
-    func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
-        let navigationController = UINavigationController(rootViewController: self)
-        #if os(iOS)
-        navigationController.navigationBar.prefersLargeTitles = prefersLargeTitles
-        #endif
-        return navigationController
-    }
-    
+    /**
+     If scene name is same as 
+     */
     @available(iOS 13, tvOS 13, *)
     func destruct(scene name: String) {
         guard let session = view.window?.windowScene?.session else {
@@ -59,6 +78,8 @@ public extension UIViewController {
     @objc func dismissAnimated() {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    //MARK: - Bar Button Items
     
     #if os(iOS)
     @available(iOS 13, *)
