@@ -90,7 +90,7 @@ public extension UIViewController {
     
     #if os(iOS)
     @available(iOS 14, *)
-    func closeBarButtonItem(for sceneName: String? = nil) -> UIBarButtonItem {
+    func closeBarButtonItem(sceneName: String? = nil) -> UIBarButtonItem {
         return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { [weak self] (action) in
             guard let self = self else { return }
             if let name = sceneName {
