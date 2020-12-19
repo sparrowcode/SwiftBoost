@@ -1,4 +1,3 @@
-.gitignore 
 # OS X temporary files
 .DS_Store
 .Trashes
@@ -9,5 +8,7 @@ xcuserdata/
 # Swift Package Manager
 Packages/
 Package.resolved
-*.xcodeproj
 .swiftpm
+
+# Pods
+Pods/

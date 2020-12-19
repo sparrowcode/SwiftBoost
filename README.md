@@ -4,21 +4,16 @@ If you have time, please, add description and docs for functions.
 
 If you like the project, don't forget to `put star ★` and follow me on GitHub:
 
-[![https://github.com/varabeis](https://github.com/varabeis/Assets/blob/master/Buttons/follow-me-on-github.svg)](https://github.com/varabeis)
+[![https://github.com/varabeis](https://github.com/varabeis/Readme/blob/main/Buttons/follow-me-varabeis.svg)](https://github.com/varabeis)
 
 ## Navigate
 
-- [Requirements](#requirements)
 - [Installation](#installation)
-    - [CocoaPods](#cocoapods)
     - [Swift Package Manager](#swift-package-manager)
+    - [CocoaPods](#cocoapods)
     - [Manually](#manually)
 - [Other Projects](#other-projects)
 - [Russian Community](#russian-community)
-
-## Requirements
-
-Swift `5.0`. Ready for use on iOS 12+
 
 ## Installation
 
@@ -42,24 +37,24 @@ pod 'SparrowKit'
 
 ### Manually
 
-If you prefer not to use any of dependency managers, you can integrate `SparrowKit` into your project manually. Put `Source/SparrowKit` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
-
+If you prefer not to use any of dependency managers, you can integrate `SparrowKit` into your project manually. Put `Sources/SparrowKit` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
 
 ## Other Projects
 
 #### [SPPermissions](https://github.com/varabeis/SPPermissions)
-Allow request permissions with native dialog UI and interactive animations. Also you can request permissions without dialog. Check state any permission. You can start using this project with just two lines of code and easy customisation.
+Using for request and check state of permissions. Available native UI for request multiple permissions at the same time. Simple integration and usage like 2 lines code.
 
 #### [SPAlert](https://github.com/varabeis/SPAlert)
-It is popup from Apple Music & Feedback in AppStore. Contains Done & Heart presets. Done present with draw path animation. I clone Apple's alerts as much as possible.
-You can find this alerts in AppStore after feedback, after added song to library in Apple Music. I am also add alert without icon, as simple message.
+You can find this alerts in AppStore after feedback or after added song to library in Apple Music. Contains popular Done, Heart presets and many other. Done preset present with draw path animation like original. Also available simple present message without icon. Usage in one line code.
+
+#### [SPPerspective](https://github.com/varabeis/SPPerspective)
+Animation of widgets from iOS 14. 3D transform with dynamic shadow. [Video preview](https://ivanvorobei.by/github/spperspective/video-preview). Available deep customisation 3D and shadow. Also you can use static transform without animation.
 
 #### [SPDiffable](https://github.com/varabeis/SPDiffable)
-Apple's diffable API requerid models for each object type. If you want use it in many place, you pass many time to implemenet and get over duplicates codes. This project help you do it elegant with shared models and special cell providers for one-usage models.
+Simplifies working with animated changes in table and collections. Apple's diffable API required models for each object type. If you want use it in many place, you pass time to implement it and get over duplicates codes. This project help do it elegant with shared models and special cell providers. Support side bar iOS14 and already has native cell providers and views.
 
-## Russian Community
+## Russian-specking Community
 
-Присоединяйтесь в телеграм канал [Код Воробья](https://sparrowcode.by/telegram), там найдете заметки о iOS разработке и дизайне.
-Большие туториалы выклыдываю на [YouTube](https://sparrowcode.by/youtube).
+В телеграм-канале [Код Воробья](https://ivanvorobei.by/sparrowcode/telegram) пишу о iOS разработке. Видео-туториалы выклыдываю на [YouTube](https://ivanvorobei.by/youtube):
 
-[![Tutorials on YouTube](https://github.com/varabeis/Assets/blob/master/Russian%20Community/youtube-preview.jpg)](https://sparrowcode.by/youtube)
+[![Tutorials on YouTube](https://cdn.ivanvorobei.by/github/readme/youtube-preview.jpg)](https://ivanvorobei.by/youtube)
