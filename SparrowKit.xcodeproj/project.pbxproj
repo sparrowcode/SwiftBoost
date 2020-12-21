@@ -89,6 +89,12 @@
 		F44576B5254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44576B4254095FC002C69FB /* UIVisualEffectViewExtension.swift */; };
 		F44576B6254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44576B4254095FC002C69FB /* UIVisualEffectViewExtension.swift */; };
 		F44576B7254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44576B4254095FC002C69FB /* UIVisualEffectViewExtension.swift */; };
+		F44AB67C259083C100383CBC /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB67B259083C100383CBC /* DataExtension.swift */; };
+		F44AB67D259083C100383CBC /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB67B259083C100383CBC /* DataExtension.swift */; };
+		F44AB67E259083C100383CBC /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB67B259083C100383CBC /* DataExtension.swift */; };
+		F44AB683259083D900383CBC /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB682259083D900383CBC /* UIStackViewExtension.swift */; };
+		F44AB684259083D900383CBC /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB682259083D900383CBC /* UIStackViewExtension.swift */; };
+		F44AB685259083D900383CBC /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AB682259083D900383CBC /* UIStackViewExtension.swift */; };
 		F472509C2584CB1D00BF7D57 /* CGAffineTransformExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472509B2584CB1D00BF7D57 /* CGAffineTransformExtension.swift */; };
 		F472509D2584CB1D00BF7D57 /* CGAffineTransformExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472509B2584CB1D00BF7D57 /* CGAffineTransformExtension.swift */; };
 		F472509E2584CB1D00BF7D57 /* CGAffineTransformExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472509B2584CB1D00BF7D57 /* CGAffineTransformExtension.swift */; };
@@ -232,6 +238,8 @@
 		F44064CB258B3CC400B3E466 /* Do.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Do.swift; sourceTree = "<group>"; };
 		F44576A525409283002C69FB /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		F44576B4254095FC002C69FB /* UIVisualEffectViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtension.swift; sourceTree = "<group>"; };
+		F44AB67B259083C100383CBC /* DataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataExtension.swift; sourceTree = "<group>"; };
+		F44AB682259083D900383CBC /* UIStackViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
 		F472509B2584CB1D00BF7D57 /* CGAffineTransformExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAffineTransformExtension.swift; sourceTree = "<group>"; };
 		F473EB6E2538256B00C01D13 /* SPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButton.swift; sourceTree = "<group>"; };
 		F473EB752538258200C01D13 /* SPDimmedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPDimmedButton.swift; sourceTree = "<group>"; };
@@ -304,6 +312,7 @@
 		F4088FE525284E35007D4F94 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F44AB682259083D900383CBC /* UIStackViewExtension.swift */,
 				F40C0CC92522001500B9C1C2 /* UIViewExtension.swift */,
 				F4BEB0AE2524E08E00552E88 /* UIAlertControllerExtension.swift */,
 				F4ACC347251CCEC90073F10E /* UIFeedbackGeneratorExtension.swift */,
@@ -437,6 +446,7 @@
 		F4ACC348251CCEC90073F10E /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				F44AB67B259083C100383CBC /* DataExtension.swift */,
 				F44064CB258B3CC400B3E466 /* Do.swift */,
 				F4ACC35E251CD08F0073F10E /* LocaleExtension.swift */,
 				F4ACC349251CCEC90073F10E /* Delay.swift */,
@@ -672,6 +682,7 @@
 				F43423BC251CDDDD0094F319 /* Delay.swift in Sources */,
 				F476EEF825607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */,
 				F408901525284FD9007D4F94 /* SPScrollView.swift in Sources */,
+				F44AB684259083D900383CBC /* UIStackViewExtension.swift in Sources */,
 				F4E5128C2525B21500F441CB /* UILabelExtension.swift in Sources */,
 				F4E512702525AE4700F441CB /* UIApplicationExtension.swift in Sources */,
 				F4768A2725570108005F5043 /* SPImageView.swift in Sources */,
@@ -688,6 +699,7 @@
 				F4BEB09C2524DF1F00552E88 /* CGPointExtension.swift in Sources */,
 				F4088FD225284B14007D4F94 /* UIViewControllerExtension.swift in Sources */,
 				F473EB772538258200C01D13 /* SPDimmedButton.swift in Sources */,
+				F44AB67D259083C100383CBC /* DataExtension.swift in Sources */,
 				F4D6FAF92566401E0046A328 /* SPAppScenesDelegate.swift in Sources */,
 				F4E512722525AE4700F441CB /* UIButtonExtension.swift in Sources */,
 				F4088FB625284883007D4F94 /* UIScrollViewExtension.swift in Sources */,
@@ -742,6 +754,7 @@
 				F43423B5251CDDDC0094F319 /* Delay.swift in Sources */,
 				F476EEF925607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */,
 				F408901625284FD9007D4F94 /* SPScrollView.swift in Sources */,
+				F44AB685259083D900383CBC /* UIStackViewExtension.swift in Sources */,
 				F4E5128D2525B21500F441CB /* UILabelExtension.swift in Sources */,
 				F4E5127B2525AE4800F441CB /* UIApplicationExtension.swift in Sources */,
 				F4768A2825570108005F5043 /* SPImageView.swift in Sources */,
@@ -758,6 +771,7 @@
 				F4BEB0A02524DF1F00552E88 /* CGPointExtension.swift in Sources */,
 				F4088FD325284B14007D4F94 /* UIViewControllerExtension.swift in Sources */,
 				F473EB782538258200C01D13 /* SPDimmedButton.swift in Sources */,
+				F44AB67E259083C100383CBC /* DataExtension.swift in Sources */,
 				F4D6FAFA2566401E0046A328 /* SPAppScenesDelegate.swift in Sources */,
 				F4E5127D2525AE4800F441CB /* UIButtonExtension.swift in Sources */,
 				F4088FB725284883007D4F94 /* UIScrollViewExtension.swift in Sources */,
@@ -812,6 +826,7 @@
 				F408901425284FD9007D4F94 /* SPScrollView.swift in Sources */,
 				F476EEF725607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */,
 				F4E5128B2525B21500F441CB /* UILabelExtension.swift in Sources */,
+				F44AB683259083D900383CBC /* UIStackViewExtension.swift in Sources */,
 				F4D75C37252C5D79003FB0E7 /* SPLogger.swift in Sources */,
 				F4F00F40251E42CF00A86CAD /* DateExtension.swift in Sources */,
 				F4768A2625570108005F5043 /* SPImageView.swift in Sources */,
@@ -828,6 +843,7 @@
 				F438B1702527047700742AA1 /* UIImageExtension.swift in Sources */,
 				F4E512522525AC2E00F441CB /* UIApplicationExtension.swift in Sources */,
 				F4088FD125284B14007D4F94 /* UIViewControllerExtension.swift in Sources */,
+				F44AB67C259083C100383CBC /* DataExtension.swift in Sources */,
 				F4D6FAF82566401E0046A328 /* SPAppScenesDelegate.swift in Sources */,
 				F43423C9251CDDDE0094F319 /* LocaleExtension.swift in Sources */,
 				F4088FB525284883007D4F94 /* UIScrollViewExtension.swift in Sources */,
