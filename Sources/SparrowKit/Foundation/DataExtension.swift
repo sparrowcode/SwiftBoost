@@ -22,7 +22,7 @@
 #if canImport(Foundation)
 import Foundation
 
-extension Data {
+public extension Data {
     
     /**
     SparrowKit: Decodes data to Decodable model
