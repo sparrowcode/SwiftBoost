@@ -21,7 +21,8 @@
 
 import Foundation
 
-extension Encodable {
+public extension Encodable {
+    
     /**
     SparrowKit: Encodes an encodable model to data
      */
