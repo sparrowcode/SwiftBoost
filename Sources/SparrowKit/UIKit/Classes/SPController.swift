@@ -22,5 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-open class SPController: UIViewController {}
+open class SPController: UIViewController {
+    
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+}
 #endif
