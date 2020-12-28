@@ -24,9 +24,8 @@ import Foundation
 
 public extension String {
     
-    static var space: String {
-        return " "
-    }
+    static var space: String { return " " }
+    static var dot: String { return "." }
     
     var words: [String] {
         return components(separatedBy: .punctuationCharacters).joined().components(separatedBy: .whitespaces)
