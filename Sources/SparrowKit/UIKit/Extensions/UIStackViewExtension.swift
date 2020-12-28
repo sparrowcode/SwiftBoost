@@ -22,7 +22,7 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-extension UIStackView {
+public extension UIStackView {
     /**
      SparrowKit: Add many arranged subviews as array.
      
