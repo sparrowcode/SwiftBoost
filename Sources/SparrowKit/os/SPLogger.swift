@@ -30,7 +30,7 @@ import os
  Requerid before call `configure()` method with list of allowed levels.
  */
 public enum SPLogger {
-
+    
     /**
      SparrowKit: Configuration method, need call usually in AppDelegate.
      
@@ -48,10 +48,22 @@ public enum SPLogger {
      */
     public static func log(_ level: Level, message: LogMessage) {
         if Configurator.shared.levels.contains(level) {
-            print(message)
+            
+            // Formatting text.
+            var formattedMessage = message
+            
+            // Adding dot if not have.
+            if !formattedMessage.hasSuffix(String.dot) {
+                formattedMessage = formattedMessage + String.dot
+            }
+            
+            print(formattedMessage)
         }
     }
     
+    /**
+     Internal log for lib.
+     */
     static func kit(message: LogMessage) {
         print("SparrowKit, " + message)
     }
