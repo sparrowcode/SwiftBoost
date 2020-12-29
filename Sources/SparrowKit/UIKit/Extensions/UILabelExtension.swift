@@ -52,7 +52,7 @@ public extension UILabel {
     func layoutDynamicHeight(width: CGFloat) {
         frame.setWidth(width)
         sizeToFit()
-        if frame.width < width {
+        if frame.width != width {
             frame.setWidth(width)
         }
     }
