@@ -283,6 +283,10 @@ public extension Date {
         }
         return "\(years) \(months) \(days)".trim
     }
+    
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
 }
 #endif
 
