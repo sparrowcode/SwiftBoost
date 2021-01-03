@@ -23,5 +23,5 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-open class SPTableController: UITableViewController {}
+open class SPTableViewController: UITableViewController {}
 #endif

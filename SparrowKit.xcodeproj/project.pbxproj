@@ -107,9 +107,9 @@
 		F4768A2625570108005F5043 /* SPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4768A2525570108005F5043 /* SPImageView.swift */; };
 		F4768A2725570108005F5043 /* SPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4768A2525570108005F5043 /* SPImageView.swift */; };
 		F4768A2825570108005F5043 /* SPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4768A2525570108005F5043 /* SPImageView.swift */; };
-		F476EEB525605479001EEE74 /* SPTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEB425605479001EEE74 /* SPTableController.swift */; };
-		F476EEB625605479001EEE74 /* SPTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEB425605479001EEE74 /* SPTableController.swift */; };
-		F476EEB725605479001EEE74 /* SPTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEB425605479001EEE74 /* SPTableController.swift */; };
+		F476EEB525605479001EEE74 /* SPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEB425605479001EEE74 /* SPTableViewController.swift */; };
+		F476EEB625605479001EEE74 /* SPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEB425605479001EEE74 /* SPTableViewController.swift */; };
+		F476EEB725605479001EEE74 /* SPTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEB425605479001EEE74 /* SPTableViewController.swift */; };
 		F476EEF725607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEF625607675001EEE74 /* SPTableHeaderFooterView.swift */; };
 		F476EEF825607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEF625607675001EEE74 /* SPTableHeaderFooterView.swift */; };
 		F476EEF925607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F476EEF625607675001EEE74 /* SPTableHeaderFooterView.swift */; };
@@ -144,9 +144,9 @@
 		F4D073362559A6D4008DA80E /* SPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073352559A6D4008DA80E /* SPController.swift */; };
 		F4D073372559A6D4008DA80E /* SPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073352559A6D4008DA80E /* SPController.swift */; };
 		F4D073382559A6D4008DA80E /* SPController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073352559A6D4008DA80E /* SPController.swift */; };
-		F4D073512559A95F008DA80E /* SPCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073502559A95F008DA80E /* SPCollectionController.swift */; };
-		F4D073522559A95F008DA80E /* SPCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073502559A95F008DA80E /* SPCollectionController.swift */; };
-		F4D073532559A95F008DA80E /* SPCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073502559A95F008DA80E /* SPCollectionController.swift */; };
+		F4D073512559A95F008DA80E /* SPCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073502559A95F008DA80E /* SPCollectionViewController.swift */; };
+		F4D073522559A95F008DA80E /* SPCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073502559A95F008DA80E /* SPCollectionViewController.swift */; };
+		F4D073532559A95F008DA80E /* SPCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D073502559A95F008DA80E /* SPCollectionViewController.swift */; };
 		F4D6FAEE256640110046A328 /* SPAppWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6FAED256640110046A328 /* SPAppWindowDelegate.swift */; };
 		F4D6FAEF256640110046A328 /* SPAppWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6FAED256640110046A328 /* SPAppWindowDelegate.swift */; };
 		F4D6FAF0256640110046A328 /* SPAppWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D6FAED256640110046A328 /* SPAppWindowDelegate.swift */; };
@@ -244,7 +244,7 @@
 		F473EB6E2538256B00C01D13 /* SPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButton.swift; sourceTree = "<group>"; };
 		F473EB752538258200C01D13 /* SPDimmedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPDimmedButton.swift; sourceTree = "<group>"; };
 		F4768A2525570108005F5043 /* SPImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPImageView.swift; sourceTree = "<group>"; };
-		F476EEB425605479001EEE74 /* SPTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTableController.swift; sourceTree = "<group>"; };
+		F476EEB425605479001EEE74 /* SPTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTableViewController.swift; sourceTree = "<group>"; };
 		F476EEF625607675001EEE74 /* SPTableHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTableHeaderFooterView.swift; sourceTree = "<group>"; };
 		F49223C52551CC1A0039A5E9 /* SparrowKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = SparrowKit.podspec; sourceTree = "<group>"; };
 		F4A6A59625303EA500A11A7B /* NSUserActivityExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSUserActivityExtension.swift; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 		F4C39ADD255F05E90000E0A2 /* SPCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCollectionReusableView.swift; sourceTree = "<group>"; };
 		F4C5969D2552C9330002D5E6 /* SPSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPSlider.swift; sourceTree = "<group>"; };
 		F4D073352559A6D4008DA80E /* SPController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPController.swift; sourceTree = "<group>"; };
-		F4D073502559A95F008DA80E /* SPCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCollectionController.swift; sourceTree = "<group>"; };
+		F4D073502559A95F008DA80E /* SPCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPCollectionViewController.swift; sourceTree = "<group>"; };
 		F4D6FAED256640110046A328 /* SPAppWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPAppWindowDelegate.swift; sourceTree = "<group>"; };
 		F4D6FAF72566401E0046A328 /* SPAppScenesDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPAppScenesDelegate.swift; sourceTree = "<group>"; };
 		F4D6FB00256640BB0046A328 /* SPWindowSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPWindowSceneDelegate.swift; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				F4088FF125284EAB007D4F94 /* SPCollectionView.swift */,
-				F4D073502559A95F008DA80E /* SPCollectionController.swift */,
+				F4D073502559A95F008DA80E /* SPCollectionViewController.swift */,
 				F4C39AA6255F05200000E0A2 /* SPCollectionViewCell.swift */,
 				F4C39ADD255F05E90000E0A2 /* SPCollectionReusableView.swift */,
 			);
@@ -394,7 +394,7 @@
 			children = (
 				F4088FF825284EB5007D4F94 /* SPTableView.swift */,
 				F4D83C2A25591BE600097F51 /* SPTableViewCell.swift */,
-				F476EEB425605479001EEE74 /* SPTableController.swift */,
+				F476EEB425605479001EEE74 /* SPTableViewController.swift */,
 				F476EEF625607675001EEE74 /* SPTableHeaderFooterView.swift */,
 			);
 			path = Table;
@@ -676,7 +676,7 @@
 				F4E282C4255FE97100E129D0 /* UIDeviceExtenshion.swift in Sources */,
 				F4088FF325284EAB007D4F94 /* SPCollectionView.swift in Sources */,
 				F438B17F2527075800742AA1 /* UINavigationBarExtension.swift in Sources */,
-				F476EEB625605479001EEE74 /* SPTableController.swift in Sources */,
+				F476EEB625605479001EEE74 /* SPTableViewController.swift in Sources */,
 				F4088FE925284E69007D4F94 /* SPView.swift in Sources */,
 				F44576B6254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */,
 				F43423BC251CDDDD0094F319 /* Delay.swift in Sources */,
@@ -688,7 +688,7 @@
 				F4768A2725570108005F5043 /* SPImageView.swift in Sources */,
 				F4088FCB25284A0C007D4F94 /* UITableViewExtension.swift in Sources */,
 				F4C5969F2552C9330002D5E6 /* SPSlider.swift in Sources */,
-				F4D073522559A95F008DA80E /* SPCollectionController.swift in Sources */,
+				F4D073522559A95F008DA80E /* SPCollectionViewController.swift in Sources */,
 				F43423BF251CDDDD0094F319 /* LocaleExtension.swift in Sources */,
 				F4E512852525AE5D00F441CB /* UIFontExtension.swift in Sources */,
 				F4088FFA25284EB5007D4F94 /* SPTableView.swift in Sources */,
@@ -748,7 +748,7 @@
 				F4E282C5255FE97100E129D0 /* UIDeviceExtenshion.swift in Sources */,
 				F4088FF425284EAB007D4F94 /* SPCollectionView.swift in Sources */,
 				F438B1802527075800742AA1 /* UINavigationBarExtension.swift in Sources */,
-				F476EEB725605479001EEE74 /* SPTableController.swift in Sources */,
+				F476EEB725605479001EEE74 /* SPTableViewController.swift in Sources */,
 				F4088FEA25284E69007D4F94 /* SPView.swift in Sources */,
 				F44576B7254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */,
 				F43423B5251CDDDC0094F319 /* Delay.swift in Sources */,
@@ -760,7 +760,7 @@
 				F4768A2825570108005F5043 /* SPImageView.swift in Sources */,
 				F4088FCC25284A0C007D4F94 /* UITableViewExtension.swift in Sources */,
 				F4C596A02552C9330002D5E6 /* SPSlider.swift in Sources */,
-				F4D073532559A95F008DA80E /* SPCollectionController.swift in Sources */,
+				F4D073532559A95F008DA80E /* SPCollectionViewController.swift in Sources */,
 				F43423B8251CDDDC0094F319 /* LocaleExtension.swift in Sources */,
 				F4E512862525AE5D00F441CB /* UIFontExtension.swift in Sources */,
 				F4088FFB25284EB5007D4F94 /* SPTableView.swift in Sources */,
@@ -820,7 +820,7 @@
 				F4E282C3255FE97100E129D0 /* UIDeviceExtenshion.swift in Sources */,
 				F438B17E2527075800742AA1 /* UINavigationBarExtension.swift in Sources */,
 				F4088FE825284E69007D4F94 /* SPView.swift in Sources */,
-				F476EEB525605479001EEE74 /* SPTableController.swift in Sources */,
+				F476EEB525605479001EEE74 /* SPTableViewController.swift in Sources */,
 				F40C0CCA2522001500B9C1C2 /* UIViewExtension.swift in Sources */,
 				F44576B5254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */,
 				F408901425284FD9007D4F94 /* SPScrollView.swift in Sources */,
@@ -833,7 +833,7 @@
 				F4A6A59725303EA500A11A7B /* NSUserActivityExtension.swift in Sources */,
 				F4088FCA25284A0C007D4F94 /* UITableViewExtension.swift in Sources */,
 				F4C5969E2552C9330002D5E6 /* SPSlider.swift in Sources */,
-				F4D073512559A95F008DA80E /* SPCollectionController.swift in Sources */,
+				F4D073512559A95F008DA80E /* SPCollectionViewController.swift in Sources */,
 				F43423C6251CDDDE0094F319 /* Delay.swift in Sources */,
 				F4E512842525AE5D00F441CB /* UIFontExtension.swift in Sources */,
 				F4D6FAEE256640110046A328 /* SPAppWindowDelegate.swift in Sources */,

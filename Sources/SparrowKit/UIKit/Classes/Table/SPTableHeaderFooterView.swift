@@ -23,7 +23,7 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-open class SPTableHeaderFooterView: UITableViewHeaderFooterView {
+open class SPTableViewHeaderFooterView: UITableViewHeaderFooterView {
     
     public override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
