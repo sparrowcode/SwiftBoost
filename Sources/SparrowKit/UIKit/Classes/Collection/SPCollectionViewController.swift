@@ -22,5 +22,5 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-open class SPCollectionController: UICollectionViewController {}
+open class SPCollectionViewController: UICollectionViewController {}
 #endif
