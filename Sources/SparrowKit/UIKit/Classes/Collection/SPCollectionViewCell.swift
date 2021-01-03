@@ -24,7 +24,7 @@ import UIKit
 
 open class SPCollectionViewCell: UICollectionViewCell {
     
-    var currentIndexPath: IndexPath?
+    open var currentIndexPath: IndexPath?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
