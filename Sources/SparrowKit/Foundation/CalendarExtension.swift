@@ -24,10 +24,10 @@ import Foundation
 
 public extension Calendar.Component {
     
-    func formatted(numberOfUnits: Int) -> String? {
+    func formatted(numberOfUnits: Int, unitsStyle: DateComponentsFormatter.UnitsStyle = .full) -> String? {
         let formatter = DateComponentsFormatter()
         formatter.maximumUnitCount = 1
-        formatter.unitsStyle = .full
+        formatter.unitsStyle = unitsStyle
         formatter.zeroFormattingBehavior = .dropAll
         var dateComponents = DateComponents()
         dateComponents.setValue(numberOfUnits, for: self)

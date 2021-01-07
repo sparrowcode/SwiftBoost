@@ -68,6 +68,14 @@ public extension Date {
         return (min(date1, date2) ... max(date1, date2)).contains(self)
     }
     
+    /**
+     SparrowKit: Returns an array of dates before the specified date in increments
+     
+     - parameter date: Date until which to generate the array
+     - parameter component: The step with which the array is generated
+     - parameter unit: The step size with which the array is generated
+     - returns: The array of dates before the specified date in increments
+     */
     func generateDates(to date: Date, withComponent component: Calendar.Component, unit: Int) -> [Date] {
         var fromDate = self
         var dates = [fromDate]
@@ -92,6 +100,17 @@ public extension Date {
         Calendar.current.component(component, from: self)
     }
     
+    /**
+     SparrowKit: Returns the difference between two dates
+     
+     - parameter date: Date until which to generate the array
+     - parameter component: The step with which the array is generated
+        
+     Take a look at this example:
+     ```
+     today.age(to: nextWeek, component: .day) // 7
+     ```
+     */
     func difference(to date: Date, component: Calendar.Component) -> Int {
         let components = Calendar.current.dateComponents([component], from: self, to: date)
         switch component {
@@ -114,6 +133,13 @@ public extension Date {
         }
     }
     
+    /**
+     SparrowKit: Returns a date with a specified time
+     
+     - parameter hour: Number of hours
+     - parameter minute: Number of minutes
+     - parameter second: Number of seconds
+     */
     func setTime(hour: Int, minute: Int, second: Int) -> Date {
         let calendar = Calendar.current
         var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
@@ -222,7 +248,7 @@ public extension Date {
     
     //MARK: - Formatting
     
-    func formatted(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
+    func formatted(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style = .none) -> String {
         DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
     }
     
@@ -246,7 +272,7 @@ public extension Date {
      - returns: The time interval in text format.
      */
     
-    func formattedInterval(to date: Date, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style) -> String {
+    func formattedInterval(to date: Date, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style = .none) -> String {
         let formatter = DateIntervalFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
@@ -262,10 +288,9 @@ public extension Date {
      - returns: The age in text format.
      
      Take a look at this example:
-     ````
-     
+     ```
      myBirthday.age(to: Date(), components: [.year, .month]) // 3 Years, 8 months
-     ````
+     ```
      */
     func age(to date: Date, components: Set<Calendar.Component>) -> String {
         let calender = Calendar.current
