@@ -31,26 +31,26 @@ public extension UIScrollView {
                       size: CGSize(width: min(min(bounds.size.width, contentSize.width), contentWidth),
                                    height: min(min(bounds.size.height, contentSize.height), contentHeight)))
     }
-
-    #warning("Doing enum with custom point case.")
-    func scrollToTop(animated: Bool) {
-        setContentOffset(CGPoint(x: contentOffset.x, y: -contentInset.top), animated: animated)
+    
+    enum Side {
+        case top, bottom, left, right
     }
-
-    func scrollToLeft(animated: Bool) {
-        setContentOffset(CGPoint(x: -contentInset.left, y: contentOffset.y), animated: animated)
-    }
-
-    func scrollToBottom(animated: Bool) {
-        setContentOffset(
-            CGPoint(x: contentOffset.x, y: max(0, contentSize.height - bounds.height) + contentInset.bottom + safeAreaInsets.bottom),
-            animated: animated)
-    }
-
-    func scrollToRight(animated: Bool) {
-        setContentOffset(
-            CGPoint(x: max(0, contentSize.width - bounds.width) + contentInset.right, y: contentOffset.y),
-            animated: animated)
+    
+    func scrollTo(_ side: Side, animated: Bool) {
+        let point: CGPoint
+        
+        switch side {
+        case .top:
+            point = CGPoint(x: contentOffset.x, y: -contentInset.top)
+        case .bottom:
+            point = CGPoint(x: contentOffset.x, y: max(0, contentSize.height - bounds.height) + contentInset.bottom + safeAreaInsets.bottom)
+        case .left:
+            point = CGPoint(x: -contentInset.left, y: contentOffset.y)
+        case .right:
+            point = CGPoint(x: max(0, contentSize.width - bounds.width) + contentInset.right, y: contentOffset.y)
+        }
+        
+        setContentOffset(point, animated: animated)
     }
 }
 #endif
