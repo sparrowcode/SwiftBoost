@@ -155,6 +155,11 @@ public extension UIView {
         return readableContentGuide.layoutFrame.height
     }
     
+    var readableFrame: CGRect {
+        let margins = readableMargins
+        return CGRect.init(x: margins.left, y: margins.top, width: readableWidth, height: readableHeight)
+    }
+    
     // MARK: Layout Margins Guide
     
     /**
@@ -169,6 +174,10 @@ public extension UIView {
      */
     var layoutHeight: CGFloat {
         return layoutMarginsGuide.layoutFrame.height
+    }
+    
+    var layoutFrame: CGRect {
+        return CGRect.init(x: layoutMargins.left, y: layoutMargins.top, width: layoutWidth, height: layoutHeight)
     }
     
     /**
