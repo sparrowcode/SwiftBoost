@@ -26,10 +26,15 @@ public extension UIDevice {
     
     var isMac: Bool {
         if #available(iOS 14.0, tvOS 14.0, *) {
-            return UIDevice.current.userInterfaceIdiom == .mac
-        } else {
-            return false
+            if UIDevice.current.userInterfaceIdiom == .mac {
+                return true
+            }
         }
+        #if targetEnvironment(macCatalyst)
+        return true
+        #else
+        return false
+        #endif
     }
 }
 #endif
