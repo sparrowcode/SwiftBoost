@@ -306,7 +306,19 @@ public extension Date {
             _days = _days == 0 ? 1 : _days
             days = Calendar.Component.day.formatted(numberOfUnits: _days) ?? ""
         }
-        return "\(years) \(months) \(days)".trim
+        
+        var result = ""
+        if years != "" {
+            result += years + " "
+        }
+        if months != "" {
+            result += months + " "
+        }
+        if days != "" {
+            result += days
+        }
+        
+        return result.trim
     }
     
     static func - (lhs: Date, rhs: Date) -> TimeInterval {
