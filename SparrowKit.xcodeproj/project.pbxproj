@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DBE9473925D459120010F41A /* SPGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9473825D459120010F41A /* SPGradientView.swift */; };
+		DBE9473A25D459120010F41A /* SPGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9473825D459120010F41A /* SPGradientView.swift */; };
+		DBE9473B25D459120010F41A /* SPGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9473825D459120010F41A /* SPGradientView.swift */; };
 		F4088FB525284883007D4F94 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4088FB425284883007D4F94 /* UIScrollViewExtension.swift */; };
 		F4088FB625284883007D4F94 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4088FB425284883007D4F94 /* UIScrollViewExtension.swift */; };
 		F4088FB725284883007D4F94 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4088FB425284883007D4F94 /* UIScrollViewExtension.swift */; };
@@ -206,6 +209,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DBE9473825D459120010F41A /* SPGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPGradientView.swift; sourceTree = "<group>"; };
 		F4088FB425284883007D4F94 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		F4088FBB25284940007D4F94 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
 		F4088FC22528497F007D4F94 /* UISliderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISliderExtension.swift; sourceTree = "<group>"; };
@@ -357,6 +361,7 @@
 				F4C5969D2552C9330002D5E6 /* SPSlider.swift */,
 				F4768A2525570108005F5043 /* SPImageView.swift */,
 				F4D073352559A6D4008DA80E /* SPController.swift */,
+				DBE9473825D459120010F41A /* SPGradientView.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -716,6 +721,7 @@
 				F4EA2A52256ED15A00203860 /* NotificationCenterExtension.swift in Sources */,
 				F4BEB0A42524DF2100552E88 /* CGSizeExtensions.swift in Sources */,
 				F438B1632527035600742AA1 /* UICollectionViewExtension.swift in Sources */,
+				DBE9473A25D459120010F41A /* SPGradientView.swift in Sources */,
 				F4E512932525B3B900F441CB /* UISwitchExtension.swift in Sources */,
 				F4D6FB02256640BB0046A328 /* SPWindowSceneDelegate.swift in Sources */,
 				F4D073372559A6D4008DA80E /* SPController.swift in Sources */,
@@ -788,6 +794,7 @@
 				F4EA2A53256ED15A00203860 /* NotificationCenterExtension.swift in Sources */,
 				F4BEB0A92524DF2200552E88 /* CGSizeExtensions.swift in Sources */,
 				F438B1642527035600742AA1 /* UICollectionViewExtension.swift in Sources */,
+				DBE9473B25D459120010F41A /* SPGradientView.swift in Sources */,
 				F4E512942525B3B900F441CB /* UISwitchExtension.swift in Sources */,
 				F4D6FB03256640BB0046A328 /* SPWindowSceneDelegate.swift in Sources */,
 				F4D073382559A6D4008DA80E /* SPController.swift in Sources */,
@@ -860,6 +867,7 @@
 				F4EA2A51256ED15A00203860 /* NotificationCenterExtension.swift in Sources */,
 				F438B1622527035600742AA1 /* UICollectionViewExtension.swift in Sources */,
 				F4E512922525B3B900F441CB /* UISwitchExtension.swift in Sources */,
+				DBE9473925D459120010F41A /* SPGradientView.swift in Sources */,
 				F438B1852527083A00742AA1 /* UINavigationControllerExtension.swift in Sources */,
 				F4D6FB01256640BB0046A328 /* SPWindowSceneDelegate.swift in Sources */,
 				F4D073362559A6D4008DA80E /* SPController.swift in Sources */,
