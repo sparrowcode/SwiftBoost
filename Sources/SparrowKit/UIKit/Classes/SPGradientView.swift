@@ -26,25 +26,25 @@ open class SPGradientView: SPView {
     
     open var gradientLayer = CAGradientLayer()
     
-    var startColor = UIColor.white {
+    open var startColor = UIColor.white {
         didSet {
             updateGradient()
         }
     }
     
-    var endColor = UIColor.black {
+    open var endColor = UIColor.black {
         didSet {
             updateGradient()
         }
     }
     
-    var startColorPosition = Position.topLeft  {
+    open var startColorPosition = Position.topLeft  {
         didSet {
             updateGradient()
         }
     }
     
-    var endColorPosition = Position.bottomRight  {
+    open var endColorPosition = Position.bottomRight  {
         didSet {
             updateGradient()
         }
