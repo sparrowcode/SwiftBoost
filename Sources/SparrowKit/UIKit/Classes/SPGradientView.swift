@@ -67,7 +67,7 @@ open class SPGradientView: SPView {
         super.layoutSublayers(of: layer)
     }
     
-    enum Position {
+    public enum Position {
         
         case topLeft
         case topCenter
