@@ -24,7 +24,10 @@ import Foundation
 
 public extension String {
     
+    static var empty: String { return "" }
+    
     static var space: String { return " " }
+    
     static var dot: String { return "." }
     
     var words: [String] {
