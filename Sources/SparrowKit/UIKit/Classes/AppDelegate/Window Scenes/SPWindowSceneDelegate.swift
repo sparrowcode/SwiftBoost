@@ -31,17 +31,18 @@ open class SPWindowSceneDelegate: UIResponder, UIWindowSceneDelegate {
      SparrowKit: Resolving troubles with tinting color before creating controller.
      For solve it problem using completion.
      */
-    open func makeKeyAndVisible(in scene: UIWindowScene, tint: UIColor, getViewController: () -> UIViewController) {
+    open func makeKeyAndVisible(in scene: UIWindowScene, tint: UIColor, createViewController: () -> UIViewController) {
+        
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
         window?.tintColor = tint
-        window?.rootViewController = getViewController()
+        window?.rootViewController = createViewController()
         window?.makeKeyAndVisible()
     }
     
     open func makeKeyAndVisible(in scene: UIWindowScene, tint: UIColor, viewController: UIViewController) {
         
-        makeKeyAndVisible(in: scene, tint: tint, getViewController: {
+        makeKeyAndVisible(in: scene, tint: tint, createViewController: {
             return viewController
         })
     }
