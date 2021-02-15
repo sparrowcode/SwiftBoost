@@ -19,17 +19,32 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
+#if canImport(UIKit) && (os(iOS))
 import UIKit
 
-#if canImport(UIKit) && (os(iOS))
+/**
+ Basic class for scene delegate.
+ 
+ Has ready use window property and assets funcs for present window.
+ */
 @available(iOS 13.0, *)
 open class SPWindowSceneDelegate: UIResponder, UIWindowSceneDelegate {
     
+    /**
+     Ready-use window property.
+     
+     For correct configure, call `makeKeyAndVisible`.
+     */
     open var window: UIWindow?
     
     /**
-     SparrowKit: Resolving troubles with tinting color before creating controller.
-     For solve it problem using completion.
+     SparrowKit: Configure window and make it present.
+     
+     This method get controller after apply tint and window scene, in some cases it critical. For example tint of window get before valid tint set. It happen with first window and launch. For solve it use this.
+     
+     - parameter scene: Scene which async to window.
+     - parameter tint: Tint color for window.
+     - parameter createViewControllerHandler: Handler for get root controller for window.
      */
     open func makeKeyAndVisible(in scene: UIWindowScene, tint: UIColor, createViewControllerHandler: () -> UIViewController) {
         
@@ -40,8 +55,19 @@ open class SPWindowSceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
     
+    /**
+     SparrowKit: Configure window and make it present.
+     
+     Set scene, tint and already created controller.
+     
+     - warning:
+     If you get troubles with tinting, please, check other method `makeKeyAndVisible`.
+     
+     - parameter scene: Scene which async to window.
+     - parameter tint: Tint color for window.
+     - parameter viewController: Root controller for window.
+     */
     open func makeKeyAndVisible(in scene: UIWindowScene, tint: UIColor, viewController: UIViewController) {
-        
         makeKeyAndVisible(in: scene, tint: tint, createViewControllerHandler: {
             return viewController
         })
