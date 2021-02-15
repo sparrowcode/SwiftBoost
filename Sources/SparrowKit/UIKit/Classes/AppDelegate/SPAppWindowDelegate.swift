@@ -22,11 +22,30 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ App Delegate which not using with scenes, only with one window key.
+ */
 open class SPAppWindowDelegate: SPAppDelegate {
     
+    /**
+     Ready-use window property.
+     
+     For correct configure, call `makeKeyAndVisible`.
+     */
     open var window: UIWindow?
     
-    open func makeKeyAndVisible(_ viewController: UIViewController, tint: UIColor) {
+    /**
+     SparrowKit: Configure window and make it present.
+     
+     Method init window and configure with your tint and controller.
+     
+     - warning:
+     Use it only if none-scene mode.
+     
+     - parameter tint: Tint color for window.
+     - parameter viewController: Root controller for window.
+     */
+    open func makeKeyAndVisible(tint: UIColor, viewController: UIViewController) {
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
         window?.tintColor = tint

@@ -22,5 +22,8 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ Basic App Delegate class.
+ */
 open class SPAppDelegate: UIResponder, UIApplicationDelegate {}
 #endif

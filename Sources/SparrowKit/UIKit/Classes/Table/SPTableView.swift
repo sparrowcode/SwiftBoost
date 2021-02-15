@@ -22,7 +22,12 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ 
+ */
 open class SPTableView: UITableView {
+    
+    // MARK: - Init
     
     public init(style: UITableView.Style) {
         super.init(frame: .zero, style: style)

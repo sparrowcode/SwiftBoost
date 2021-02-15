@@ -22,5 +22,8 @@
 #if canImport(UIKit) && (os(iOS))
 import UIKit
 
+/**
+App Delegate class which using with scenes.
+ */
 open class SPAppScenesDelegate: SPAppDelegate {}
 #endif
