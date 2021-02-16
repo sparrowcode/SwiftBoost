@@ -246,7 +246,7 @@ public extension Date {
         return Calendar.current.date(byAdding: addedComponent, to: date) ?? self
     }
     
-    //MARK: - Formatting
+    // MARK: - Formatting
     
     func formatted(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style = .none) -> String {
         DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
