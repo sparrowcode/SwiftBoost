@@ -24,7 +24,7 @@ import UIKit
 
 public extension UIViewController {
 
-    //MARK: - Containers
+    // MARK: - Containers
     
     func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: self)
@@ -40,7 +40,7 @@ public extension UIViewController {
         childController.didMove(toParent: self)
     }
     
-    //MARK: - Present, Dismiss and Destruct
+    // MARK: - Present, Dismiss and Destruct
     
     var isVisible: Bool {
         return isViewLoaded && view.window != nil
@@ -73,7 +73,7 @@ public extension UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    //MARK: - Bar Button Items
+    // MARK: - Bar Button Items
     
     #if os(iOS)
     @available(iOS 13, *)
@@ -102,7 +102,7 @@ public extension UIViewController {
     }
     #endif
     
-    //MARK: - Keyboard
+    // MARK: - Keyboard
     
     func dismissKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboardTappedAround(_:)))
