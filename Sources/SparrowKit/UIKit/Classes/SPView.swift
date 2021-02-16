@@ -22,7 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic View class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPView: UIView {
+    
+    // MARK: - Init
     
     public init() {
         super.init(frame: CGRect.zero)

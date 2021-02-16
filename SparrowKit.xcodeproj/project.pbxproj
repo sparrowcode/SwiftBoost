@@ -209,6 +209,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB41CA9225DBA0430014E0BC /* CODESTYLE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODESTYLE.md; sourceTree = "<group>"; };
 		DBE9473825D459120010F41A /* SPGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPGradientView.swift; sourceTree = "<group>"; };
 		F4088FB425284883007D4F94 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		F4088FBB25284940007D4F94 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
@@ -414,6 +415,7 @@
 				F49223C52551CC1A0039A5E9 /* SparrowKit.podspec */,
 				F4342365251CDB8D0094F319 /* Package.swift */,
 				F4342373251CDB8D0094F319 /* README.md */,
+				DB41CA9225DBA0430014E0BC /* CODESTYLE.md */,
 				F4ACC344251CCEC90073F10E /* Sources */,
 				F4ACC350251CCF1F0073F10E /* Products */,
 			);

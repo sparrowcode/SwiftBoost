@@ -24,41 +24,99 @@ import CoreGraphics
 
 public extension CGRect {
     
+    /**
+     SparrowKit: Change `maxX` position.
+     
+     - parameter value: New `maxX` position.
+     */
     mutating func setMaxX(_ value: CGFloat) {
         origin.x = value - width
     }
     
+    /**
+     SparrowKit: Change `maxY` position.
+     
+     - parameter value: New `maxY` position.
+     */
     mutating func setMaxY(_ value: CGFloat) {
         origin.y = value - height
     }
     
+    /**
+     SparrowKit: Change `width` without change other coordinates.
+     
+     - parameter width: New `width`.
+     */
     mutating func setWidth(_ width: CGFloat) {
         self = CGRect.init(x: origin.x, y: origin.y, width: width, height: height)
     }
     
+    /**
+     SparrowKit: Change `height` without change other coordinates.
+     
+     - parameter height: New `height`.
+     */
     mutating func setHeight(_ height: CGFloat) {
         self = CGRect.init(x: origin.x, y: origin.y, width: width, height: height)
     }
     
+    /**
+     SparrowKit: Change `width` & `height` without change other coordinates.
+     
+     - parameter width: New `width`.
+     - parameter height: New `height`.
+     */
     mutating func setWidth(_ width: CGFloat, height: CGFloat) {
         self = CGRect.init(x: origin.x, y: origin.y, width: width, height: height)
     }
     
+    // MARK: - Init
+    
+    /**
+     SparrowKit: Create new frame.
+     
+     - parameter center: `center` position.
+     - parameter size: New side sizes.
+     */
     init(center: CGPoint, size: CGSize) {
         let origin = CGPoint(x: center.x - size.width / 2.0, y: center.y - size.height / 2.0)
         self.init(origin: origin, size: size)
     }
     
+    /**
+     SparrowKit: Create new frame.
+     
+     - parameter x: `x` position.
+     - parameter maxY: `maxY` position.
+     - parameter width: New `width`.
+     - parameter height: New  `height`.
+     */
     init(x: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: x, y: 0, width: width, height: height)
         setMaxY(maxY)
     }
     
+    /**
+     SparrowKit: Create new frame.
+     
+     - parameter maxX: `maxX` position.
+     - parameter y: `y` position.
+     - parameter width: New `width`.
+     - parameter height: New  `height`.
+     */
     init(maxX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: 0, y: y, width: width, height: height)
         setMaxX(maxX)
     }
 
+    /**
+     SparrowKit: Create new frame.
+     
+     - parameter maxX: `maxX` position.
+     - parameter maxY: `maxY` position.
+     - parameter width: New `width`.
+     - parameter height: New  `height`.
+     */
     init(maxX: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
         self.init(x: 0, y: 8, width: width, height: height)
         setMaxX(maxX)

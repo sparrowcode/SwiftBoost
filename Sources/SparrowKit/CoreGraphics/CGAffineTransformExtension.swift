@@ -24,6 +24,11 @@ import CoreGraphics
 
 public extension CGAffineTransform {
     
+    /**
+     SparrowKit: Create transform with same `scale` for for both axes.
+     
+     - parameter scale: New scale factor.
+     */
     init(scale: CGFloat) {
         self.init(scaleX: scale, y: scale)
     }

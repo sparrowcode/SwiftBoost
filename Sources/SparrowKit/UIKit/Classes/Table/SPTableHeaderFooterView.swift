@@ -23,7 +23,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Table Header and Footer View class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPTableViewHeaderFooterView: UITableViewHeaderFooterView {
+    
+    // MARK: - Init
     
     public override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -35,6 +42,12 @@ open class SPTableViewHeaderFooterView: UITableViewHeaderFooterView {
         commonInit()
     }
     
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride other init. Using one function for configurate view.
+     */
     open func commonInit() {}
 }
 #endif

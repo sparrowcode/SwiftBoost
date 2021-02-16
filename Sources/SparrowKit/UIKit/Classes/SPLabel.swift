@@ -22,19 +22,37 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Label class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPLabel: UILabel {
+    
+    // MARK: - Init
     
     public init() {
         super.init(frame: .zero)
         commonInit()
     }
     
+    /**
+     SparrowKit: Create new label.
+     
+     - parameter text: Text.
+     */
     public init(text: String?) {
         super.init(frame: .zero)
         self.text = text
         commonInit()
     }
     
+    /**
+     SparrowKit: Create new label.
+     
+     - parameter text: Text.
+     - parameter style: Font style.
+     */
     public init(text: String, style: UIFont.TextStyle) {
         super.init(frame: .zero)
         font = UIFont.preferredFont(forTextStyle: style)
@@ -42,6 +60,12 @@ open class SPLabel: UILabel {
         commonInit()
     }
     
+    /**
+     SparrowKit: Create new label.
+     
+     - parameter text: Text.
+     - parameter font: Font.
+     */
     public init(text: String, font: UIFont) {
         super.init(frame: .zero)
         self.text = text

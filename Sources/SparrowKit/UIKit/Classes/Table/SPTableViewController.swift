@@ -23,5 +23,8 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Table View Controller.
+ */
 open class SPTableViewController: UITableViewController {}
 #endif

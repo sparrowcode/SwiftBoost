@@ -22,9 +22,22 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Collection View Cell class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPCollectionViewCell: UICollectionViewCell {
     
+    /**
+     SparrowKit: Storage `IndexPath`.
+     
+     Value available only if you configure it before. Useful using with threads.
+     Reusable system of table can take some bugs without compared valid index path.
+     */
     open var currentIndexPath: IndexPath?
+    
+    // MARK: - Init
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +49,15 @@ open class SPCollectionViewCell: UICollectionViewCell {
         commonInit()
     }
     
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride other init. Using one function for configurate view.
+     */
     open func commonInit() {}
+    
+    // MARK: - Lifecycle
     
     open override func prepareForReuse() {
         super.prepareForReuse()

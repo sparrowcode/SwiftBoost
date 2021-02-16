@@ -23,7 +23,7 @@
 import UIKit
 
 /**
- Basic class for scene delegate.
+ SparrowKit: Basic class for scene delegate.
  
  Has ready use window property and assets funcs for present window.
  */
@@ -31,7 +31,7 @@ import UIKit
 open class SPWindowSceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     /**
-     Ready-use window property.
+     SparrowKit: Ready-use window property.
      
      For correct configure, call `makeKeyAndVisible`.
      */

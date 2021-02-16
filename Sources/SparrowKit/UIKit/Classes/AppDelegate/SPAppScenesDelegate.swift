@@ -23,7 +23,7 @@
 import UIKit
 
 /**
-App Delegate class which using with scenes.
+ SparrowKit: App Delegate class which using with scenes.
  */
 open class SPAppScenesDelegate: SPAppDelegate {}
 #endif
