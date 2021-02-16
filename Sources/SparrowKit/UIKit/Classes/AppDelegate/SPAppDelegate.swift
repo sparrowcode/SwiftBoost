@@ -23,7 +23,7 @@
 import UIKit
 
 /**
- Basic App Delegate class.
+ SparrowKit:  Basic App Delegate class.
  */
 open class SPAppDelegate: UIResponder, UIApplicationDelegate {}
 #endif

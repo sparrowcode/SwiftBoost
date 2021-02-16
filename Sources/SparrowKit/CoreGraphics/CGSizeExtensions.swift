@@ -24,19 +24,35 @@ import CoreGraphics
 
 public extension CGSize {
     
+    /**
+     SparrowKit: New size with same sides.
+     
+     Create `CGSize` with same `width` and `height`.
+     
+     - parameter side: `width` and `height`.
+     */
     init(side: CGFloat) {
         self.init(width: side, height: side)
     }
     
+    /**
+     SparrowKit: Aspect ratio of `width` to `height`.
+     */
     var aspectRatio: CGFloat {
         guard height != 0 else { return 0 }
         return width / height
     }
     
+    /**
+     SparrowKit: Maximum size of `width` and `height`.
+     */
     var maxDimension: CGFloat {
         return max(width, height)
     }
 
+    /**
+     SparrowKit: Minimum size of `width` and `height`.
+     */
     var minDimension: CGFloat {
         return min(width, height)
     }

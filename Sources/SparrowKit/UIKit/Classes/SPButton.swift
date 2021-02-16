@@ -22,7 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Button class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPButton: UIButton {
+    
+    // MARK: - Init
     
     public init() {
         super.init(frame: CGRect.zero)
@@ -47,7 +54,7 @@ open class SPButton: UIButton {
      */
     open func commonInit() {}
     
-    // MARK: - Title and Image insets
+    // MARK: - Layout
     
     open var titleImageInset: CGFloat? = nil
     

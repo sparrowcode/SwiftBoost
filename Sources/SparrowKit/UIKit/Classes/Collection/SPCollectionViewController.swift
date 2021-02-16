@@ -22,5 +22,8 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Collection View Controller.
+ */
 open class SPCollectionViewController: UICollectionViewController {}
 #endif

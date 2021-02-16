@@ -22,7 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Scroll View class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPScrollView: UIScrollView {
+    
+    // MARK: - Init
     
     public init() {
         super.init(frame: .zero)
@@ -34,9 +41,17 @@ open class SPScrollView: UIScrollView {
         commonInit()
     }
     
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride init. Using one function for configurate view.
+     */
     open func commonInit() {
         self.delaysContentTouches = false
     }
+    
+    // MARK: - Touches
     
     open override func touchesShouldCancel(in view: UIView) -> Bool {
         #if os(iOS)

@@ -22,15 +22,33 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Table View Cell class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPTableViewCell: UITableViewCell {
     
+    /**
+     SparrowKit: Storage `IndexPath`.
+     
+     Value available only if you configure it before. Useful using with threads.
+     Reusable system of table can take some bugs without compared valid index path.
+     */
     open var currentIndexPath: IndexPath?
     
+    /**
+     SparrowKit: Wrapper if selection color in `selectedBackgroundView`.
+     
+     By default `selectedBackgroundView` not inited, but this class init it before and view is ready.
+     */
     open var selectedColor: UIColor = .clear {
         didSet {
             selectedBackgroundView?.backgroundColor = selectedColor
         }
     }
+    
+    // MARK: - Init
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,6 +60,12 @@ open class SPTableViewCell: UITableViewCell {
         commonInit()
     }
     
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride other init. Using one function for configurate view.
+     */
     open func commonInit() {
         if #available(iOS 13.0, *) {
             selectedBackgroundView = UIView()
@@ -50,6 +74,8 @@ open class SPTableViewCell: UITableViewCell {
             #endif
         }
     }
+    
+    // MARK: - Lifecycle
     
     open override func prepareForReuse() {
         super.prepareForReuse()

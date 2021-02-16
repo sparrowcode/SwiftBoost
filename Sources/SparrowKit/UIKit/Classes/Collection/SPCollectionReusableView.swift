@@ -22,7 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Collection Reusable View class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPCollectionReusableView: UICollectionReusableView {
+    
+    // MARK: - Init
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,6 +41,12 @@ open class SPCollectionReusableView: UICollectionReusableView {
         commonInit()
     }
     
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride other init. Using one function for configurate view.
+     */
     open func commonInit() {}
 }
 #endif

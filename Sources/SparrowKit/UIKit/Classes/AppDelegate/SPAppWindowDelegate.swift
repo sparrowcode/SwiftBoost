@@ -23,12 +23,12 @@
 import UIKit
 
 /**
- App Delegate which not using with scenes, only with one window key.
+ SparrowKit:  App Delegate which not using with scenes, only with one window key.
  */
 open class SPAppWindowDelegate: SPAppDelegate {
     
     /**
-     Ready-use window property.
+     SparrowKit:  Ready-use window property.
      
      For correct configure, call `makeKeyAndVisible`.
      */

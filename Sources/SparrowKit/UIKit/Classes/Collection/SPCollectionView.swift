@@ -22,7 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Collection View class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPCollectionView: UICollectionView {
+    
+    // MARK: - Init
     
     public init(collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: .zero, collectionViewLayout: layout)
@@ -33,7 +40,13 @@ open class SPCollectionView: UICollectionView {
         super.init(coder: aDecoder)
         commonInit()
     }
-
+    
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride other init. Using one function for configurate view.
+     */
     open func commonInit() {
         delaysContentTouches = false
     }

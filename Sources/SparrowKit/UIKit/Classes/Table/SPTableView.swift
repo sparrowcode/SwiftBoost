@@ -23,7 +23,9 @@
 import UIKit
 
 /**
+ SparrowKit: Basic Table View class.
  
+ It has one shared init `commonInit` which call for all default inits.
  */
 open class SPTableView: UITableView {
     
@@ -43,7 +45,7 @@ open class SPTableView: UITableView {
      SparrowKit: Wrapper of init.
      Called in each init and using for configuration.
      
-     No need ovveride init. Using one function for configurate view.
+     No need ovveride other init. Using one function for configurate view.
      */
     open func commonInit() {}
 }
