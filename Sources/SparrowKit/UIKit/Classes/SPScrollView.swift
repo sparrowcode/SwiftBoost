@@ -51,7 +51,7 @@ open class SPScrollView: UIScrollView {
         self.delaysContentTouches = false
     }
     
-    // MARK: - Touches
+    // MARK: - Ovveride
     
     open override func touchesShouldCancel(in view: UIView) -> Bool {
         #if os(iOS)

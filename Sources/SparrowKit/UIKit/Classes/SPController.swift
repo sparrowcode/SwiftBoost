@@ -22,7 +22,12 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Controller class.
+ */
 open class SPController: UIViewController {
+    
+    // MARK: - Init
     
     public init() {
         super.init(nibName: nil, bundle: nil)

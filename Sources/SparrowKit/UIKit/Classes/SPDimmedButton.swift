@@ -22,6 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Button with process dimmed colors.
+ 
+ Button support color states like `basic`, `dimmed` and `disabled`.
+ For change it using `Colorise` object.
+ 
+ Also available tinting for all modes.
+ */
 open class SPDimmedButton: SPButton {
     
     // MARK: - Ovveride
@@ -142,7 +150,7 @@ open class SPDimmedButton: SPButton {
     private lazy var disabledColorise = Colorise(content: dimmedContentColor, background: .clear)
     
     /**
-     SparrowKit: Colorise for dimmed mode.
+     SparrowKit: Colorise for dimmed state.
      */
     private lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
     

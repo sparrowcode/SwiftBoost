@@ -22,13 +22,26 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Image View class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPImageView: UIImageView {
+    
+    // MARK: - Init
     
     public init() {
         super.init(frame: .zero)
         commonInit()
     }
 
+    /**
+     SparrowKit: Create `SPImageView` with image and content mode.
+     
+     - parameter image: The initial image to display in the image view.
+     - parameter contentMode: Options to specify how a view adjusts its content when its size changes.
+     */
     public init(image: UIImage?, contentMode: UIImageView.ContentMode) {
         super.init(image: image)
         self.contentMode = contentMode

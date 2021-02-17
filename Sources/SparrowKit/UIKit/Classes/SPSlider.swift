@@ -22,6 +22,11 @@
 #if canImport(UIKit) && (os(iOS))
 import UIKit
 
+/**
+ SparrowKit: Basic Slider class.
+ 
+ It has one shared init `commonInit` which call for all default inits.
+ */
 open class SPSlider: UISlider {
     
     /**
