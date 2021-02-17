@@ -39,7 +39,7 @@ open class SPLabel: UILabel {
     /**
      SparrowKit: Create new label.
      
-     - parameter text: Text.
+     - parameter text: The initial label to display in the view.
      */
     public init(text: String?) {
         super.init(frame: .zero)
@@ -50,8 +50,8 @@ open class SPLabel: UILabel {
     /**
      SparrowKit: Create new label.
      
-     - parameter text: Text.
-     - parameter style: Font style.
+     - parameter text: The initial label to display in the view.
+     - parameter style: Font style for initial label.
      */
     public init(text: String, style: UIFont.TextStyle) {
         super.init(frame: .zero)
@@ -63,8 +63,8 @@ open class SPLabel: UILabel {
     /**
      SparrowKit: Create new label.
      
-     - parameter text: Text.
-     - parameter font: Font.
+     - parameter text: The initial label to display in the view.
+     - parameter font: Font for initial label.
      */
     public init(text: String, font: UIFont) {
         super.init(frame: .zero)

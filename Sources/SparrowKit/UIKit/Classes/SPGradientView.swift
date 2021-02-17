@@ -22,38 +22,62 @@
 #if canImport(UIKit) && (os(iOS))
 import UIKit
 
+/**
+ SparrowKit: View with gradeint.
+ 
+ Inside using `CAGradientLayer`, but you can use interfaace for clean access to it.
+ */
 open class SPGradientView: SPView {
     
+    /**
+     SparrowKit: Gradient layer which configure.
+     */
     open var gradientLayer = CAGradientLayer()
     
+    /**
+     SparrowKit: Start color for gradient view. Not same to top, but can be in top.
+     */
     open var startColor = UIColor.white {
         didSet {
             updateGradient()
         }
     }
     
+    /**
+     SparrowKit: End color for gradient view. Not same to bottom, but can be in bottom.
+     */
     open var endColor = UIColor.black {
         didSet {
             updateGradient()
         }
     }
     
+    /**
+     SparrowKit: Start color position for start color.
+     */
     open var startColorPosition = Position.topLeft  {
         didSet {
             updateGradient()
         }
     }
     
+    /**
+     SparrowKit: End color position for end color.
+     */
     open var endColorPosition = Position.bottomRight  {
         didSet {
             updateGradient()
         }
     }
     
+    // MARK: - Init
+    
     open override func commonInit() {
         super.commonInit()
         layer.addSublayer(gradientLayer)
     }
+    
+    // MARK: - Helpers
     
     private func updateGradient() {
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
@@ -62,11 +86,18 @@ open class SPGradientView: SPView {
         gradientLayer.endPoint = endColorPosition.point
     }
     
+    // MARK: - Layout
+    
     open override func layoutSublayers(of layer: CALayer) {
         gradientLayer.frame = self.bounds
         super.layoutSublayers(of: layer)
     }
     
+    // MARK: - Models
+    
+    /**
+     SparrowKit: Represent position to gradient view.
+     */
     public enum Position {
         
         case topLeft
@@ -79,6 +110,9 @@ open class SPGradientView: SPView {
         case mediumRight
         case mediumCenter
         
+        /**
+         SparrowKit: Convert position to point for using with `CAGradientLayer`.
+         */
         var point: CGPoint {
             switch self {
             case .topLeft:

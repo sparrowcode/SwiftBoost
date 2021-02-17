@@ -56,6 +56,12 @@ open class SPButton: UIButton {
     
     // MARK: - Layout
     
+    /**
+     SparrowKit: Inset between image and title.
+     
+     No need any additional processing layout.
+     It work automatically in `layoutSubviews` method.
+     */
     open var titleImageInset: CGFloat? = nil
     
     open override func layoutSubviews() {

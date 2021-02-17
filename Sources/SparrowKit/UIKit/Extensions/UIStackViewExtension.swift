@@ -23,6 +23,7 @@
 import UIKit
 
 public extension UIStackView {
+    
     /**
      SparrowKit: Add many arranged subviews as array.
      
