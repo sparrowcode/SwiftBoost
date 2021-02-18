@@ -24,20 +24,32 @@ import UIKit
 
 public extension UIApplication {
     
+    /**
+     SparrowKit: Bundle display name from plist.
+     */
     var displayName: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
     }
-
-    var buildNumber: String? {
-        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
-    }
     
+    /**
+     SparrowKit: Bundle identifier from plist.
+     */
     var bundleIdentifier: String? {
         return Bundle.main.bundleIdentifier
     }
     
+    /**
+     SparrowKit: Bundle version from plist.
+     */
     var version: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+    }
+    
+    /**
+     SparrowKit: Bundle number from plist.
+     */
+    var buildNumber: String? {
+        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
 }
 #endif

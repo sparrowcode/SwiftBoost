@@ -24,6 +24,13 @@ import UIKit
 
 public extension UIFeedbackGenerator {
     
+    /**
+     SparrowKit: Wrapper of call Feedback Generator.
+     
+     Passing `UIFeedbackGenerator.Style` in one interface.
+     
+     - parameter style: Object of `UIFeedbackGenerator.Style`. Choose style which you need like `.notificationError` or `.selectionChanged`.
+     */
     static func impactOccurred(_ style: Style) {
         switch style {
         case .light:
@@ -50,6 +57,9 @@ public extension UIFeedbackGenerator {
         }
     }
     
+    /**
+     SparrowKit: Represent style of feedback generators.
+     */
     enum Style {
         
         case light
