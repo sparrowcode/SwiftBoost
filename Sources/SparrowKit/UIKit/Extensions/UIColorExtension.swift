@@ -24,6 +24,8 @@ import UIKit
 
 public extension UIColor {
     
+    // MARK: - Init
+    
     #if !os(watchOS) && !os(tvOS)
     convenience init(light: UIColor, dark: UIColor) {
         if #available(iOS 13.0, tvOS 13.0, *) {
@@ -64,6 +66,8 @@ public extension UIColor {
         self.init(red: hex.red, green: hex.green, blue: hex.blue, alpha: hex.alpha)
     }
     
+    // MARK: - Application
+    
     #if !os(watchOS)
     static var tint: UIColor {
         get {
@@ -76,6 +80,8 @@ public extension UIColor {
         }
     }
     #endif
+    
+    // MARK: - Helpers
     
     var hex: String {
         let colorRef = cgColor.components
@@ -175,6 +181,8 @@ public extension UIColor {
         }
         return (red, green, blue, newAlpha)
     }
+    
+    // MARK: - Data
     
     #if !os(watchOS) && !os(tvOS)
     static var footnoteColor: UIColor {

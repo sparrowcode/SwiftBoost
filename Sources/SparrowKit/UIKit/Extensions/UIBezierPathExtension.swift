@@ -23,13 +23,28 @@
 import UIKit
 
 public extension UIBezierPath {
-
+    
+    // MARK: - Init
+    
+    /**
+     SparrowKit: Create Bezier Path.
+     
+     - parameter from: Start point.
+     - parameter otherPoint: End point.
+     */
     convenience init(from: CGPoint, to otherPoint: CGPoint) {
         self.init()
         move(to: from)
         addLine(to: otherPoint)
     }
-
+    
+    /**
+     SparrowKit: Create Bezier Path.
+     
+     You passing points in array and step by step each point connect of previuos.
+     
+     - parameter points: List of point.
+     */
     convenience init(points: [CGPoint]) {
         self.init()
         if !points.isEmpty {

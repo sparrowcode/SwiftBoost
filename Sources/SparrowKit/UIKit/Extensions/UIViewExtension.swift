@@ -155,6 +155,9 @@ public extension UIView {
         return readableContentGuide.layoutFrame.height
     }
     
+    /**
+     SparrowKit: Readable frame of current view without vertical and horizontal readable margins.
+     */
     var readableFrame: CGRect {
         let margins = readableMargins
         return CGRect.init(x: margins.left, y: margins.top, width: readableWidth, height: readableHeight)
@@ -176,6 +179,9 @@ public extension UIView {
         return layoutMarginsGuide.layoutFrame.height
     }
     
+    /**
+     SparrowKit: Frame of current view without horizontal and vertical layout margins.
+     */
     var layoutFrame: CGRect {
         return CGRect.init(x: layoutMargins.left, y: layoutMargins.top, width: layoutWidth, height: layoutHeight)
     }
@@ -234,6 +240,9 @@ public extension UIView {
      
      - important:
      Need call after changed frame. Better leave it in `layoutSubviews` method.
+     
+     - parameter corners: Case of `UIRectCorner`
+     - parameter radius: Amount of radius.
      */
     func roundCorners(_ corners: UIRectCorner = .allCorners, radius: CGFloat) {
         let maskPath = UIBezierPath(
@@ -288,7 +297,12 @@ public extension UIView {
     }
     
     /**
-     SparrowKit: Add shadow with all properties.
+     SparrowKit: Add shadow.
+     
+     - parameter color: Color of shadow.
+     - parameter radius: Blur radius of shadow.
+     - parameter offset: Vertical and horizontal offset from center fro shadow.
+     - parameter opacity: Alpha for shadow view.
      */
     func addShadow(ofColor color: UIColor, radius: CGFloat, offset: CGSize, opacity: Float) {
         layer.shadowColor = color.cgColor
@@ -301,6 +315,8 @@ public extension UIView {
     /**
      SparrowKit: Add paralax. Depended by angle of device.
      Can be not work is user reduce motion on settins device.
+     
+     - parameter amount: Amount of paralax effect.
      */
     func addParalax(amount: CGFloat) {
         motionEffects.removeAll()
@@ -328,6 +344,9 @@ public extension UIView {
     
     /**
      SparrowKit: Appear view with fade in animation.
+     
+     - parameter duration: Duration of animation.
+     - parameter completion: Completion when animation ended.
      */
     func fadeIn(duration: TimeInterval = 0.3, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: duration, animations: {
@@ -337,6 +356,9 @@ public extension UIView {
     
     /**
      SparrowKit: Hide view with fade out animation.
+     
+     - parameter duration: Duration of animation.
+     - parameter completion: Completion when animation ended.
      */
     func fadeOut(duration: TimeInterval = 0.3, completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: duration, animations: {
