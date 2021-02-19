@@ -26,6 +26,12 @@ public extension UIColor {
     
     // MARK: - Init
     
+    /**
+     SparrowKit: Create dynamic color for light and dark user interface style.
+     
+     - parameter light: Color for light interface style.
+     - parameter dark: Color for dark interface style.
+     */
     #if !os(watchOS) && !os(tvOS)
     convenience init(light: UIColor, dark: UIColor) {
         if #available(iOS 13.0, tvOS 13.0, *) {
@@ -35,6 +41,12 @@ public extension UIColor {
         }
     }
     
+    /**
+     SparrowKit: Create color for interface levels.
+     
+     - parameter baseInterfaceLevel: Color for basic interface level.
+     - parameter elevatedInterfaceLevel: Color for elevated interface level.
+     */
     convenience init(baseInterfaceLevel: UIColor, elevatedInterfaceLevel: UIColor ) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init { traitCollection in
@@ -56,11 +68,22 @@ public extension UIColor {
     }
     #endif
     
+    /**
+     SparrowKit: Create color by HEX.
+     
+     - parameter hex: HEX of color. Can start from #.
+     */
     convenience init(hex: String) {
         let hex = UIColor.parseHex(hex: hex, alpha: nil)
         self.init(red: hex.red, green: hex.green, blue: hex.blue, alpha: hex.alpha)
     }
     
+    /**
+     SparrowKit: Create color by HEX.
+     
+     - parameter hex: HEX of color. Can start from #.
+     - parameter alpha: Opacity.
+     */
     convenience init(hex: String, alpha: CGFloat) {
         let hex = UIColor.parseHex(hex: hex, alpha: alpha)
         self.init(red: hex.red, green: hex.green, blue: hex.blue, alpha: hex.alpha)
@@ -68,6 +91,10 @@ public extension UIColor {
     
     // MARK: - Application
     
+    /**
+     SparrowKit: Tint color for first window.
+     Usually it is global tint color.
+     */
     #if !os(watchOS)
     static var tint: UIColor {
         get {
@@ -83,6 +110,9 @@ public extension UIColor {
     
     // MARK: - Helpers
     
+    /**
+     SparrowKit: Get HEX from current color.
+     */
     var hex: String {
         let colorRef = cgColor.components
         let r = colorRef?[0] ?? 0
@@ -104,18 +134,39 @@ public extension UIColor {
         return color
     }
     
+    /**
+     SparrowKit: Color with new opacity.
+     
+     - parameter alpha: Opacity.
+     */
     func alpha(_ alpha: CGFloat) -> UIColor {
         self.withAlphaComponent(alpha)
     }
     
+    /**
+     SparrowKit: Make color lighter.
+     
+     - parameter amount: Amount for lighter. Use 0...1.
+     */
     func lighter(by amount: CGFloat) -> UIColor {
         return mixWithColor(UIColor.white, amount: amount)
     }
-
+    
+    /**
+     SparrowKit: Make color darker.
+     
+     - parameter amount: Amount for darker. Use 0...1.
+     */
     func darker(by amount: CGFloat) -> UIColor {
         return mixWithColor(UIColor.black, amount: amount)
     }
-
+    
+    /**
+     SparrowKit: Mix with other color.
+     
+     - parameter color: Color for mix.
+     - parameter amount: Amount of mix. Use 0...1.
+     */
     func mixWithColor(_ color: UIColor, amount: CGFloat = 0.25) -> UIColor {
         var r1     : CGFloat = 0
         var g1     : CGFloat = 0
@@ -125,7 +176,7 @@ public extension UIColor {
         var g2     : CGFloat = 0
         var b2     : CGFloat = 0
         var alpha2 : CGFloat = 0
-
+        
         self.getRed (&r1, green: &g1, blue: &b1, alpha: &alpha1)
         color.getRed(&r2, green: &g2, blue: &b2, alpha: &alpha2)
         return UIColor(
@@ -135,6 +186,12 @@ public extension UIColor {
             alpha: alpha1)
     }
     
+    /**
+     SparrowKit: Convert HEX to RGB channels.
+     
+     - parameter hex: HEX of color.
+     - parameter alpha: Opacity.
+     */
     private static func parseHex(hex: String, alpha: CGFloat?) -> (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         var red:   CGFloat = 0.0
         var green: CGFloat = 0.0
@@ -184,6 +241,9 @@ public extension UIColor {
     
     // MARK: - Data
     
+    /**
+     SparrowKit: Color of footnote label.
+     */
     #if !os(watchOS) && !os(tvOS)
     static var footnoteColor: UIColor {
         if #available(iOS 13.0, tvOS 13, *) {

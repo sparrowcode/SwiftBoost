@@ -23,7 +23,12 @@
 import UIKit
 
 public extension UISwitch {
-
+    
+    /**
+     SparrowKit: Change state to inverted.
+     
+     - parameter animated: Is animated apply changes.
+     */
     func toggle(animated: Bool = true) {
         setOn(!isOn, animated: animated)
     }
