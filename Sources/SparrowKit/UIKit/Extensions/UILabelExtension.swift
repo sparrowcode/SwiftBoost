@@ -26,6 +26,9 @@ public extension UILabel {
     
     // MARK: - Helpers
     
+    /**
+     SparrowKit: Manager letter space by Attributed String.
+     */
     var letterSpace: CGFloat {
         set {
             let attributedString: NSMutableAttributedString!
@@ -49,6 +52,13 @@ public extension UILabel {
     
     // MARK: - Layout
     
+    /**
+     SparrowKit: Layout label with fix widget and dynamic `height`.
+     
+     If label width fewer of requested value, it set to requested value.
+     
+     - parameter width: `Widght` of label.
+     */
     func layoutDynamicHeight(width: CGFloat) {
         frame.setWidth(width)
         sizeToFit()
@@ -57,6 +67,15 @@ public extension UILabel {
         }
     }
     
+    /**
+     SparrowKit: Layout label with fix widget and dynamic `height`.
+     
+     If label width fewer of requested value, it set to requested value.
+     
+     - parameter x: Orinig `x` position.
+     - parameter y: Orinig `y` position.
+     - parameter width: `Widght` of label.
+     */
     func layoutDynamicHeight(x: CGFloat, y: CGFloat, width: CGFloat) {
         frame = CGRect.init(x: x, y: y, width: width, height: frame.height)
         sizeToFit()
