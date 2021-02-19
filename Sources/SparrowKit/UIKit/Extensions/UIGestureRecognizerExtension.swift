@@ -24,6 +24,9 @@ import UIKit
 
 public extension UIGestureRecognizer {
 
+    /**
+     SparrowKit: Remove gester from parent view.
+     */
     func removeFromView() {
         view?.removeGestureRecognizer(self)
     }
