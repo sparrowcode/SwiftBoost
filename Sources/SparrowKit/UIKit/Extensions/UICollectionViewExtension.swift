@@ -23,11 +23,21 @@
 import UIKit
 
 public extension UICollectionView {
-
+    
+    // MARK: - Helpers
+    
+    /**
+     SparrowKit: Get last index of last section of collection.
+     */
     var indexPathForLastItem: IndexPath? {
         return indexPathForLastItem(inSection: lastSection)
     }
     
+    /**
+     SparrowKit: Get last index path for special section.
+     
+     - parameter section: Section for which need get last row.
+     */
     func indexPathForLastItem(inSection section: Int) -> IndexPath? {
         guard section >= 0 else {
             return nil
@@ -40,11 +50,17 @@ public extension UICollectionView {
         }
         return IndexPath(item: numberOfItems(inSection: section) - 1, section: section)
     }
-
+    
+    /**
+     SparrowKit: Index of last section.
+     */
     var lastSection: Int {
         return numberOfSections > 0 ? numberOfSections - 1 : 0
     }
-
+    
+    /**
+     SparrowKit: Total count of rows.
+     */
     func numberOfItems() -> Int {
         var section = 0
         var itemsCount = 0
@@ -55,6 +71,11 @@ public extension UICollectionView {
         return itemsCount
     }
     
+    /**
+     SparrowKit: Check if index path is availabe.
+     
+     - parameter indexPath: Checking index path.
+     */
     func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
         return indexPath.section >= 0 &&
             indexPath.item >= 0 &&
@@ -62,6 +83,15 @@ public extension UICollectionView {
             indexPath.item < numberOfItems(inSection: indexPath.section)
     }
     
+    /**
+     SparrowKit: Scroll to index path.
+     
+     If index path isn't availalbe, scroll will be canceled.
+     
+     - parameter indexPath: Scroll to this index path.
+     - parameter scrollPosition: Position of cell to which scroll.
+     - parameter animated: Is aniamted scroll.
+     */
     func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         guard isValidIndexPath(indexPath) else { return }
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
@@ -69,10 +99,21 @@ public extension UICollectionView {
     
     // MARK: - Cell Registration
     
+    /**
+     SparrowKit: Register cell with `ID` its name class.
+     
+     - parameter class: Class of `UICollectionViewCell`.
+     */
     func register<T: UICollectionViewCell>(_ class: T.Type) {
         register(T.self, forCellWithReuseIdentifier: String(describing: `class`))
     }
     
+    /**
+     SparrowKit: Dequeue cell with `ID` its name class.
+     
+     - parameter class: Class of `UICollectionViewCell`.
+     - parameter indexPath: Index path of getting cell.
+     */
     func dequeueReusableCell<T: UICollectionViewCell>(withClass class: T.Type, for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
@@ -82,10 +123,23 @@ public extension UICollectionView {
     
     // MARK: - Header Footer Registration
     
+    /**
+     SparrowKit: Register reusable view with `ID` its name class and `kind`.
+     
+     - parameter class: Class of `UICollectionReusableView`.
+     - parameter kind: Kind of usage reusable view.
+     */
     func register<T: UICollectionReusableView>(_ class: T.Type, kind: String) {
         register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: `class`))
     }
     
+    /**
+     SparrowKit: Dequeue reusable view with `ID` its name class.
+     
+     - parameter class: Class of `UICollectionReusableView`.
+     - parameter kind: Kind of usage reusable view.
+     - parameter indexPath: Index path of getting reusable view.
+     */
     func dequeueReusableSupplementaryView<T: UICollectionReusableView>(withCalss class: T.Type, kind: String, for indexPath: IndexPath) -> T {
         guard let view = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()

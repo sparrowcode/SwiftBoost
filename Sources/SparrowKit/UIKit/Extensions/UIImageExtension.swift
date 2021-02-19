@@ -24,6 +24,16 @@ import UIKit
 
 public extension UIImage {
     
+    // MARK: - Init
+    
+    /**
+     SparrowKit: Create new `UIImage` object by color and size.
+     
+     Create filled image with specific color.
+     
+     - parameter color: Color.
+     - parameter size: Size.
+     */
     convenience init(color: UIColor, size: CGSize) {
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
         defer {
@@ -38,12 +48,24 @@ public extension UIImage {
         self.init(cgImage: aCgImage)
     }
     
+    /**
+     SparrowKit: Create `SFSymbols` image with specific configuration.
+     
+     - parameter name: Name of system image.
+     - parameter pointSize: Font size of image.
+     - parameter pointSize: Weight of font of image.
+     */
     @available(iOS 13, tvOS 13,  *)
     convenience init(systemName name: String, pointSize: CGFloat, weight: UIImage.SymbolWeight) {
         let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight)
         self.init(systemName: name, withConfiguration: configuration)!
     }
     
+    /**
+     SparrowKit: Create `SFSymbols` image.
+     
+     - parameter name: Name of system image..
+     */
     static func system(_ name: String) -> UIImage {
         if #available(iOS 13, tvOS 13, *) {
             return UIImage.init(systemName: name) ?? UIImage()
@@ -53,39 +75,69 @@ public extension UIImage {
     }
     
     // MARK: - Helpers
-
+    
+    /**
+     SparrowKit: Get size of image in bytes.
+     */
     var bytesSize: Int {
         return jpegData(compressionQuality: 1)?.count ?? 0
     }
-
+    
+    /**
+     SparrowKit: Get size of image in kilibytes.
+     */
     var kilobytesSize: Int {
         return (jpegData(compressionQuality: 1)?.count ?? 0) / 1024
     }
     
+    /**
+     SparrowKit: Compress image.
+     
+     - parameter quality: Factor of compress. Can be in 0...1.
+     */
     func compresse(quality: CGFloat = 0.5) -> UIImage? {
         guard let data = jpegData(compressionQuality: quality) else { return nil }
         return UIImage(data: data)
     }
-
+    
+    /**
+     SparrowKit: Compress data of image.
+     
+     - parameter quality: Factor of compress. Can be in 0...1.
+     */
     func compressedData(quality: CGFloat = 0.5) -> Data? {
         return jpegData(compressionQuality: quality)
     }
     
     // MARK: - Appearance
-
+    
+    /**
+     SparrowKit: Always original render mode.
+     */
     var alwaysOriginal: UIImage {
         return withRenderingMode(.alwaysOriginal)
     }
     
+    /**
+     SparrowKit: Always original render mode.
+     
+     - parameter color: Color of image.
+     */
     @available(iOS 13.0, tvOS 13.0, *)
     func alwaysOriginal(with color: UIColor) -> UIImage {
         return withTintColor(color, renderingMode: .alwaysOriginal)
     }
-
+    
+    /**
+     SparrowKit: Always template render mode.
+     */
     var alwaysTemplate: UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
-
+    
+    /**
+     SparrowKit: Get average color of image.
+     */
     #if canImport(CoreImage)
     func averageColor() -> UIColor? {
         guard let ciImage = ciImage ?? CIImage(image: self) else { return nil }
@@ -108,6 +160,9 @@ public extension UIImage {
                        alpha: CGFloat(bitmap[3]) / 255.0)
     }
     
+    /**
+     SparrowKit: Resize image to new size with save proportional.
+     */
     func resize(newWidth width: CGFloat) -> UIImage {
         let scale = width / self.size.width
         let newHeight = self.size.height * scale
