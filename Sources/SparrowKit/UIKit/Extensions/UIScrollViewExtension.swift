@@ -23,19 +23,35 @@
 import UIKit
 
 public extension UIScrollView {
-
+    
+    /**
+     SparrowKit: Rect of visible content.
+     */
     var visibleRect: CGRect {
         let contentWidth = contentSize.width - contentOffset.x
         let contentHeight = contentSize.height - contentOffset.y
-        return CGRect(origin: contentOffset,
-                      size: CGSize(width: min(min(bounds.size.width, contentSize.width), contentWidth),
-                                   height: min(min(bounds.size.height, contentSize.height), contentHeight)))
+        return CGRect(
+            origin: contentOffset,
+            size: CGSize(
+                width: min(min(bounds.size.width, contentSize.width), contentWidth),
+                height: min(min(bounds.size.height, contentSize.height), contentHeight)
+            )
+        )
     }
     
+    /**
+     SparrowKit: Represent position of scroll.
+     */
     enum Side {
         case top, bottom, left, right
     }
     
+    /**
+     SparrowKit: Scroll to specific position.
+     
+     - parameter side: Position to scroll.
+     - parameter animated: Is animated scroll.
+     */
     func scrollTo(_ side: Side, animated: Bool) {
         let point: CGPoint
         

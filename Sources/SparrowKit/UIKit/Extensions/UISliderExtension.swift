@@ -24,6 +24,14 @@ import UIKit
 
 public extension UISlider {
 
+    /**
+     SparrowKit: Manage slider position.
+     
+     - parameter value: New value.
+     - parameter animated: Is animated switch to segemnt.
+     - parameter duration: Duration of animation.
+     - parameter completion: Handler which call when slider completed change position.
+     */
     func setValue(
         _ value: Float,
         animated: Bool = true,

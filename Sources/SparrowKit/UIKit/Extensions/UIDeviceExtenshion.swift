@@ -24,6 +24,9 @@ import UIKit
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 public extension UIDevice {
     
+    /**
+     SparrowKit: Detect if current device is Mac.
+     */
     var isMac: Bool {
         if #available(iOS 14.0, tvOS 14.0, *) {
             if UIDevice.current.userInterfaceIdiom == .mac {

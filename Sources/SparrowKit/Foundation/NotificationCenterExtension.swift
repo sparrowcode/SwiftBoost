@@ -24,6 +24,11 @@ import Foundation
 
 public extension NotificationCenter {
     
+    /**
+     SparrowKit: Post notification.
+     
+     - parameter name: Notification name.
+     */
     func post(name: NSNotification.Name) {
         post(name: name, object: nil)
     }

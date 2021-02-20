@@ -23,7 +23,15 @@
 import UIKit
 
 public extension UIImageView {
-
+    
+    /**
+     SparrowKit: Download image by URL and set it async.
+     
+     - parameter url: `URL` to image.
+     - parameter contentMode: Content mode for image, using for placeholder and source image.
+     - parameter placeholder: Show while loading source image.
+     - parameter completionHandler: Calling when loading source image completed.
+     */
     func download(
         from url: URL,
         contentMode: UIView.ContentMode = .scaleAspectFit,
@@ -47,8 +55,15 @@ public extension UIImageView {
             }
         }.resume()
     }
-
-    func blur(withStyle style: UIBlurEffect.Style = .light) {
+    
+    /**
+     SparrowKit: Blur image.
+     
+     Blurring by adding `UIVisualEffectView` to view and set equal sizes.
+     
+     - parameter style: Blur style.
+     */
+    func blur(withStyle style: UIBlurEffect.Style) {
         let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = bounds
@@ -56,8 +71,15 @@ public extension UIImageView {
         addSubview(blurEffectView)
         clipsToBounds = true
     }
-
-    func blurred(withStyle style: UIBlurEffect.Style = .light) -> UIImageView {
+    
+    /**
+     SparrowKit: Create new image and blur it.
+     
+     Blurring by adding `UIVisualEffectView` to view and set equal sizes.
+     
+     - parameter style: Blur style.
+     */
+    func blurred(withStyle style: UIBlurEffect.Style) -> UIImageView {
         let imgView = self
         imgView.blur(withStyle: style)
         return imgView
