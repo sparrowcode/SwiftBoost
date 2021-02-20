@@ -24,6 +24,8 @@ import Foundation
 
 public extension Date {
     
+    // MARK: - Helpers
+    
     var isInFuture: Bool {
         return self > Date()
     }
@@ -64,8 +66,14 @@ public extension Date {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
     }
     
-    func isBetween(_ date1: Date, and date2: Date) -> Bool {
-        return (min(date1, date2) ... max(date1, date2)).contains(self)
+    /**
+     SparrowKit: Check if date between two dates.
+     
+     - parameter startDate: Start period date.
+     - parameter endDate: End period date.
+     */
+    func isBetween(_ startDate: Date, and endDate: Date) -> Bool {
+        return (min(startDate, endDate) ... max(startDate, endDate)).contains(self)
     }
     
     /**
@@ -102,14 +110,14 @@ public extension Date {
     
     /**
      SparrowKit: Returns the difference between two dates
-     
-     - parameter date: Date until which to generate the array
-     - parameter component: The step with which the array is generated
         
      Take a look at this example:
      ```
      today.age(to: nextWeek, component: .day) // 7
      ```
+     
+     - parameter date: Date until which to generate the array
+     - parameter component: The step with which the array is generated
      */
     func difference(to date: Date, component: Calendar.Component) -> Int {
         let components = Calendar.current.dateComponents([component], from: self, to: date)
@@ -132,6 +140,8 @@ public extension Date {
             return 0
         }
     }
+    
+    // MARK: - Changing
     
     /**
      SparrowKit: Returns a date with a specified time
@@ -169,7 +179,8 @@ public extension Date {
     
     /**
      SparrowKit: Returns the start of component.
-     - Important: If it was not possible to get the end of the component, then self is returned.
+     
+     - important: If it was not possible to get the end of the component, then self is returned.
      - parameter component: The component you want to get the start of (year, month, day, etc.).
      - returns: The start of component.
      */
@@ -195,7 +206,8 @@ public extension Date {
     
     /**
      SparrowKit: Returns the end of component.
-     - Important: If it was not possible to get the end of the component, then self is returned.
+     
+     - important: If it was not possible to get the end of the component, then self is returned.
      - parameter component: The component you want to get the end of (year, month, day, etc.).
      - returns: The end of component.
      */
@@ -248,10 +260,22 @@ public extension Date {
     
     // MARK: - Formatting
     
+    /**
+     SparrowKit: Format date with date and time ready-use styles.
+     
+     - parameter dateStyle: The following constants specify predefined format styles for dates and times.
+     - parameter dateStyle: The following constants specify predefined format styles for dates and times.
+     */
     func formatted(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style = .none) -> String {
         DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
     }
     
+    /**
+     SparrowKit: Format date with specific format.
+     
+     - parameter format: Format style if formating.
+     - parameter localized: Is localized fromatting.
+     */
     func formatted(as format: String = "dd.MM.yyyy HH:mm", localized: Bool) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
@@ -271,7 +295,6 @@ public extension Date {
      - parameter timeStyle: The style to use when formatting hour, minute, and second information.
      - returns: The time interval in text format.
      */
-    
     func formattedInterval(to date: Date, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style = .none) -> String {
         let formatter = DateIntervalFormatter()
         formatter.dateStyle = dateStyle
@@ -283,14 +306,14 @@ public extension Date {
     /**
      SparrowKit: Returns age in text format.
      
-     - parameter date: The date until which the calculation takes place.
-     - parameter components: Set of Components you want to get.
-     - returns: The age in text format.
-     
      Take a look at this example:
      ```
      myBirthday.age(to: Date(), components: [.year, .month]) // 3 Years, 8 months
      ```
+     
+     - parameter date: The date until which the calculation takes place.
+     - parameter components: Set of Components you want to get.
+     - returns: The age in text format.
      */
     func age(to date: Date, components: Set<Calendar.Component>) -> String {
         let calender = Calendar.current

@@ -24,6 +24,12 @@ import Foundation
 
 public extension Calendar.Component {
     
+    /**
+     SparrowKit: Format components.
+     
+     - parameter numberOfUnits: Count of units of component.
+     - parameter unitsStyle: Style of formatting of units.
+     */
     func formatted(numberOfUnits: Int, unitsStyle: DateComponentsFormatter.UnitsStyle = .full) -> String? {
         let formatter = DateComponentsFormatter()
         formatter.maximumUnitCount = 1
