@@ -39,11 +39,29 @@ open class SPCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Init
     
+    /**
+     SparrowKit: Create new cell.
+     */
+    public init() {
+        super.init(frame: .zero)
+        commonInit()
+    }
+    
+    /**
+     SparrowKit: Create new cell.
+     
+     - parameter frame: Init frame for cell.
+     */
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
     
+    /**
+     SparrowKit: Create new cell.
+     
+     - parameter aDecoder: An unarchiver object.
+     */
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
