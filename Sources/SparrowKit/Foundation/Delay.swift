@@ -22,6 +22,12 @@
 #if canImport(Foundation)
 import Foundation
 
+/**
+ SparrowKit: Async work after some delay.
+ 
+ - parameter delay: Amount of delay in seconds.
+ - parameter closure: Useful work after compelte delay.
+ */
 public func delay(_ delay: TimeInterval, closure: @escaping ()->()) {
     let when = DispatchTime.now() + delay
     DispatchQueue.main.asyncAfter(deadline: when) {

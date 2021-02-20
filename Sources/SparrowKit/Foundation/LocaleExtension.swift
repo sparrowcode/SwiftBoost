@@ -24,6 +24,9 @@ import Foundation
 
 public extension Locale {
     
+    /**
+     SparrowKit: Check if for current locale is 12 hours time format.
+     */
     var is12HourTimeFormat: Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
@@ -33,6 +36,9 @@ public extension Locale {
         return dateString.contains(dateFormatter.amSymbol) || dateString.contains(dateFormatter.pmSymbol)
     }
     
+    /**
+     SparrowKit: Get empji for curernt `Locale`.
+     */
     static func flagEmoji(forRegionCode isoRegionCode: String) -> String? {
         guard isoRegionCodes.contains(isoRegionCode) else { return nil }
         return isoRegionCode.unicodeScalars.reduce(into: String()) {
