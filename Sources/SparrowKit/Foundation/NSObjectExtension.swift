@@ -24,6 +24,9 @@ import Foundation
 
 public extension NSObject {
     
+    /**
+     SparrowKit: Get class name of object.
+     */
     var className: String {
         return String(describing: type(of: self))
     }

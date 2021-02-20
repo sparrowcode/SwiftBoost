@@ -24,6 +24,12 @@ import UIKit
 
 public extension UINavigationController {
 
+    /**
+     SparrowKit: Pop controller with completion.
+     
+     - parameter animated: Is animated pop controller.
+     - parameter completion: Handler which call when pop controller completed.
+     */
     func popViewController(animated: Bool = true, _ completion: (() -> Void)? = nil) {
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
@@ -31,6 +37,12 @@ public extension UINavigationController {
         CATransaction.commit()
     }
 
+    /**
+     SparrowKit: Push new controller with completion.
+     
+     - parameter viewController: Pushing new controller.
+     - parameter completion: Handler which call when new controller pushed.
+     */
     func pushViewController(_ viewController: UIViewController, completion: (() -> Void)? = nil) {
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)

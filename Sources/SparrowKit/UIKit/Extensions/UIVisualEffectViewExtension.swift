@@ -24,6 +24,11 @@ import UIKit
 
 public extension UIVisualEffectView {
     
+    /**
+     SparrowKit: Create new effect view with `UIBlurEffect.Style`.
+     
+     - parameter style: Blur style.
+     */
     convenience init(style: UIBlurEffect.Style) {
         let effect = UIBlurEffect(style: style)
         self.init(effect: effect)

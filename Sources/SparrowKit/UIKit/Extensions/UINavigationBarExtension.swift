@@ -24,23 +24,42 @@ import UIKit
 
 public extension UINavigationBar {
  
+    /**
+     SparrowKit: Change font of title.
+     
+     - parameter font: New font of title.
+     */
     func setTitleFont(_ font: UIFont) {
         titleTextAttributes = [.font: font]
     }
     
+    /**
+     SparrowKit: Change color of title.
+     
+     - parameter color: New color of title.
+     */
     func setTitleColor(_ color: UIColor) {
         titleTextAttributes = [.foregroundColor: color]
     }
     
-    func setColors(background: UIColor, text: UIColor) {
+    /**
+     SparrowKit: Change background and title colors.
+     
+     - parameter backgroundColor: New background color of navigation.
+     - parameter textColor: New text color of title.
+     */
+    func setColors(backgroundColor: UIColor, textColor: UIColor) {
         isTranslucent = false
-        backgroundColor = background
-        barTintColor = background
+        self.backgroundColor = backgroundColor
+        barTintColor = backgroundColor
         setBackgroundImage(UIImage(), for: .default)
-        tintColor = text
-        titleTextAttributes = [.foregroundColor: text]
+        tintColor = textColor
+        titleTextAttributes = [.foregroundColor: textColor]
     }
 
+    /**
+     SparrowKit: Make transparent of background of navigation.
+     */
     func makeTransparent() {
         isTranslucent = true
         backgroundColor = .clear

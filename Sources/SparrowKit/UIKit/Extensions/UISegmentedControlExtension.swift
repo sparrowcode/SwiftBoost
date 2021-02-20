@@ -24,6 +24,9 @@ import UIKit
 
 public extension UISegmentedControl {
 
+    /**
+     SparrowKit: Array of all segemnt titles.
+     */
     var segmentTitles: [String] {
         get {
             let range = 0..<numberOfSegments
