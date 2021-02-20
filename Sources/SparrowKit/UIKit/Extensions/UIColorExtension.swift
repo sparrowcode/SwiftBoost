@@ -242,6 +242,19 @@ public extension UIColor {
     // MARK: - Data
     
     /**
+     SparrowKit: List of colorful colors.
+     */
+    #if !os(watchOS)
+    static var systemColorfulColors: [UIColor] {
+        if #available(iOS 13.0, tvOS 13.0, *) {
+            return [.systemRed, .systemGreen, .systemBlue, .systemOrange, .systemYellow, .systemPink, .systemPurple, .systemTeal, .systemIndigo]
+        } else {
+            return [.systemRed, .systemGreen, .systemBlue, .systemOrange, .systemYellow, .systemPink, .systemPurple, .systemTeal]
+        }
+    }
+    #endif
+    
+    /**
      SparrowKit: Color of footnote label.
      */
     #if !os(watchOS) && !os(tvOS)
