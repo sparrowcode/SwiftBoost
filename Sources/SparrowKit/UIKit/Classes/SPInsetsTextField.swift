@@ -47,7 +47,7 @@ open class SPInsetsTextField: SPTextField {
     
     open override func clearButtonRect(forBounds bounds: CGRect) -> CGRect {
         var rect = super.clearButtonRect(forBounds: bounds)
-        rect.setMaxX(bounds.width - insets.right + rect.width / 2)
+        rect.setMaxX(bounds.width - insets.right / 2 + rect.width / 2)
         return rect
     }
 }
