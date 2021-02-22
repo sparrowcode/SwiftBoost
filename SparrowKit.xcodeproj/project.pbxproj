@@ -10,6 +10,9 @@
 		DBA406EA25E4288E000B4EE3 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406E925E4288E000B4EE3 /* SPTextField.swift */; };
 		DBA406EB25E4288E000B4EE3 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406E925E4288E000B4EE3 /* SPTextField.swift */; };
 		DBA406EC25E4288E000B4EE3 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406E925E4288E000B4EE3 /* SPTextField.swift */; };
+		DBA406F225E4306C000B4EE3 /* SPInsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406F125E4306C000B4EE3 /* SPInsetsTextField.swift */; };
+		DBA406F325E4306C000B4EE3 /* SPInsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406F125E4306C000B4EE3 /* SPInsetsTextField.swift */; };
+		DBA406F425E4306C000B4EE3 /* SPInsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406F125E4306C000B4EE3 /* SPInsetsTextField.swift */; };
 		DBE9473925D459120010F41A /* SPGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9473825D459120010F41A /* SPGradientView.swift */; };
 		DBE9473A25D459120010F41A /* SPGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9473825D459120010F41A /* SPGradientView.swift */; };
 		DBE9473B25D459120010F41A /* SPGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE9473825D459120010F41A /* SPGradientView.swift */; };
@@ -214,6 +217,7 @@
 /* Begin PBXFileReference section */
 		DB41CA9225DBA0430014E0BC /* CODESTYLE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODESTYLE.md; sourceTree = "<group>"; };
 		DBA406E925E4288E000B4EE3 /* SPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTextField.swift; sourceTree = "<group>"; };
+		DBA406F125E4306C000B4EE3 /* SPInsetsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPInsetsTextField.swift; sourceTree = "<group>"; };
 		DBE9473825D459120010F41A /* SPGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPGradientView.swift; sourceTree = "<group>"; };
 		F4088FB425284883007D4F94 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		F4088FBB25284940007D4F94 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
@@ -368,6 +372,7 @@
 				F4D073352559A6D4008DA80E /* SPController.swift */,
 				DBE9473825D459120010F41A /* SPGradientView.swift */,
 				DBA406E925E4288E000B4EE3 /* SPTextField.swift */,
+				DBA406F125E4306C000B4EE3 /* SPInsetsTextField.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -692,6 +697,7 @@
 				F4088FE925284E69007D4F94 /* SPView.swift in Sources */,
 				F44576B6254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */,
 				F43423BC251CDDDD0094F319 /* Delay.swift in Sources */,
+				DBA406F325E4306C000B4EE3 /* SPInsetsTextField.swift in Sources */,
 				F476EEF825607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */,
 				F408901525284FD9007D4F94 /* SPScrollView.swift in Sources */,
 				F44AB684259083D900383CBC /* UIStackViewExtension.swift in Sources */,
@@ -766,6 +772,7 @@
 				F4088FEA25284E69007D4F94 /* SPView.swift in Sources */,
 				F44576B7254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */,
 				F43423B5251CDDDC0094F319 /* Delay.swift in Sources */,
+				DBA406F425E4306C000B4EE3 /* SPInsetsTextField.swift in Sources */,
 				F476EEF925607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */,
 				F408901625284FD9007D4F94 /* SPScrollView.swift in Sources */,
 				F44AB685259083D900383CBC /* UIStackViewExtension.swift in Sources */,
@@ -840,6 +847,7 @@
 				F40C0CCA2522001500B9C1C2 /* UIViewExtension.swift in Sources */,
 				F44576B5254095FC002C69FB /* UIVisualEffectViewExtension.swift in Sources */,
 				F408901425284FD9007D4F94 /* SPScrollView.swift in Sources */,
+				DBA406F225E4306C000B4EE3 /* SPInsetsTextField.swift in Sources */,
 				F476EEF725607675001EEE74 /* SPTableHeaderFooterView.swift in Sources */,
 				F4E5128B2525B21500F441CB /* UILabelExtension.swift in Sources */,
 				F44AB683259083D900383CBC /* UIStackViewExtension.swift in Sources */,
