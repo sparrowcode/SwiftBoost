@@ -48,6 +48,7 @@ open class SPCollectionView: UICollectionView {
      No need ovveride other init. Using one function for configurate view.
      */
     open func commonInit() {
+        backgroundColor = .clear
         delaysContentTouches = false
     }
 }
