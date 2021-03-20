@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBA78E25260373C900620829 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA78E24260373C900620829 /* ArrayExtension.swift */; };
+		BBA78E26260373C900620829 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA78E24260373C900620829 /* ArrayExtension.swift */; };
+		BBA78E27260373C900620829 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA78E24260373C900620829 /* ArrayExtension.swift */; };
 		DBA406EA25E4288E000B4EE3 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406E925E4288E000B4EE3 /* SPTextField.swift */; };
 		DBA406EB25E4288E000B4EE3 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406E925E4288E000B4EE3 /* SPTextField.swift */; };
 		DBA406EC25E4288E000B4EE3 /* SPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA406E925E4288E000B4EE3 /* SPTextField.swift */; };
@@ -215,6 +218,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BBA78E24260373C900620829 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		DB41CA9225DBA0430014E0BC /* CODESTYLE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CODESTYLE.md; sourceTree = "<group>"; };
 		DBA406E925E4288E000B4EE3 /* SPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTextField.swift; sourceTree = "<group>"; };
 		DBA406F125E4306C000B4EE3 /* SPInsetsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPInsetsTextField.swift; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 				F44576A525409283002C69FB /* CollectionExtension.swift */,
 				F4F88C84256C484E0002627D /* NSObjectExtension.swift */,
 				F4EA2A50256ED15A00203860 /* NotificationCenterExtension.swift */,
+				BBA78E24260373C900620829 /* ArrayExtension.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -711,6 +716,7 @@
 				F4E512852525AE5D00F441CB /* UIFontExtension.swift in Sources */,
 				F4088FFA25284EB5007D4F94 /* SPTableView.swift in Sources */,
 				F4D6FAEF256640110046A328 /* SPAppWindowDelegate.swift in Sources */,
+				BBA78E26260373C900620829 /* ArrayExtension.swift in Sources */,
 				F4E512732525AE4700F441CB /* UIFeedbackGeneratorExtension.swift in Sources */,
 				F4088FBD25284940007D4F94 /* UISegmentedControlExtension.swift in Sources */,
 				DBA406EB25E4288E000B4EE3 /* SPTextField.swift in Sources */,
@@ -786,6 +792,7 @@
 				F4E512862525AE5D00F441CB /* UIFontExtension.swift in Sources */,
 				F4088FFB25284EB5007D4F94 /* SPTableView.swift in Sources */,
 				F4D6FAF0256640110046A328 /* SPAppWindowDelegate.swift in Sources */,
+				BBA78E27260373C900620829 /* ArrayExtension.swift in Sources */,
 				F4E5127E2525AE4800F441CB /* UIFeedbackGeneratorExtension.swift in Sources */,
 				F4088FBE25284940007D4F94 /* UISegmentedControlExtension.swift in Sources */,
 				DBA406EC25E4288E000B4EE3 /* SPTextField.swift in Sources */,
@@ -861,6 +868,7 @@
 				F43423C6251CDDDE0094F319 /* Delay.swift in Sources */,
 				F4E512842525AE5D00F441CB /* UIFontExtension.swift in Sources */,
 				F4D6FAEE256640110046A328 /* SPAppWindowDelegate.swift in Sources */,
+				BBA78E25260373C900620829 /* ArrayExtension.swift in Sources */,
 				F4088FF925284EB5007D4F94 /* SPTableView.swift in Sources */,
 				F43423C8251CDDDE0094F319 /* UIFeedbackGeneratorExtension.swift in Sources */,
 				DBA406EA25E4288E000B4EE3 /* SPTextField.swift in Sources */,
