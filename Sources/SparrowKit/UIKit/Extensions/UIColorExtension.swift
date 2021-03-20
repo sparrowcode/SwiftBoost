@@ -247,9 +247,9 @@ public extension UIColor {
     #if !os(watchOS)
     static var systemColorfulColors: [UIColor] {
         if #available(iOS 13.0, tvOS 13.0, *) {
-            return [.systemRed, .systemGreen, .systemBlue, .systemOrange, .systemYellow, .systemPink, .systemPurple, .systemTeal, .systemIndigo]
+            return [.systemRed, .systemOrange, .systemYellow, .systemGreen, .systemTeal, .systemBlue, .systemIndigo, .systemPink, .systemPurple]
         } else {
-            return [.systemRed, .systemGreen, .systemBlue, .systemOrange, .systemYellow, .systemPink, .systemPurple, .systemTeal]
+            return [.systemRed, .systemOrange, .systemYellow, .systemGreen, .systemTeal, .systemBlue, .systemPink, .systemPurple]
         }
     }
     #endif
