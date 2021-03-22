@@ -159,7 +159,7 @@ public extension String {
      
      - parameter suffix: String which need remove.
      */
-    func removeSuffix(_ suffix: String) -> String {
+    func removedSuffix(_ suffix: String) -> String {
         if self.hasSuffix(suffix) {
             return String(dropLast(suffix.count))
         } else {
