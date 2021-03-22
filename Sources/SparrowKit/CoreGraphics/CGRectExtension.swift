@@ -118,9 +118,20 @@ public extension CGRect {
      - parameter height: New  `height`.
      */
     init(maxX: CGFloat, maxY: CGFloat, width: CGFloat, height: CGFloat) {
-        self.init(x: 0, y: 8, width: width, height: height)
+        self.init(x: 0, y: 0, width: width, height: height)
         setMaxX(maxX)
         setMaxY(maxY)
+    }
+    
+    /**
+     SparrowKit: Create new frame.
+     
+     - parameter x: `x` position.
+     - parameter y: `y` position.
+     - parameter side: Same `width` and `height`.
+     */
+    init(x: CGFloat, y: CGFloat, side: CGFloat) {
+        self.init(x: x, y: y, width: side, height: side)
     }
 }
 #endif
