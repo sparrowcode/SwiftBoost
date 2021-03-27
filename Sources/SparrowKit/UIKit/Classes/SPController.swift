@@ -27,6 +27,8 @@ import UIKit
  */
 open class SPController: UIViewController {
     
+    open var didPresent: Bool = false
+    
     // MARK: - Init
     
     public init() {
@@ -35,6 +37,13 @@ open class SPController: UIViewController {
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
+    }
+    
+    // MARK: - Lifecycle
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        didPresent = true
     }
 }
 #endif
