@@ -27,6 +27,9 @@ import UIKit
  */
 open class SPController: UIViewController {
     
+    /**
+     SparrowKit: Indicator controller did present any time before or not.
+     */
     open var didPresent: Bool = false
     
     // MARK: - Init
