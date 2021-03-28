@@ -32,7 +32,7 @@ public extension UIColor {
      - parameter light: Color for light interface style.
      - parameter dark: Color for dark interface style.
      */
-    #if !os(watchOS) && !os(tvOS)
+    #if !os(watchOS)
     convenience init(light: UIColor, dark: UIColor) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init(dynamicProvider: { $0.userInterfaceStyle == .dark ? dark : light })
@@ -40,6 +40,7 @@ public extension UIColor {
             self.init(cgColor: light.cgColor)
         }
     }
+    #endif
     
     /**
      SparrowKit: Create color for interface levels.
@@ -47,6 +48,7 @@ public extension UIColor {
      - parameter baseInterfaceLevel: Color for basic interface level.
      - parameter elevatedInterfaceLevel: Color for elevated interface level.
      */
+    #if !os(watchOS) && !os(tvOS)
     convenience init(baseInterfaceLevel: UIColor, elevatedInterfaceLevel: UIColor ) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init { traitCollection in
