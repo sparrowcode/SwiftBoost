@@ -1,9 +1,3 @@
 # osX files
 .DS_Store
 .Trashes
-
-# Xcode User settings
-xcuserdata/
-
-# Pods
-Pods/
