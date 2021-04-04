@@ -1,14 +1,9 @@
-# OS X temporary files
+# osX files
 .DS_Store
 .Trashes
 
 # Xcode User settings
 xcuserdata/
-
-# Swift Package Manager
-Packages/
-Package.resolved
-.swiftpm
 
 # Pods
 Pods/
