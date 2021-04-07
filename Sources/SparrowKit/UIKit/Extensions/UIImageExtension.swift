@@ -55,10 +55,11 @@ public extension UIImage {
      - parameter pointSize: Font size of image.
      - parameter pointSize: Weight of font of image.
      */
-    @available(iOS 13, tvOS 13,  *)
-    convenience init(systemName name: String, pointSize: CGFloat, weight: UIImage.SymbolWeight) {
+    @available(*, deprecated, message: "fdsfs")
+    @available(iOS 13, tvOS 13, *)
+    convenience init?(systemName name: String, pointSize: CGFloat, weight: UIImage.SymbolWeight) {
         let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight)
-        self.init(systemName: name, withConfiguration: configuration)!
+        self.init(systemName: name, withConfiguration: configuration)
     }
     
     /**
@@ -66,12 +67,22 @@ public extension UIImage {
      
      - parameter name: Name of system image..
      */
+    @available(iOS 13, tvOS 13, *)
     static func system(_ name: String) -> UIImage {
-        if #available(iOS 13, tvOS 13, *) {
-            return UIImage.init(systemName: name) ?? UIImage()
-        } else {
-            return UIImage()
-        }
+        return UIImage.init(systemName: name) ?? UIImage()
+    }
+    
+    /**
+     SparrowKit: Create `SFSymbols` image with specific configuration.
+     
+     - parameter name: Name of system image.
+     - parameter pointSize: Font size of image.
+     - parameter pointSize: Weight of font of image.
+     */
+    @available(iOS 13, tvOS 13, *)
+    static func system(_ name: String, pointSize: CGFloat, weight: UIImage.SymbolWeight) -> UIImage {
+        let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight)
+        return UIImage(systemName: name, withConfiguration: configuration) ?? UIImage()
     }
     
     // MARK: - Helpers
