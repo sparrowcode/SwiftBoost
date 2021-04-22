@@ -221,6 +221,23 @@ public extension UIView {
         ])
     }
     
+    /**
+     SparrowKit: Set view equal frame to superview frame exlude margins via Auto Layout.
+     
+     - warning:
+     If view not have superview, constraints will not be added.
+     */
+    func setEqualSuperviewMarginsWithAutoLayout() {
+        guard let superview = self.superview else { return }
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: superview.layoutMarginsGuide.topAnchor),
+            leftAnchor.constraint(equalTo: superview.layoutMarginsGuide.leftAnchor),
+            rightAnchor.constraint(equalTo: superview.layoutMarginsGuide.rightAnchor),
+            bottomAnchor.constraint(equalTo: superview.layoutMarginsGuide.bottomAnchor)
+        ])
+    }
+    
     // MARK: - Appearance
     
     /**
