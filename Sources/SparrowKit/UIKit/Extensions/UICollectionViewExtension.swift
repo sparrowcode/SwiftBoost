@@ -118,6 +118,9 @@ public extension UICollectionView {
         guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
         }
+        if let cell = cell as? SPCollectionViewCell {
+            cell.currentIndexPath = indexPath
+        }
         return cell
     }
     
