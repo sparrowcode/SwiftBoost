@@ -114,6 +114,9 @@ public extension UITableView {
         guard let cell = dequeueReusableCell(withIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
         }
+        if let cell = cell as? SPTableViewCell {
+            cell.currentIndexPath = indexPath
+        }
         return cell
     }
     
