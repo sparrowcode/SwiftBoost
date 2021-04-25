@@ -77,6 +77,13 @@ open class SPGradientView: SPView {
         layer.addSublayer(gradientLayer)
     }
     
+    // MARK: - Lifecycle
+    
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+        updateGradient()
+    }
+    
     // MARK: - Layout
     
     open override func layoutSublayers(of layer: CALayer) {
