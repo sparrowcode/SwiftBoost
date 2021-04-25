@@ -42,12 +42,11 @@ open class SPWindowSceneDelegate: UIResponder, UIWindowSceneDelegate {
      
      This method get controller after apply tint and window scene, in some cases it critical. For example tint of window get before valid tint set. It happen with first window and launch. For solve it use this.
      
-     - parameter scene: Scene which async to window.
+     - parameter scene: Scene which sync to window.
      - parameter tint: Tint color for window.
      - parameter createViewControllerHandler: Handler for get root controller for window.
      */
-    open func makeKeyAndVisible(in scene: UIWindowScene, tint: UIColor, createViewControllerHandler: () -> UIViewController) {
-        
+    open func makeKeyAndVisible(in scene: UIWindowScene, createViewControllerHandler: () -> UIViewController, tint: UIColor) {
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene
         window?.tintColor = tint
@@ -63,14 +62,14 @@ open class SPWindowSceneDelegate: UIResponder, UIWindowSceneDelegate {
      - warning:
      If you get troubles with tinting, please, check other method `makeKeyAndVisible`.
      
-     - parameter scene: Scene which async to window.
+     - parameter scene: Scene which sync to window.
      - parameter tint: Tint color for window.
      - parameter viewController: Root controller for window.
      */
-    open func makeKeyAndVisible(in scene: UIWindowScene, tint: UIColor, viewController: UIViewController) {
-        makeKeyAndVisible(in: scene, tint: tint, createViewControllerHandler: {
+    open func makeKeyAndVisible(in scene: UIWindowScene, viewController: UIViewController, tint: UIColor) {
+        makeKeyAndVisible(in: scene, createViewControllerHandler: {
             return viewController
-        })
+        }, tint: tint)
     }
 }
 #endif

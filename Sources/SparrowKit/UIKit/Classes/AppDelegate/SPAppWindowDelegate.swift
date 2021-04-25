@@ -45,7 +45,7 @@ open class SPAppWindowDelegate: SPAppDelegate {
      - parameter tint: Tint color for window.
      - parameter viewController: Root controller for window.
      */
-    open func makeKeyAndVisible(tint: UIColor, viewController: UIViewController) {
+    open func makeKeyAndVisible(_ viewController: UIViewController, tint: UIColor) {
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
         window?.tintColor = tint
