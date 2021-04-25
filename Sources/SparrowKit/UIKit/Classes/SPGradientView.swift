@@ -77,6 +77,13 @@ open class SPGradientView: SPView {
         layer.addSublayer(gradientLayer)
     }
     
+    // MARK: - Layout
+    
+    open override func layoutSublayers(of layer: CALayer) {
+        gradientLayer.frame = self.bounds
+        super.layoutSublayers(of: layer)
+    }
+    
     // MARK: - Helpers
     
     private func updateGradient() {
@@ -84,13 +91,6 @@ open class SPGradientView: SPView {
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.startPoint = startColorPosition.point
         gradientLayer.endPoint = endColorPosition.point
-    }
-    
-    // MARK: - Layout
-    
-    open override func layoutSublayers(of layer: CALayer) {
-        gradientLayer.frame = self.bounds
-        super.layoutSublayers(of: layer)
     }
     
     // MARK: - Models
