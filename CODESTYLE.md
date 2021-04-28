@@ -15,9 +15,7 @@ class Example {
 
 Here you find all which using in project.
 
-
 - // MARK: - Init
-- // MARK: - Ovveride
 - // MARK: - Lifecycle
 - // MARK: - Layout
 - // MARK: - Helpers
