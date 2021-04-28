@@ -32,8 +32,6 @@ import UIKit
  */
 open class SPDimmedButton: SPButton {
     
-    // MARK: - Ovveride
-    
     open override var isHighlighted: Bool {
         didSet {
             updateAppearance()

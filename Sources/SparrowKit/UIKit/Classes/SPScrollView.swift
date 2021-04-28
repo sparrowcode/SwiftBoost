@@ -51,8 +51,6 @@ open class SPScrollView: UIScrollView {
         self.delaysContentTouches = false
     }
     
-    // MARK: - Ovveride
-    
     open override func touchesShouldCancel(in view: UIView) -> Bool {
         #if os(iOS)
         if view is UIControl && !(view is UITextInput) && !(view is UISlider) && !(view is UISwitch) {
