@@ -36,11 +36,21 @@ open class SPController: UIViewController {
     
     public init() {
         super.init(nibName: nil, bundle: nil)
+        commonInit()
     }
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
+        commonInit()
     }
+    
+    /**
+     SparrowKit: Wrapper of init.
+     Called in each init and using for configuration.
+     
+     No need ovveride init. Using one function for configurate view.
+     */
+    open func commonInit() {}
     
     // MARK: - Lifecycle
     
