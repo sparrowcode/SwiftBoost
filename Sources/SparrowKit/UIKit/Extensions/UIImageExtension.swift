@@ -55,7 +55,7 @@ public extension UIImage {
      - parameter pointSize: Font size of image.
      - parameter pointSize: Weight of font of image.
      */
-    @available(*, deprecated, message: "fdsfs")
+    @available(*, deprecated, renamed: "system(name:pointSize:weight:)")
     @available(iOS 13, tvOS 13, *)
     convenience init?(systemName name: String, pointSize: CGFloat, weight: UIImage.SymbolWeight) {
         let configuration = UIImage.SymbolConfiguration(pointSize: pointSize, weight: weight)
