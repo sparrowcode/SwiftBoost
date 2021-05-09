@@ -48,7 +48,7 @@ public enum SPLogger {
      - parameter level: Level of message, like `error` or `debug`.
      - parameter message: Text message.
      */
-    public static func log(_ level: Level, message: LogMessage) {
+    public static func log(_ level: Level, message: LogMessage, filePath: String = #filePath) {
         if Configurator.shared.levels.contains(level) {
             
             // Formatting text.
@@ -63,7 +63,7 @@ public enum SPLogger {
             // Adding filename if need.
             switch Configurator.shared.fileNameMode {
             case .show:
-                guard let fileName = URL(string: #filePath)?.lastPathComponent else { break }
+                guard let fileName = URL(string: filePath)?.lastPathComponent else { break }
                 formattedMessage += " [\(fileName)]"
             case .hide:
                 break
