@@ -47,8 +47,9 @@ public enum SPLogger {
      
      - parameter level: Level of message, like `error` or `debug`.
      - parameter message: Text message.
+     
      */
-    public static func log(_ level: Level, message: LogMessage, filePath: String = #filePath) {
+    public static func log(_ level: Level, message: LogMessage, filePath: String) {
         if Configurator.shared.levels.contains(level) {
             
             // Formatting text.
@@ -152,14 +153,14 @@ public enum SPLogger {
 /**
  Logging message of level `error` via `SPLogger` system.
  */
-public func error(_ message: SPLogger.LogMessage) {
-    SPLogger.log(.error, message: message)
+public func error(_ message: SPLogger.LogMessage, filePath: String = #filePath) {
+    SPLogger.log(.error, message: message, filePath: filePath)
 }
 
 /**
  Logging message of level `debug` via `SPLogger` system.
  */
-public func debug(_ message: SPLogger.LogMessage) {
-    SPLogger.log(.debug, message: message)
+public func debug(_ message: SPLogger.LogMessage, filePath: String = #filePath) {
+    SPLogger.log(.debug, message: message, filePath: filePath)
 }
 #endif
