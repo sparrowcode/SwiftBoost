@@ -36,7 +36,7 @@ public enum SPLogger {
      
      - parameter levels: Array of levels wich allowed for log.
      */
-    public static func configure(levels: [Level] = Level.allCases, fileNameMode: FileNameMode) {
+    public static func configure(levels: [Level] = Level.allCases, fileNameMode: FileNameMode = .show) {
         Configurator.shared.levels = levels
         Configurator.shared.fileNameMode = fileNameMode
     }
