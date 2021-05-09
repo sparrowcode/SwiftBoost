@@ -21,6 +21,7 @@
 
 #if canImport(os)
 import os
+import Foundation
 
 /**
  SparrowKit: Help to manage prints in console during your app running.
@@ -36,7 +37,7 @@ public enum SPLogger {
      
      - parameter levels: Array of levels wich allowed for log.
      */
-    public static func configure(levels: [Level] = Level.allCases, fileNameMode: FileNameMode = .show) {
+    public static func configure(levels: [Level], fileNameMode: FileNameMode) {
         Configurator.shared.levels = levels
         Configurator.shared.fileNameMode = fileNameMode
     }
@@ -57,7 +58,7 @@ public enum SPLogger {
             // Adding filename if need.
             switch Configurator.shared.fileNameMode {
             case .show:
-                let fileName = #file
+                guard let fileName = URL(string: #file)?.lastPathComponent else { break }
                 formattedMessage += " [\(fileName)]"
             case .hide:
                 break
