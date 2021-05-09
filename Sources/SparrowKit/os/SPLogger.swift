@@ -64,8 +64,11 @@ public enum SPLogger {
             // Adding filename if need.
             switch Configurator.shared.fileNameMode {
             case .show:
-                // guard let fileName = URL(string: filePath)?.lastPathComponent else { break }
-                formattedMessage += " [\(filePath)]"
+                if let fileName = URL(string: filePath)?.lastPathComponent {
+                    formattedMessage += " [\(fileName)]"
+                } else {
+                    formattedMessage += " [\(filePath)]"
+                }
             case .hide:
                 break
             }
@@ -153,14 +156,14 @@ public enum SPLogger {
 /**
  Logging message of level `error` via `SPLogger` system.
  */
-public func error(_ message: SPLogger.LogMessage, filePath: String = #filePath) {
+public func error(_ message: SPLogger.LogMessage, filePath: String = #fileID) {
     SPLogger.log(.error, message: message, filePath: filePath)
 }
 
 /**
  Logging message of level `debug` via `SPLogger` system.
  */
-public func debug(_ message: SPLogger.LogMessage, filePath: String = #filePath) {
+public func debug(_ message: SPLogger.LogMessage, filePath: String = #fileID) {
     SPLogger.log(.debug, message: message, filePath: filePath)
 }
 #endif
