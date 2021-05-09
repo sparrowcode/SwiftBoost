@@ -55,6 +55,11 @@ public enum SPLogger {
             var formattedMessage = message
             formattedMessage.removeSuffix(String.dot)
             
+            // Adding dot if not have.
+            if !formattedMessage.hasSuffix(String.dot) {
+                formattedMessage = formattedMessage + String.dot
+            }
+            
             // Adding filename if need.
             switch Configurator.shared.fileNameMode {
             case .show:
@@ -62,11 +67,6 @@ public enum SPLogger {
                 formattedMessage += " [\(fileName)]"
             case .hide:
                 break
-            }
-            
-            // Adding dot if not have.
-            if !formattedMessage.hasSuffix(String.dot) {
-                formattedMessage = formattedMessage + String.dot
             }
             
             print(formattedMessage)
