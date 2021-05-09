@@ -63,7 +63,7 @@ public enum SPLogger {
             // Adding filename if need.
             switch Configurator.shared.fileNameMode {
             case .show:
-                guard let fileName = URL(string: #file)?.lastPathComponent else { break }
+                guard let fileName = URL(string: #filePath)?.lastPathComponent else { break }
                 formattedMessage += " [\(fileName)]"
             case .hide:
                 break
