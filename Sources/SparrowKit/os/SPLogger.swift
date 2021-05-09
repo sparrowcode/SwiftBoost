@@ -36,8 +36,9 @@ public enum SPLogger {
      
      - parameter levels: Array of levels wich allowed for log.
      */
-    public static func configure(levels: [Level] = Level.allCases) {
+    public static func configure(levels: [Level] = Level.allCases, fileNameMode: FileNameMode) {
         Configurator.shared.levels = levels
+        Configurator.shared.fileNameMode = fileNameMode
     }
     
     /**
@@ -51,6 +52,16 @@ public enum SPLogger {
             
             // Formatting text.
             var formattedMessage = message
+            formattedMessage.removeSuffix(String.dot)
+            
+            // Adding filename if need.
+            switch Configurator.shared.fileNameMode {
+            case .show:
+                let fileName = #file
+                formattedMessage += " [\(fileName)]"
+            case .hide:
+                break
+            }
             
             // Adding dot if not have.
             if !formattedMessage.hasSuffix(String.dot) {
@@ -98,6 +109,15 @@ public enum SPLogger {
     }
     
     /**
+     SparrowKit: Modes for show or hide filename in prints.
+     */
+    public enum FileNameMode {
+        
+        case show
+        case hide
+    }
+    
+    /**
      SparrowKit: Now not support new logging system from iOS 14
      becouse no way pass string object as test to method.
      But it convertor type for system logger.
@@ -119,6 +139,7 @@ public enum SPLogger {
     private struct Configurator {
         
         var levels: [Level] = []
+        var fileNameMode: FileNameMode = .show
         
         static var shared = Configurator()
         private init() {}
