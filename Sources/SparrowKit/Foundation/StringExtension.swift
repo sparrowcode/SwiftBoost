@@ -41,6 +41,11 @@ public extension String {
      */
     static var dot: String { return "." }
     
+    /**
+     SparrowKit: Wrapper of new line string "\n".
+     */
+    static var newline: String { return "\n" }
+    
     // MARK: - Helpers
     
     /**
