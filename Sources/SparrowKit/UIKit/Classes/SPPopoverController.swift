@@ -32,7 +32,7 @@ open class SPPopoverController: SPController, UIPopoverPresentationControllerDel
     
     public init(size: CGSize, sourceView: UIView, sourceRect: CGRect, permittedArrowDirections: UIPopoverArrowDirection) {
         super.init()
-        preferredContentSize = CGSize(width: 200, height: 100)
+        preferredContentSize = size
         popoverPresentationController?.permittedArrowDirections = permittedArrowDirections
         popoverPresentationController?.sourceView = sourceView
         popoverPresentationController?.sourceRect = sourceRect
