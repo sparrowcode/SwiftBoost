@@ -92,6 +92,9 @@
 		F438B1852527083A00742AA1 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438B1842527083A00742AA1 /* UINavigationControllerExtension.swift */; };
 		F438B1862527083A00742AA1 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438B1842527083A00742AA1 /* UINavigationControllerExtension.swift */; };
 		F438B1872527083A00742AA1 /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F438B1842527083A00742AA1 /* UINavigationControllerExtension.swift */; };
+		F43A587C265657E9009098ED /* SPPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A587B265657E9009098ED /* SPPopoverController.swift */; };
+		F43A587D265657E9009098ED /* SPPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A587B265657E9009098ED /* SPPopoverController.swift */; };
+		F43A587E265657E9009098ED /* SPPopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43A587B265657E9009098ED /* SPPopoverController.swift */; };
 		F44064CC258B3CC400B3E466 /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44064CB258B3CC400B3E466 /* Do.swift */; };
 		F44064CD258B3CC400B3E466 /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44064CB258B3CC400B3E466 /* Do.swift */; };
 		F44064CE258B3CC400B3E466 /* Do.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44064CB258B3CC400B3E466 /* Do.swift */; };
@@ -242,7 +245,6 @@
 		F4342364251CDB8D0094F319 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		F4342365251CDB8D0094F319 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		F4342366251CDB8D0094F319 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		F4342372251CDB8D0094F319 /* FUNDING.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = FUNDING.yml; sourceTree = "<group>"; };
 		F4342373251CDB8D0094F319 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F4342391251CDCCB0094F319 /* SparrowKit_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SparrowKit_tvOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F43423A4251CDD450094F319 /* SparrowKit_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SparrowKit_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -252,6 +254,7 @@
 		F438B1762527059A00742AA1 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		F438B17D2527075800742AA1 /* UINavigationBarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtension.swift; sourceTree = "<group>"; };
 		F438B1842527083A00742AA1 /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
+		F43A587B265657E9009098ED /* SPPopoverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPPopoverController.swift; sourceTree = "<group>"; };
 		F44064CB258B3CC400B3E466 /* Do.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Do.swift; sourceTree = "<group>"; };
 		F44576A525409283002C69FB /* CollectionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionExtension.swift; sourceTree = "<group>"; };
 		F44576B4254095FC002C69FB /* UIVisualEffectViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewExtension.swift; sourceTree = "<group>"; };
@@ -377,6 +380,7 @@
 				DBE9473825D459120010F41A /* SPGradientView.swift */,
 				DBA406E925E4288E000B4EE3 /* SPTextField.swift */,
 				DBA406F125E4306C000B4EE3 /* SPInsetsTextField.swift */,
+				F43A587B265657E9009098ED /* SPPopoverController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -388,14 +392,6 @@
 				F4ACC353251CCF200073F10E /* Info.plist */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		F4342371251CDB8D0094F319 /* .github */ = {
-			isa = PBXGroup;
-			children = (
-				F4342372251CDB8D0094F319 /* FUNDING.yml */,
-			);
-			path = .github;
 			sourceTree = "<group>";
 		};
 		F476EEBB25605497001EEE74 /* Collection */ = {
@@ -423,7 +419,6 @@
 		F4ACC33C251CCE490073F10E = {
 			isa = PBXGroup;
 			children = (
-				F4342371251CDB8D0094F319 /* .github */,
 				F4342366251CDB8D0094F319 /* .gitignore */,
 				F4342364251CDB8D0094F319 /* LICENSE */,
 				F49223C52551CC1A0039A5E9 /* SparrowKit.podspec */,
@@ -741,6 +736,7 @@
 				F4EA2A52256ED15A00203860 /* NotificationCenterExtension.swift in Sources */,
 				F4BEB0A42524DF2100552E88 /* CGSizeExtensions.swift in Sources */,
 				F438B1632527035600742AA1 /* UICollectionViewExtension.swift in Sources */,
+				F43A587D265657E9009098ED /* SPPopoverController.swift in Sources */,
 				DBE9473A25D459120010F41A /* SPGradientView.swift in Sources */,
 				F4E512932525B3B900F441CB /* UISwitchExtension.swift in Sources */,
 				F4D6FB02256640BB0046A328 /* SPWindowSceneDelegate.swift in Sources */,
@@ -817,6 +813,7 @@
 				F4EA2A53256ED15A00203860 /* NotificationCenterExtension.swift in Sources */,
 				F4BEB0A92524DF2200552E88 /* CGSizeExtensions.swift in Sources */,
 				F438B1642527035600742AA1 /* UICollectionViewExtension.swift in Sources */,
+				F43A587E265657E9009098ED /* SPPopoverController.swift in Sources */,
 				DBE9473B25D459120010F41A /* SPGradientView.swift in Sources */,
 				F4E512942525B3B900F441CB /* UISwitchExtension.swift in Sources */,
 				F4D6FB03256640BB0046A328 /* SPWindowSceneDelegate.swift in Sources */,
@@ -893,6 +890,7 @@
 				F4EA2A51256ED15A00203860 /* NotificationCenterExtension.swift in Sources */,
 				F438B1622527035600742AA1 /* UICollectionViewExtension.swift in Sources */,
 				F4E512922525B3B900F441CB /* UISwitchExtension.swift in Sources */,
+				F43A587C265657E9009098ED /* SPPopoverController.swift in Sources */,
 				DBE9473925D459120010F41A /* SPGradientView.swift in Sources */,
 				F438B1852527083A00742AA1 /* UINavigationControllerExtension.swift in Sources */,
 				F4D6FB01256640BB0046A328 /* SPWindowSceneDelegate.swift in Sources */,
