@@ -42,15 +42,33 @@ open class SPAppWindowDelegate: SPAppDelegate {
      - warning:
      Use it only if none-scene mode.
      
+     - parameter scene: Scene which sync to window.
      - parameter tint: Tint color for window.
-     - parameter viewController: Root controller for window.
+     - parameter createViewControllerHandler: Handler for get root controller for window.
      */
-    open func makeKeyAndVisible(_ viewController: UIViewController, tint: UIColor) {
+    open func makeKeyAndVisible(createViewControllerHandler: () -> UIViewController, tint: UIColor) {
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
         window?.tintColor = tint
-        window?.rootViewController = viewController
+        window?.rootViewController = createViewControllerHandler()
         window?.makeKeyAndVisible()
+    }
+    
+    /**
+     SparrowKit: Configure window and make it present.
+     
+     Method init window and configure with your tint and controller.
+     
+     - warning:
+     Use it only if none-scene mode.
+     
+     - parameter tint: Tint color for window.
+     - parameter viewController: Root controller for window.
+     */
+    open func makeKeyAndVisible(viewController: UIViewController, tint: UIColor) {
+        makeKeyAndVisible(createViewControllerHandler: {
+            return viewController
+        }, tint: tint)
     }
 }
 #endif
