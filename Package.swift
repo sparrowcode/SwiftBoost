@@ -8,10 +8,19 @@ let package = Package(
         .iOS(.v12), .tvOS(.v12), .watchOS(.v6)
     ],
     products: [
-        .library(name: "SparrowKit", targets: ["SparrowKit"])
+        .library(
+            name: "SparrowKit",
+            targets: ["SparrowKit"]
+        )
     ],
     dependencies: [],
     targets: [
-        .target(name: "SparrowKit", dependencies: [])
-    ]
+        .target(
+            name: "SparrowKit",
+            swiftSettings: [
+                .define("SPARROWKIT_SPM")
+            ]
+        )
+    ],
+    swiftLanguageVersions: [.v5]
 )
