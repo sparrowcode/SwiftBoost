@@ -58,6 +58,9 @@ Animation of widgets from iOS 14. 3D transform with dynamic shadow. [Video previ
 #### [SPDiffable](https://github.com/ivanvorobei/SPDiffable)
 Simplifies working with animated changes in table and collections. Apple's diffable API required models for each object type. If you want use it in many place, you pass time to implement it and get over duplicates codes. This project help do it elegant with shared models and special cell providers. Support side bar iOS14 and already has native cell providers and views.
 
+#### [SPIndicator](https://github.com/ivanvorobei/SPIndicator)
+Floating indicator, mimicrate to indicator which appear when silent mode turn on / off. Support large texts and has ready-use animatable icons like `done` and `error`.
+
 ## Russian Community
 
 В телеграм-канале [Код Воробья](https://sparrowcode.by/telegram) пишу о iOS разработке. Помощь можно найти в [нашем чате](https://sparrowcode.by/telegram/chat).
