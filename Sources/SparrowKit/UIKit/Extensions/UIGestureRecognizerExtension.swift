@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
+
 import UIKit
 
 public extension UIGestureRecognizer {
@@ -31,4 +32,5 @@ public extension UIGestureRecognizer {
         view?.removeGestureRecognizer(self)
     }
 }
+
 #endif

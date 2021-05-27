@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 #if canImport(UIKit) && os(iOS)
+
 import UIKit
 
 public extension UIFeedbackGenerator {
@@ -73,4 +74,5 @@ public extension UIFeedbackGenerator {
         case selectionChanged
     }
 }
+
 #endif
