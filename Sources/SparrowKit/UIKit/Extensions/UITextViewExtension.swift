@@ -35,6 +35,10 @@ public extension UITextView {
      - parameter width: `Widght` of label.
      */
     func layoutDynamicHeight(width: CGFloat) {
+        
+        // Requerid for dynamic height.
+        if isScrollEnabled { isScrollEnabled = false }
+        
         frame.setWidth(width)
         sizeToFit()
         if frame.width != width {
@@ -52,6 +56,10 @@ public extension UITextView {
      - parameter width: `Widght` of label.
      */
     func layoutDynamicHeight(x: CGFloat, y: CGFloat, width: CGFloat) {
+        
+        // Requerid for dynamic height.
+        if isScrollEnabled { isScrollEnabled = false }
+        
         frame = CGRect.init(x: x, y: y, width: width, height: frame.height)
         sizeToFit()
         if frame.width != width {
