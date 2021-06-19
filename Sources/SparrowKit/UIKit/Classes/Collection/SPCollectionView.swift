@@ -51,5 +51,17 @@ open class SPCollectionView: UICollectionView {
         backgroundColor = .clear
         delaysContentTouches = false
     }
+    
+    // MARK: - Layout
+    
+    open func invalidateLayout(animated: Bool) {
+        if animated {
+            performBatchUpdates({
+                self.collectionViewLayout.invalidateLayout()
+            }, completion: nil)
+        } else {
+            collectionViewLayout.invalidateLayout()
+        }
+    }
 }
 #endif

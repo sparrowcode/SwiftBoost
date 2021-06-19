@@ -25,5 +25,16 @@ import UIKit
 /**
  SparrowKit: Basic Collection View Controller.
  */
-open class SPCollectionViewController: UICollectionViewController {}
+open class SPCollectionViewController: UICollectionViewController {
+    
+    open func invalidateLayout(animated: Bool) {
+        if animated {
+            collectionView.performBatchUpdates({
+                self.collectionView.collectionViewLayout.invalidateLayout()
+            }, completion: nil)
+        } else {
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
+    }
+}
 #endif
