@@ -27,9 +27,9 @@ import UIKit
  
  It has one shared init `commonInit` which call for all default inits.
  */
-open class SPTextView: UITextView {
+public class SPTextView: UITextView {
     
-    weak var actionsDelegate: SPTextViewActionsDelegate?
+    open weak var actionsDelegate: SPTextViewActionsDelegate?
     
     // MARK: - Init
     
