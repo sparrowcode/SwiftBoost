@@ -22,8 +22,7 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-public extension UIViewController {
-    
+extension UIViewController {
     
     // MARK: - Containers
     
@@ -32,7 +31,7 @@ public extension UIViewController {
      
      - parameter prefersLargeTitles: A Boolean value indicating whether the title should be displayed in a large format..
      */
-    @objc func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
+    @objc open func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: self)
         #if os(iOS)
         navigationController.navigationBar.prefersLargeTitles = prefersLargeTitles
@@ -46,7 +45,7 @@ public extension UIViewController {
      - parameter childController: Specific controller which using as child.
      - parameter containerView: Conteiner which using to add a view of child controller.
      */
-    func addChildWithView(_ childController: UIViewController, to containerView: UIView) {
+    open func addChildWithView(_ childController: UIViewController, to containerView: UIView) {
         addChild(childController)
         containerView.addSubview(childController.view)
         childController.didMove(toParent: self)
@@ -57,14 +56,14 @@ public extension UIViewController {
     /**
      SparrowKit: Indicate if controller is loaded and presented.
      */
-    var isVisible: Bool {
+    open var isVisible: Bool {
         return isViewLoaded && view.window != nil
     }
     
     /**
      SparrowKit: Removed property `animated`, always `true`.
      */
-    func present(_ viewControllerToPresent: UIViewController, completion: (() -> Swift.Void)? = nil) {
+    open func present(_ viewControllerToPresent: UIViewController, completion: (() -> Swift.Void)? = nil) {
         self.present(viewControllerToPresent, animated: true, completion: completion)
     }
     
@@ -72,7 +71,7 @@ public extension UIViewController {
      SparrowKit: If scene name is same as
      */
     @available(iOS 13, tvOS 13, *)
-    func destruct(scene name: String) {
+    open func destruct(scene name: String) {
         guard let session = view.window?.windowScene?.session else {
             dismissAnimated()
             return
@@ -87,7 +86,7 @@ public extension UIViewController {
     /**
      SparrowKit: Dismiss always animated.
      */
-    @objc func dismissAnimated() {
+    @objc open func dismissAnimated() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -98,7 +97,7 @@ public extension UIViewController {
      */
     #if os(iOS)
     @available(iOS 13, *)
-    var closeBarButtonItem: UIBarButtonItem {
+    open var closeBarButtonItem: UIBarButtonItem {
         if #available(iOS 14.0, *) {
             return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { [weak self] (action) in
                 self?.dismissAnimated()
@@ -118,7 +117,7 @@ public extension UIViewController {
      */
     #if os(iOS)
     @available(iOS 14, *)
-    func closeBarButtonItem(sceneName: String? = nil) -> UIBarButtonItem {
+    open func closeBarButtonItem(sceneName: String? = nil) -> UIBarButtonItem {
         return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { [weak self] (action) in
             guard let self = self else { return }
             if let name = sceneName {
@@ -136,7 +135,7 @@ public extension UIViewController {
      SparrowKit: Added gester which observe when tap need hide keyboard.
      Shoud add below of using views like textfuilds.
      */
-    func dismissKeyboardWhenTappedAround() {
+    open func dismissKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboardTappedAround(_:)))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
@@ -146,14 +145,14 @@ public extension UIViewController {
      SparrowKit: Internal method which process tap around for hide keyboard.
      No need call it manually.
      */
-    @objc func dismissKeyboardTappedAround(_ gestureRecognizer: UIPanGestureRecognizer) {
+    @objc open func dismissKeyboardTappedAround(_ gestureRecognizer: UIPanGestureRecognizer) {
         dismissKeyboard()
     }
     
     /**
      SparrowKit: Hide keyboard.
      */
-    func dismissKeyboard() {
+    open func dismissKeyboard() {
         view.endEditing(true)
     }
 }
