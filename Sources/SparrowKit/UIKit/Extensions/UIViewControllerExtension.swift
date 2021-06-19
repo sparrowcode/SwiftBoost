@@ -32,7 +32,7 @@ public extension UIViewController {
      
      - parameter prefersLargeTitles: A Boolean value indicating whether the title should be displayed in a large format..
      */
-    func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
+    @objc func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: self)
         #if os(iOS)
         navigationController.navigationBar.prefersLargeTitles = prefersLargeTitles
