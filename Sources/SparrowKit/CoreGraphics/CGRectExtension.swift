@@ -136,5 +136,14 @@ public extension CGRect {
     init(x: CGFloat, y: CGFloat, side: CGFloat) {
         self.init(x: x, y: y, width: side, height: side)
     }
+    
+    /**
+     SparrowKit: Create new frame.
+     
+     - parameter side: Same `width` and `height`.
+     */
+    init(side: CGFloat) {
+        self.init(x: 0, y: 0, width: side, height: side)
+    }
 }
 #endif
