@@ -25,7 +25,7 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>by.ivanvorobei.sppermissions-example-ios.SparrowKit.watchkitapp</string>
+			<string>by.ivanvorobei.sparrowkit.ios.watchos</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
