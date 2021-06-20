@@ -22,14 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-public extension UICollectionView {
+extension UICollectionView {
     
     // MARK: - Helpers
     
     /**
      SparrowKit: Get last index of last section of collection.
      */
-    var indexPathForLastItem: IndexPath? {
+    open var indexPathForLastItem: IndexPath? {
         return indexPathForLastItem(inSection: lastSection)
     }
     
@@ -38,7 +38,7 @@ public extension UICollectionView {
      
      - parameter section: Section for which need get last row.
      */
-    func indexPathForLastItem(inSection section: Int) -> IndexPath? {
+    open func indexPathForLastItem(inSection section: Int) -> IndexPath? {
         guard section >= 0 else {
             return nil
         }
@@ -54,14 +54,14 @@ public extension UICollectionView {
     /**
      SparrowKit: Index of last section.
      */
-    var lastSection: Int {
+    open var lastSection: Int {
         return numberOfSections > 0 ? numberOfSections - 1 : 0
     }
     
     /**
      SparrowKit: Total count of rows.
      */
-    func numberOfItems() -> Int {
+    open func numberOfItems() -> Int {
         var section = 0
         var itemsCount = 0
         while section < numberOfSections {
@@ -76,7 +76,7 @@ public extension UICollectionView {
      
      - parameter indexPath: Checking index path.
      */
-    func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
+    open func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
         return indexPath.section >= 0 &&
             indexPath.item >= 0 &&
             indexPath.section < numberOfSections &&
@@ -92,7 +92,7 @@ public extension UICollectionView {
      - parameter scrollPosition: Position of cell to which scroll.
      - parameter animated: Is aniamted scroll.
      */
-    func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
+    open func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         guard isValidIndexPath(indexPath) else { return }
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
     }
@@ -104,7 +104,7 @@ public extension UICollectionView {
      
      - parameter class: Class of `UICollectionViewCell`.
      */
-    func register<T: UICollectionViewCell>(_ class: T.Type) {
+    open func register<T: UICollectionViewCell>(_ class: T.Type) {
         register(T.self, forCellWithReuseIdentifier: String(describing: `class`))
     }
     
@@ -114,7 +114,7 @@ public extension UICollectionView {
      - parameter class: Class of `UICollectionViewCell`.
      - parameter indexPath: Index path of getting cell.
      */
-    func dequeueReusableCell<T: UICollectionViewCell>(withClass class: T.Type, for indexPath: IndexPath) -> T {
+    open func dequeueReusableCell<T: UICollectionViewCell>(withClass class: T.Type, for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
         }
@@ -132,7 +132,7 @@ public extension UICollectionView {
      - parameter class: Class of `UICollectionReusableView`.
      - parameter kind: Kind of usage reusable view.
      */
-    func register<T: UICollectionReusableView>(_ class: T.Type, kind: String) {
+    open func register<T: UICollectionReusableView>(_ class: T.Type, kind: String) {
         register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: `class`))
     }
     
@@ -143,11 +143,28 @@ public extension UICollectionView {
      - parameter kind: Kind of usage reusable view.
      - parameter indexPath: Index path of getting reusable view.
      */
-    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(withCalss class: T.Type, kind: String, for indexPath: IndexPath) -> T {
+    open func dequeueReusableSupplementaryView<T: UICollectionReusableView>(withCalss class: T.Type, kind: String, for indexPath: IndexPath) -> T {
         guard let view = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
         }
         return view
+    }
+    
+    // MARK: - Layout
+    
+    /**
+     SparrowKit: Wrapper of invalidate layout.
+     
+     - parameter animated: If set to `true`, invalidate layout call in block of `performBatchUpdates`.
+     */
+    open func invalidateLayout(animated: Bool) {
+        if animated {
+            performBatchUpdates({
+                self.collectionViewLayout.invalidateLayout()
+            }, completion: nil)
+        } else {
+            collectionViewLayout.invalidateLayout()
+        }
     }
 }
 #endif
