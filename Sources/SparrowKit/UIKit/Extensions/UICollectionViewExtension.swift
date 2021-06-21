@@ -147,6 +147,9 @@ extension UICollectionView {
         guard let view = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: `class`), for: indexPath) as? T else {
             fatalError()
         }
+        if let cell = view as? SPCollectionViewCell {
+            cell.currentIndexPath = indexPath
+        }
         return view
     }
     
