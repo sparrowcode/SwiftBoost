@@ -169,14 +169,24 @@ public extension UIView {
      SparrowKit: Width of current view without horizontal layout margins.
      */
     var layoutWidth: CGFloat {
-        return layoutMarginsGuide.layoutFrame.width
+        // ver 1
+        // Depricated becouse sometimes return invalid size
+        //return layoutMarginsGuide.layoutFrame.width
+        
+        // ver 2
+        return frame.width - layoutMargins.left - layoutMargins.right
     }
     
     /**
      SparrowKit: Height of current view without vertical layout margins.
      */
     var layoutHeight: CGFloat {
-        return layoutMarginsGuide.layoutFrame.height
+        // ver 1
+        // Depricated becouse sometimes return invalid size
+        //return layoutMarginsGuide.layoutFrame.height
+        
+        // ver 2
+        return frame.height - layoutMargins.top - layoutMargins.bottom
     }
     
     /**
