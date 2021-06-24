@@ -21,7 +21,20 @@
 
 import Foundation
 
-public extension Array {
+extension Array {
+    
+    /**
+     SparrowKit: This method rearrange element in array.
+     
+     - parameter fromIndex: Source index.
+     - parameter toIndex: Destination index.
+     */
+    public func rearrange(fromIndex: Int, toIndex: Int) -> [Element] {
+        var array = self
+        let element = array.remove(at: fromIndex)
+        array.insert(element, at: toIndex)
+        return array
+    }
     
     /**
      SparrowKit: This method split array of elements into chunks of a size  specify
@@ -32,9 +45,9 @@ public extension Array {
      array.chuncked(by: 3) // [[1,2,3], [4,5,6], [7]]
      ```
      
-     - parameter chunkSize: Subarray size
+     - parameter chunkSize: Subarray size.
      */
-    func chunked(by chunkSize: Int) -> [[Element]] {
+    public func chunked(by chunkSize: Int) -> [[Element]] {
         return stride(from: 0, to: self.count, by: chunkSize).map {
             Array(self[$0..<Swift.min($0 + chunkSize, self.count)])
         }
@@ -52,7 +65,7 @@ extension Array where Element: Equatable {
      array.removedDuplicates() // [1,2,3,6,7]
      ```
      */
-    func removedDuplicates() -> [Element] {
+    public func removedDuplicates() -> [Element] {
         var result = [Element]()
         for value in self {
             if result.contains(value) == false {
