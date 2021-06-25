@@ -59,6 +59,7 @@ public extension UIScrollView {
         case .top:
             point = CGPoint(x: contentOffset.x, y: -contentInset.top)
         case .bottom:
+            if contentSize.height < bounds.height { return }
             point = CGPoint(x: contentOffset.x, y: max(0, contentSize.height - bounds.height) + contentInset.bottom + safeAreaInsets.bottom)
         case .left:
             point = CGPoint(x: -contentInset.left, y: contentOffset.y)
