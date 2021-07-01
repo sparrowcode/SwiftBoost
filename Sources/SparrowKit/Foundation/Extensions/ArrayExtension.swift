@@ -75,3 +75,13 @@ extension Array where Element: Equatable {
         return result
     }
 }
+
+extension Array where Element: NSCopying {
+    
+    /**
+     SparrowKit: Make deep copy of array objects.
+     */
+    public func copy() -> [Element] {
+        return self.map { $0.copy() as! Element }
+    }
+}
