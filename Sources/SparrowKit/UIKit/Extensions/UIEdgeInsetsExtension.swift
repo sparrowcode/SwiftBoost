@@ -23,7 +23,7 @@
 import UIKit
 
 public extension UIEdgeInsets {
-
+    
     /**
      SparrowKit: Create insets by same for horizontal and vertical values.
      
@@ -32,6 +32,15 @@ public extension UIEdgeInsets {
      */
     init(horizontal: CGFloat, vertical: CGFloat) {
         self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
+    }
+    
+    /**
+     SparrowKit: Create insets by same for horizontal and vertical values.
+     
+     - parameter side: Insets for left right, top and bottom.
+     */
+    init(side: CGFloat) {
+        self.init(top: side, left: side, bottom: side, right: side)
     }
 }
 #endif
