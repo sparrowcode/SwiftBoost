@@ -47,7 +47,16 @@ extension UIViewController {
      */
     open func addChildWithView(_ childController: UIViewController, to containerView: UIView) {
         addChild(childController)
-        containerView.addSubview(childController.view)
+        
+        switch childController {
+        case let collectionController as UICollectionViewController:
+            containerView.addSubview(collectionController.collectionView)
+        case let tableController as UITableViewController:
+            containerView.addSubview(tableController.tableView)
+        default:
+            containerView.addSubview(childController.view)
+        }
+        
         childController.didMove(toParent: self)
     }
     
