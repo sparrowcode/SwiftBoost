@@ -1,7 +1,6 @@
 # SparrowKit
 
-Collection of native Swift extensions to boost your development. Support tvOS and watchOS.
-
+Collection of native Swift extensions to boost your development. Support iOS, tvOS and watchOS.<br>
 If you like the project, don't forget to `put star ★` and follow me on GitHub:
 
 <p float="left">
