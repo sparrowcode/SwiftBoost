@@ -582,7 +582,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.sparrowkit.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -602,7 +602,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.sparrowkit.ios;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -621,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.sparrowkit.tvos;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.tvos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
@@ -642,7 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.sparrowkit.tvos;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.tvos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
@@ -664,7 +664,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.sparrowkit.ios.watchos.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.ios.watchos.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -688,7 +688,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.sparrowkit.ios.watchos.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.ios.watchos.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -708,7 +708,7 @@
 				DEVELOPMENT_TEAM = T9Z76HLJ3T;
 				IBSC_MODULE = watchOS_Example_Extension;
 				INFOPLIST_FILE = "watchOS Example/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.sparrowkit.ios.watchos;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.ios.watchos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -728,7 +728,7 @@
 				DEVELOPMENT_TEAM = T9Z76HLJ3T;
 				IBSC_MODULE = watchOS_Example_Extension;
 				INFOPLIST_FILE = "watchOS Example/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.sparrowkit.ios.watchos;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.ios.watchos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
