@@ -575,7 +575,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9Z76HLJ3T;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -595,7 +595,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9Z76HLJ3T;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "iOS Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -615,7 +615,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9Z76HLJ3T;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "tvOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,7 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9Z76HLJ3T;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "tvOS Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -657,14 +657,14 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9Z76HLJ3T;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "watchOS Example Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.ios.watchos.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.ios.watchos.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -681,14 +681,14 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9Z76HLJ3T;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "watchOS Example Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.ios.watchos.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.ios.watchos.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -705,7 +705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9Z76HLJ3T;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = watchOS_Example_Extension;
 				INFOPLIST_FILE = "watchOS Example/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.ios.watchos;
@@ -725,7 +725,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T9Z76HLJ3T;
+				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = watchOS_Example_Extension;
 				INFOPLIST_FILE = "watchOS Example/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = by.ivanvorobei.opensource.sparrowkit.ios.watchos;
