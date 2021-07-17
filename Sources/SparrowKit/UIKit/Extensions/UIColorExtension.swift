@@ -35,7 +35,9 @@ public extension UIColor {
     #if !os(watchOS)
     convenience init(light: UIColor, dark: UIColor) {
         if #available(iOS 13.0, tvOS 13.0, *) {
-            self.init(dynamicProvider: { $0.userInterfaceStyle == .dark ? dark : light })
+            self.init(dynamicProvider: { trait in
+                trait.userInterfaceStyle == .dark ? dark : light
+            })
         } else {
             self.init(cgColor: light.cgColor)
         }
