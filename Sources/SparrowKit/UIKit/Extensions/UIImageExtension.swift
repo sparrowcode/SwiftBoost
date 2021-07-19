@@ -173,14 +173,32 @@ public extension UIImage {
     /**
      SparrowKit: Resize image to new size with save proportional.
      */
-    func resize(newWidth width: CGFloat) -> UIImage {
-        let scale = width / self.size.width
-        let newHeight = self.size.height * scale
-        UIGraphicsBeginImageContext(CGSize(width: width, height: newHeight))
-        self.draw(in: CGRect(x: 0, y: 0, width: width, height: newHeight))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
+    func resize(newWidth desiredWidth: CGFloat) -> UIImage {
+        let oldWidth = size.width
+        let scaleFactor = desiredWidth / oldWidth
+        let newHeight = size.height * scaleFactor
+        let newWidth = oldWidth * scaleFactor
+        let newSize = CGSize(width: newWidth, height: newHeight)
+        return resize(targetSize: newSize)
+    }
+
+    /**
+     SparrowKit: Resize image to new size with save proportional.
+     */
+    func resize(newHeight desiredHeight: CGFloat) -> UIImage {
+        let scaleFactor = desiredHeight / size.height
+        let newWidth = size.width * scaleFactor
+        let newSize = CGSize(width: newWidth, height: desiredHeight)
+        return resize(targetSize: newSize)
+    }
+    
+    /**
+     SparrowKit: Resize image to new size without saving proportional.
+     */
+    func resize(targetSize: CGSize) -> UIImage {
+        return UIGraphicsImageRenderer(size:targetSize).image { _ in
+            self.draw(in: CGRect(origin: .zero, size: targetSize))
+        }
     }
     #endif
 }
