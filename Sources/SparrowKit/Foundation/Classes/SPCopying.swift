@@ -21,6 +21,9 @@
 
 import Foundation
 
+/**
+ SparrowKit: Custom protocol for make copy of objects.
+ */
 public protocol SPCopying {
     
     init(instance: Self)
@@ -28,7 +31,20 @@ public protocol SPCopying {
 
 extension SPCopying {
     
+    /**
+     SparrowKit: Make copy of object.
+     */
     public func copyObject() -> Self {
         return Self.init(instance: self)
+    }
+}
+
+extension Array where Element: SPCopying {
+    
+    /**
+     SparrowKit: Make copy of array objects.
+     */
+    public func copy() -> [Element] {
+        return self.map { $0.copyObject() }
     }
 }
