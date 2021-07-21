@@ -19,16 +19,16 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#if canImport(Foundation)
 import Foundation
 
-extension NSObject {
+public protocol SPCopying {
     
-    /**
-     SparrowKit: Get class name of object.
-     */
-    public var className: String {
-        return String(describing: type(of: self))
+    init(instance: Self)
+}
+
+extension SPCopying {
+    
+    public func copyObject() -> Self {
+        return Self.init(instance: self)
     }
 }
-#endif
