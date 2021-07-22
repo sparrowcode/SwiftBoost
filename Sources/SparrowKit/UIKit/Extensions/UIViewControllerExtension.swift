@@ -80,6 +80,8 @@ extension UIViewController {
      SparrowKit: If scene name is same as
      */
     @available(iOS 13, tvOS 13, *)
+    @available(iOSApplicationExtension, unavailable)
+    @available(tvOSApplicationExtension, unavailable)
     open func destruct(scene name: String) {
         guard let session = view.window?.windowScene?.session else {
             dismissAnimated()
@@ -126,6 +128,7 @@ extension UIViewController {
      */
     #if os(iOS)
     @available(iOS 14, *)
+    @available(iOSApplicationExtension, unavailable)
     open func closeBarButtonItem(sceneName: String? = nil) -> UIBarButtonItem {
         return UIBarButtonItem.init(systemItem: .close, primaryAction: .init(handler: { [weak self] (action) in
             guard let self = self else { return }

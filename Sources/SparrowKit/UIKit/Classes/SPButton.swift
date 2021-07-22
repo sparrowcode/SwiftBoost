@@ -71,7 +71,8 @@ open class SPButton: UIButton {
                 imageEdgeInsets.right = 0
                 titleEdgeInsets.left = 0
             } else {
-                if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+                let direction = UIView.userInterfaceLayoutDirection(for: semanticContentAttribute)
+                if direction == .leftToRight {
                     imageEdgeInsets.right = inset
                     titleEdgeInsets.left = inset
                 } else {
