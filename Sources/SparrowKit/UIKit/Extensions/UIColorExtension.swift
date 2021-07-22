@@ -100,6 +100,8 @@ public extension UIColor {
      Usually it is global tint color.
      */
     #if !os(watchOS)
+    @available(iOSApplicationExtension, unavailable)
+    @available(tvOSApplicationExtension, unavailable)
     static var tint: UIColor {
         get {
             let value = UIApplication.shared.windows.first?.tintColor
