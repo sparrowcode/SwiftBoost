@@ -22,14 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-public extension UIView {
+extension UIView {
     
     /**
      SparrowKit: Init `UIView` object with background color.
      
      - parameter backgroundColor: Color which using for background.
      */
-    convenience init(backgroundColor color: UIColor) {
+    public convenience init(backgroundColor color: UIColor) {
         self.init()
         backgroundColor = color
     }
@@ -42,7 +42,7 @@ public extension UIView {
      - warning:
      If view not added to any controller, return nil.
      */
-    var viewController: UIViewController? {
+    open var viewController: UIViewController? {
         weak var parentResponder: UIResponder? = self
         while parentResponder != nil {
             parentResponder = parentResponder!.next
@@ -58,21 +58,21 @@ public extension UIView {
      
      - parameter subviews: Array of `UIView` objects.
      */
-    func addSubviews(_ subviews: [UIView]) {
+    open func addSubviews(_ subviews: [UIView]) {
         subviews.forEach { addSubview($0) }
     }
     
     /**
      SparrowKit: Remove all subviews.
      */
-    func removeSubviews() {
+    open func removeSubviews() {
         subviews.forEach { $0.removeFromSuperview() }
     }
     
     /**
      SparrowKit: Take screenshoot of view as `UIImage`.
      */
-    var screenshot: UIImage? {
+    open var screenshot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
         defer {
             UIGraphicsEndImageContext()
@@ -82,6 +82,16 @@ public extension UIView {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
+    /**
+     SparrowKit: If view has LTR interface.
+     */
+    open var ltr: Bool { effectiveUserInterfaceLayoutDirection == .leftToRight }
+    
+    /**
+     SparrowKit: If view has TRL interface.
+     */
+    open var rtl: Bool { effectiveUserInterfaceLayoutDirection == .rightToLeft }
+    
     // MARK: - Layout
     
     /**
@@ -90,7 +100,7 @@ public extension UIView {
      - warning:
      Fit view can be return zero height. View shoud support it.
      */
-    func setWidthAndFit(width: CGFloat) {
+    open func setWidthAndFit(width: CGFloat) {
         frame.setWidth(width)
         sizeToFit()
     }
@@ -101,7 +111,7 @@ public extension UIView {
      - warning:
      If current view have not superview, center X is set to zero.
      */
-    func setXCenter() {
+    open func setXCenter() {
         center.x = (superview?.frame.width ?? 0) / 2
     }
     
@@ -111,7 +121,7 @@ public extension UIView {
      - warning:
      If current view have not superview, center Y is set to zero.
      */
-    func setYCenter() {
+    open func setYCenter() {
         center.y = (superview?.frame.height ?? 0) / 2
     }
     
@@ -121,7 +131,7 @@ public extension UIView {
      - warning:
      If current view have not superview, center is set to zero.
      */
-    func setToCenter() {
+    open func setToCenter() {
         setXCenter()
         setYCenter()
     }
@@ -131,7 +141,7 @@ public extension UIView {
     /**
      SparrowKit: Margins of readable frame.
      */
-    var readableMargins: UIEdgeInsets {
+    open var readableMargins: UIEdgeInsets {
         let layoutFrame = readableContentGuide.layoutFrame
         return UIEdgeInsets(
             top: layoutFrame.origin.y,
@@ -144,21 +154,21 @@ public extension UIView {
     /**
      SparrowKit: Readable width of current view without horizontal readable margins.
      */
-    var readableWidth: CGFloat {
+    open var readableWidth: CGFloat {
         return readableContentGuide.layoutFrame.width
     }
     
     /**
      SparrowKit: Readable height of current view without vertical readable margins.
      */
-    var readableHeight: CGFloat {
+    open var readableHeight: CGFloat {
         return readableContentGuide.layoutFrame.height
     }
     
     /**
      SparrowKit: Readable frame of current view without vertical and horizontal readable margins.
      */
-    var readableFrame: CGRect {
+    open var readableFrame: CGRect {
         let margins = readableMargins
         return CGRect.init(x: margins.left, y: margins.top, width: readableWidth, height: readableHeight)
     }
@@ -168,7 +178,7 @@ public extension UIView {
     /**
      SparrowKit: Width of current view without horizontal layout margins.
      */
-    var layoutWidth: CGFloat {
+    open var layoutWidth: CGFloat {
         // ver 1
         // Depricated becouse sometimes return invalid size
         //return layoutMarginsGuide.layoutFrame.width
@@ -180,7 +190,7 @@ public extension UIView {
     /**
      SparrowKit: Height of current view without vertical layout margins.
      */
-    var layoutHeight: CGFloat {
+    open var layoutHeight: CGFloat {
         // ver 1
         // Depricated becouse sometimes return invalid size
         //return layoutMarginsGuide.layoutFrame.height
@@ -192,7 +202,7 @@ public extension UIView {
     /**
      SparrowKit: Frame of current view without horizontal and vertical layout margins.
      */
-    var layoutFrame: CGRect {
+    open var layoutFrame: CGRect {
         return CGRect.init(x: layoutMargins.left, y: layoutMargins.top, width: layoutWidth, height: layoutHeight)
     }
     
@@ -202,7 +212,7 @@ public extension UIView {
      - warning:
      If view not have superview, nothing happen.
      */
-    func setEqualSuperviewBounds() {
+    open func setEqualSuperviewBounds() {
         guard let superview = self.superview else { return }
         frame = superview.bounds
     }
@@ -210,7 +220,7 @@ public extension UIView {
     /**
      SparrowKit: Set view equal frame to superview frame via `autoresizingMask`.
      */
-    func setEqualSuperviewBoundsWithAutoresizingMask() {
+    open func setEqualSuperviewBoundsWithAutoresizingMask() {
         autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
@@ -220,7 +230,7 @@ public extension UIView {
      - warning:
      If view not have superview, constraints will not be added.
      */
-    func setEqualSuperviewBoundsWithAutoLayout() {
+    open func setEqualSuperviewBoundsWithAutoLayout() {
         guard let superview = self.superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -237,7 +247,7 @@ public extension UIView {
      - warning:
      If view not have superview, constraints will not be added.
      */
-    func setEqualSuperviewMarginsWithAutoLayout() {
+    open func setEqualSuperviewMarginsWithAutoLayout() {
         guard let superview = self.superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -253,7 +263,7 @@ public extension UIView {
     /**
      SparrowKit: Wrapper for layer property `masksToBounds`.
      */
-    var masksToBounds: Bool {
+    open var masksToBounds: Bool {
         get {
             return layer.masksToBounds
         }
@@ -271,7 +281,7 @@ public extension UIView {
      - parameter corners: Case of `UIRectCorner`
      - parameter radius: Amount of radius.
      */
-    func roundCorners(_ corners: UIRectCorner = .allCorners, radius: CGFloat) {
+    open func roundCorners(_ corners: UIRectCorner = .allCorners, radius: CGFloat) {
         let maskPath = UIBezierPath(
             roundedRect: bounds,
             byRoundingCorners: corners,
@@ -288,14 +298,14 @@ public extension UIView {
      - important:
      Need call after changed frame. Better leave it in `layoutSubviews` method.
      */
-    func roundCorners() {
+    open func roundCorners() {
         layer.cornerRadius = min(frame.width, frame.height) / 2
     }
     
     /**
      SparrowKit: Wrapper for layer property `borderColor`.
      */
-    var borderColor: UIColor? {
+    open var borderColor: UIColor? {
         get {
             guard let color = layer.borderColor else { return nil }
             return UIColor(cgColor: color)
@@ -314,7 +324,7 @@ public extension UIView {
     /**
      SparrowKit: Wrapper for layer property `borderWidth`.
      */
-    var borderWidth: CGFloat {
+    open var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -331,7 +341,7 @@ public extension UIView {
      - parameter offset: Vertical and horizontal offset from center fro shadow.
      - parameter opacity: Alpha for shadow view.
      */
-    func addShadow(ofColor color: UIColor, radius: CGFloat, offset: CGSize, opacity: Float) {
+    open func addShadow(ofColor color: UIColor, radius: CGFloat, offset: CGSize, opacity: Float) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -345,7 +355,7 @@ public extension UIView {
      
      - parameter amount: Amount of paralax effect.
      */
-    func addParalax(amount: CGFloat) {
+    open func addParalax(amount: CGFloat) {
         motionEffects.removeAll()
         let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
         horizontal.minimumRelativeValue = -amount
@@ -363,7 +373,7 @@ public extension UIView {
     /**
      SparrowKit: Remove paralax.
      */
-    func removeParalax() {
+    open func removeParalax() {
         motionEffects.removeAll()
     }
     
@@ -375,8 +385,8 @@ public extension UIView {
      - parameter duration: Duration of animation.
      - parameter completion: Completion when animation ended.
      */
-    func fadeIn(duration: TimeInterval = 0.3, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: duration, animations: {
+    open func fadeIn(duration: TimeInterval = 0.3, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration, delay: .zero, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.alpha = 1
         }, completion: completion)
     }
@@ -387,8 +397,8 @@ public extension UIView {
      - parameter duration: Duration of animation.
      - parameter completion: Completion when animation ended.
      */
-    func fadeOut(duration: TimeInterval = 0.3, completion: ((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: duration, animations: {
+    open func fadeOut(duration: TimeInterval = 0.3, completion: ((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration, delay: .zero, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.alpha = 0
         }, completion: completion)
     }
