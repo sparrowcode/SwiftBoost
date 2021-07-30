@@ -219,8 +219,13 @@ extension UIView {
     
     /**
      SparrowKit: Set view equal frame to superview frame via `autoresizingMask`.
+     
+     - warning:
+     If view not have superview, nothing happen.
      */
     open func setEqualSuperviewBoundsWithAutoresizingMask() {
+        guard let superview = self.superview else { return }
+        frame = superview.bounds
         autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
