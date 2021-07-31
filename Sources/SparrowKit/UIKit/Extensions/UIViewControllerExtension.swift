@@ -24,12 +24,28 @@ import UIKit
 
 extension UIViewController {
     
+    // MARK: - Layout
+    
+    /**
+     SparrowKit: System safe area without `additionalSafeAreaInsets`.
+     
+     Usually same as window's safe area, but not always if you use not full screen controller. For solve it trouble use it for have valid safe area to view.
+     */
+    open var systemSafeAreaInsets: UIEdgeInsets {
+        return UIEdgeInsets(
+            top: view.safeAreaInsets.top - additionalSafeAreaInsets.top,
+            left: view.safeAreaInsets.left - additionalSafeAreaInsets.left,
+            bottom: view.safeAreaInsets.bottom - additionalSafeAreaInsets.bottom,
+            right: view.safeAreaInsets.right - additionalSafeAreaInsets.right,
+            )
+    }
+    
     // MARK: - Containers
     
     /**
      SparrowKit: Wrap controller to navigation controller.
      
-     - parameter prefersLargeTitles: A Boolean value indicating whether the title should be displayed in a large format..
+     - parameter prefersLargeTitles: A Boolean value indicating whether the title should be displayed in a large format.
      */
     @objc open func wrapToNavigationController(prefersLargeTitles: Bool) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: self)
