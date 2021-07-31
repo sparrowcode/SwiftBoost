@@ -36,8 +36,8 @@ extension UIViewController {
             top: view.safeAreaInsets.top - additionalSafeAreaInsets.top,
             left: view.safeAreaInsets.left - additionalSafeAreaInsets.left,
             bottom: view.safeAreaInsets.bottom - additionalSafeAreaInsets.bottom,
-            right: view.safeAreaInsets.right - additionalSafeAreaInsets.right,
-            )
+            right: view.safeAreaInsets.right - additionalSafeAreaInsets.right
+        )
     }
     
     // MARK: - Containers
