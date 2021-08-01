@@ -23,14 +23,14 @@
 
 import UIKit
 
-public extension UILabel {
+extension UILabel {
     
     // MARK: - Helpers
     
     /**
      SparrowKit: Manager letter space by Attributed String.
      */
-    var letterSpace: CGFloat {
+    open var letterSpace: CGFloat {
         set {
             let attributedString: NSMutableAttributedString!
             if let currentAttrString = attributedText {
@@ -60,7 +60,7 @@ public extension UILabel {
      
      - parameter width: `Widght` of label.
      */
-    func layoutDynamicHeight(width: CGFloat) {
+    open func layoutDynamicHeight(width: CGFloat) {
         frame.setWidth(width)
         sizeToFit()
         if frame.width != width {
@@ -77,11 +77,23 @@ public extension UILabel {
      - parameter y: Orinig `y` position.
      - parameter width: `Widght` of label.
      */
-    func layoutDynamicHeight(x: CGFloat, y: CGFloat, width: CGFloat) {
+    open func layoutDynamicHeight(x: CGFloat, y: CGFloat, width: CGFloat) {
         frame = CGRect.init(x: x, y: y, width: width, height: frame.height)
         sizeToFit()
         if frame.width != width {
             frame.setWidth(width)
+        }
+    }
+    
+    // MARK: - Animations
+    
+    open func setTextWithFade(newText: String, duration: TimeInterval = 0.6, completion: @escaping (()->Void)) {
+        fadeOut(duration: duration / 2) { [weak self] _ in
+            guard let self = self else { return }
+            self.text = newText
+            self.fadeIn(duration: duration / 2) { _ in
+                completion()
+            }
         }
     }
 }
