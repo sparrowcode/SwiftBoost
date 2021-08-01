@@ -94,12 +94,12 @@ extension UILabel {
      - parameter duration: Time of full animation.
      - parameter completion: Call at end of animation.
      */
-    open func setTextWithFade(newText: String, duration: TimeInterval = 0.6, completion: @escaping (()->Void)) {
+    open func setTextWithFade(newText: String, duration: TimeInterval = 0.6, completion: (()->Void)? = nil) {
         fadeOut(duration: duration / 2) { [weak self] _ in
             guard let self = self else { return }
             self.text = newText
             self.fadeIn(duration: duration / 2) { _ in
-                completion()
+                completion?()
             }
         }
     }
