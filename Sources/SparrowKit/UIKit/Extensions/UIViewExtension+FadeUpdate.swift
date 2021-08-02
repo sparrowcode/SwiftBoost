@@ -34,7 +34,7 @@ extension UIFadeOut where Self: UIView {
      - parameter work: Apply view changes here.
      - parameter completion: Call after end of animation.
      */
-    public func fadeUpdate(duration: TimeInterval = 0.6, delay: TimeInterval = 0.1, work: @escaping (Self)->Void, completion: @escaping ()->Void) {
+    public func fadeUpdate(duration: TimeInterval = 0.6, delay: TimeInterval = 0.1, work: @escaping (Self)->Void, completion: (()->Void)? = nil) {
         let partDuration = (duration - delay) / 2
         let storedAlpha = self.alpha
         UIView.animate(withDuration: partDuration, delay: .zero, options: [.beginFromCurrentState, .allowUserInteraction], animations: { [weak self] in
@@ -46,7 +46,7 @@ extension UIFadeOut where Self: UIView {
             UIView.animate(withDuration: partDuration, delay: delay, options: [.beginFromCurrentState, .allowUserInteraction], animations: { [weak self] in
                 self?.alpha = storedAlpha
             }, completion: { finished in
-                completion()
+                completion?()
             })
         })
     }
