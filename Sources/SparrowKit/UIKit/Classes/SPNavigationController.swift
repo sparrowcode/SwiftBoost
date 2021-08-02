@@ -44,11 +44,11 @@ open class SPNavigationController: UINavigationController {
      SparrowKit: If set to `true`, navigation bar apply horizontal margins from view of navigation controller.
      Default is `false`.
      */
-    open var navigationBarInhertLayoutMargins: Bool = false
+    open var inheritLayoutMarginsForNavigationBar: Bool = false
     
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if navigationBarInhertLayoutMargins {
+        if inheritLayoutMarginsForNavigationBar {
             navigationBar.layoutMargins.left = view.layoutMargins.left
             navigationBar.layoutMargins.right = view.layoutMargins.right
         }
