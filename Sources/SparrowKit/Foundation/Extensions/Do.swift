@@ -23,10 +23,10 @@
 import Foundation
 #endif
 #if !os(Linux)
-  import CoreGraphics
+import CoreGraphics
 #endif
 #if os(iOS) || os(tvOS)
-  import UIKit.UIGeometry
+import UIKit.UIGeometry
 #endif
 
 public protocol Do {}
@@ -61,10 +61,10 @@ extension Do where Self: Any {
 extension NSObject: Do {}
 
 #if !os(Linux)
-  extension CGPoint: Do {}
-  extension CGRect: Do {}
-  extension CGSize: Do {}
-  extension CGVector: Do {}
+extension CGPoint: Do {}
+extension CGRect: Do {}
+extension CGSize: Do {}
+extension CGVector: Do {}
 #endif
 
 extension Array: Do {}
@@ -72,7 +72,7 @@ extension Dictionary: Do {}
 extension Set: Do {}
 
 #if os(iOS) || os(tvOS)
-  extension UIEdgeInsets: Do {}
-  extension UIOffset: Do {}
-  extension UIRectEdge: Do {}
+extension UIEdgeInsets: Do {}
+extension UIOffset: Do {}
+extension UIRectEdge: Do {}
 #endif

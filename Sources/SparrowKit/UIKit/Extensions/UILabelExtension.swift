@@ -84,25 +84,6 @@ extension UILabel {
             frame.setWidth(width)
         }
     }
-    
-    // MARK: - Animations
-    
-    /**
-     SparrowKit: Set new text via fade animation.
-     
-     - parameter newText: New text for label.
-     - parameter duration: Time of full animation.
-     - parameter completion: Call at end of animation.
-     */
-    open func setTextWithFade(newText: String, duration: TimeInterval = 0.6, completion: (()->Void)? = nil) {
-        fadeOut(duration: duration / 2) { [weak self] _ in
-            guard let self = self else { return }
-            self.text = newText
-            self.fadeIn(duration: duration / 2) { _ in
-                completion?()
-            }
-        }
-    }
 }
 
 #endif
