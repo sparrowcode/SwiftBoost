@@ -382,8 +382,6 @@ extension UIView {
         motionEffects.removeAll()
     }
     
-    // MARK: - Animations
-    
     /**
      SparrowKit: Appear view with fade in animation.
      
