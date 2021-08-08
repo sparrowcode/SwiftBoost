@@ -22,7 +22,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public extension UIColor {
+extension UIColor {
     
     // MARK: - Init
     
@@ -33,7 +33,7 @@ public extension UIColor {
      - parameter dark: Color for dark interface style.
      */
     #if !os(watchOS)
-    convenience init(light: UIColor, dark: UIColor) {
+    public convenience init(light: UIColor, dark: UIColor) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init(dynamicProvider: { trait in
                 trait.userInterfaceStyle == .dark ? dark : light
@@ -51,7 +51,7 @@ public extension UIColor {
      - parameter elevatedInterfaceLevel: Color for elevated interface level.
      */
     #if !os(watchOS) && !os(tvOS)
-    convenience init(baseInterfaceLevel: UIColor, elevatedInterfaceLevel: UIColor ) {
+    public convenience init(baseInterfaceLevel: UIColor, elevatedInterfaceLevel: UIColor ) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init { traitCollection in
                 switch traitCollection.userInterfaceLevel {
@@ -77,7 +77,7 @@ public extension UIColor {
      
      - parameter hex: HEX of color. Can start from #.
      */
-    convenience init(hex: String) {
+    public convenience init(hex: String) {
         let hex = UIColor.parseHex(hex: hex, alpha: nil)
         self.init(red: hex.red, green: hex.green, blue: hex.blue, alpha: hex.alpha)
     }
@@ -88,7 +88,7 @@ public extension UIColor {
      - parameter hex: HEX of color. Can start from #.
      - parameter alpha: Opacity.
      */
-    convenience init(hex: String, alpha: CGFloat) {
+    public convenience init(hex: String, alpha: CGFloat) {
         let hex = UIColor.parseHex(hex: hex, alpha: alpha)
         self.init(red: hex.red, green: hex.green, blue: hex.blue, alpha: hex.alpha)
     }
@@ -102,7 +102,7 @@ public extension UIColor {
     #if !os(watchOS)
     @available(iOSApplicationExtension, unavailable)
     @available(tvOSApplicationExtension, unavailable)
-    static var tint: UIColor {
+    public static var tint: UIColor {
         get {
             let value = UIApplication.shared.windows.first?.tintColor
             guard let tint = value else { return .systemBlue }
@@ -119,7 +119,7 @@ public extension UIColor {
     /**
      SparrowKit: Get HEX from current color.
      */
-    var hex: String {
+    public var hex: String {
         let colorRef = cgColor.components
         let r = colorRef?[0] ?? 0
         let g = colorRef?[1] ?? 0
@@ -145,7 +145,7 @@ public extension UIColor {
      
      - parameter alpha: Opacity.
      */
-    func alpha(_ alpha: CGFloat) -> UIColor {
+    public func alpha(_ alpha: CGFloat) -> UIColor {
         self.withAlphaComponent(alpha)
     }
     
@@ -154,7 +154,7 @@ public extension UIColor {
      
      - parameter amount: Amount for lighter. Use 0...1.
      */
-    func lighter(by amount: CGFloat) -> UIColor {
+    public func lighter(by amount: CGFloat) -> UIColor {
         return mixWithColor(UIColor.white, amount: amount)
     }
     
@@ -163,7 +163,7 @@ public extension UIColor {
      
      - parameter amount: Amount for darker. Use 0...1.
      */
-    func darker(by amount: CGFloat) -> UIColor {
+    public func darker(by amount: CGFloat) -> UIColor {
         return mixWithColor(UIColor.black, amount: amount)
     }
     
@@ -173,7 +173,7 @@ public extension UIColor {
      - parameter color: Color for mix.
      - parameter amount: Amount of mix. Use 0...1.
      */
-    func mixWithColor(_ color: UIColor, amount: CGFloat = 0.25) -> UIColor {
+    public func mixWithColor(_ color: UIColor, amount: CGFloat = 0.25) -> UIColor {
         var r1     : CGFloat = 0
         var g1     : CGFloat = 0
         var b1     : CGFloat = 0
@@ -251,7 +251,7 @@ public extension UIColor {
      SparrowKit: List of colorful colors.
      */
     #if !os(watchOS)
-    static var systemColorfulColors: [UIColor] {
+    public static var systemColorfulColors: [UIColor] {
         if #available(iOS 13.0, tvOS 13.0, *) {
             return [.systemRed, .systemOrange, .systemYellow, .systemGreen, .systemTeal, .systemBlue, .systemIndigo, .systemPink, .systemPurple]
         } else {
@@ -264,7 +264,7 @@ public extension UIColor {
      SparrowKit: Color of footnote label.
      */
     #if !os(watchOS) && !os(tvOS)
-    static var footnoteColor: UIColor {
+    public static var footnoteColor: UIColor {
         if #available(iOS 13.0, tvOS 13, *) {
             return UIColor.init { (trait) -> UIColor in
                 return trait.userInterfaceStyle == .dark ? UIColor(hex: "8E8E93") : UIColor(hex: "6D6D72")
@@ -272,6 +272,24 @@ public extension UIColor {
         } else {
             return UIColor(hex: "6D6D72")
         }
+    }
+    #endif
+    
+    /**
+     SparrowKit: Wrapper of destructive actions color.
+     */
+    #if !os(watchOS)
+    public static var destructiveColor: UIColor {
+        return .systemRed
+    }
+    #endif
+    
+    /**
+     SparrowKit: Wrapper of warning actions color.
+     */
+    #if !os(watchOS)
+    public static var warningColor: UIColor {
+        return .systemOrange
     }
     #endif
 }

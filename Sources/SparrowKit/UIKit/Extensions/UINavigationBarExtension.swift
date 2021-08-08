@@ -66,6 +66,19 @@ public extension UINavigationBar {
         barTintColor = .clear
         setBackgroundImage(UIImage(), for: .default)
         shadowImage = UIImage()
-    }    
+    }
+    
+    /**
+     SparrowKit: Set opacity for background view.
+     */
+    func setBackgroundAlpha(_ value: CGFloat) {
+        for (index, view) in subviews.enumerated() {
+            // Hide background for navigation bar.
+            // Usually it first view.
+            if index == .zero {
+                view.alpha = value
+            }
+        }
+    }
 }
 #endif
