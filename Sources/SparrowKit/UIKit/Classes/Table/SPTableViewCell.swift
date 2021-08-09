@@ -66,20 +66,27 @@ open class SPTableViewCell: UITableViewCell {
      
      No need ovveride other init. Using one function for configurate view.
      */
-    open func commonInit() {
-        if #available(iOS 13.0, *) {
-            selectedBackgroundView = UIView()
-            #if os(iOS)
-            selectedColor = UIColor.systemGray5
-            #endif
-        }
-    }
+    open func commonInit() {}
     
     // MARK: - Lifecycle
     
     open override func prepareForReuse() {
         super.prepareForReuse()
         currentIndexPath = nil
+    }
+    
+    open override func tintColorDidChange() {
+        super.tintColorDidChange()
+        if #available(iOS 13.0, *) {
+            #if os(iOS)
+            selectedColor = UIColor.init(
+                // For light always good .systemGray5
+                light: .systemGray5,
+                // For dark some cases may have same color like background.
+                dark: backgroundColor?.mixWithColor(.white, amount: 0.06) ?? .systemGray4
+            )
+            #endif
+        }
     }
 }
 #endif
