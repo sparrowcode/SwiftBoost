@@ -22,7 +22,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public extension UIEdgeInsets {
+extension UIEdgeInsets {
     
     /**
      SparrowKit: Create insets by same for horizontal and vertical values.
@@ -30,7 +30,7 @@ public extension UIEdgeInsets {
      - parameter horizontal: Insets for left and right.
      - parameter vertical: Insets for top and bottom.
      */
-    init(horizontal: CGFloat, vertical: CGFloat) {
+    public init(horizontal: CGFloat, vertical: CGFloat) {
         self.init(top: vertical, left: horizontal, bottom: vertical, right: horizontal)
     }
     
@@ -39,8 +39,28 @@ public extension UIEdgeInsets {
      
      - parameter side: Insets for left right, top and bottom.
      */
-    init(side: CGFloat) {
+    public init(side: CGFloat) {
         self.init(top: side, left: side, bottom: side, right: side)
+    }
+    
+    /**
+     SparrowKit: Replace horizontal margins with new value.
+     
+     - parameter value: New value for horizontal margins.
+     */
+    public func setHorizontal(_ value: CGFloat) {
+        if self.left != value { self.left = value }
+        if self.right != value { self.right = value }
+    }
+    
+    /**
+     SparrowKit: Replace vertical margins with new value.
+     
+     - parameter value: New value for vertical margins.
+     */
+    public func setVertical(_ value: CGFloat) {
+        if self.top != value { self.left = value }
+        if self.bottom != value { self.right = value }
     }
 }
 #endif
