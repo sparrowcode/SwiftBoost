@@ -59,8 +59,8 @@ extension UIEdgeInsets {
      - parameter value: New value for vertical margins.
      */
     public mutating func setVertical(_ value: CGFloat) {
-        self.left = value
-        self.right = value
+        self.top = value
+        self.bottom = value
     }
 }
 #endif
