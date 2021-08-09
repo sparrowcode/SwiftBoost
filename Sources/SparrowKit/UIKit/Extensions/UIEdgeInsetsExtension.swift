@@ -48,7 +48,7 @@ extension UIEdgeInsets {
      
      - parameter value: New value for horizontal margins.
      */
-    public func setHorizontal(_ value: CGFloat) {
+    public mutating func setHorizontal(_ value: CGFloat) {
         if self.left != value { self.left = value }
         if self.right != value { self.right = value }
     }
@@ -58,7 +58,7 @@ extension UIEdgeInsets {
      
      - parameter value: New value for vertical margins.
      */
-    public func setVertical(_ value: CGFloat) {
+    public mutating func setVertical(_ value: CGFloat) {
         if self.top != value { self.left = value }
         if self.bottom != value { self.right = value }
     }
