@@ -207,6 +207,21 @@ extension UIView {
     }
     
     /**
+     SparrowKit: Set layout margins safety.
+     
+     If margins now same, ignoring it.
+     
+     - parameter value: New layout margins.
+     */
+    open func setLayoutMargins(_ value: UIEdgeInsets) {
+        if self.layoutMargins != value {
+            self.layoutMargins = value
+        }
+    }
+    
+    // MARK: - Manage Frames
+    
+    /**
      SparrowKit: Set view equal frame to superview frame via frames.
      
      - warning:

@@ -42,25 +42,5 @@ extension UIEdgeInsets {
     public init(side: CGFloat) {
         self.init(top: side, left: side, bottom: side, right: side)
     }
-    
-    /**
-     SparrowKit: Replace horizontal margins with new value.
-     
-     - parameter value: New value for horizontal margins.
-     */
-    public mutating func setHorizontal(_ value: CGFloat) {
-        self.left = value
-        self.right = value
-    }
-    
-    /**
-     SparrowKit: Replace vertical margins with new value.
-     
-     - parameter value: New value for vertical margins.
-     */
-    public mutating func setVertical(_ value: CGFloat) {
-        self.top = value
-        self.bottom = value
-    }
 }
 #endif
