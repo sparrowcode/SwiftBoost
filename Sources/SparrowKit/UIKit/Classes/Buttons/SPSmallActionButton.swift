@@ -54,10 +54,10 @@ open class SPSmallActionButton: SPDimmedButton {
      SparrowKit: Wrapper of set content and color of button.
      
      - parameter title: Text which using like title.
-     - parameter icon: Object of `UIImage`, using like icon.
+     - parameter icon: Object of `UIImage`, using like icon. Usually Apple doesn't use icon in this button.
      - parameter colorise: Color of button in default state.
      */
-    public func set(title: String, icon: UIImage?, colorise: SPDimmedButton.Colorise) {
+    public func set(title: String, icon: UIImage? = nil, colorise: SPDimmedButton.Colorise) {
         setTitle(title)
         if let icon = icon {
             setImage(icon.alwaysTemplate)
@@ -84,6 +84,7 @@ open class SPSmallActionButton: SPDimmedButton {
                 height -= imageCorrection
             }
         }
+        
         return CGSize(width: width, height: height)
     }
     

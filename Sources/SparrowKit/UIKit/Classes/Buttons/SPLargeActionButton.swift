@@ -45,6 +45,7 @@ open class SPLargeActionButton: SPDimmedButton {
         titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline, addPoints: 1)
         titleLabel?.numberOfLines = 1
         titleImageInset = 6
+        contentEdgeInsets = .init(horizontal: 10, vertical: .zero)
     }
     
     // MARK: - Public
@@ -72,7 +73,18 @@ open class SPLargeActionButton: SPDimmedButton {
     }
     
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return CGSize(width: size.width, height: 50)
+        let superSize = super.sizeThatFits(size)
+        let width = superSize.width
+        
+        var height = superSize.height + 28
+        if let titleLabel = titleLabel, let imageView = imageView, let _ = imageView.image {
+            if titleLabel.frame.height > 0 && imageView.frame.height > 0 {
+                let imageCorrection = imageView.frame.height - titleLabel.frame.height
+                height -= imageCorrection
+            }
+        }
+        
+        return CGSize(width: width, height: height)
     }
     
     // MARK: - Ovveride
