@@ -10,7 +10,6 @@
 		F43F829D26578DCA001D9B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43F829426578DCA001D9B3D /* Assets.xcassets */; };
 		F43F829E26578DCA001D9B3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F43F829526578DCA001D9B3D /* LaunchScreen.storyboard */; };
 		F43F829F26578DCA001D9B3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F829726578DCA001D9B3D /* AppDelegate.swift */; };
-		F43F82A126578DCA001D9B3D /* PresetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F829B26578DCA001D9B3D /* PresetsController.swift */; };
 		F43F82A626578E31001D9B3D /* SparrowKit in Frameworks */ = {isa = PBXBuildFile; productRef = F43F82A526578E31001D9B3D /* SparrowKit */; };
 		F43F82AE26578F03001D9B3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F82AD26578F03001D9B3D /* AppDelegate.swift */; };
 		F43F82B526578F04001D9B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43F82B426578F04001D9B3D /* Assets.xcassets */; };
@@ -22,6 +21,7 @@
 		F43F8332265791A3001D9B3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F43F8331265791A3001D9B3D /* Assets.xcassets */; };
 		F43F8336265791A3001D9B3D /* watchOS Example.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = F43F831A265791A0001D9B3D /* watchOS Example.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F43F8341265791B7001D9B3D /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43F833E265791B7001D9B3D /* ExtensionDelegate.swift */; };
+		F4C33E0526C9312B001A28B1 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C33E0426C9312B001A28B1 /* RootController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +71,6 @@
 		F43F829426578DCA001D9B3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F43F829626578DCA001D9B3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F43F829726578DCA001D9B3D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F43F829B26578DCA001D9B3D /* PresetsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetsController.swift; sourceTree = "<group>"; };
 		F43F829C26578DCA001D9B3D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F43F82A326578E28001D9B3D /* SparrowKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SparrowKit; path = ..; sourceTree = "<group>"; };
 		F43F82AB26578F03001D9B3D /* tvOS Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tvOS Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +86,7 @@
 		F43F8331265791A3001D9B3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F43F8333265791A3001D9B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F43F833E265791B7001D9B3D /* ExtensionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		F4C33E0426C9312B001A28B1 /* RootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +163,7 @@
 		F43F829A26578DCA001D9B3D /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				F43F829B26578DCA001D9B3D /* PresetsController.swift */,
+				F4C33E0426C9312B001A28B1 /* RootController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -389,8 +389,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F43F82A126578DCA001D9B3D /* PresetsController.swift in Sources */,
 				F43F829F26578DCA001D9B3D /* AppDelegate.swift in Sources */,
+				F4C33E0526C9312B001A28B1 /* RootController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
