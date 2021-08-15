@@ -82,5 +82,13 @@ open class SPButton: UIButton {
             }
         }
     }
+    
+    open override func sizeThatFits(_ size: CGSize) -> CGSize {
+        var superSize = super.sizeThatFits(size)
+        if let titleImageInset = titleImageInset {
+            superSize.width += titleImageInset
+        }
+        return superSize
+    }
 }
 #endif

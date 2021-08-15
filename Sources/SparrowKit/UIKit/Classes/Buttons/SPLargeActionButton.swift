@@ -79,13 +79,12 @@ open class SPLargeActionButton: SPDimmedButton {
     
     open override var isHighlighted: Bool {
         didSet {
-            let higlightAlpha: CGFloat = 0.6
             switch higlightStyle {
             case .content:
-                for view in [imageView, titleLabel] { view?.alpha = isHighlighted ? higlightAlpha : 1 }
+                for view in [imageView, titleLabel] { view?.alpha = isHighlighted ? highlightOpacity : 1 }
             case .background:
                 let color = backgroundColor
-                backgroundColor = color?.withAlphaComponent(isHighlighted ? higlightAlpha : 1)
+                backgroundColor = color?.withAlphaComponent(isHighlighted ? highlightOpacity : 1)
             }
         }
     }
