@@ -22,14 +22,14 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-public extension UIButton {
+extension UIButton {
     
     /**
      SparrowKit: Set title for all states.
      
      - parameter title: Title for button.
      */
-    func setTitle(_ title: String) {
+    open func setTitle(_ title: String) {
         setTitle(title, for: .normal)
     }
     
@@ -39,7 +39,7 @@ public extension UIButton {
      
      - parameter color: Color of title.
      */
-    func setTitleColor(_ color: UIColor) {
+    open func setTitleColor(_ color: UIColor) {
         setTitleColor(color, for: .normal)
         setTitleColor(color.withAlphaComponent(0.7), for: .highlighted)
     }
@@ -49,7 +49,7 @@ public extension UIButton {
      
      - parameter image: Image for button.
      */
-    func setImage(_ image: UIImage?) {
+    open func setImage(_ image: UIImage?) {
         setImage(image, for: .normal)
         setImage(image, for: .highlighted)
         setImage(image, for: .disabled)
@@ -58,7 +58,7 @@ public extension UIButton {
     /**
      SparrowKit: Remove all targets.
      */
-    func removeAllTargets() {
+    open func removeAllTargets() {
         self.removeTarget(nil, action: nil, for: .allEvents)
     }
 }
