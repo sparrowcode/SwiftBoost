@@ -29,7 +29,7 @@ extension UIButton {
      
      - parameter title: Title for button.
      */
-    @objc open func setTitle(_ title: String) {
+    open func setTitle(_ title: String) {
         setTitle(title, for: .normal)
     }
     
@@ -39,7 +39,7 @@ extension UIButton {
      
      - parameter color: Color of title.
      */
-    @objc open func setTitleColor(_ color: UIColor) {
+    open func setTitleColor(_ color: UIColor) {
         setTitleColor(color, for: .normal)
         setTitleColor(color.withAlphaComponent(0.7), for: .highlighted)
     }
@@ -49,7 +49,7 @@ extension UIButton {
      
      - parameter image: Image for button.
      */
-    @objc open func setImage(_ image: UIImage?) {
+    open func setImage(_ image: UIImage?) {
         setImage(image, for: .normal)
         setImage(image, for: .highlighted)
         setImage(image, for: .disabled)
@@ -58,7 +58,7 @@ extension UIButton {
     /**
      SparrowKit: Remove all targets.
      */
-    @objc open func removeAllTargets() {
+    open func removeAllTargets() {
         self.removeTarget(nil, action: nil, for: .allEvents)
     }
 }
