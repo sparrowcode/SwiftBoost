@@ -1,12 +1,9 @@
 # SparrowKit
 
 Collection of native Swift extensions to boost your development. Support iOS, tvOS and watchOS.<br>
-If you like the project, don't forget to `put star ★` and follow me on GitHub:
+If you like the project, don't forget to `put star ★`<br>Check out my other libraries:
 
 <p float="left">
-    <a href="https://github.com/ivanvorobei">
-        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/follow-me-ivanvorobei.svg">
-    </a>
     <a href="https://opensource.ivanvorobei.by">
         <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/more-libraries.svg">
     </a>
@@ -39,7 +36,7 @@ https://github.com/ivanvorobei/SparrowKit
 
 ### CocoaPods:
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate `SparrowKit` into your Xcode project using CocoaPods, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 pod 'SparrowKit'
@@ -47,12 +44,11 @@ pod 'SparrowKit'
 
 ### Manually
 
-If you prefer not to use any of dependency managers, you can integrate `SparrowKit` into your project manually. Put `Sources/SparrowKit` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
+If you prefer not to use any of dependency managers, you can integrate manually. Put `Sources/SparrowKit` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
 
 ## Other Projects
 
-I love being helpful. Here I have provided a list of libraries that I keep up to date. For see `video previews` of libraries without install open [opensource.ivanvorobei.by](https://opensource.ivanvorobei.by) website.<br>
-I have libraries with native interface and managing permissions. Also available pack of useful extensions for boost your development process.
+I love being helpful. Here I have provided a list of libraries that I keep up to date. For see `video previews` of libraries without install open [opensource.ivanvorobei.by](https://opensource.ivanvorobei.by) website.
 
 <p float="left">
     <a href="https://opensource.ivanvorobei.by">
@@ -62,8 +58,8 @@ I have libraries with native interface and managing permissions. Also available 
 
 ## Russian Community
 
-Веду каналы об iOS разработке. Один с туториалами и новостями, другой с обзором библиотек.<br>
-Со сложной задачей помогут в чате.
+Подписывайся в телеграмм-канал, если хочешь получать уведомления о новых туториалах.<br>
+Со сложными и непонятными задачами помогут в чате.
 
 <p float="left">
     <a href="https://sparrowcode.by/telegram/channel">
