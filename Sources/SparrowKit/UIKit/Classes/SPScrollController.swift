@@ -21,16 +21,15 @@
 
 #if canImport(UIKit) && os(iOS)
 import UIKit
-import SparrowKit
 
 /**
  SparrowKit: Basic Scroll Controller.
  */
-class SPScrollController: SPController {
+open class SPScrollController: SPController {
     
     // MARK: - Views
     
-    let scrollView = SPScrollView().do {
+    public let scrollView = SPScrollView().do {
         $0.delaysContentTouches = false
         $0.showsHorizontalScrollIndicator = false
         $0.preservesSuperviewLayoutMargins = true
@@ -38,9 +37,11 @@ class SPScrollController: SPController {
     
     // MARK: - Lifecycle
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        }
         view.addSubview(scrollView)
         scrollView.setEqualSuperviewBoundsWithAutoresizingMask()
     }
