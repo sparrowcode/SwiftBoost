@@ -292,5 +292,31 @@ extension UIColor {
         return .systemOrange
     }
     #endif
+    
+    /**
+     SparrowKit: New color to system stack.
+     Its color for empty aread and it usually downed of main background color.
+     */
+    #if os(iOS)
+    @available(iOS 13.0, *)
+    public static var systemDownedBackground: UIColor {
+        let lightColor = UIColor.secondarySystemBackground.mixWithColor(.darkGray, amount: 0.09).mixWithColor(UIColor.systemBlue, amount: 0.01)
+        let darColor = UIColor.secondarySystemBackground
+        return UIColor.init(light: lightColor, dark: darColor)
+    }
+    #endif
+    
+    /**
+     SparrowKit: New color to system grouped stack.
+     Its color for empty aread and it usually downed of content background color.
+     */
+    #if os(iOS)
+    @available(iOS 13.0, *)
+    public static var systemDownedGroupedBackground: UIColor {
+        let lightColor = UIColor.systemGroupedBackground.mixWithColor(.darkGray, amount: 0.09).mixWithColor(UIColor.systemBlue, amount: 0.01)
+        let darColor = UIColor.secondarySystemGroupedBackground.alpha(0.7)
+        return UIColor.init(light: lightColor, dark: darColor)
+    }
+    #endif
 }
 #endif
