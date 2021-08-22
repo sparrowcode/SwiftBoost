@@ -25,7 +25,7 @@ import UIKit
 /**
  SparrowKit: Basic Scroll Controller.
  */
-open class SPScrollController: SPController {
+open class SPScrollController: SPController, UIScrollViewDelegate {
     
     // MARK: - Views
     
@@ -44,6 +44,7 @@ open class SPScrollController: SPController {
         }
         view.addSubview(scrollView)
         scrollView.setEqualSuperviewBoundsWithAutoresizingMask()
+        scrollView.delegate = self
     }
 }
 #endif
