@@ -33,6 +33,8 @@ open class SPScrollController: SPController, UIScrollViewDelegate {
         $0.delaysContentTouches = false
         $0.showsHorizontalScrollIndicator = false
         $0.preservesSuperviewLayoutMargins = true
+        $0.alwaysBounceVertical = true
+        $0.alwaysBounceHorizontal = false
     }
     
     // MARK: - Lifecycle
