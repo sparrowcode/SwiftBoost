@@ -128,6 +128,7 @@ public enum SPLogger {
      But it convertor type for system logger.
      I hope we can use it later.
      */
+    @available(macOS 10.12, *)
     private static func logType(for level: Level) -> OSLogType {
         switch level {
         case .httpResponse: return .debug
