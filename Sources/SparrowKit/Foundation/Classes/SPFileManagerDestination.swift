@@ -23,12 +23,14 @@ import Foundation
 
 public struct SPFileManagerDestination {
     
+    // MARK: - Data
+    
     public var file: String
     public var directory: URL
     
-    public var url: URL {
-        return directory.appendingPathComponent(file)
-    }
+    public var url: URL { directory.appendingPathComponent(file) }
+    
+    // MARK: - Init
     
     public init(directory: FileManager.SearchPathDirectory = .documentDirectory, path: String, file: String) {
         let fileManager = FileManager.default
@@ -46,9 +48,11 @@ public struct SPFileManagerDestination {
     
     public init(fileName: String) {
         let bundleFileURL = Bundle.main.url(forResource: fileName, withExtension: nil)
-        self.directory = bundleFileURL?.deletingLastPathComponent() ?? URL.init(string: "")!
-        self.file = bundleFileURL?.lastPathComponent ?? ""
+        self.directory = bundleFileURL?.deletingLastPathComponent() ?? URL.init(string: .empty)!
+        self.file = bundleFileURL?.lastPathComponent ?? .empty
     }
+    
+    // MARK: - Private
     
     private static func cleaned(_ path: String) -> String {
         return path.removedPrefix("/").removedSuffix("/")
