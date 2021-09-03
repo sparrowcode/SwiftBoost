@@ -24,7 +24,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>by.ivanvorobei.sparrowkit.ios</string>
+	<string>by.ivanvorobei.opensource.sparrowkit.ios</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
