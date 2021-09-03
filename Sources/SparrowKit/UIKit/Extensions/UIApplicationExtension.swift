@@ -22,34 +22,46 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-public extension UIApplication {
+extension UIApplication {
     
     /**
      SparrowKit: Bundle display name from plist.
      */
-    var displayName: String? {
+    open var displayName: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
     }
     
     /**
      SparrowKit: Bundle identifier from plist.
      */
-    var bundleIdentifier: String? {
+    open var bundleIdentifier: String? {
         return Bundle.main.bundleIdentifier
     }
     
     /**
      SparrowKit: Bundle version from plist.
      */
-    var version: String? {
+    open var version: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
     
     /**
      SparrowKit: Bundle number from plist.
      */
-    var buildNumber: String? {
+    open var buildNumber: String? {
         return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
+    }
+    
+    /**
+     SparrowKit: Open App Settings.
+     */
+    public func openSettings() {
+        DispatchQueue.main.async {
+            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { _ in })
+            }
+        }
     }
 }
 #endif
