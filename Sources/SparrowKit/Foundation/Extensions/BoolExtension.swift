@@ -31,7 +31,7 @@ public extension Bool {
     }
     
     /**
-     SparrowKit: Convert bool to Int.
+     SparrowKit: Convert bool to String.
      
      If `Bool` is true, `String` is equal "true". Else is equal "false".
      */
