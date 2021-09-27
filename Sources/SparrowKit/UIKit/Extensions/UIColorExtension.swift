@@ -104,7 +104,7 @@ extension UIColor {
     @available(tvOSApplicationExtension, unavailable)
     public static var tint: UIColor {
         get {
-            if #available(iOS 15.0, *) {
+            if #available(iOS 15.0, tvOS 15.0, *) {
                 return UIColor.tintColor
             } else {
                 let value = UIApplication.shared.windows.first?.tintColor
