@@ -104,9 +104,13 @@ extension UIColor {
     @available(tvOSApplicationExtension, unavailable)
     public static var tint: UIColor {
         get {
-            let value = UIApplication.shared.windows.first?.tintColor
-            guard let tint = value else { return .systemBlue }
-            return tint
+            if #available(iOS 15.0, *) {
+                return UIColor.tintColor
+            } else {
+                let value = UIApplication.shared.windows.first?.tintColor
+                guard let tint = value else { return .systemBlue }
+                return tint
+            }
         }
         set {
             UIApplication.shared.windows.forEach({ $0.tintColor = newValue })
