@@ -74,6 +74,7 @@ public enum SPLocale: String {
     /**
      SparrowKit: Localize description of language.
      */
+    @available(iOS 11.0, tvOS 11.0, macOS 10.11, *)
     public func description(in locale: SPLocale) -> String {
         let locale = NSLocale(localeIdentifier: locale.languageCode)
         let text = locale.displayName(forKey: NSLocale.Key.identifier, value: languageCode) ?? .empty
