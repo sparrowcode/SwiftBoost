@@ -80,5 +80,53 @@ public extension UINavigationBar {
             }
         }
     }
+    
+    @available(iOS 13.0, *)
+    func setAppearance(_ value: NavigationBarAppearance) {
+        self.standardAppearance = value.standardAppearance
+        self.scrollEdgeAppearance = value.scrollEdgeAppearance
+    }
+    
+    @available(iOS 13.0, *)
+    enum NavigationBarAppearance {
+        
+        case transparentAlways
+        case transparentStandardOpaqueScroll
+        case opaqueAlways
+        
+        var standardAppearance: UINavigationBarAppearance {
+            switch self {
+            case .transparentAlways:
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithTransparentBackground()
+                return appearance
+            case .transparentStandardOpaqueScroll:
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithTransparentBackground()
+                return appearance
+            case .opaqueAlways:
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                return appearance
+            }
+        }
+        
+        var scrollEdgeAppearance: UINavigationBarAppearance {
+            switch self {
+            case .transparentAlways:
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithTransparentBackground()
+                return appearance
+            case .transparentStandardOpaqueScroll:
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithTransparentBackground()
+                return appearance
+            case .opaqueAlways:
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                return appearance
+            }
+        }
+    }
 }
 #endif
