@@ -24,6 +24,18 @@ import Foundation
 
 public extension Date {
     
+    // MARK: - Wrappers
+    
+    #if (os(iOS) || os(tvOS))
+    static var current: Date {
+        if #available(macOS 13, iOS 15, tvOS 15, watchOS 8, *) {
+            return Date.now
+        } else {
+            return Date()
+        }
+    }
+    #endif
+    
     // MARK: - Helpers
     
     var isInFuture: Bool {

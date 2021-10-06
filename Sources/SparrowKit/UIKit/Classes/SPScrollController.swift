@@ -48,9 +48,12 @@ open class SPScrollController: SPController, UIScrollViewDelegate {
         scrollView.setEqualSuperviewBoundsWithAutoresizingMask()
         scrollView.delegate = self
         
-        if #available(iOS 15.0, *) {
+        #if targetEnvironment(macCatalyst)
+        #else
+        if #available(iOS 15.0, tvOS 15.0, *) {
             setContentScrollView(scrollView)
         }
+        #endif
     }
 }
 #endif
