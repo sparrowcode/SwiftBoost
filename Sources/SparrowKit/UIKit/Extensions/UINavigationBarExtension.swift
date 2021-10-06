@@ -23,7 +23,7 @@
 import UIKit
 
 public extension UINavigationBar {
- 
+    
     /**
      SparrowKit: Change font of title.
      
@@ -56,7 +56,7 @@ public extension UINavigationBar {
         tintColor = textColor
         titleTextAttributes = [.foregroundColor: textColor]
     }
-
+    
     /**
      SparrowKit: Make transparent of background of navigation.
      */
@@ -82,16 +82,22 @@ public extension UINavigationBar {
     }
     
     @available(iOS 13.0, *)
-    func setAppearance(_ value: NavigationBarAppearance) {
+    /**
+     SparrowKit: Set appearance for navigation bar.
+     */
+    func setAppearance(_ value: SPNavigationBarAppearance) {
         self.standardAppearance = value.standardAppearance
         self.scrollEdgeAppearance = value.scrollEdgeAppearance
     }
     
     @available(iOS 13.0, *)
-    enum NavigationBarAppearance {
+    /**
+     SparrowKit: Appearance cases.
+     */
+    enum SPNavigationBarAppearance {
         
         case transparentAlways
-        case transparentStandardOpaqueScroll
+        case transparentStandardOnly
         case opaqueAlways
         
         var standardAppearance: UINavigationBarAppearance {
@@ -100,13 +106,13 @@ public extension UINavigationBar {
                 let appearance = UINavigationBarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
-            case .transparentStandardOpaqueScroll:
+            case .transparentStandardOnly:
                 let appearance = UINavigationBarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
             case .opaqueAlways:
                 let appearance = UINavigationBarAppearance()
-                appearance.configureWithOpaqueBackground()
+                appearance.configureWithDefaultBackground()
                 return appearance
             }
         }
@@ -117,13 +123,13 @@ public extension UINavigationBar {
                 let appearance = UINavigationBarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
-            case .transparentStandardOpaqueScroll:
+            case .transparentStandardOnly:
                 let appearance = UINavigationBarAppearance()
-                appearance.configureWithTransparentBackground()
+                appearance.configureWithDefaultBackground()
                 return appearance
             case .opaqueAlways:
                 let appearance = UINavigationBarAppearance()
-                appearance.configureWithOpaqueBackground()
+                appearance.configureWithDefaultBackground()
                 return appearance
             }
         }
