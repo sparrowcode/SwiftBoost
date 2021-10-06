@@ -81,7 +81,7 @@ public extension UINavigationBar {
         }
     }
     
-    @available(iOS 13.0, *)
+    @available(iOS 13.0, tvOS 13.0, *)
     /**
      SparrowKit: Set appearance for navigation bar.
      */
@@ -90,7 +90,7 @@ public extension UINavigationBar {
         self.scrollEdgeAppearance = value.scrollEdgeAppearance
     }
     
-    @available(iOS 13.0, *)
+    @available(iOS 13.0, tvOS 13.0, *)
     /**
      SparrowKit: Appearance cases.
      */
