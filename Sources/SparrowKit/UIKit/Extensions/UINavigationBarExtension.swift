@@ -108,7 +108,7 @@ public extension UINavigationBar {
                 return appearance
             case .transparentStandardOnly:
                 let appearance = UINavigationBarAppearance()
-                appearance.configureWithTransparentBackground()
+                appearance.configureWithDefaultBackground()
                 return appearance
             case .opaqueAlways:
                 let appearance = UINavigationBarAppearance()
@@ -125,7 +125,7 @@ public extension UINavigationBar {
                 return appearance
             case .transparentStandardOnly:
                 let appearance = UINavigationBarAppearance()
-                appearance.configureWithDefaultBackground()
+                appearance.configureWithTransparentBackground()
                 return appearance
             case .opaqueAlways:
                 let appearance = UINavigationBarAppearance()
