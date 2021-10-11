@@ -28,11 +28,15 @@ public extension Date {
     
     #if (os(iOS) || os(tvOS))
     static var current: Date {
+        #if targetEnvironment(macCatalyst)
+        return Date()
+        #else
         if #available(macOS 13, iOS 15, tvOS 15, watchOS 8, *) {
             return Date.now
         } else {
             return Date()
         }
+        #endif
     }
     #endif
     
