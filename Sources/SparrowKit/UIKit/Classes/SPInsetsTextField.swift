@@ -31,7 +31,7 @@ open class SPInsetsTextField: SPTextField {
      
      Have effect even for clear button position.
      */
-    open var insets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    open var insets = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: .zero)
     
     open override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: insets)
