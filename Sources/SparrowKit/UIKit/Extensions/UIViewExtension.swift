@@ -321,7 +321,7 @@ extension UIView {
      - parameter curve: Style of round curve.
      */
     open func roundCorners(_ curve: CornerCurve = .continuous) {
-        if #available(iOS 13.0, *) {
+        if #available(iOS 13.0, tvOS 13.0, *) {
             layer.cornerCurve = curve.layerCornerCurve
         }
         layer.cornerRadius = min(frame.width, frame.height) / 2
@@ -432,7 +432,7 @@ extension UIView {
         case circle
         case continuous
         
-        @available(iOS 13.0, *)
+        @available(iOS 13.0, tvOS 13.0, *)
         var layerCornerCurve: CALayerCornerCurve {
             switch self {
             case .circle: return .circular
