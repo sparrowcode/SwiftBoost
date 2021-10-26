@@ -317,8 +317,13 @@ extension UIView {
      
      - important:
      Need call after changed frame. Better leave it in `layoutSubviews` method.
+     
+     - parameter curve: Style of round curve.
      */
-    open func roundCorners() {
+    open func roundCorners(_ curve: CornerCurve = .continuous) {
+        if #available(iOS 13.0, *) {
+            layer.cornerCurve = curve.layerCornerCurve
+        }
         layer.cornerRadius = min(frame.width, frame.height) / 2
     }
     
@@ -419,6 +424,21 @@ extension UIView {
         UIView.animate(withDuration: duration, delay: .zero, options: [.beginFromCurrentState, .allowUserInteraction], animations: {
             self.alpha = 0
         }, completion: completion)
+    }
+    
+    
+    public enum CornerCurve {
+        
+        case circle
+        case continuous
+        
+        @available(iOS 13.0, *)
+        var layerCornerCurve: CALayerCornerCurve {
+            switch self {
+            case .circle: return .circular
+            case .continuous: return .continuous
+            }
+        }
     }
 }
 #endif
