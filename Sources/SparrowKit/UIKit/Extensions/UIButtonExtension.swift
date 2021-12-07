@@ -58,7 +58,15 @@ extension UIButton {
     /**
      SparrowKit: Remove all targets.
      */
+    @available(*, deprecated, renamed: "removeTargetsAndActions")
     open func removeAllTargets() {
+        self.removeTarget(nil, action: nil, for: .allEvents)
+    }
+    
+    /**
+     SparrowKit: Remove all targets and actions.
+     */
+    open func removeTargetsAndActions() {
         self.removeTarget(nil, action: nil, for: .allEvents)
     }
 }
