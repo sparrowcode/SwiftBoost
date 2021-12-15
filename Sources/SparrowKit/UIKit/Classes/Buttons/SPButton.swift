@@ -26,6 +26,8 @@ import UIKit
  SparrowKit: Basic Button class.
  
  It has one shared init `commonInit` which call for all default inits.
+ 
+ - Note: For Russian-speaking developer available [tutorial about button insets]( https://sparrowcode.by/edge-insets-uibutton).
  */
 open class SPButton: UIButton {
     
