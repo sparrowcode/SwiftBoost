@@ -22,114 +22,58 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-extension UINavigationBar {
+extension UITabBar {
     
     /**
-     SparrowKit: Change font of title.
-     
-     - parameter font: New font of title.
-     */
-    open func setTitleFont(_ font: UIFont) {
-        titleTextAttributes = [.font: font]
-    }
-    
-    /**
-     SparrowKit: Change color of title.
-     
-     - parameter color: New color of title.
-     */
-    open func setTitleColor(_ color: UIColor) {
-        titleTextAttributes = [.foregroundColor: color]
-    }
-    
-    /**
-     SparrowKit: Change background and title colors.
-     
-     - parameter backgroundColor: New background color of navigation.
-     - parameter textColor: New text color of title.
-     */
-    open func setColors(backgroundColor: UIColor, textColor: UIColor) {
-        isTranslucent = false
-        self.backgroundColor = backgroundColor
-        barTintColor = backgroundColor
-        setBackgroundImage(UIImage(), for: .default)
-        tintColor = textColor
-        titleTextAttributes = [.foregroundColor: textColor]
-    }
-    
-    /**
-     SparrowKit: Make transparent of background of navigation.
-     */
-    open func makeTransparent() {
-        isTranslucent = true
-        backgroundColor = .clear
-        barTintColor = .clear
-        setBackgroundImage(UIImage(), for: .default)
-        shadowImage = UIImage()
-    }
-    
-    /**
-     SparrowKit: Set opacity for background view.
-     */
-    @available(*, deprecated, message: "Use appearance")
-    open func setBackgroundAlpha(_ value: CGFloat) {
-        for (index, view) in subviews.enumerated() {
-            // Hide background for navigation bar.
-            // Usually it first view.
-            if index == .zero {
-                view.alpha = value
-            }
-        }
-    }
-    
-    /**
-     SparrowKit: Set appearance for navigation bar.
+     SparrowKit: Set appearance for tab bar.
      */
     @available(iOS 13.0, tvOS 13.0, *)
-    open func setAppearance(_ value: SPNavigationBarAppearance) {
+    open func setAppearance(_ value: SPTabBarAppearance) {
         self.standardAppearance = value.standardAppearance
-        self.scrollEdgeAppearance = value.scrollEdgeAppearance
+        if #available(iOS 15.0, *) {
+            self.scrollEdgeAppearance = value.scrollEdgeAppearance
+        }
     }
     
     /**
      SparrowKit: Appearance cases.
      */
     @available(iOS 13.0, tvOS 13.0, *)
-    public enum SPNavigationBarAppearance {
+    public enum SPTabBarAppearance {
         
         case transparentAlways
         case transparentStandardOnly
         case opaqueAlways
         
-        public var standardAppearance: UINavigationBarAppearance {
+        public var standardAppearance: UITabBarAppearance {
             switch self {
             case .transparentAlways:
-                let appearance = UINavigationBarAppearance()
+                let appearance = UITabBarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
             case .transparentStandardOnly:
-                let appearance = UINavigationBarAppearance()
+                let appearance = UITabBarAppearance()
                 appearance.configureWithDefaultBackground()
                 return appearance
             case .opaqueAlways:
-                let appearance = UINavigationBarAppearance()
+                let appearance = UITabBarAppearance()
                 appearance.configureWithDefaultBackground()
                 return appearance
             }
         }
         
-        public var scrollEdgeAppearance: UINavigationBarAppearance {
+        public var scrollEdgeAppearance: UITabBarAppearance {
             switch self {
             case .transparentAlways:
-                let appearance = UINavigationBarAppearance()
+                let appearance = UITabBarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
             case .transparentStandardOnly:
-                let appearance = UINavigationBarAppearance()
+                let appearance = UITabBarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
             case .opaqueAlways:
-                let appearance = UINavigationBarAppearance()
+                let appearance = UITabBarAppearance()
                 appearance.configureWithDefaultBackground()
                 return appearance
             }
