@@ -30,7 +30,7 @@ extension UITabBar {
     @available(iOS 13.0, tvOS 13.0, *)
     open func setAppearance(_ value: SPTabBarAppearance) {
         self.standardAppearance = value.standardAppearance
-        if #available(iOS 15.0, *) {
+        if #available(iOS 15.0, tvOS 15.0, *) {
             self.scrollEdgeAppearance = value.scrollEdgeAppearance
         }
     }
