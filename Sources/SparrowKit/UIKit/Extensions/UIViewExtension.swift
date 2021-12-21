@@ -63,6 +63,15 @@ extension UIView {
     }
     
     /**
+     SparrowKit: Add many subviews as array.
+     
+     - parameter subviews: Array of `UIView` objects.
+     */
+    open func addSubviews(_ subviews: UIView...) {
+        subviews.forEach { addSubview($0) }
+    }
+    
+    /**
      SparrowKit: Remove all subviews.
      */
     open func removeSubviews() {
