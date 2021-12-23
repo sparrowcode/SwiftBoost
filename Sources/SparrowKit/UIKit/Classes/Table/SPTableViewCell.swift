@@ -55,14 +55,7 @@ open class SPTableViewCell: UITableViewCell {
      */
     open var higlightStyle: HiglightStyle = .none {
         didSet {
-            let selectionStyle: UITableViewCell.SelectionStyle = {
-                switch higlightStyle {
-                case .none: return .none
-                case .`default`: return .`default`
-                case .content: return .none
-                }
-            }()
-            self.selectionStyle = selectionStyle
+            self.selectionStyle = self.higlightStyle.selectionStyle
         }
     }
     
@@ -127,6 +120,14 @@ open class SPTableViewCell: UITableViewCell {
         case none
         case `default`
         case content
+        
+        public var selectionStyle: UITableViewCell.SelectionStyle {
+            switch self {
+            case .none: return .none
+            case .`default`: return .`default`
+            case .content: return .none
+            }
+        }
     }
 }
 #endif
