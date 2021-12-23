@@ -79,6 +79,13 @@ extension UIView {
     }
     
     /**
+     SparrowKit: State if current view has superview.
+     */
+    open var hasSuperview: Bool {
+        superview != nil
+    }
+    
+    /**
      SparrowKit: Take screenshoot of view as `UIImage`.
      */
     open var screenshot: UIImage? {
@@ -302,38 +309,26 @@ extension UIView {
     }
     
     /**
-     SparrowKit: Correct rounded corners by current frame.
+     SparrowKit: Round corners .
      
-     - important:
-     Need call after changed frame. Better leave it in `layoutSubviews` method.
-     
-     - parameter corners: Case of `UIRectCorner`
+     - parameter corners: Case of `CACornerMask`. Which corners need to round.
+     - parameter curve: Case of `CornerCurve`. Style of rounded corners.
      - parameter radius: Amount of radius.
      */
-    open func roundCorners(_ corners: UIRectCorner = .allCorners, radius: CGFloat) {
-        let maskPath = UIBezierPath(
-            roundedRect: bounds,
-            byRoundingCorners: corners,
-            cornerRadii: CGSize(width: radius, height: radius)
-        )
-        let shape = CAShapeLayer()
-        shape.path = maskPath.cgPath
-        layer.mask = shape
-    }
-    
-    /**
-     SparrowKit: Rounded corners to maximum of corner radius.
-     
-     - important:
-     Need call after changed frame. Better leave it in `layoutSubviews` method.
-     
-     - parameter curve: Style of round curve.
-     */
-    open func roundCorners(_ curve: CornerCurve = .continuous) {
+    open func roundCorners(_ corners: CACornerMask = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], curve: CornerCurve = .continuous, radius: CGFloat) {
+        layer.cornerRadius = radius
+        layer.maskedCorners = corners
+        
         if #available(iOS 13.0, tvOS 13.0, *) {
             layer.cornerCurve = curve.layerCornerCurve
         }
-        layer.cornerRadius = min(frame.width, frame.height) / 2
+    }
+    
+    /**
+     SparrowKit: Round side by minimum `height` or `width`.
+     */
+    open func roundMinimumSide() {
+        roundCorners(radius: min(frame.width / 2, frame.height / 2))
     }
     
     /**
@@ -435,6 +430,7 @@ extension UIView {
         }, completion: completion)
     }
     
+    // MARK: - Models
     
     public enum CornerCurve {
         

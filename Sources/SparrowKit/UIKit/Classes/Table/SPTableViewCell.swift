@@ -59,6 +59,10 @@ open class SPTableViewCell: UITableViewCell {
         }
     }
     
+    // MARK: - Views
+    
+    internal var activityIndicatorView: UIActivityIndicatorView?
+    
     // MARK: - Init
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -84,6 +88,7 @@ open class SPTableViewCell: UITableViewCell {
     open override func prepareForReuse() {
         super.prepareForReuse()
         currentIndexPath = nil
+        setLoading(false)
     }
     
     open override func tintColorDidChange() {
@@ -100,13 +105,49 @@ open class SPTableViewCell: UITableViewCell {
         }
     }
     
-    // MARK: - Override
-    
     open override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         let higlightContent = (higlightStyle == .content)
         if higlightContent {
             [imageView, textLabel, detailTextLabel].forEach({ $0?.alpha = highlighted ? 0.6 : 1 })
+        }
+    }
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        activityIndicatorView?.setToCenter()
+    }
+    
+    // MARK: - Public
+
+    open func setLoading(_ state: Bool) {
+        
+        // Validate
+        
+        if state {
+            if activityIndicatorView?.isAnimating ?? false { return }
+        } else {
+            if activityIndicatorView == nil { return }
+        }
+        
+        // Process
+        
+        let contentViews = contentView.subviews
+        
+        if state {
+            if activityIndicatorView == nil {
+                let activityIndicatorView = UIActivityIndicatorView()
+                contentView.addSubviews(activityIndicatorView)
+                self.activityIndicatorView = activityIndicatorView
+            }
+            contentViews.forEach({ $0.isHidden = true })
+            activityIndicatorView?.startAnimating()
+            layoutSubviews()
+        } else {
+            contentViews.forEach({ $0.isHidden = false })
+            activityIndicatorView?.stopAnimating()
+            activityIndicatorView?.removeFromSuperview()
+            activityIndicatorView = nil
         }
     }
     
