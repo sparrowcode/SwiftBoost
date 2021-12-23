@@ -54,8 +54,10 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/(null)">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F43F8319265791A0001D9B3D"
@@ -63,7 +65,7 @@
             BlueprintName = "watchOS Example"
             ReferencedContainer = "container:SparrowKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -71,8 +73,10 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/(null)">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F43F8319265791A0001D9B3D"
@@ -80,7 +84,16 @@
             BlueprintName = "watchOS Example"
             ReferencedContainer = "container:SparrowKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "F43F8319265791A0001D9B3D"
+            BuildableName = "watchOS Example.app"
+            BlueprintName = "watchOS Example"
+            ReferencedContainer = "container:SparrowKit.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

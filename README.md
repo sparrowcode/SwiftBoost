@@ -31,7 +31,7 @@ Once you have your Swift package set up, adding as a dependency is as easy as ad
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ivanvorobei/SparrowKit", .upToNextMajor(from: "3.4.1"))
+    .package(url: "https://github.com/ivanvorobei/SparrowKit", .upToNextMajor(from: "3.4.6"))
 ]
 ```
 

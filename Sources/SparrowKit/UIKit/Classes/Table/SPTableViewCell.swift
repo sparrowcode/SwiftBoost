@@ -48,6 +48,24 @@ open class SPTableViewCell: UITableViewCell {
         }
     }
     
+    /**
+     SparrowKit: Next level of selection style. Manage changes when cell higlighted.
+     
+     With it changes also changing `.selectionStyle`.
+     */
+    open var higlightStyle: HiglightStyle = .none {
+        didSet {
+            let selectionStyle: UITableViewCell.SelectionStyle = {
+                switch higlightStyle {
+                case .none: return .none
+                case .`default`: return .`default`
+                case .content: return .none
+                }
+            }()
+            self.selectionStyle = selectionStyle
+        }
+    }
+    
     // MARK: - Init
     
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -87,6 +105,28 @@ open class SPTableViewCell: UITableViewCell {
             )
             #endif
         }
+    }
+    
+    // MARK: - Override
+    
+    open override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        let higlightContent = (higlightStyle == .content)
+        if higlightContent {
+            [imageView, textLabel, detailTextLabel].forEach({ $0?.alpha = highlighted ? 0.6 : 1 })
+        }
+    }
+    
+    // MARK: - Models
+    
+    /**
+     SparrowKit: Next level of selection style. Manage changes when cell higlighted.
+     */
+    public enum HiglightStyle {
+        
+        case none
+        case `default`
+        case content
     }
 }
 #endif
