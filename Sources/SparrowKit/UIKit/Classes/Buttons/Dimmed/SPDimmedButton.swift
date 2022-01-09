@@ -49,7 +49,39 @@ open class SPDimmedButton: SPButton {
         updateAppearance()
     }
     
-    // MARK: - Colorises Process
+    /**
+     SparrowKit: Higlight style when button pressing.
+     
+     If set content, only label and image change opacity.
+     If choosed background, area of button will change opacity.
+     */
+    open var higlightStyle = HiglightStyle.default
+    
+    // MARK: - Colorises
+    
+    /**
+     SparrowKit: Colorise for default state.
+     */
+    private lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
+    
+    /**
+     SparrowKit: Colorise for disabled state.
+     */
+    private lazy var disabledColorise = Colorise(content: .dimmedContent, background: .clear)
+    
+    /**
+     SparrowKit: Colorise for dimmed state.
+     */
+    private lazy var dimmedColorise = Colorise(content: .dimmedContent, background: .clear)
+    
+    // MARK: - Data
+    
+    /**
+     SparrowKit: Opacity of elements when button higlight.
+     */
+    open var highlightOpacity: CGFloat = 0.7
+    
+    // MARK: - Process
     
     /**
      SparrowKit: This method sets the color scheme for a specific button state
@@ -87,9 +119,9 @@ open class SPDimmedButton: SPButton {
     open func applyDefaultAppearance(with colorise: Colorise? = nil) {
         defaultColorise = colorise ?? Colorise(content: .tint, background: .custom(.clear))
         let defaultBackgroundColor = colorFromColoriseMode(defaultColorise.background)
-        let dimmedBackground = defaultBackgroundColor == .clear ? .clear : dimmedContentColor.alpha(0.1)
-        dimmedColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
-        disabledColorise = Colorise(content: dimmedContentColor, background: dimmedBackground)
+        let dimmedBackground = (defaultBackgroundColor == .clear) ? UIColor.clear : .dimmedBackground
+        dimmedColorise = Colorise(content: .dimmedContent, background: dimmedBackground)
+        disabledColorise = Colorise(content: .dimmedContent, background: dimmedBackground)
         updateAppearance()
     }
     
@@ -100,10 +132,26 @@ open class SPDimmedButton: SPButton {
         if tintAdjustmentMode == .dimmed {
             applyColorise(dimmedColorise)
         } else if isEnabled {
-            applyColorise(defaultColorise)
-            var imageTintColor = colorFromColoriseMode(defaultColorise.icon)
-            imageTintColor = imageTintColor.withAlphaComponent(isHighlighted ? highlightOpacity : 1)
+            let colorise = self.defaultColorise
+            applyColorise(colorise)
+            
+            // Image Tint Color
+            var imageTintColor = colorFromColoriseMode(colorise.icon)
+            imageTintColor = imageTintColor.withAlphaComponent(isHighlighted ? imageTintColor.alpha * highlightOpacity : imageTintColor.alpha)
             imageView?.tintColor = imageTintColor
+            
+            // Higlight
+            switch higlightStyle {
+            case .content:
+                break
+                // Content work life default.
+                // For now no need specific process.
+                // Leave for future.
+                // for view in [imageView, titleLabel] { view?.alpha = isHighlighted ? highlightOpacity : 1 }
+            case .background:
+                let color = colorFromColoriseMode(colorise.background)
+                backgroundColor = color.alpha(isHighlighted ? color.alpha * highlightOpacity : color.alpha)
+            }
         } else {
             applyColorise(disabledColorise)
         }
@@ -131,127 +179,9 @@ open class SPDimmedButton: SPButton {
     public func colorFromColoriseMode(_ mode: Colorise.Mode) -> UIColor {
         switch mode {
         case .tint: return self.tintColor
+        case .secondaryTint: return self.tintColor.secondary
         case .custom(let color): return color
         }
-    }
-    
-    // MARK: - Colorises Models
-    
-    /**
-     SparrowKit: Colorise for default state.
-     */
-    private lazy var defaultColorise = Colorise(content: tintColor, background: .clear)
-    
-    /**
-     SparrowKit: Colorise for disabled state.
-     */
-    private lazy var disabledColorise = Colorise(content: dimmedContentColor, background: .clear)
-    
-    /**
-     SparrowKit: Colorise for dimmed state.
-     */
-    private lazy var dimmedColorise = Colorise(content: dimmedContentColor, background: .clear)
-    
-    // MARK: - Data
-    
-    /**
-     SparrowKit: Opacity of elements when button higlight.
-     */
-    open var highlightOpacity: CGFloat = 0.7
-    
-    /**
-     SparrowKit: Default dimmed content color with compability iOS 12.
-     */
-    private var dimmedContentColor: UIColor {
-        if #available(iOS 13, tvOS 13, *) {
-            return UIColor.secondaryLabel
-        } else {
-            return UIColor(hex: "3c3c4399")
-        }
-    }
-    
-    // MARK: - Models
-    
-    /**
-     SparrowKit: Represent colors for state of button for elements.
-     */
-    public struct Colorise {
-        
-        public var title: Mode
-        public var icon: Mode
-        public var background: Mode
-        
-        /**
-         SparrowKit: This init allow create colorise with automatically tint oberving.
-         
-         - parameter content: Colorise mode for `title` & `icon`.
-         - parameter background: Colorise mode for background.
-         */
-        public init(content: Mode, background: Mode) {
-            self.title = content
-            self.icon = content
-            self.background = background
-        }
-        
-        /**
-         - parameter content: Color for `title` & `icon`.
-         - parameter background: Color for background.
-         */
-        public init(content: UIColor, background: UIColor) {
-            self.title = .custom(content)
-            self.icon = .custom(content)
-            self.background = .custom(background)
-        }
-        
-        /**
-         - parameter content: Color for `title` & `icon`.
-         - parameter background: Color for image.
-         - parameter background: Color for background.
-         */
-        public init(content: UIColor, icon: UIColor, background: UIColor) {
-            self.title = .custom(content)
-            self.icon = .custom(icon)
-            self.background = .custom(background)
-        }
-        
-        /**
-         SparrowKit: Represent of rendering colors in button.
-         
-         It need for have dynamic tint color and fixed custom.
-         */
-        public enum Mode {
-            
-            /**
-             SparrowKit: Always specoific color.
-             */
-            case custom(UIColor)
-            
-            /**
-             SparrowKit: Observe and apply tint color of button.
-             */
-            case tint
-        }
-    }
-    
-    /**
-     SparrowKit: Button state.
-     */
-    public enum AppearanceState {
-        
-        /**
-         SparrowKit: The button is in the normal state.
-         */
-        case `default`
-        
-        /**
-         SparrowKit: The button is in a dimmed state, for example when another `UIViewController` is presented.
-         */
-        case dimmed
-        
-        /**
-         SparrowKit: The button is disabled. Controlled through the `isDisabled` property.
-         */
-        case disabled
     }
 }
 #endif

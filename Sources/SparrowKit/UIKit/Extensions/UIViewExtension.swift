@@ -121,6 +121,16 @@ extension UIView {
         sizeToFit()
     }
     
+    open func setXToSuperviewLeftMargin() {
+        guard let superview = self.superview else { return }
+        frame.origin.x = superview.layoutMargins.left
+    }
+    
+    open func setMaxXToSuperviewRightMargin() {
+        guard let superview = self.superview else { return }
+        frame.setMaxX(superview.frame.width - superview.layoutMargins.right)
+    }
+    
     /**
      SparrowKit: Set center X of current view to medium width of superview.
      
@@ -197,7 +207,7 @@ extension UIView {
     open var layoutWidth: CGFloat {
         // ver 1
         // Depricated becouse sometimes return invalid size
-        //return layoutMarginsGuide.layoutFrame.width
+        // return layoutMarginsGuide.layoutFrame.width
         
         // ver 2
         return frame.width - layoutMargins.left - layoutMargins.right
@@ -209,7 +219,7 @@ extension UIView {
     open var layoutHeight: CGFloat {
         // ver 1
         // Depricated becouse sometimes return invalid size
-        //return layoutMarginsGuide.layoutFrame.height
+        // return layoutMarginsGuide.layoutFrame.height
         
         // ver 2
         return frame.height - layoutMargins.top - layoutMargins.bottom
@@ -245,7 +255,9 @@ extension UIView {
      */
     open func setEqualSuperviewBounds() {
         guard let superview = self.superview else { return }
-        frame = superview.bounds
+        if frame != superview.bounds {
+            frame = superview.bounds
+        }
     }
     
     /**
@@ -256,7 +268,9 @@ extension UIView {
      */
     open func setEqualSuperviewBoundsWithAutoresizingMask() {
         guard let superview = self.superview else { return }
-        frame = superview.bounds
+        if frame != superview.bounds {
+            frame = superview.bounds
+        }
         autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     

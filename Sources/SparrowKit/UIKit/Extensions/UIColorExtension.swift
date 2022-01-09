@@ -26,13 +26,13 @@ extension UIColor {
     
     // MARK: - Init
     
+    #if !os(watchOS)
     /**
      SparrowKit: Create dynamic color for light and dark user interface style.
      
      - parameter light: Color for light interface style.
      - parameter dark: Color for dark interface style.
      */
-    #if !os(watchOS)
     public convenience init(light: UIColor, dark: UIColor) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init(dynamicProvider: { trait in
@@ -44,13 +44,13 @@ extension UIColor {
     }
     #endif
     
+    #if !os(watchOS) && !os(tvOS)
     /**
      SparrowKit: Create color for interface levels.
      
      - parameter baseInterfaceLevel: Color for basic interface level.
      - parameter elevatedInterfaceLevel: Color for elevated interface level.
      */
-    #if !os(watchOS) && !os(tvOS)
     public convenience init(baseInterfaceLevel: UIColor, elevatedInterfaceLevel: UIColor ) {
         if #available(iOS 13.0, tvOS 13.0, *) {
             self.init { traitCollection in
@@ -95,14 +95,14 @@ extension UIColor {
     
     // MARK: - Application
     
+    #if !os(watchOS)
     /**
      SparrowKit: Tint color for first window.
      Usually it is global tint color.
      */
-    #if !os(watchOS)
     @available(iOSApplicationExtension, unavailable)
     @available(tvOSApplicationExtension, unavailable)
-    public static var tint: UIColor {
+    public static var tintColor: UIColor {
         get {
             let value = UIApplication.shared.windows.first?.tintColor
             guard let tint = value else { return .systemBlue }
@@ -192,6 +192,15 @@ extension UIColor {
             alpha: alpha1)
     }
     
+    #if !os(watchOS)
+    /**
+     SparrowKit: Get Alpha.
+     */
+    public var alpha: CGFloat {
+        CIColor(color: self).alpha
+    }
+    #endif
+    
     /**
      SparrowKit: Convert HEX to RGB channels.
      
@@ -247,10 +256,10 @@ extension UIColor {
     
     // MARK: - Data
     
+    #if !os(watchOS)
     /**
      SparrowKit: List of colorful colors.
      */
-    #if !os(watchOS)
     public static var systemColorfulColors: [UIColor] {
         if #available(iOS 13.0, tvOS 13.0, *) {
             return [.systemRed, .systemOrange, .systemYellow, .systemGreen, .systemTeal, .systemBlue, .systemIndigo, .systemPink, .systemPurple]
@@ -261,9 +270,30 @@ extension UIColor {
     #endif
     
     /**
+     SparrowKit: Using like secondary color usually for background of colorful element.
+     
+     - parameter background: Pass color of background of element.
+     - important: In design for tint color get 6% alpha.
+     Also color depended of background, so it reason why it requerid.
+     */
+    public var secondary: UIColor {
+        return self.alpha(0.06)
+        
+        // Old version for fill color
+        /*
+         return UIColor.init(dynamicProvider: { trait in
+            if trait.userInterfaceStyle == .light {
+                return self.mixWithColor(background, amount: 0.9)
+            } else {
+                return self.mixWithColor(background, amount: 0.9)
+            }
+        })*/
+    }
+    
+    #if !os(watchOS) && !os(tvOS)
+    /**
      SparrowKit: Color of footnote label.
      */
-    #if !os(watchOS) && !os(tvOS)
     public static var footnoteColor: UIColor {
         if #available(iOS 13.0, tvOS 13, *) {
             return UIColor.init { (trait) -> UIColor in
@@ -275,47 +305,70 @@ extension UIColor {
     }
     #endif
     
+    #if !os(watchOS)
     /**
      SparrowKit: Wrapper of destructive actions color.
      */
-    #if !os(watchOS)
-    public static var destructiveColor: UIColor {
-        return .systemRed
-    }
+    public static var destructiveColor: UIColor { .systemRed }
     #endif
     
+    #if !os(watchOS)
     /**
      SparrowKit: Wrapper of warning actions color.
      */
-    #if !os(watchOS)
-    public static var warningColor: UIColor {
-        return .systemOrange
-    }
+    public static var warningColor: UIColor { .systemOrange }
     #endif
     
+    #if os(iOS)
     /**
      SparrowKit: New color to system stack.
-     Its color for empty aread and it usually downed of main background color.
+     Its color for empty areas and it usually downed of main background color.
      */
-    #if os(iOS)
     @available(iOS 13.0, *)
     public static var systemDownedBackground: UIColor {
         let lightColor = UIColor.secondarySystemBackground.mixWithColor(.darkGray, amount: 0.09).mixWithColor(UIColor.systemBlue, amount: 0.01)
-        let darColor = UIColor.secondarySystemBackground
-        return UIColor.init(light: lightColor, dark: darColor)
+        let darkColor = UIColor.secondarySystemBackground
+        return UIColor.init(light: lightColor, dark: darkColor)
     }
     #endif
     
+    
+    #if os(iOS)
     /**
      SparrowKit: New color to system grouped stack.
      Its color for empty aread and it usually downed of content background color.
      */
-    #if os(iOS)
     @available(iOS 13.0, *)
     public static var systemDownedGroupedBackground: UIColor {
-        let lightColor = UIColor.systemGroupedBackground.mixWithColor(.darkGray, amount: 0.09).mixWithColor(UIColor.systemBlue, amount: 0.01)
-        let darColor = UIColor.secondarySystemGroupedBackground.alpha(0.7)
-        return UIColor.init(light: lightColor, dark: darColor)
+        return UIColor.init(dynamicProvider: { trait in
+            if trait.userInterfaceStyle == .light {
+                return UIColor.systemGroupedBackground.mixWithColor(.darkGray, amount: 0.09).mixWithColor(UIColor.systemBlue, amount: 0.01)
+            } else {
+                return UIColor.secondarySystemGroupedBackground.alpha(0.7)
+            }
+        })
+    }
+    #endif
+
+    #if !os(watchOS)
+    /**
+     SparrowKit: Dimmed content color.
+     */
+    public static var dimmedContent: UIColor {
+        if #available(iOS 13, tvOS 13, *) {
+            return UIColor.secondaryLabel
+        } else {
+            return UIColor(hex: "3c3c4399")
+        }
+    }
+    #endif
+    
+    #if !os(watchOS)
+    /**
+     SparrowKit: Dimmed background color.
+     */
+    public static var dimmedBackground: UIColor {
+        dimmedContent.alpha(0.1)
     }
     #endif
 }
