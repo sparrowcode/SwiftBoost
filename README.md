@@ -1,27 +1,10 @@
 # SparrowKit
 
-Collection of native Swift extensions to boost your development. Support iOS, tvOS and watchOS.<br><br>
-If you like the project, don't forget to `put star ★`<br>Check out my other libraries:
-
-<p float="left">
-    <a href="https://opensource.ivanvorobei.by">
-        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/more-libraries.svg">
-    </a>
-</p>
-
-## Navigate
-
-- [Installation](#installation)
-    - [Swift Package Manager](#swift-package-manager)
-    - [CocoaPods](#cocoapods)
-    - [Manually](#manually)
-- [Russian Community](#russian-community)
+Collection of native Swift extensions and classes to boost your development.
 
 ## Installation
 
-Ready for use on iOS 12+, tvOS 12+ & watchOS 6.0+. Works with Swift 5+. Required Xcode 12.0 and higher.
-
-<img align="right" src="https://github.com/ivanvorobei/SparrowKit/blob/main/Assets/Readme/spm-install-preview.png" width="520"/>
+Ready for use on iOS 11+, tvOS 11+ & watchOS 6.0+.
 
 ### Swift Package Manager
 
@@ -31,13 +14,13 @@ Once you have your Swift package set up, adding as a dependency is as easy as ad
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ivanvorobei/SparrowKit", .upToNextMajor(from: "3.4.6"))
+    .package(url: "https://github.com/ivanvorobei/SparrowKit", .upToNextMajor(from: "3.5.0"))
 ]
 ```
 
 ### CocoaPods:
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 pod 'SparrowKit'
@@ -49,17 +32,8 @@ If you prefer not to use any of dependency managers, you can integrate manually.
 
 ## Russian Community
 
-Подписывайся в телеграм-канал, если хочешь получать уведомления о новых туториалах.<br>
-Со сложными и непонятными задачами помогут в чате.
-
-<p float="left">
-    <a href="https://sparrowcode.by/telegram">
-        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/open-telegram-channel.svg">
-    </a>
-    <a href="https://sparrowcode.by/telegram/chat">
-        <img src="https://github.com/ivanvorobei/Readme/blob/main/Buttons/russian-community-chat.svg">
-    </a>
-</p>
+Я веду [телеграм-канал](https://sparrowcode.io/telegram), там публикую новости и туториалы.<br>
+С проблемой помогут [в чате](https://sparrowcode.io/telegram/chat).
 
 Видео-туториалы выклыдываю на [YouTube](https://ivanvorobei.by/youtube):
 

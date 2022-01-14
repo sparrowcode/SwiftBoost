@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
   s.name = 'SparrowKit'
   s.version = '3.5.0'
-  s.summary = 'Collection of native Swift extensions to boost your development. Support tvOS and watchOS.'
+  s.summary = 'Collection of native Swift extensions and classes to boost your development.'
   s.homepage = 'https://github.com/ivanvorobei/SparrowKit'
   s.source = { :git => 'https://github.com/ivanvorobei/SparrowKit.git', :tag => s.version }
   s.license = { :type => "MIT", :file => "LICENSE" }
