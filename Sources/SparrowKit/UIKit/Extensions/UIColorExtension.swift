@@ -102,7 +102,7 @@ extension UIColor {
      */
     @available(iOSApplicationExtension, unavailable)
     @available(tvOSApplicationExtension, unavailable)
-    public static var tintColor: UIColor {
+    public static var tint: UIColor {
         get {
             let value = UIApplication.shared.windows.first?.tintColor
             guard let tint = value else { return .systemBlue }

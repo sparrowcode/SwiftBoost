@@ -131,6 +131,11 @@ extension UIView {
         frame.setMaxX(superview.frame.width - superview.layoutMargins.right)
     }
     
+    open func setMaxYToSuperviewBottomMargin() {
+        guard let superview = self.superview else { return }
+        frame.setMaxY(superview.frame.height - superview.layoutMargins.bottom)
+    }
+    
     /**
      SparrowKit: Set center X of current view to medium width of superview.
      
