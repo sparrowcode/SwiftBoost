@@ -54,6 +54,13 @@ extension UILabel {
     // MARK: - Layout
     
     /**
+     SparrowKit: Layout label with dynamic height.
+     */
+    open func layoutDynamicHeight() {
+        sizeToFit()
+    }
+    
+    /**
      SparrowKit: Layout label with fix widget and dynamic `height`.
      
      If label width fewer of requested value, it set to requested value.
