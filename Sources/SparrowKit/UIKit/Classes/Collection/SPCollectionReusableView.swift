@@ -29,6 +29,10 @@ import UIKit
  */
 open class SPCollectionReusableView: UICollectionReusableView {
     
+    // MARK: - Private
+    
+    open var inhertHorizontalMarginsFromCollection: Bool = true
+    
     // MARK: - Init
     
     public override init(frame: CGRect) {
@@ -48,5 +52,19 @@ open class SPCollectionReusableView: UICollectionReusableView {
      No need ovveride other init. Using one function for configurate view.
      */
     open func commonInit() {}
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        if inhertHorizontalMarginsFromCollection, let collectionView = self.superview as? UICollectionView {
+            setLayoutMargins(
+                .init(
+                    top: layoutMargins.top,
+                    left: collectionView.layoutMargins.left,
+                    bottom: layoutMargins.bottom,
+                    right: collectionView.layoutMargins.right
+                )
+            )
+        }
+    }
 }
 #endif
