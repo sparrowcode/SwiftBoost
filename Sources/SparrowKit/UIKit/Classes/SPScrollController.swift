@@ -30,6 +30,7 @@ open class SPScrollController: SPController, UIScrollViewDelegate {
     // MARK: - Views
     
     public let scrollView = SPScrollView().do {
+        $0.backgroundColor = .clear
         $0.delaysContentTouches = false
         $0.showsHorizontalScrollIndicator = false
         $0.preservesSuperviewLayoutMargins = true
@@ -49,6 +50,7 @@ open class SPScrollController: SPController, UIScrollViewDelegate {
         scrollView.delegate = self
         
         #if targetEnvironment(macCatalyst)
+        
         #else
         if #available(iOS 15.0, tvOS 15.0, *) {
             setContentScrollView(scrollView)
