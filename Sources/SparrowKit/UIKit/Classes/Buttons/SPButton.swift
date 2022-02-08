@@ -27,7 +27,7 @@ import UIKit
  
  It has one shared init `commonInit` which call for all default inits.
  
- - Note: For Russian-speaking developer available [tutorial about button insets]( https://sparrowcode.by/edge-insets-uibutton).
+ - Note: For Russian-speaking developer available [tutorial about button insets]( https://sparrowcode.io/edge-insets-uibutton).
  */
 open class SPButton: UIButton {
     

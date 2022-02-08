@@ -70,11 +70,11 @@ public extension UIAlertController {
         title: String,
         style: UIAlertAction.Style = .default,
         handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
-        
-        let action = UIAlertAction(title: title, style: style, handler: handler)
-        addAction(action)
-        return action
-    }
+            
+            let action = UIAlertAction(title: title, style: style, handler: handler)
+            addAction(action)
+            return action
+        }
     
     /**
      SparrowKit: Add Text Field to Alert Controller.
@@ -89,15 +89,15 @@ public extension UIAlertController {
         placeholder: String? = nil,
         editingChangedTarget: Any?,
         editingChangedSelector: Selector?) {
-        
-        addTextField { textField in
-            textField.text = text
-            textField.placeholder = placeholder
-            if let target = editingChangedTarget, let selector = editingChangedSelector {
-                textField.addTarget(target, action: selector, for: .editingChanged)
+            
+            addTextField { textField in
+                textField.text = text
+                textField.placeholder = placeholder
+                if let target = editingChangedTarget, let selector = editingChangedSelector {
+                    textField.addTarget(target, action: selector, for: .editingChanged)
+                }
             }
         }
-    }
     
     /**
      SparrowKit: Add Text Field to Alert Controller.
@@ -111,14 +111,29 @@ public extension UIAlertController {
         text: String? = nil,
         placeholder: String? = nil,
         action: UIAction?) {
-        
-        addTextField { textField in
-            textField.text = text
-            textField.placeholder = placeholder
-            if let action = action {
-                textField.addAction(action, for: .editingChanged)
+            addTextField { textField in
+                textField.text = text
+                textField.placeholder = placeholder
+                if let action = action {
+                    textField.addAction(action, for: .editingChanged)
+                }
             }
         }
+    
+    static func confirm(title: String, description: String, actionTitle: String, cancelTitle: String, desctructive: Bool, action: @escaping ()->Void, sourceView: UIView, on controller: UIViewController) {
+        let alertController = UIAlertController.init(title: title, message: description, preferredStyle: .actionSheet)
+        alertController.popoverPresentationController?.sourceView = sourceView
+        alertController.addAction(title: actionTitle, style: desctructive ? .destructive : .default) { [] _ in
+            action()
+        }
+        alertController.addAction(title: cancelTitle, style: .cancel, handler: nil)
+        controller.present(alertController)
+    }
+    
+    static func confirmDouble(title: String, description: String, actionTitle: String, cancelTitle: String, desctructive: Bool, action: @escaping ()->Void, sourceView: UIView, on controller: UIViewController) {
+        confirm(title: title, description: description, actionTitle: actionTitle, cancelTitle: cancelTitle, desctructive: desctructive, action: {
+            confirm(title: title, description: description, actionTitle: actionTitle, cancelTitle: cancelTitle, desctructive: desctructive, action: action, sourceView: sourceView, on: controller)
+        }, sourceView: sourceView, on: controller)
     }
 }
 #endif
