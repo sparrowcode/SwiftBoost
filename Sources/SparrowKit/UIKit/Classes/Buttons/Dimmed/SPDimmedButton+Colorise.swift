@@ -95,15 +95,19 @@ extension SPDimmedButton {
             return .init(content: .tint, background: .custom(.clear))
         }
         
+        #if os(iOS)
         @available(iOS 13.0, *)
         public static var tintedContentPlainBackground : Colorise {
             return .init(content: .tint, background: .custom(.tertiarySystemBackground))
         }
+        #endif
         
+        #if os(iOS)
         @available(iOS 13.0, *)
         public static var tintedContentGroupBackground : Colorise {
             return .init(content: .tint, background: .custom(.tertiarySystemGroupedBackground))
         }
+        #endif
         
         public static var tintedColorful: Colorise {
             return .init(content: .custom(.white), background: .tint)
