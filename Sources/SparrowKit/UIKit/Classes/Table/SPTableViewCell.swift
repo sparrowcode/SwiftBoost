@@ -109,7 +109,8 @@ open class SPTableViewCell: UITableViewCell {
         super.setHighlighted(highlighted, animated: animated)
         let higlightContent = (higlightStyle == .content)
         if higlightContent {
-            [imageView, textLabel, detailTextLabel].forEach({ $0?.alpha = highlighted ? 0.6 : 1 })
+            contentView.subviews.forEach({ $0.alpha = highlighted ? 0.6 : 1 })
+            // [imageView, textLabel, detailTextLabel].forEach({ $0?.alpha = highlighted ? 0.6 : 1 })
         }
     }
     
