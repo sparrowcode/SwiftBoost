@@ -35,6 +35,6 @@ If you prefer not to use any of dependency managers, you can integrate manually.
 Я веду [телеграм-канал](https://sparrowcode.io/telegram), там публикую новости и туториалы.<br>
 С проблемой помогут [в чате](https://sparrowcode.io/telegram/chat).
 
-Видео-туториалы выклыдываю на [YouTube](https://ivanvorobei.by/youtube):
+Видео-туториалы выклыдываю на [YouTube](https://ivanvorobei.io/youtube):
 
-[![Tutorials on YouTube](https://cdn.ivanvorobei.by/github/readme/youtube-preview.jpg)](https://ivanvorobei.by/youtube)
+[![Tutorials on YouTube](https://cdn.ivanvorobei.io/github/readme/youtube-preview.jpg)](https://ivanvorobei.io/youtube)
