@@ -31,6 +31,10 @@ import UIKit
  */
 open class SPButton: UIButton {
     
+    // MARK: - Views
+    
+    internal var activityIndicatorView: UIActivityIndicatorView?
+    
     // MARK: - Init
     
     public init() {
@@ -56,6 +60,39 @@ open class SPButton: UIButton {
      */
     open func commonInit() {}
     
+    // MARK: - Public
+
+    open func setLoading(_ state: Bool) {
+        
+        // Validate
+        
+        if state {
+            if activityIndicatorView?.isAnimating ?? false { return }
+        } else {
+            if activityIndicatorView == nil { return }
+        }
+        
+        // Process
+        
+        let contentViews = subviews
+        
+        if state {
+            if activityIndicatorView == nil {
+                let activityIndicatorView = UIActivityIndicatorView()
+                addSubviews(activityIndicatorView)
+                self.activityIndicatorView = activityIndicatorView
+            }
+            contentViews.forEach({ $0.isHidden = true })
+            activityIndicatorView?.startAnimating()
+            layoutSubviews()
+        } else {
+            contentViews.forEach({ $0.isHidden = false })
+            activityIndicatorView?.stopAnimating()
+            activityIndicatorView?.removeFromSuperview()
+            activityIndicatorView = nil
+        }
+    }
+    
     // MARK: - Layout
     
     /**
@@ -68,6 +105,9 @@ open class SPButton: UIButton {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
+        
+        activityIndicatorView?.setToCenter()
+        
         if let inset = titleImageInset {
             if imageView?.image == nil {
                 imageEdgeInsets.right = 0
