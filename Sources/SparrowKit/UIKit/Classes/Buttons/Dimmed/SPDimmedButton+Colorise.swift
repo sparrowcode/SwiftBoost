@@ -97,14 +97,22 @@ extension SPDimmedButton {
         
         #if os(iOS)
         @available(iOS 13.0, *)
-        public static var tintedContentPlainBackground : Colorise {
+        public static var tintedContentSecondaryBackground : Colorise {
+            return .init(content: .tint, background: .custom(.secondarySystemBackground))
+        }
+        
+        @available(iOS 13.0, *)
+        public static var tintedContentTertiaryBackground : Colorise {
             return .init(content: .tint, background: .custom(.tertiarySystemBackground))
         }
-        #endif
         
-        #if os(iOS)
         @available(iOS 13.0, *)
-        public static var tintedContentGroupBackground : Colorise {
+        public static var tintedContentSecondaryGroupBackground : Colorise {
+            return .init(content: .tint, background: .custom(.secondarySystemGroupedBackground))
+        }
+        
+        @available(iOS 13.0, *)
+        public static var tintedContentTertiaryGroupBackground : Colorise {
             return .init(content: .tint, background: .custom(.tertiarySystemGroupedBackground))
         }
         #endif
