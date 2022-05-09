@@ -1,20 +1,43 @@
-# SparrowKit
+# SwiftBoost
 
-Collection of native Swift extensions and classes to boost your development.
+Collection of Swift-extensions to boost development process.
+ 
+### Community
+
+<p float="left">
+    <a href="https://discord.gg/K9SKMTKVNH">
+        <img src="https://cdn.sparrowcode.io/github/badges/discord.png?version=2" height="52">
+    </a>
+    <a href="https://github.com/sponsors/sparrowcode">
+        <img src="https://cdn.sparrowcode.io/github/badges/github-sponsor.png?version=3" height="52">
+    </a>
+</p>
+
+## Navigate
+
+- [Installation](#installation)
+    - [Swift Package Manager](#swift-package-manager)
+    - [CocoaPods](#cocoapods)
+    - [Manually](#manually)
+- [Apps Using](#apps-using)
 
 ## Installation
 
-Ready for use on iOS 11+, tvOS 11+ & watchOS 6.0+.
+Ready to use on iOS 11+. Supports iOS, tvOS, and `SwiftUI`.
 
 ### Swift Package Manager
 
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
+In Xcode go to `File` -> `Packages` -> `Update to Latest Package Versions` and insert url: 
 
-Once you have your Swift package set up, adding as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+```
+https://github.com/sparrowcode/SwiftBoost
+```
+
+or adding it to the `dependencies` value of your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/ivanvorobei/SparrowKit", .upToNextMajor(from: "3.5.0"))
+    .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "3.6.1"))
 ]
 ```
 
@@ -23,18 +46,18 @@ dependencies: [
 [CocoaPods](https://cocoapods.org) is a dependency manager. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'SparrowKit'
+pod 'SwiftBoost'
 ```
 
 ### Manually
 
-If you prefer not to use any of dependency managers, you can integrate manually. Put `Sources/SparrowKit` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
+If you prefer not to use any of dependency managers, you can integrate manually. Put `Sources/SwiftBoost` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
 
-## Russian Community
+## Apps Using
 
-Я веду [телеграм-канал](https://sparrowcode.io/telegram), там публикую новости и туториалы.<br>
-С проблемой помогут [в чате](https://sparrowcode.io/telegram/chat).
-
-Видео-туториалы выклыдываю на [YouTube](https://ivanvorobei.io/youtube):
-
-[![Tutorials on YouTube](https://cdn.ivanvorobei.io/github/readme/youtube-preview.jpg)](https://ivanvorobei.io/youtube)
+<p float="left">
+    <a href="https://apps.apple.com/app/id1498041069"><img src="https://cdn.sparrowcode.io/github/apps-using/seqvoia.png?version=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id875280793"><img src="https://cdn.sparrowcode.io/github/apps-using/salat.png?version=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id743843090"><img src="https://cdn.sparrowcode.io/github/apps-using/athan.png?version=2" height="65"></a>
+    <a href="https://apps.apple.com/app/id537070378"><img src="https://cdn.sparrowcode.io/github/apps-using/quran.png?version=2" height="65"></a>
+</p>
