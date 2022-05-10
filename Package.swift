@@ -3,22 +3,22 @@
 import PackageDescription
 
 let package = Package(
-    name: "SparrowKit",
+    name: "SwiftBoost",
     platforms: [
         .iOS(.v12), .tvOS(.v12), .watchOS(.v6)
     ],
     products: [
         .library(
-            name: "SparrowKit",
-            targets: ["SparrowKit"]
+            name: "SwiftBoost",
+            targets: ["SwiftBoost"]
         )
     ],
     dependencies: [],
     targets: [
         .target(
-            name: "SparrowKit",
+            name: "SwiftBoost",
             swiftSettings: [
-                .define("SPARROWKIT_SPM")
+                .define("SWIFTBOOST_SPM")
             ]
         )
     ],

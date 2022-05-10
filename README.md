@@ -22,6 +22,9 @@ Collection of Swift-extensions to boost development process.
     - [Swift Package Manager](#swift-package-manager)
     - [CocoaPods](#cocoapods)
     - [Manually](#manually)
+- Foundation
+- UIKit
+- CoreGraphics
 - [Apps Using](#apps-using)
 
 ## Installation
