@@ -29,7 +29,7 @@ Collection of Swift-extensions to boost development process.
 
 ## Installation
 
-Ready to use on iOS 11+. Supports iOS, tvOS, and `SwiftUI`.
+Ready to use on iOS 12+, tvOS 12+, watchOS 6.0+.
 
 ### Swift Package Manager
 
@@ -43,7 +43,7 @@ or adding it to the `dependencies` value of your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "3.6.1"))
+    .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "4.0.0"))
 ]
 ```
 
