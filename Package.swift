@@ -5,7 +5,9 @@ import PackageDescription
 let package = Package(
     name: "SwiftBoost",
     platforms: [
-        .iOS(.v12), .tvOS(.v12), .watchOS(.v6)
+        .iOS(.v13), 
+        .tvOS(.v13), 
+        .watchOS(.v6)
     ],
     products: [
         .library(

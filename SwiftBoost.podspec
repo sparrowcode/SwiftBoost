@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/sparrowcode/SwiftBoost'
   s.source = { :git => 'https://github.com/sparrowcode/SwiftBoost.git', :tag => s.version }
   s.license = { :type => "MIT", :file => "LICENSE" }
-  s.author = { "Ivan Vorobei" => "hello@sparrowcode.io" }
+  s.author = { "Sparrow Code" => "hello@sparrowcode.io" }
   
   s.swift_version = '5.1'
   s.ios.deployment_target = '12.0'
