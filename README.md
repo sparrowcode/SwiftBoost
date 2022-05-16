@@ -23,8 +23,36 @@ Collection of Swift-extensions to boost development process.
     - [CocoaPods](#cocoapods)
     - [Manually](#manually)
 - Foundation
+    - Array
+    - Bool
+    - Calendar
+    - Collection
+    - Date
+    - Delay
+    - Do
+    - Locale
+    - String
 - UIKit
+    - UIAlertController
+    - UIApplication
+    - UIButton
+    - UICollectionView
+    - UIColor
+    - UIFont
+    - UIImage
+    - UINavigationBar
+    - UINavigationController
+    - UIScrollView
+    - UISegmentedControl
+    - UITabBarController
+    - UITabBar
+    - UITableView
+    - UIViewController
+    - UIView
 - CoreGraphics
+    - CGPoint
+    - CGRect
+    - CGSizes
 - [Apps Using](#apps-using)
 
 ## Installation
