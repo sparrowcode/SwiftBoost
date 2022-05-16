@@ -8,7 +8,7 @@ public extension Date {
     
     #if (os(iOS) || os(tvOS))
     static var current: Date {
-        #if targetEnvironment(macCatalyst)
+    #if targetEnvironment(macCatalyst)
         return Date()
         #else
         if #available(macOS 13, iOS 15, tvOS 15, watchOS 8, *) {
@@ -41,14 +41,14 @@ public extension Date {
     func isBetween(_ startDate: Date, and endDate: Date) -> Bool {
         return (min(startDate, endDate) ... max(startDate, endDate)).contains(self)
     }
-
+    
     func component(_ component: Calendar.Component) -> Int {
         Calendar.current.component(component, from: self)
     }
     
     /**
      SwiftBoost: Returns the difference between two dates
-        
+     
      Take a look at this example:
      ```
      today.age(to: nextWeek, component: .day) // 7
@@ -186,7 +186,20 @@ public extension Date {
         DateFormatter.localizedString(from: self, dateStyle: dateStyle, timeStyle: timeStyle)
     }
     
-    #warning("add example for localized")
+    /**
+     SwiftBoost: Localise date by format.
+     
+     You can manually manage date formatted or set localised.
+     
+     Take a look at this example:
+     ```
+     print(Date().formatted(localized: true)) // 05/16/2022, 14:17
+     print(Date().formatted(localized: false)) // 16.05.2022 14:17
+     ```
+     
+     - parameter numberOfUnits: Count of units of component.
+     - parameter unitsStyle: Style of formatting of units.
+     */
     func formatted(as format: String = "dd.MM.yyyy HH:mm", localized: Bool) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale.current
@@ -197,7 +210,7 @@ public extension Date {
         }
         return dateFormatter.string(from: self)
     }
-
+    
     func formattedInterval(to date: Date, dateStyle: DateIntervalFormatter.Style, timeStyle: DateIntervalFormatter.Style = .none) -> String {
         let formatter = DateIntervalFormatter()
         formatter.dateStyle = dateStyle
@@ -205,6 +218,3 @@ public extension Date {
         return formatter.string(from: self, to: date)
     }
 }
-
-
-

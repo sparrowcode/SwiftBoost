@@ -1,11 +1,11 @@
 import Foundation
 
-extension Array {
+public extension Array {
     
     /**
      SwiftBoost:
      */
-    public func rearrange(fromIndex: Int, toIndex: Int) -> [Element] {
+    func rearrange(fromIndex: Int, toIndex: Int) -> [Element] {
         var array = self
         let element = array.remove(at: fromIndex)
         array.insert(element, at: toIndex)
@@ -21,14 +21,14 @@ extension Array {
      
      - parameter chunkSize: Subarray size.
      */
-    public func chunked(by chunkSize: Int) -> [[Element]] {
+    func chunked(by chunkSize: Int) -> [[Element]] {
         return stride(from: 0, to: self.count, by: chunkSize).map {
             Array(self[$0..<Swift.min($0 + chunkSize, self.count)])
         }
     }
 }
 
-extension Array where Element: Equatable {
+public extension Array where Element: Equatable {
     
     /**
      SwiftBoost: Remove duplicates in array.
@@ -39,7 +39,7 @@ extension Array where Element: Equatable {
      array.removedDuplicates() // [1,2,3,6,7]
      ```
      */
-    public func removedDuplicates() -> [Element] {
+    func removedDuplicates() -> [Element] {
         var result = [Element]()
         for value in self {
             if result.contains(value) == false {

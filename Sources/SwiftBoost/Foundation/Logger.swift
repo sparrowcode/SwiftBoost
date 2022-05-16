@@ -1,6 +1,12 @@
 import Foundation
 
-#warning("add documentation")
+/**
+ SwiftBoost: Help to manage prints in console during your app running.
+ You can set when levels you want see with configure.
+ 
+ - important:
+ Requerid before call `configure()` method with list of allowed levels.
+ */
 public enum Logger {
     
     public static func configure(levels: [Level], fileNameMode: FileNameMode) {
