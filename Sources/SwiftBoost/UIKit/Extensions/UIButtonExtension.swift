@@ -4,7 +4,7 @@ import UIKit
 public extension UIButton {
     
     func setTitle(_ title: String) {
-        if #available(iOS 15.0, *) {
+        if #available(iOS 15.0, tvOS 15.0, *) {
             configuration?.title = title
         } else {
             setTitle(title, for: .normal)
@@ -12,7 +12,7 @@ public extension UIButton {
     }
     
     func setImage(_ image: UIImage?) {
-        if #available(iOS 15.0, *) {
+        if #available(iOS 15.0, tvOS 15.0, *) {
             configuration?.image = image
         } else {
             setImage(image, for: .normal)
