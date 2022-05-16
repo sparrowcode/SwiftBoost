@@ -23,7 +23,7 @@ Collection of Swift-extensions to boost development process.
     - [CocoaPods](#cocoapods)
     - [Manually](#manually)
 - Foundation
-    - Array
+    - [Array](https://github.com/sparrowcode/SwiftBoost/blob/main/Sources/SwiftBoost/Foundation/Extensions/ArrayExtension.swift)
     - Bool
     - Calendar
     - Collection
