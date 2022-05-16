@@ -22,34 +22,51 @@ Collection of Swift-extensions to boost development process.
     - [Swift Package Manager](#swift-package-manager)
     - [CocoaPods](#cocoapods)
     - [Manually](#manually)
-- Foundation
-    - Array
+- [Foundation](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/Foundation)
+    - [Array](https://github.com/sparrowcode/SwiftBoost/blob/main/Sources/SwiftBoost/Foundation/Extensions/ArrayExtension.swift)
     - Bool
     - Calendar
     - Collection
+    - Closures
     - Date
     - Delay
     - Do
     - Locale
+    - NotificationCenter
+    - NSObject
+    - Locale
+    - Logger
     - String
-- UIKit
+    - UserDefaults
+- [UIKit](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/UIKit)
     - UIAlertController
     - UIApplication
+    - UIBezierPath
     - UIButton
     - UICollectionView
     - UIColor
+    - UIDevice Extenshion
+    - UIEdgeInsets
+    - UIFeedbackGenerator
     - UIFont
+    - UIGestureRecognizer
     - UIImage
+    - UIImageView
+    - UILabel
     - UINavigationBar
     - UINavigationController
     - UIScrollView
     - UISegmentedControl
+    - UISlider
     - UITabBarController
     - UITabBar
     - UITableView
+    - UITextView
     - UIViewController
     - UIView
-- CoreGraphics
+    - UIVisualEffectView
+- [CoreGraphics](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/CoreGraphics)
+    - CGAffineTransform
     - CGPoint
     - CGRect
     - CGSizes
