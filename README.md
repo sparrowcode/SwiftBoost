@@ -16,12 +16,40 @@ Collection of Swift-extensions to boost development process.
     </a>
 </p>
 
+## Installation
+
+Ready to use on iOS 13+, tvOS 13+, watchOS 6.0+.
+
+### Swift Package Manager
+
+In Xcode go to `File` -> `Packages` -> `Update to Latest Package Versions` and insert url: 
+
+```
+https://github.com/sparrowcode/SwiftBoost
+```
+
+or adding it to the `dependencies` value of your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "4.0.0"))
+]
+```
+
+### CocoaPods:
+
+[CocoaPods](https://cocoapods.org) is a dependency manager. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+pod 'SwiftBoost'
+```
+
+### Manually
+
+If you prefer not to use any of dependency managers, you can integrate manually. Put `Sources/SwiftBoost` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
+
 ## Extensions
 
-- [Installation](#installation)
-    - [Swift Package Manager](#swift-package-manager)
-    - [CocoaPods](#cocoapods)
-    - [Manually](#manually)
 - [Foundation](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/Foundation)
     - [Array](https://github.com/sparrowcode/SwiftBoost/blob/main/Sources/SwiftBoost/Foundation/Extensions/ArrayExtension.swift)
     - [Bool](https://github.com/sparrowcode/SwiftBoost/blob/main/Sources/SwiftBoost/Foundation/Extensions/BoolExtension.swift)
@@ -70,38 +98,6 @@ Collection of Swift-extensions to boost development process.
     - [CGRect](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/CoreGraphics/Extensions/CGRectExtension.swift)
     - [CGSize](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/CoreGraphics/Extensions/CGSizeExtension.swift)
 - [Apps Using](#apps-using)
-
-## Installation
-
-Ready to use on iOS 12+, tvOS 12+, watchOS 6.0+.
-
-### Swift Package Manager
-
-In Xcode go to `File` -> `Packages` -> `Update to Latest Package Versions` and insert url: 
-
-```
-https://github.com/sparrowcode/SwiftBoost
-```
-
-or adding it to the `dependencies` value of your `Package.swift`:
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "4.0.0"))
-]
-```
-
-### CocoaPods:
-
-[CocoaPods](https://cocoapods.org) is a dependency manager. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
-
-```ruby
-pod 'SwiftBoost'
-```
-
-### Manually
-
-If you prefer not to use any of dependency managers, you can integrate manually. Put `Sources/SwiftBoost` folder in your Xcode project. Make sure to enable `Copy items if needed` and `Create groups`.
 
 ## Apps Using
 
