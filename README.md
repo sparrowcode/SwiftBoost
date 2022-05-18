@@ -16,7 +16,7 @@ Collection of Swift-extensions to boost development process.
     </a>
 </p>
 
-## Navigate
+## Extensions
 
 - [Installation](#installation)
     - [Swift Package Manager](#swift-package-manager)
