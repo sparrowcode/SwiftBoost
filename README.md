@@ -38,7 +38,7 @@ dependencies: [
 
 ### CocoaPods:
 
-[CocoaPods](https://cocoapods.org) is a dependency manager. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
+Specify it in your `Podfile`:
 
 ```ruby
 pod 'SwiftBoost'
