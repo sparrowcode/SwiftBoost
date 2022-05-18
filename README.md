@@ -97,7 +97,6 @@ If you prefer not to use any of dependency managers, you can integrate manually.
     - [CGPoint](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/CoreGraphics/Extensions/CGPointExtension.swift)
     - [CGRect](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/CoreGraphics/Extensions/CGRectExtension.swift)
     - [CGSize](https://github.com/sparrowcode/SwiftBoost/tree/main/Sources/SwiftBoost/CoreGraphics/Extensions/CGSizeExtension.swift)
-- [Apps Using](#apps-using)
 
 ## Apps Using
 
