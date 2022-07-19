@@ -3,8 +3,8 @@ import UIKit
 
 public extension UINavigationController {
     
-    convenience init(rootViewController2: UIViewController, prefersLargeTitles: Bool) {
-        self.init(rootViewController: rootViewController2)
+    convenience init(rootViewController: UIViewController, prefersLargeTitles: Bool) {
+        self.init(rootViewController: rootViewController)
         #if os(iOS)
         navigationBar.prefersLargeTitles = prefersLargeTitles
         #endif
