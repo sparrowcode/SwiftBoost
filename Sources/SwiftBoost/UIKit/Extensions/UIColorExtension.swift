@@ -178,6 +178,10 @@ public extension UIColor {
     }
     #endif
     
+    var secondary: UIColor {
+        return self.alpha(0.06)
+    }
+    
     #if !os(watchOS) && !os(tvOS)
     static var footnoteColor: UIColor {
         if #available(iOS 13.0, tvOS 13, *) {
