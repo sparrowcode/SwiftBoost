@@ -25,6 +25,19 @@ public extension UIView {
     
     var hasSuperview: Bool { superview != nil }
     
+    func allSubViewsOf<T : UIView>(type : T.Type) -> [T] {
+        var all = [T]()
+        func getSubview(view: UIView) {
+            if let aView = view as? T{
+                all.append(aView)
+            }
+            guard view.subviews.count>0 else { return }
+            view.subviews.forEach{ getSubview(view: $0) }
+        }
+        getSubview(view: self)
+        return all
+    }
+    
     var screenshot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
         defer {
@@ -150,14 +163,14 @@ public extension UIView {
         set { layer.masksToBounds = newValue }
     }
     
-    func roundCorners(_ corners: CACornerMask = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], curve: CALayerCornerCurve = .continuous, radius: CGFloat) {
+    func roundCorners(_ corners: CACornerMask = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner], curve: CALayerCornerCurve, radius: CGFloat) {
         layer.cornerRadius = radius
         layer.maskedCorners = corners
         layer.cornerCurve = curve
     }
     
     func roundMinimumSide() {
-        roundCorners(radius: min(frame.width / 2, frame.height / 2))
+        roundCorners(curve: .circular, radius: min(frame.width / 2, frame.height / 2))
     }
     
     var borderColor: UIColor? {

@@ -1,13 +1,13 @@
 #if canImport(UIKit) && (os(iOS) || os(tvOS))
 import UIKit
 
-extension UITabBar {
+extension UIToolbar {
     
     /**
      SwiftBoost: Set appearance for tab bar.
      */
     @available(iOS 13.0, tvOS 13.0, *)
-    public func setAppearance(_ value: TabBarAppearance) {
+    public func setAppearance(_ value: ToolbarAppearance) {
         self.standardAppearance = value.standardAppearance
         if #available(iOS 15.0, tvOS 15.0, *) {
             self.scrollEdgeAppearance = value.scrollEdgeAppearance
@@ -18,41 +18,41 @@ extension UITabBar {
      SwiftBoost: Appearance cases.
      */
     @available(iOS 13.0, tvOS 13.0, *)
-    public enum TabBarAppearance {
+    public enum ToolbarAppearance {
         
         case transparentAlways
         case transparentStandardOnly
         case opaqueAlways
         
-        public var standardAppearance: UITabBarAppearance {
+        public var standardAppearance: UIToolbarAppearance {
             switch self {
             case .transparentAlways:
-                let appearance = UITabBarAppearance()
+                let appearance = UIToolbarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
             case .transparentStandardOnly:
-                let appearance = UITabBarAppearance()
+                let appearance = UIToolbarAppearance()
                 appearance.configureWithDefaultBackground()
                 return appearance
             case .opaqueAlways:
-                let appearance = UITabBarAppearance()
+                let appearance = UIToolbarAppearance()
                 appearance.configureWithDefaultBackground()
                 return appearance
             }
         }
         
-        public var scrollEdgeAppearance: UITabBarAppearance {
+        public var scrollEdgeAppearance: UIToolbarAppearance {
             switch self {
             case .transparentAlways:
-                let appearance = UITabBarAppearance()
+                let appearance = UIToolbarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
             case .transparentStandardOnly:
-                let appearance = UITabBarAppearance()
+                let appearance = UIToolbarAppearance()
                 appearance.configureWithTransparentBackground()
                 return appearance
             case .opaqueAlways:
-                let appearance = UITabBarAppearance()
+                let appearance = UIToolbarAppearance()
                 appearance.configureWithDefaultBackground()
                 return appearance
             }

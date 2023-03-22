@@ -17,8 +17,8 @@ public extension UIViewController {
     // MARK: - Containers
     
     func addChildWithView(_ childController: UIViewController, to containerView: UIView) {
+        childController.willMove(toParent: self)
         addChild(childController)
-        
         switch childController {
         case let collectionController as UICollectionViewController:
             containerView.addSubview(collectionController.collectionView)
@@ -27,7 +27,6 @@ public extension UIViewController {
         default:
             containerView.addSubview(childController.view)
         }
-        
         childController.didMove(toParent: self)
     }
     
