@@ -2,6 +2,17 @@
 
 Collection of Swift-extensions to boost development process.
 
+### Community
+
+<p float="left">
+    <a href="#apps-using">
+        <img src="https://cdn.sparrowcode.io/github/badges/download-on-the-appstore.png?version=2" height="52">
+    </a>
+    <a href="https://github.com/sponsors/sparrowcode">
+        <img src="https://cdn.sparrowcode.io/github/badges/github-sponsor.png?version=3" height="52">
+    </a>
+</p>
+
 ## Installation
 
 Ready to use on iOS 13+, tvOS 13+, watchOS 6.0+.
