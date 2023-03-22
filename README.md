@@ -32,14 +32,18 @@ dependencies: [
     .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "4.0.0"))
 ]
 ```
-
 ### CocoaPods:
 
-Specify it in your `Podfile`:
+This is an outdated way of doing things. I advise you to use [SPM](#swift-package-manager). However, I will continue to support Cocoapods for some time.
+
+<details><summary>Cocoapods Instalation</summary>
+
+[CocoaPods](https://cocoapods.org) is a dependency manager. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'SwiftBoost'
+pod 'SwiftBoost', :git => 'https://github.com/sparrowcode/SwiftBoost'
 ```
+</details>
 
 ### Manually
 
