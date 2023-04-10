@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name = 'SwiftBoost'
-  s.version = '4.0.2'
+  s.version = '4.0.3'
   s.summary = 'Collection of Swift-extensions to boost development process.'
   s.homepage = 'https://github.com/sparrowcode/SwiftBoost'
   s.source = { :git => 'https://github.com/sparrowcode/SwiftBoost.git', :tag => s.version }
