@@ -2,14 +2,12 @@
 
 Collection of Swift-extensions to boost development process.
 
-### Community
-
 <p float="left">
-    <a href="#apps-using">
-        <img src="https://cdn.sparrowcode.io/github/badges/download-on-the-appstore.png?version=2" height="52">
+    <a href="https://twitter.com/sparrowcode_en">
+        <img src="https://cdn.sparrowcode.io/github%2Fbadges%2Ftwitter.png?version=4" height="52">
     </a>
-    <a href="https://github.com/sponsors/sparrowcode">
-        <img src="https://cdn.sparrowcode.io/github/badges/github-sponsor.png?version=3" height="52">
+    <a href="#apps-using">
+        <img src="https://cdn.sparrowcode.io/github/badges/download-on-the-appstore.png?version=4" height="52">
     </a>
 </p>
 
@@ -19,19 +17,20 @@ Ready to use on iOS 13+, tvOS 13+, watchOS 6.0+.
 
 ### Swift Package Manager
 
-In Xcode go to `File` -> `Packages` -> `Update to Latest Package Versions` and insert url: 
+In Xcode go to Project -> Your Project Name -> `Package Dependencies` -> Tap *Plus*. Insert url:
 
 ```
 https://github.com/sparrowcode/SwiftBoost
 ```
 
-or adding it to the `dependencies` value of your `Package.swift`:
+or adding it to the `dependencies` of your `Package.swift`:
 
 ```swift
 dependencies: [
     .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "4.0.0"))
 ]
 ```
+
 ### CocoaPods:
 
 This is an outdated way of doing things. I advise you to use [SPM](#swift-package-manager). However, I will continue to support Cocoapods for some time.
@@ -41,7 +40,7 @@ This is an outdated way of doing things. I advise you to use [SPM](#swift-packag
 [CocoaPods](https://cocoapods.org) is a dependency manager. For usage and installation instructions, visit their website. To integrate using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'SwiftBoost', :git => 'https://github.com/sparrowcode/SwiftBoost'
+pod 'SwiftBoost'
 ```
 </details>
 
@@ -60,3 +59,5 @@ If you prefer not to use any of dependency managers, you can integrate manually.
     <a href="https://apps.apple.com/app/id1570676244"><img src="https://cdn.sparrowcode.io/github/apps-using/id1570676244.png?version=2" height="65"></a>
     <a href="https://apps.apple.com/app/id1617055933"><img src="https://cdn.sparrowcode.io/github/apps-using/id1617055933.png?version=2" height="65"></a>
 </p>
+
+If you use a `SwiftBoost`, add your app via Pull Request.
