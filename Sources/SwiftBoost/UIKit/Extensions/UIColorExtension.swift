@@ -179,7 +179,7 @@ public extension UIColor {
     #endif
     
     var secondary: UIColor {
-        return self.alpha(0.06)
+        return .init(light: self.alpha(0.06), dark: self.alpha(0.18))
     }
     
     #if !os(watchOS) && !os(tvOS)
