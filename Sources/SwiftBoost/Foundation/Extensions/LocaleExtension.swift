@@ -11,24 +11,17 @@ public extension Locale {
         return dateString.contains(dateFormatter.amSymbol) || dateString.contains(dateFormatter.pmSymbol)
     }
     
-    func localised(in locale: Locale) -> String? {
-        
-        func supportedLangCodeId(for locale: Locale) -> String? {
-            if #available(iOS 16.0, macOS 13.0, *) {
-                return locale.language.languageCode?.identifier
-            } else {
-                return locale.languageCode
-            }
+    var languageID: String? {
+        if #available(iOS 16.0, macOS 13.0, *) {
+            return self.language.languageCode?.identifier
+        } else {
+            return self.languageCode
         }
-        
-        guard let currentLanguageCode = {
-            supportedLangCodeId(for: self)
-        }() else { return nil }
-        
-        guard let toLanguageCode = {
-            supportedLangCodeId(for: locale)
-        }() else { return nil }
-        
+    }
+    
+    func localised(in locale: Locale) -> String? {
+        guard let currentLanguageCode = self.languageID else { return nil }
+        guard let toLanguageCode = locale.languageID else { return nil }
         let nslocale = NSLocale(localeIdentifier: toLanguageCode)
         let text = nslocale.displayName(forKey: NSLocale.Key.identifier, value: currentLanguageCode)
         return text?.localizedCapitalized
