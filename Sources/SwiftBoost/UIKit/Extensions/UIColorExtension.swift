@@ -178,9 +178,11 @@ public extension UIColor {
     }
     #endif
     
+    #if !os(watchOS)
     var secondary: UIColor {
         return .init(light: self.alpha(0.06), dark: self.alpha(0.18))
     }
+    #endif
     
     #if !os(watchOS) && !os(tvOS)
     static var footnoteColor: UIColor {
