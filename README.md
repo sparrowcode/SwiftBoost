@@ -41,7 +41,7 @@ or adding it to the `dependencies` of your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "4.0.7"))
+    .package(url: "https://github.com/sparrowcode/SwiftBoost", .upToNextMajor(from: "4.0.8"))
 ]
 ```
 

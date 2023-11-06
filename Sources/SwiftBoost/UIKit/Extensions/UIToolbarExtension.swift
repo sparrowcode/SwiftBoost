@@ -1,4 +1,4 @@
-#if canImport(UIKit) && (os(iOS) || os(tvOS))
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
 extension UIToolbar {

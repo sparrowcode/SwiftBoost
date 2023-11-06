@@ -12,7 +12,7 @@ public extension Locale {
     }
     
     var languageID: String? {
-        if #available(iOS 16.0, watchOS 9.0, macOS 13.0, *) {
+        if #available(iOS 16.0, tvOS 16.0, watchOS 9.0, macOS 13.0, *) {
             return self.language.languageCode?.identifier
         } else {
             return self.languageCode
