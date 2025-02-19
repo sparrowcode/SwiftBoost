@@ -21,11 +21,6 @@ public enum Logger {
             var formattedMessage = message
             formattedMessage = formattedMessage.removedSuffix(String.dot)
             
-            // Adding dot if not have.
-            if !formattedMessage.hasSuffix(String.dot) {
-                formattedMessage = formattedMessage + String.dot
-            }
-            
             // Adding filename if need.
             switch Configurator.shared.fileNameMode {
             case .show:
