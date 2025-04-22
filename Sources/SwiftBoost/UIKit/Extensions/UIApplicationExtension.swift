@@ -36,5 +36,11 @@ public extension UIApplication {
         return nil
     }
     
+    func openMailTo(_ email: String, subject: String, body: String = .empty) {
+        let coded = "mailto:\(email)?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        if let coded, let emailURL = URL(string: coded), canOpenURL(emailURL) {
+            open(emailURL)
+        }
+    }
 }
 #endif
