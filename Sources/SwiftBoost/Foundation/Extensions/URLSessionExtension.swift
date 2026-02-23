@@ -55,10 +55,10 @@ public extension URLSession {
     static func request(
         url: String,
         method: HTTPMethod,
-        body: [String: Any]? = nil,
+        body: [String: Any?]? = nil,
         contentTypeHeader: ContentType? = nil,
-        completion: @escaping (AppError?, Data?, HTTPURLResponse?) ->Void)
-    {
+        completion: @escaping (AppError?, Data?, HTTPURLResponse?) -> Void
+    ) {
         guard let url = URL(string: url) else {
             completion(AppError.invalidURL(url), nil, nil)
             return
@@ -73,7 +73,10 @@ public extension URLSession {
         }
         
         // Body
-        if let body {
+        if var body = body {
+            
+            body = body.compactMapValues { $0 } // delete `nil` values
+            
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
                 request.httpBody = jsonData
