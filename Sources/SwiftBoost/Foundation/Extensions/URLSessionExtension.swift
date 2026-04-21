@@ -52,32 +52,26 @@ public extension URLSession {
         }
     }
     
+    @available(iOS 15, macOS 12, tvOS 15, watchOS 8, *)
     static func request(
         url: String,
         method: HTTPMethod,
         body: [String: Any?]? = nil,
-        contentTypeHeader: ContentType? = nil,
-        completion: @escaping @Sendable (AppError?, Data?, HTTPURLResponse?) -> Void
-    ) {
+        contentTypeHeader: ContentType? = nil
+    ) async throws -> (Data, HTTPURLResponse) {
         guard let url = URL(string: url) else {
-            completion(AppError.invalidURL(url), nil, nil)
-            return
+            throw AppError.invalidURL(url)
         }
-        
+
         var request = URLRequest(url: url)
         request.httpMethod = method.id
 
-        // Body
         if var body = body {
-
-            body = body.compactMapValues { $0 } // delete `nil` values
-
+            body = body.compactMapValues { $0 }
             do {
-                let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
-                request.httpBody = jsonData
+                request.httpBody = try JSONSerialization.data(withJSONObject: body, options: [])
             } catch {
-                completion(.decodingError(error), nil, nil)
-                return
+                throw AppError.decodingError(error)
             }
         }
 
@@ -88,19 +82,18 @@ public extension URLSession {
         if let resolvedContentType {
             request.setValue(resolvedContentType.id, forHTTPHeaderField: "Content-Type")
         }
-        
-        // Make Request
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let response = response as? HTTPURLResponse else {
-                completion(AppError.noResponse, nil, nil)
-                return
-            }
-            
-            if let error = error {
-                completion(AppError.networkError(error), nil, response)
-            } else if let data = data {
-                completion(nil, data, response)
-            }
-        }.resume()
+
+        let data: Data
+        let response: URLResponse
+        do {
+            (data, response) = try await URLSession.shared.data(for: request)
+        } catch {
+            throw AppError.networkError(error)
+        }
+
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw AppError.noResponse
+        }
+        return (data, httpResponse)
     }
 }
