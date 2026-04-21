@@ -57,7 +57,7 @@ public extension URLSession {
         method: HTTPMethod,
         body: [String: Any?]? = nil,
         contentTypeHeader: ContentType? = nil,
-        completion: @escaping (AppError?, Data?, HTTPURLResponse?) -> Void
+        completion: @escaping @Sendable (AppError?, Data?, HTTPURLResponse?) -> Void
     ) {
         guard let url = URL(string: url) else {
             completion(AppError.invalidURL(url), nil, nil)

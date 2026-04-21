@@ -78,7 +78,7 @@ public enum Logger {
         var levels: [Level] = []
         var fileNameMode: FileNameMode = .show
         
-        static var shared = Configurator()
+        nonisolated(unsafe) static var shared = Configurator()
         private init() {}
     }
 }
