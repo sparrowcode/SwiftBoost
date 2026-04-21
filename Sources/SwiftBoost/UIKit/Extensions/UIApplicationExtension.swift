@@ -12,11 +12,9 @@ public extension UIApplication {
     var buildNumber: String? { Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String }
     
     func openSettings() {
-        DispatchQueue.main.async {
-            guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
-            if UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, completionHandler: { _ in })
-            }
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { _ in })
         }
     }
     
