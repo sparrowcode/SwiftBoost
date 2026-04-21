@@ -66,17 +66,12 @@ public extension URLSession {
         
         var request = URLRequest(url: url)
         request.httpMethod = method.id
-        
-        // Content Type
-        if let contentTypeHeader {
-            request.setValue(contentTypeHeader.id, forHTTPHeaderField: "Content-Type")
-        }
-        
+
         // Body
         if var body = body {
-            
+
             body = body.compactMapValues { $0 } // delete `nil` values
-            
+
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
                 request.httpBody = jsonData
@@ -84,6 +79,14 @@ public extension URLSession {
                 completion(.decodingError(error), nil, nil)
                 return
             }
+        }
+
+        /* Default to application/json when a body is present. Without Content-Type,
+           servers may fall back to form-urlencoded parsing, which treats `%20` and `+`
+           as equivalent for spaces and can round-trip values back as `+`. */
+        let resolvedContentType = contentTypeHeader ?? (request.httpBody != nil ? .application_json : nil)
+        if let resolvedContentType {
+            request.setValue(resolvedContentType.id, forHTTPHeaderField: "Content-Type")
         }
         
         // Make Request
