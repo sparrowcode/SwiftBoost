@@ -14,7 +14,7 @@ extension FileManager {
         do {
             return try Data(contentsOf: destination.url)
         } catch {
-            debug("Can't get data, error: \(error.localizedDescription)")
+            print("Can't get data, error: \(error.localizedDescription)")
             return nil
         }
     }
@@ -28,7 +28,7 @@ extension FileManager {
             // Save file to directory
             try data.write(to: destination.url, options: .atomicWrite)
         } catch {
-            debug("Can't save data, error: \(error.localizedDescription)")
+            print("Can't save data, error: \(error.localizedDescription)")
         }
     }
     
@@ -38,7 +38,7 @@ extension FileManager {
                 try removeItem(at: destination.url)
             }
         } catch {
-            debug("Can't delete data, error: \(error.localizedDescription)")
+            print("Can't delete data, error: \(error.localizedDescription)")
         }
     }
     
@@ -48,7 +48,7 @@ extension FileManager {
                 try removeItem(at: url)
             }
         } catch {
-            debug("Can't delete data, error: \(error.localizedDescription)")
+            print("Can't delete data, error: \(error.localizedDescription)")
         }
     }
 }
